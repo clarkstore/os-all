@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * 配置信息
  */
 @Data
-@ConfigurationProperties(prefix = "com/onestop/starter/demo")
+@ConfigurationProperties(prefix = "demo")
 public class DemoProperties {
     private String sayWhat;
     private String toWho;

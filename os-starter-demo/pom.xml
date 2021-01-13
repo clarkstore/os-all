@@ -5,12 +5,11 @@
     <parent>
         <groupId>com.github.clarkstore</groupId>
         <artifactId>os-starter</artifactId>
-        <version>0.0.1</version>
+        <version>${global.version}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>os-demo-spring-boot-starter</artifactId>
-    <version>0.0.3</version>
     <packaging>jar</packaging>
 
     <description>starter-demo模块</description>

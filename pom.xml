@@ -6,10 +6,11 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-starter</artifactId>
-    <version>0.0.1</version>
+    <version>${global.version}</version>
     <packaging>pom</packaging>
 
     <properties>
+        <global.version>0.0.4</global.version>
         <spring-boot.version>2.4.1</spring-boot.version>
         <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

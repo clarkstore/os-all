@@ -8,6 +8,9 @@
     <artifactId>os-starter</artifactId>
     <version>${global.version}</version>
     <packaging>pom</packaging>
+
+    <name>os-starter</name>
+    <description>onestop-starter集合</description>
     <url>https://github.com/clarkstore/os-starter</url>
 
     <developers>
@@ -16,7 +19,6 @@
             <email>changhongyuan@126.com</email>
         </developer>
     </developers>
-
     <licenses>
         <license>
             <name>The MIT License</name>
@@ -26,7 +28,7 @@
     <scm>
         <connection>scm:git:git@github.com:clarkstore/os-starter.git</connection>
         <developerConnection>scm:git:git@github.com:clarkstore/os-starter.git</developerConnection>
-        <url>git@github.com:clarkstore/os-starter.git</url>
+        <url>https://github.com/clarkstore/os-starter</url>
     </scm>
 
     <properties>
@@ -134,38 +136,49 @@
         </dependencies>
     </dependencyManagement>
 
-    <profiles>
-        <profile>
-            <!-- 本地开发环境 -->
-            <id>dev</id>
-            <properties>
-                <profiles.active>dev</profiles.active>
-            </properties>
-            <activation>
-                <!-- 设置默认激活这个配置 -->
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-        <profile>
-            <!--打包环境-->
-            <id>release</id>
-            <properties>
-                <profiles.active>release</profiles.active>
-            </properties>
-            <!--定义snapshots库和releases库的nexus地址-->
-            <distributionManagement>
-                <snapshotRepository>
-                    <!--oss需要对应到settings.xml下的service的id-->
-                    <id>oss</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-                </snapshotRepository>
-                <repository>
-                    <id>oss</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
-            </distributionManagement>
-        </profile>
-    </profiles>
+    <distributionManagement>
+        <snapshotRepository>
+            <!--oss需要对应到settings.xml下的service的id-->
+            <id>oss</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+<!--    <profiles>-->
+<!--        <profile>-->
+<!--            &lt;!&ndash; 本地开发环境 &ndash;&gt;-->
+<!--            <id>dev</id>-->
+<!--            <properties>-->
+<!--                <profiles.active>dev</profiles.active>-->
+<!--            </properties>-->
+<!--            <activation>-->
+<!--                &lt;!&ndash; 设置默认激活这个配置 &ndash;&gt;-->
+<!--                <activeByDefault>true</activeByDefault>-->
+<!--            </activation>-->
+<!--        </profile>-->
+<!--        <profile>-->
+<!--            &lt;!&ndash;打包环境&ndash;&gt;-->
+<!--            <id>release</id>-->
+<!--            <properties>-->
+<!--                <profiles.active>release</profiles.active>-->
+<!--            </properties>-->
+<!--            &lt;!&ndash;定义snapshots库和releases库的nexus地址&ndash;&gt;-->
+<!--            <distributionManagement>-->
+<!--                <snapshotRepository>-->
+<!--                    &lt;!&ndash;oss需要对应到settings.xml下的service的id&ndash;&gt;-->
+<!--                    <id>oss</id>-->
+<!--                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>-->
+<!--                </snapshotRepository>-->
+<!--                <repository>-->
+<!--                    <id>oss</id>-->
+<!--                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
+<!--                </repository>-->
+<!--            </distributionManagement>-->
+<!--        </profile>-->
+<!--    </profiles>-->
 
     <build>
         <finalName>${project.name}</finalName>

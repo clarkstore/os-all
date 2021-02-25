@@ -51,7 +51,7 @@ public class OsTokenUtils {
      * 生成签名
      *
      * @param expireTime
-     * @return 签名
+     * @return string 签名
      */
     public String sign(long expireTime) {
         return sign(null, expireTime);
@@ -97,7 +97,7 @@ public class OsTokenUtils {
     /**
      * 检验token是否正确：keyword匹配
      *
-     * @param token
+     * @param token Token
      * @return boolean
      */
     public boolean verify(String token) {

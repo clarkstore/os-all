@@ -33,7 +33,7 @@ public class OsMailUtils {
 
     /**
      * 设置账号-覆盖默认配置
-     * @param account
+     * @param account 邮箱账户
      */
     public void setMailAccount(MailAccount account) {
         this.account = account;

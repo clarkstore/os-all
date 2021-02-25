@@ -9,7 +9,6 @@
         <version>0.0.7</version>
     </parent>
 
-    <groupId>com.onestop</groupId>
     <artifactId>os-common</artifactId>
     <packaging>pom</packaging>
 

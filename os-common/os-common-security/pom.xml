@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>os-common</artifactId>
-        <groupId>com.onestop</groupId>
+        <groupId>com.github.clarkstore</groupId>
         <version>0.0.7</version>
     </parent>
 

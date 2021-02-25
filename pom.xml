@@ -6,7 +6,7 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-starter</artifactId>
-    <version>${global.version}</version>
+    <version>0.0.7</version>
     <packaging>pom</packaging>
 
     <name>os-starter</name>
@@ -32,12 +32,12 @@
     </scm>
 
     <properties>
-        <global.version>0.0.5</global.version>
-        <spring-boot.version>2.4.1</spring-boot.version>
-        <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <global.version>0.0.7</global.version>
         <java.version>8</java.version>
-        <hutool.version>5.5.2</hutool.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring-boot.version>2.4.3</spring-boot.version>
+        <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
+        <hutool.version>5.5.8</hutool.version>
         <redis-client-jedis.version>3.4.0</redis-client-jedis.version>
         <druid.version>1.2.3</druid.version>
         <mysql-connector-java.version>8.0.22</mysql-connector-java.version>
@@ -86,7 +86,9 @@
     </dependencies>
 
     <modules>
+        <module>os-common</module>
         <module>os-starter-demo</module>
+        <module>os-starter-parent</module>
     </modules>
 
     <dependencyManagement>
@@ -255,7 +257,7 @@
                 <version>1.6.8</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <serverId>ossrh</serverId>
+                    <serverId>oss</serverId>
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>

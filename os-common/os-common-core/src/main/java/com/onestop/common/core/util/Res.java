@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * 响应信息主体
  *
- * @param <T>
+ * @param <T> 泛型
  * @author Clark
  * @version 2020-07-22
  */
@@ -29,8 +29,8 @@ public class Res<T> implements Serializable {
 
     /**
      * 成功
-     * @param <T>
-     * @return
+     * @param <T> 泛型
+     * @return Res 返回结果
      */
     public static <T> Res<T> ok() {
         return restResult(MsgCode.SUCCESS, null, null);
@@ -39,16 +39,16 @@ public class Res<T> implements Serializable {
     /**
      * 成功
      * @param data 数据
-     * @param <T>
-     * @return
+     * @param <T> 泛型
+     * @return Res 返回结果
      */
     public static <T> Res<T> ok(T data) {
         return restResult(MsgCode.SUCCESS, null, data);
     }
     /**
      * 失败
-     * @param <T>
-     * @return
+     * @param <T> 泛型
+     * @return Res 返回结果
      */
     public static <T> Res<T> failed() {
         return restResult(MsgCode.FAIL, null, null);
@@ -56,8 +56,8 @@ public class Res<T> implements Serializable {
     /**
      * 失败
      * @param data 数据
-     * @param <T>
-     * @return
+     * @param <T> 泛型
+     * @return Res 返回结果
      */
     public static <T> Res<T> failed(T data) {
         return restResult(MsgCode.FAIL, null, data);
@@ -65,8 +65,8 @@ public class Res<T> implements Serializable {
     /**
      * 失败
      * @param msg 失败消息
-     * @param <T>
-     * @return
+     * @param <T> 泛型
+     * @return Res 返回结果
      */
     public static <T> Res<T> failed(String msg) {
         return restResult(MsgCode.FAIL, msg, null);

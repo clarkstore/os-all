@@ -15,7 +15,7 @@ public class OsGlobalExceptionHandler {
     /**
      *
      * @param e Biz Error
-     * @return
+     * @return Res 返回结果
      */
     @ExceptionHandler(value = {BizException.class})
     public Res bizExceptionHandle(BizException e) {
@@ -27,7 +27,7 @@ public class OsGlobalExceptionHandler {
     /**
      *
      * @param e Pay Error
-     * @return
+     * @return Res 返回结果
      */
     @ExceptionHandler(value = {PayException.class})
     public Res payExceptionHandle(PayException e) {
@@ -39,7 +39,7 @@ public class OsGlobalExceptionHandler {
     /**
      *
      * @param e 未知异常
-     * @return
+     * @return Res 返回结果
      */
     @ExceptionHandler(value = {Exception.class})
     public Res exceptionHandle(Exception e) {

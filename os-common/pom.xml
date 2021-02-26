@@ -16,6 +16,6 @@
 
     <modules>
         <module>os-common-core</module>
-        <module>os-common-security</module>
+<!--        <module>os-common-security</module>-->
     </modules>
 </project>

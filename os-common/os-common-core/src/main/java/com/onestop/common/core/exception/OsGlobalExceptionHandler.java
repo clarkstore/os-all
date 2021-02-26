@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
  */
 @Slf4j
 public class OsGlobalExceptionHandler {
-
     /**
-     * Biz Error
+     *
+     * @param e Biz Error
+     * @return
      */
     @ExceptionHandler(value = {BizException.class})
     public Res bizExceptionHandle(BizException e) {
@@ -24,7 +25,9 @@ public class OsGlobalExceptionHandler {
     }
 
     /**
-     * Pay Error
+     *
+     * @param e Pay Error
+     * @return
      */
     @ExceptionHandler(value = {PayException.class})
     public Res payExceptionHandle(PayException e) {
@@ -34,7 +37,9 @@ public class OsGlobalExceptionHandler {
     }
 
     /**
-     * 未知异常
+     *
+     * @param e 未知异常
+     * @return
      */
     @ExceptionHandler(value = {Exception.class})
     public Res exceptionHandle(Exception e) {

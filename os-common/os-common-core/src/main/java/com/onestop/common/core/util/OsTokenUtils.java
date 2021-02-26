@@ -50,7 +50,7 @@ public class OsTokenUtils {
     /**
      * 生成签名
      *
-     * @param expireTime
+     * @param expireTime 超时时长ms
      * @return string 签名
      */
     public String sign(long expireTime) {
@@ -107,7 +107,7 @@ public class OsTokenUtils {
     /**
      * 检验token是否正确：claimValue匹配
      *
-     * @param token
+     * @param token Token
      * @param claimValue 通过声明关键字生成，并通过关键字验签
      * @return boolean
      */
@@ -137,7 +137,7 @@ public class OsTokenUtils {
     /**
      * 从token中获取Claim信息
      *
-     * @param token
+     * @param token Token
      * @return
      */
     private String getClaimFromToken(String token) {

@@ -8,10 +8,6 @@ import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.auth0.jwt.interfaces.JWTVerifier;
-import com.onestop.common.core.config.TokenProperties;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
 
 import java.util.Date;
 import java.util.Map;
@@ -22,62 +18,45 @@ import java.util.Map;
  * @author Clark
  * @version 2021-01-07
  */
-@Configuration
-@EnableConfigurationProperties(TokenProperties.class)
 public class OsTokenUtils {
-    @Autowired
-    private TokenProperties properties;
-
     /**
-     * 生成签名
-     *
-     * @return 签名
+     * 设置token的Secret
      */
-    public String sign() {
-        return sign(null, null);
+    private String secret;
+    /**
+     * 设置token过期时间
+     */
+    private long expireTime;
+    /**
+     * 设置token的claim
+     */
+    private String claimKey;
+
+    public OsTokenUtils(String secret, long expireTime, String claimKey) {
+        this.secret = secret;
+        this.expireTime = expireTime;
+        this.claimKey = claimKey;
     }
 
     /**
      * 生成签名
-     *
+     * @return 签名
+     */
+    public String sign() {
+        return this.sign(null);
+    }
+
+    /**
+     * 生成签名
      * @param claimValue 通过声明关键字生成，并通过关键字验签
      * @return 签名
      */
     public String sign(String claimValue) {
-        return sign(claimValue, null);
-    }
-
-    /**
-     * 生成签名
-     *
-     * @param expireTime 超时时长ms
-     * @return string 签名
-     */
-    public String sign(long expireTime) {
-        return sign(null, expireTime);
-    }
-
-    /**
-     * 生成签名
-     *
-     * @param claimValue 通过声明关键字生成，并通过关键字验签
-     * @param expireTime 自定义过期时长
-     * @return 签名
-     */
-    public String sign(String claimValue, Long expireTime) {
         try {
-            // 设置默认值
-            if (StrUtil.isBlank(claimValue)) {
-                claimValue = this.properties.getClaim();
-            }
-            // 设置2小时过期
-            if (expireTime == null) {
-                expireTime = this.properties.getExpireTime();
-            }
             // 设置过期时间
-            Date date = new Date(System.currentTimeMillis() + expireTime);
+            Date date = new Date(System.currentTimeMillis() + this.expireTime);
             // 私钥和加密算法
-            Algorithm algorithm = Algorithm.HMAC256(this.properties.getSecret());
+            Algorithm algorithm = Algorithm.HMAC256(this.secret);
             // 设置头部信息
             Map<String, Object> header = CollUtil.newHashMap();
             header.put("Type", "Jwt");
@@ -85,7 +64,7 @@ public class OsTokenUtils {
             // 返回token字符串
             return JWT.create()
                     .withHeader(header)
-                    .withClaim(this.properties.getClaim(), claimValue)
+                    .withClaim(this.claimKey, claimValue)
                     .withExpiresAt(date)
                     .sign(algorithm);
         } catch (Exception e) {
@@ -95,13 +74,13 @@ public class OsTokenUtils {
     }
 
     /**
-     * 检验token是否正确：keyword匹配
+     * 检验token是否正确
      *
      * @param token Token
      * @return boolean
      */
     public boolean verify(String token) {
-        return verify(token, null);
+        return this.verify(token, null);
     }
 
     /**
@@ -113,7 +92,7 @@ public class OsTokenUtils {
      */
     public boolean verify(String token, String claimValue) {
         try {
-            Algorithm algorithm = Algorithm.HMAC256(this.properties.getSecret());
+            Algorithm algorithm = Algorithm.HMAC256(this.secret);
             JWTVerifier verifier = JWT.require(algorithm).build();
             DecodedJWT jwt = verifier.verify(token);
 
@@ -143,7 +122,7 @@ public class OsTokenUtils {
     private String getClaimFromToken(String token) {
         try {
             DecodedJWT jwt = JWT.decode(token);
-            return jwt.getClaim(this.properties.getClaim()).asString();
+            return jwt.getClaim(this.claimKey).asString();
         } catch (JWTDecodeException e) {
             e.printStackTrace();
             return null;

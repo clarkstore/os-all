@@ -27,10 +27,10 @@ os:
     # 使用SSL安全连接
 #    sslEnable: false
   token:
-    #私钥
-    secret: onestop
-    #
-    claim: keyword
-    # 过期时间2小时 2*60*60*1000
-    expireTime: 7200000
+    # 开启邮件工具类
+    isopen: true
+    # 私钥 16位
+#    secret: abcdefg1234567890
+    # 过期时间 默认：2小时 2*60*60*1000
+#    expireTime: 7200000
 

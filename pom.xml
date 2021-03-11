@@ -87,7 +87,7 @@
 
     <modules>
         <module>os-common</module>
-        <module>os-starter-demo</module>
+<!--        <module>os-starter-demo</module>-->
         <module>os-starter-parent</module>
     </modules>
 

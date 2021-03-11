@@ -9,6 +9,6 @@ import org.springframework.context.annotation.Import;
  * @version 2021-02-24
  */
 @Configuration
-@Import({ OsCoreMailAutoConfiguration.class })
+@Import({ OsCoreMailAutoConfiguration.class, OsCoreTokenAutoConfiguration.class })
 public class OsCoreAutoConfiguration {
 }

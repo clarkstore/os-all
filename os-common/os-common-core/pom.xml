@@ -9,6 +9,7 @@
         <version>0.0.7</version>
     </parent>
 
+<!--    <groupId>com.github.clarkstore</groupId>-->
     <artifactId>os-common-core</artifactId>
     <packaging>jar</packaging>
 

@@ -6,10 +6,9 @@
     <parent>
         <artifactId>os-common</artifactId>
         <groupId>com.github.clarkstore</groupId>
-        <version>0.0.7</version>
+        <version>0.0.9</version>
     </parent>
 
-<!--    <groupId>com.github.clarkstore</groupId>-->
     <artifactId>os-common-core</artifactId>
     <packaging>jar</packaging>
 

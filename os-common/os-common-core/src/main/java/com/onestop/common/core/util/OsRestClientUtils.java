@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
  * @author Clark
  * @version 2020-12-24
  */
-@Component
+//@Component
 public class OsRestClientUtils {
     @Autowired
     private RestTemplate restTemplate;

@@ -17,7 +17,7 @@ import java.io.File;
 /**
  * 消息路由配置
  * @author Clark
- * @date 2020-08-25
+ * @version 2020-08-25
  */
 @Configuration
 public class WxMaMessageRouterConfig {

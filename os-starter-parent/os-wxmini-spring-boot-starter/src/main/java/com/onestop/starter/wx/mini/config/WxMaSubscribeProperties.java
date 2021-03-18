@@ -15,7 +15,7 @@ import java.util.Map;
  * 订阅消息模板配置
  *
  * @author Clark
- * @date 2020-08-25
+ * @version 2020-08-25
  */
 @Getter
 @Setter

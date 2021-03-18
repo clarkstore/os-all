@@ -1,0 +1,53 @@
+server:
+  port: 80
+
+logging:
+  level:
+    org.springframework.web: INFO
+    me.chanjar.weixin: DEBUG
+    com.onestop: DEBUG
+
+spring:
+  profiles:
+    active: dev
+  # 配置时区
+  jackson:
+    time-zone: GMT+8
+  datasource:
+    url: jdbc:mysql://cloud-db.mysql.rds.aliyuncs.com:5999/os-db?useSSL=false&useUnicode=true&characterEncoding=utf-8&requireSSL=false
+    username: cloudroot
+    password: '1qaz@WSX3edc'
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+#  typeAliasesPackage: com.onestop.**.model.entity
+#  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    #驼峰下划线转换
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      #逻辑删除配置（下面3个配置）
+      logic-delete-field: del_flag
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      #表名、是否使用下划线命名，默认数据库表使用下划线命名
+      table-underline: true
+
+#业务配置==========
+#服务号配置
+wx:
+  #服务器域名
+  serverHost: http://azwx.ithelpdesk.cn
+  #后台配置
+  serverPath: /wxMp
+  #后台api路径配置
+  apiPath: ${wx.serverPath}/api
+  #前端路径配置
+  uiPath: ${wx.serverHost}/wxui
+  #云成长
+  mp:
+    appid: wx930d31e7062a95ea
+    secret: 1eac705cf3da3b7605dd8c375d2b8513
+    token: cloud
+    aesKey: SRXP07cF633daFYh7jasMRDHYMKjANeEQe8kwrfWB5p

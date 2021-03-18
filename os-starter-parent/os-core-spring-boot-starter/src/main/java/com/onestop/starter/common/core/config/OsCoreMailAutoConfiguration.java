@@ -15,7 +15,6 @@ import org.springframework.context.annotation.Configuration;
  * @author Clark
  * @version 2021-02-24
  */
-@Slf4j
 @Configuration
 @EnableConfigurationProperties(MailProperties.class)
 @ConditionalOnProperty(prefix = "os.mail", name = "isopen", havingValue = "true", matchIfMissing = true)
@@ -26,7 +25,7 @@ public class OsCoreMailAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public OsMailUtils setMailAccount() {
+    public OsMailUtils build() {
         MailAccount account = new MailAccount();
         account.setHost(this.properties.getHost());
         account.setPort(this.properties.getPort());

@@ -14,7 +14,6 @@ import org.springframework.context.annotation.Configuration;
  * @author Clark
  * @version 2021-02-24
  */
-@Slf4j
 @Configuration
 @EnableConfigurationProperties(TokenProperties.class)
 @ConditionalOnProperty(prefix = "os.token", name = "isopen", havingValue = "true", matchIfMissing = true)

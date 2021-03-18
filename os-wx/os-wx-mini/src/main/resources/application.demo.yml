@@ -1,0 +1,39 @@
+server:
+  port: 80
+
+logging:
+  level:
+    org.springframework.web: info
+    cn.binarywang.wx.miniapp: debug
+    com.onestop: debug
+os:
+  wxmini:
+    #上传路径
+    uploadPath: e:/upload/ #/home/csl/wxMini/upload/
+    #素材原路径
+    mediaPath: e:/upload/
+    #云科技之家
+    appid: wx5b0b49f45376b2c9 #微信小程序的appid
+    secret: 4daf51ce9cc37915f0348fc921b84e6a #微信小程序的Secret
+    token: onestop #微信小程序消息服务器配置的token
+    aesKey: SRXP07cF633daFYh7jasMRDHYMKjANeEQe8kwrfWB5p #微信小程序消息服务器配置的token
+    msgDataFormat: JSON
+    #订阅消息模板
+    subscribe:
+      configs:
+        #subscribeCode订阅编号为业务调用自定义常量
+        #订阅消息-签到
+        - msgId: signIn
+          tplId: c5KDiyYYvsASR53X0QLQu7EV8WOqroikUf_Ufl7grww
+          page: pages/user/index/index
+          nameList:
+            - name1
+            - date4
+        #订阅消息-积分变更
+        - msgId: point
+          tplId: qofaRm55iiAu-amesLB6a1waYIgue74HT5PAgew6dTY
+          page: pages/user/index/index
+          nameList:
+            - character_string1
+            - date2
+            - thing3

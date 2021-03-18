@@ -1,0 +1,15 @@
+package com.onestop.wx.mp.extra.mapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.onestop.wx.mp.extra.entity.WxmpReply;
+
+/**
+ * <p>
+ * 回复信息 Mapper 接口
+ * </p>
+ *
+ * @author clark
+ * @date 2020/08/06
+ */
+public interface WxmpReplyMapper extends BaseMapper<WxmpReply> {
+}

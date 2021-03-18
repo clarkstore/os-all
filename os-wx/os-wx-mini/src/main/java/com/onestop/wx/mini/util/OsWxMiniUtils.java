@@ -20,12 +20,12 @@ import java.util.List;
  * 微信小程序API工具类
  *
  * @author Clark
- * @date 2020-08-31
+ * @version 2021-03-18
  */
 @Slf4j
 @Component
 public class OsWxMiniUtils {
-//    @Value("${wx.mediaPath}")
+    //    @Value("${wx.mediaPath}")
     private String mediaPath;
     @Autowired
     private WxMaService wxService;
@@ -33,8 +33,8 @@ public class OsWxMiniUtils {
     /**
      * 登录（code2Session）
      *
-     * @param code
-     * @return
+     * @param code code
+     * @return WxMaJscode2SessionResult
      */
     public WxMaJscode2SessionResult code2Session(String code) {
         try {
@@ -50,10 +50,10 @@ public class OsWxMiniUtils {
     /**
      * 用户信息校验
      *
-     * @param sessionKey
-     * @param signature
-     * @param rawData
-     * @return
+     * @param sessionKey sessionKey
+     * @param signature  signature
+     * @param rawData    rawData
+     * @return boolean
      */
     public boolean checkUserInfo(String sessionKey,
                                  String signature, String rawData) {
@@ -63,10 +63,10 @@ public class OsWxMiniUtils {
     /**
      * 解密用户信息
      *
-     * @param sessionKey
-     * @param encryptedData
-     * @param iv
-     * @return
+     * @param sessionKey    sessionKey
+     * @param encryptedData 加密数据
+     * @param iv            iv
+     * @return WxMaUserInfo
      */
     public WxMaUserInfo getUserInfo(String sessionKey, String encryptedData, String iv) {
         WxMaUserInfo userInfo = this.wxService.getUserService().getUserInfo(sessionKey, encryptedData, iv);
@@ -76,10 +76,10 @@ public class OsWxMiniUtils {
     /**
      * 获取用户绑定手机号信息
      *
-     * @param sessionKey
-     * @param encryptedData
-     * @param iv
-     * @return
+     * @param sessionKey    sessionKey
+     * @param encryptedData 加密数据
+     * @param iv            iv
+     * @return WxMaPhoneNumberInfo
      */
     public WxMaPhoneNumberInfo getPhoneNoInfo(String sessionKey, String encryptedData, String iv) {
         WxMaPhoneNumberInfo phoneNoInfo = this.wxService.getUserService().getPhoneNoInfo(sessionKey, encryptedData, iv);
@@ -89,10 +89,10 @@ public class OsWxMiniUtils {
     /**
      * 获取用户运动信息
      *
-     * @param sessionKey
-     * @param encryptedData
-     * @param iv
-     * @return
+     * @param sessionKey    sessionKey
+     * @param encryptedData 加密数据
+     * @param iv            iv
+     * @return 信息列表
      */
     public List<WxMaRunStepInfo> getRunStepInfo(String sessionKey, String encryptedData, String iv) {
         List<WxMaRunStepInfo> list = this.wxService.getRunService().getRunStepInfo(sessionKey, encryptedData, iv);
@@ -102,12 +102,12 @@ public class OsWxMiniUtils {
     /**
      * 发送订阅消息
      *
-     * @param subscribeCode
-     * @param openid
-     * @param valueList
+     * @param msgId     msgId
+     * @param openid    openid
+     * @param valueList valueList
      * @throws WxErrorException
      */
-    public void sendSubscribeMsg(String subscribeCode, String openid, List<String> valueList) throws WxErrorException {
+    public void sendSubscribeMsg(String msgId, String openid, List<String> valueList) throws WxErrorException {
 //        //获取订阅消息配置
 //        SubscribeDto subscribe = this.subscribeProperties.getConfig(subscribeCode);
 //        WxMaSubscribeMessage subscribeMessage = WxMaSubscribeMessage.builder()
@@ -143,13 +143,13 @@ public class OsWxMiniUtils {
         return uploadResult.getMediaId();
     }
 
-    /**
-     * 客户消息-小程序卡片
-     *
-     * @param tplCode
-     * @param openid
-     * @throws WxErrorException
-     */
+//    /**
+//     * 客户消息-小程序卡片
+//     *
+//     * @param tplCode
+//     * @param openid
+//     * @throws WxErrorException
+//     */
 //    public void sendKefuMsg4MaPage(String tplCode, String openid) throws WxErrorException {
 //        String mediaId = this.uploadMedia(tplCode);
 //

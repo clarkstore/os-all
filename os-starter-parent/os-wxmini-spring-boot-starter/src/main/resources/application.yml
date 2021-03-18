@@ -15,9 +15,9 @@ os:
     #云科技之家
     appid: wx5b0b49f45376b2c9 #微信小程序的appid
     secret: 4daf51ce9cc37915f0348fc921b84e6a #微信小程序的Secret
-    token: onestop #微信小程序消息服务器配置的token
-    aesKey: SRXP07cF633daFYh7jasMRDHYMKjANeEQe8kwrfWB5p #微信小程序消息服务器配置的token
-    msgDataFormat: JSON
+    token: onestop #默认值
+    aesKey: SRXP07cF633daFYh7jasMRDHYMKjANeEQe8kwrfWB5p #默认值
+    msgDataFormat: JSON #默认JSON
     #订阅消息模板
     subscribe:
       configs:

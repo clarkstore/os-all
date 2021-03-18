@@ -38,7 +38,7 @@ public class WxMiniMediaApi {
      * 上传临时素材
      * @param request request
      * @return 素材的media_id列表，实际上如果有的话，只会有一个
-     * @throws WxErrorException
+     * @throws WxErrorException WxErrorException
      */
     @PostMapping("/upload")
     public List<String> uploadMedia(HttpServletRequest request) throws WxErrorException {
@@ -72,7 +72,7 @@ public class WxMiniMediaApi {
      * 下载临时素材
      * @param mediaId mediaId
      * @return File
-     * @throws WxErrorException
+     * @throws WxErrorException WxErrorException
      */
     @GetMapping("/download/{mediaId}")
     public File getMedia(@PathVariable String mediaId) throws WxErrorException {

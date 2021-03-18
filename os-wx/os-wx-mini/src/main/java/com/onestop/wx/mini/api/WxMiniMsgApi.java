@@ -20,7 +20,7 @@ import java.util.List;
  * 微信小程序用户接口
  *
  * @author Clark
- * @date 2020-08-23
+ * @version 2020-08-23
  */
 @Slf4j
 @RestController
@@ -35,6 +35,8 @@ public class WxMiniMsgApi {
 
     /**
      * 登陆接口
+     *
+     * @return Res
      */
     @GetMapping("/signIn")
     public Res signIn() {

@@ -17,7 +17,7 @@ import java.util.Map;
  * 默认消息处理类
  *
  * @author Clark
- * @date 2020-08-11
+ * @version 2020-08-11
  */
 @Component
 public class MpMsgHandler extends MpBaseHandler {

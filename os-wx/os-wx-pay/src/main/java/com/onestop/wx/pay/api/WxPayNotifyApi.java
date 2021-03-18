@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * 微信支付通知控制器
  *
  * @author Clark
- * @date 2020-04-08
+ * @version 2020-04-08
  */
 @Slf4j
 @Controller

@@ -9,7 +9,7 @@ import com.onestop.wx.mp.extra.entity.WxmpReply;
  * </p>
  *
  * @author clark
- * @date 2020/08/06
+ * @version 2020/08/06
  */
 public interface WxmpReplyMapper extends BaseMapper<WxmpReply> {
 }

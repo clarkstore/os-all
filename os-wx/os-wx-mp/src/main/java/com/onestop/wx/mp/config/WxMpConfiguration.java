@@ -12,7 +12,7 @@ import javax.annotation.PostConstruct;
 
 /**
  * @author Clark
- * @date 2020-08-25
+ * @version 2020-08-25
  */
 @Configuration
 @EnableConfigurationProperties(WxMpProperties.class)

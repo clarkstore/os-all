@@ -14,7 +14,7 @@ import static me.chanjar.weixin.common.api.WxConsts.MenuButtonType;
  * 菜单事件处理类
  *
  * @author Clark
- * @date 2019-12-09
+ * @version 2019-12-09
  */
 @Component
 public class CpMenuHandler extends CpBaseHandler {

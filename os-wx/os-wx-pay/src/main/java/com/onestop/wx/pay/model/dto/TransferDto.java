@@ -8,7 +8,7 @@ import java.io.Serializable;
  * 企业付款到零钱DTO
  *
  * @author Clark
- * @date 2020/04/07
+ * @version 2020/04/07
  */
 @Data
 public class TransferDto implements Serializable {

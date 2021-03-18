@@ -9,7 +9,7 @@ import com.onestop.wx.mp.extra.entity.WxmpUser;
  * </p>
  *
  * @author clark
- * @date 2020/08/07
+ * @version 2020/08/07
  */
 public interface WxmpUserMapper extends BaseMapper<WxmpUser> {
 }

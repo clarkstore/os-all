@@ -5,7 +5,7 @@ import me.chanjar.weixin.common.api.WxConsts;
 /**
  * 微信服务号常量类
  * @author Clark
- * @date 2020/08/06
+ * @version 2020/08/06
  */
 public class WxMpConsts extends WxConsts {
     /**

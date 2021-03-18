@@ -18,7 +18,7 @@ import java.util.Map;
  * 微信支付api
  *
  * @author Clark
- * @date 2020-04-08
+ * @version 2020-04-08
  */
 @Slf4j
 @RestController

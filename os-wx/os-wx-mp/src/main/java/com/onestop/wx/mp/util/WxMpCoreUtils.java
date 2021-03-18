@@ -23,7 +23,7 @@ import java.util.Map;
  * 微信服务号工具类
  *
  * @author Clark
- * @date 2020-09-03
+ * @version 2020-09-03
  */
 @Slf4j
 @Component

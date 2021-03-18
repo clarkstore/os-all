@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * @author Clark
- * @date 2020-08-25
+ * @version 2020-08-25
  */
 @Data
 @ConfigurationProperties(prefix = "wx.mp")

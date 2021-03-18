@@ -8,7 +8,7 @@ import java.io.Serializable;
  * 统一下单DTO
  *
  * @author Clark
- * @date 2020/04/07
+ * @version 2020/04/07
  */
 @Data
 public class OrderQueryDto implements Serializable {

@@ -8,7 +8,7 @@ import java.io.Serializable;
  * 现金红包DTO
  *
  * @author Clark
- * @date 2020/04/07
+ * @version 2020/04/07
  */
 @Data
 public class RedpackDto implements Serializable {

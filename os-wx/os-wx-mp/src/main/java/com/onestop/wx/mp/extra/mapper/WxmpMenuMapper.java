@@ -9,7 +9,7 @@ import com.onestop.wx.mp.extra.entity.WxmpMenu;
  * </p>
  *
  * @author clark
- * @date 2018/6/8
+ * @version 2018/6/8
  */
 public interface WxmpMenuMapper extends BaseMapper<WxmpMenu> {
 }

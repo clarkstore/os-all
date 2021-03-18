@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 消息路由配置
  * @author Clark
- * @date 2020-08-25
+ * @version 2020-08-25
  */
 @AllArgsConstructor
 @Configuration

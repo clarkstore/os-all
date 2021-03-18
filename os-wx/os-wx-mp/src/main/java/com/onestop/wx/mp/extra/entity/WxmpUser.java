@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
  * 用户信息
  *
  * @author Clark
- * @date 2020/08/06
+ * @version 2020/08/06
  */
 @Data
 @ToString

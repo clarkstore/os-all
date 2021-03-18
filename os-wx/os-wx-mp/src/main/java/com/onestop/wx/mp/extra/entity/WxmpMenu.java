@@ -9,7 +9,7 @@ import lombok.ToString;
  * 菜单信息
  *
  * @author Clark
- * @date 2020/08/06
+ * @version 2020/08/06
  */
 @Data
 @TableName("wxmp_menu")

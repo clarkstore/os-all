@@ -99,15 +99,15 @@ public class OsWxMiniUtils {
         return list;
     }
 
-    /**
-     * 发送订阅消息
-     *
-     * @param msgId     msgId
-     * @param openid    openid
-     * @param valueList valueList
-     * @throws WxErrorException
-     */
-    public void sendSubscribeMsg(String msgId, String openid, List<String> valueList) throws WxErrorException {
+//    /**
+//     * 发送订阅消息
+//     *
+//     * @param msgId     msgId
+//     * @param openid    openid
+//     * @param valueList valueList
+//     * @throws WxErrorException WxErrorException
+//     */
+//    public void sendSubscribeMsg(String msgId, String openid, List<String> valueList) throws WxErrorException {
 //        //获取订阅消息配置
 //        SubscribeDto subscribe = this.subscribeProperties.getConfig(subscribeCode);
 //        WxMaSubscribeMessage subscribeMessage = WxMaSubscribeMessage.builder()
@@ -127,7 +127,7 @@ public class OsWxMiniUtils {
 //        }
 //
 //        this.wxService.getMsgService().sendSubscribeMsg(subscribeMessage);
-    }
+//    }
 
 //    /**
 //     * 上传临时素材

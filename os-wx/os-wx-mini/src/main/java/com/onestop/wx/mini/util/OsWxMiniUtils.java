@@ -129,19 +129,19 @@ public class OsWxMiniUtils {
 //        this.wxService.getMsgService().sendSubscribeMsg(subscribeMessage);
     }
 
-    /**
-     * 上传临时素材
-     *
-     * @param fileName
-     * @return
-     * @throws WxErrorException
-     */
-    public String uploadMedia(String fileName) throws WxErrorException {
-        String fillFileName = this.mediaPath + fileName + ".png";
-        File file = FileUtil.file(fillFileName);
-        WxMediaUploadResult uploadResult = this.wxService.getMediaService().uploadMedia(WxMaConstants.KefuMsgType.IMAGE, file);
-        return uploadResult.getMediaId();
-    }
+//    /**
+//     * 上传临时素材
+//     *
+//     * @param fileName
+//     * @return
+//     * @throws WxErrorException
+//     */
+//    public String uploadMedia(String fileName) throws WxErrorException {
+//        String fillFileName = this.mediaPath + fileName + ".png";
+//        File file = FileUtil.file(fillFileName);
+//        WxMediaUploadResult uploadResult = this.wxService.getMediaService().uploadMedia(WxMaConstants.KefuMsgType.IMAGE, file);
+//        return uploadResult.getMediaId();
+//    }
 
 //    /**
 //     * 客户消息-小程序卡片

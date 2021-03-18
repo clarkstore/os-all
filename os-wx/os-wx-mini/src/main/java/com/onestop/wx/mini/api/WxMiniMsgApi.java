@@ -55,25 +55,25 @@ public class WxMiniMsgApi {
         }
     }
 
-    /**
-     * 客服消息
-     */
-    @GetMapping("/kefu")
-    public Res kefu() {
-        final WxMaMsgService service = this.wxService.getMsgService();
-
-        WxMaKefuMessage kefuMessage = new WxMaKefuMessage();
-        kefuMessage.setToUser("ohsEJ0f4BYyFXdK9sXUr28zXNr08");
-        kefuMessage.setMsgType(WxMaConstants.KefuMsgType.TEXT);
-        kefuMessage.setText(new WxMaKefuMessage.KfText("test"));
-
-        try {
-            service.sendKefuMsg(kefuMessage);
-            //TODO 可以增加自己的逻辑，关联业务相关数据
-            return Res.ok();
-        } catch (WxErrorException e) {
-            log.error(e.getMessage(), e);
-            return Res.failed(e.getError().getErrorMsg());
-        }
-    }
+//    /**
+//     * 客服消息
+//     */
+//    @GetMapping("/kefu")
+//    public Res kefu() {
+//        final WxMaMsgService service = this.wxService.getMsgService();
+//
+//        WxMaKefuMessage kefuMessage = new WxMaKefuMessage();
+//        kefuMessage.setToUser("ohsEJ0f4BYyFXdK9sXUr28zXNr08");
+//        kefuMessage.setMsgType(WxMaConstants.KefuMsgType.TEXT);
+//        kefuMessage.setText(new WxMaKefuMessage.KfText("test"));
+//
+//        try {
+//            service.sendKefuMsg(kefuMessage);
+//            //TODO 可以增加自己的逻辑，关联业务相关数据
+//            return Res.ok();
+//        } catch (WxErrorException e) {
+//            log.error(e.getMessage(), e);
+//            return Res.failed(e.getError().getErrorMsg());
+//        }
+//    }
 }

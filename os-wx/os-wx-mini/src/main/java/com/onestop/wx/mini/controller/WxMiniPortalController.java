@@ -15,7 +15,7 @@ import java.util.Objects;
  * 微信小程序验证控制器
  *
  * @author Clark
- * @date 2020-08-25
+ * @version 2020-08-25
  */
 @Slf4j
 @RestController

@@ -21,7 +21,7 @@ import java.util.List;
  * 如需扩展：业务模块中自行实现
  *
  * @author Clark
- * @date 2020-08-23
+ * @version 2021-03-18
  */
 @Slf4j
 @RestController
@@ -32,6 +32,9 @@ public class WxMiniUserApi {
 
     /**
      * 登陆接口
+     *
+     * @param code code
+     * @return Res
      */
     @GetMapping("/login")
     public Res login(String code) {
@@ -46,6 +49,13 @@ public class WxMiniUserApi {
 
     /**
      * 获取用户信息接口
+     *
+     * @param sessionKey sessionKey
+     * @param signature signature
+     * @param rawData rawData
+     * @param encryptedData 加密数据
+     * @param iv iv
+     * @return Res
      */
     @GetMapping("/info")
     public Res info(String sessionKey,
@@ -63,6 +73,13 @@ public class WxMiniUserApi {
 
     /**
      * 获取用户绑定手机号信息
+     *
+     * @param sessionKey sessionKey
+     * @param signature signature
+     * @param rawData rawData
+     * @param encryptedData 加密数据
+     * @param iv iv
+     * @return Res
      */
     @GetMapping("/phone")
     public String phone(String sessionKey, String signature,
@@ -80,6 +97,10 @@ public class WxMiniUserApi {
 
     /**
      * 获取用户运动信息
+     * @param sessionKey sessionKey
+     * @param encryptedData 加密数据
+     * @param iv iv
+     * @return Res
      */
     @GetMapping("/runData")
     public Res runData(String sessionKey, String encryptedData, String iv) {

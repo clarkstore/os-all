@@ -6,8 +6,10 @@ import lombok.ToString;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
+ * 小程序配置
+ *
  * @author Clark
- * @version 2020-08-25
+ * @version 2021-03-18
  */
 @Getter
 @Setter

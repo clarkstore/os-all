@@ -1,46 +1,30 @@
 package com.onestop.starter.wx.mini.config;
 
-import cn.hutool.core.collection.CollUtil;
 import com.onestop.wx.mini.util.dto.SubscribeDto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * 订阅消息模板配置
  *
  * @author Clark
- * @version 2020-08-25
+ * @version 2021-03-18
  */
 @Getter
 @Setter
 @ToString
-@Component
 @ConfigurationProperties(prefix = "os.wxmini.subscribe")
 public class WxMaSubscribeProperties {
-    private List<SubscribeDto> configs;
-
-    private Map<String, SubscribeDto> configMap;
     /**
-     * 获取配置
-     * @param msgId
-     * @return
+     * 跳转小程序类型：developer为开发版；trial为体验版；formal为正式版；默认为正式版
      */
-    public SubscribeDto getConfig(String msgId) {
-        if (configMap == null) {
-            configMap = CollUtil.newHashMap();
-            this.configs.forEach(item -> {
-                configMap.put(item.getMsgId(), item);
-            });
-        }
-        if (configMap != null) {
-            return this.configMap.get(msgId);
-        }
-        return null;
-    }
+    private String miniprogramState = "formal";
+    /**
+     * 订阅消息配置
+     */
+    private List<SubscribeDto> configs;
 }

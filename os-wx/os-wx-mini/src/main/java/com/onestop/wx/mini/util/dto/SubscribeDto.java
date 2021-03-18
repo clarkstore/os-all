@@ -8,6 +8,11 @@ import lombok.experimental.Tolerate;
 
 import java.util.List;
 
+/**
+ * 订阅消息类
+ * @author Clark
+ * @version 2021-03-18
+ */
 @Builder
 @Getter
 @Setter

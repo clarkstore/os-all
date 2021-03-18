@@ -1,19 +1,14 @@
 package com.onestop.wx.mini.util;
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
-import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
-import cn.binarywang.wx.miniapp.bean.WxMaPhoneNumberInfo;
-import cn.binarywang.wx.miniapp.bean.WxMaRunStepInfo;
-import cn.binarywang.wx.miniapp.bean.WxMaUserInfo;
-import cn.binarywang.wx.miniapp.constant.WxMaConstants;
-import cn.hutool.core.io.FileUtil;
+import cn.binarywang.wx.miniapp.bean.*;
+import com.onestop.wx.mini.util.dto.SubscribeConfigs;
+import com.onestop.wx.mini.util.dto.SubscribeDto;
 import lombok.extern.slf4j.Slf4j;
-import me.chanjar.weixin.common.bean.result.WxMediaUploadResult;
 import me.chanjar.weixin.common.error.WxErrorException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
 import java.util.List;
 
 /**
@@ -29,6 +24,8 @@ public class OsWxMiniUtils {
     private String mediaPath;
     @Autowired
     private WxMaService wxService;
+    @Autowired
+    private SubscribeConfigs subscribeConfigs;
 
     /**
      * 登录（code2Session）
@@ -99,35 +96,34 @@ public class OsWxMiniUtils {
         return list;
     }
 
-//    /**
-//     * 发送订阅消息
-//     *
-//     * @param msgId     msgId
-//     * @param openid    openid
-//     * @param valueList valueList
-//     * @throws WxErrorException WxErrorException
-//     */
-//    public void sendSubscribeMsg(String msgId, String openid, List<String> valueList) throws WxErrorException {
-//        //获取订阅消息配置
-//        SubscribeDto subscribe = this.subscribeProperties.getConfig(subscribeCode);
-//        WxMaSubscribeMessage subscribeMessage = WxMaSubscribeMessage.builder()
-//                .toUser(openid)
-//                .templateId(subscribe.getTplId())
-//                //TODO 生产环境修改为：WxMaConstants.MiniprogramState.FORMAL
-//                .miniprogramState(WxMaConstants.MiniProgramState.DEVELOPER)
-//                .page(subscribe.getPage())
-//                .build();
-//
-//        //封装参数
-//        for (int i = 0; i < subscribe.getNameList().size(); i++) {
-//            WxMaSubscribeMessage.Data data = new WxMaSubscribeMessage.Data();
-//            data.setName(subscribe.getNameList().get(i));
-//            data.setValue(valueList.get(i));
-//            subscribeMessage.addData(data);
-//        }
-//
-//        this.wxService.getMsgService().sendSubscribeMsg(subscribeMessage);
-//    }
+    /**
+     * 发送订阅消息
+     *
+     * @param msgId     消息id
+     * @param openid    openid
+     * @param valueList valueList
+     * @throws WxErrorException WxErrorException
+     */
+    public void sendSubscribeMsg(String msgId, String openid, List<String> valueList) throws WxErrorException {
+        //获取订阅消息配置
+        SubscribeDto subscribe = this.subscribeConfigs.getConfig(msgId);
+        WxMaSubscribeMessage subscribeMessage = WxMaSubscribeMessage.builder()
+                .toUser(openid)
+                .templateId(subscribe.getTplId())
+                .miniprogramState(this.subscribeConfigs.getMiniprogramState())
+                .page(subscribe.getPage())
+                .build();
+
+        //封装参数
+        for (int i = 0; i < subscribe.getNameList().size(); i++) {
+            WxMaSubscribeMessage.Data data = new WxMaSubscribeMessage.Data();
+            data.setName(subscribe.getNameList().get(i));
+            data.setValue(valueList.get(i));
+            subscribeMessage.addData(data);
+        }
+
+        this.wxService.getMsgService().sendSubscribeMsg(subscribeMessage);
+    }
 
 //    /**
 //     * 上传临时素材

@@ -19,7 +19,7 @@ import java.io.File;
  * @author Clark
  * @version 2020-08-25
  */
-//@Configuration
+@Configuration
 public class WxMaMessageRouterConfig {
     @Autowired
     private WxMaService wxMaService;

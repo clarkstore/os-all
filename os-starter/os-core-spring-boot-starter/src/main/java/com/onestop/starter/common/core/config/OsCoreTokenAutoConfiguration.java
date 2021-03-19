@@ -24,7 +24,7 @@ public class OsCoreTokenAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public OsTokenUtils build() {
+    public OsTokenUtils osTokenUtils() {
         OsTokenUtils utils = new OsTokenUtils(this.properties.getSecret(), this.properties.getExpireTime(), this.properties.getClaimKey());
         return utils;
     }

@@ -25,7 +25,7 @@ public class OsCoreMailAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public OsMailUtils build() {
+    public OsMailUtils osMailUtils() {
         MailAccount account = new MailAccount();
         account.setHost(this.properties.getHost());
         account.setPort(this.properties.getPort());

@@ -26,7 +26,7 @@ public class OsWxminiMaSubscribeAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public SubscribeConfigs build() {
+    public SubscribeConfigs subscribeConfigs() {
         Map<String, SubscribeDto> configMap = CollUtil.newHashMap();
         this.properties.getConfigs().forEach(item -> {
             configMap.put(item.getMsgId(), item);

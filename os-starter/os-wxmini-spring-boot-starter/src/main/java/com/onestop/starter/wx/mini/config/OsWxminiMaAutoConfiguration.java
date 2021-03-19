@@ -24,7 +24,7 @@ public class OsWxminiMaAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public WxMaService build() {
+    public WxMaService wxMaService() {
         WxMaDefaultConfigImpl config = new WxMaDefaultConfigImpl();
         config.setAppid(this.properties.getAppid());
         config.setSecret(this.properties.getSecret());

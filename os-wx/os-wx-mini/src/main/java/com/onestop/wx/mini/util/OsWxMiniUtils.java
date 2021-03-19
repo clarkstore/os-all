@@ -2,8 +2,10 @@ package com.onestop.wx.mini.util;
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.bean.*;
+import com.onestop.common.core.util.Res;
 import com.onestop.wx.mini.util.dto.SubscribeConfigs;
 import com.onestop.wx.mini.util.dto.SubscribeDto;
+import com.onestop.wx.mini.util.dto.SubscribeReqDto;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.error.WxErrorException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,87 +30,18 @@ public class OsWxMiniUtils {
     private SubscribeConfigs subscribeConfigs;
 
     /**
-     * 登录（code2Session）
-     *
-     * @param code code
-     * @return WxMaJscode2SessionResult
-     */
-    public WxMaJscode2SessionResult code2Session(String code) {
-        try {
-            WxMaJscode2SessionResult session = this.wxService.getUserService().getSessionInfo(code);
-            return session;
-        } catch (WxErrorException e) {
-            log.error("==========code2Session异常==========");
-            log.error(e.getMessage());
-        }
-        return null;
-    }
-
-    /**
-     * 用户信息校验
-     *
-     * @param sessionKey sessionKey
-     * @param signature  signature
-     * @param rawData    rawData
-     * @return boolean
-     */
-    public boolean checkUserInfo(String sessionKey,
-                                 String signature, String rawData) {
-        return this.wxService.getUserService().checkUserInfo(sessionKey, rawData, signature);
-    }
-
-    /**
-     * 解密用户信息
-     *
-     * @param sessionKey    sessionKey
-     * @param encryptedData 加密数据
-     * @param iv            iv
-     * @return WxMaUserInfo
-     */
-    public WxMaUserInfo getUserInfo(String sessionKey, String encryptedData, String iv) {
-        WxMaUserInfo userInfo = this.wxService.getUserService().getUserInfo(sessionKey, encryptedData, iv);
-        return userInfo;
-    }
-
-    /**
-     * 获取用户绑定手机号信息
-     *
-     * @param sessionKey    sessionKey
-     * @param encryptedData 加密数据
-     * @param iv            iv
-     * @return WxMaPhoneNumberInfo
-     */
-    public WxMaPhoneNumberInfo getPhoneNoInfo(String sessionKey, String encryptedData, String iv) {
-        WxMaPhoneNumberInfo phoneNoInfo = this.wxService.getUserService().getPhoneNoInfo(sessionKey, encryptedData, iv);
-        return phoneNoInfo;
-    }
-
-    /**
-     * 获取用户运动信息
-     *
-     * @param sessionKey    sessionKey
-     * @param encryptedData 加密数据
-     * @param iv            iv
-     * @return 信息列表
-     */
-    public List<WxMaRunStepInfo> getRunStepInfo(String sessionKey, String encryptedData, String iv) {
-        List<WxMaRunStepInfo> list = this.wxService.getRunService().getRunStepInfo(sessionKey, encryptedData, iv);
-        return list;
-    }
-
-    /**
      * 发送订阅消息
      *
-     * @param msgId     消息id
-     * @param openid    openid
-     * @param valueList valueList
+     * @param dto     订阅消息请求类
      * @throws WxErrorException WxErrorException
      */
-    public void sendSubscribeMsg(String msgId, String openid, List<String> valueList) throws WxErrorException {
+    public void sendSubscribeMsg(SubscribeReqDto dto) throws WxErrorException {
+        log.debug("---------------sendSubscribeMsg----------------");
+        log.debug("dto : " + dto.toString());
         //获取订阅消息配置
-        SubscribeDto subscribe = this.subscribeConfigs.getConfig(msgId);
+        SubscribeDto subscribe = this.subscribeConfigs.getConfig(dto.getMsgId());
         WxMaSubscribeMessage subscribeMessage = WxMaSubscribeMessage.builder()
-                .toUser(openid)
+                .toUser(dto.getOpenid())
                 .templateId(subscribe.getTplId())
                 .miniprogramState(this.subscribeConfigs.getMiniprogramState())
                 .page(subscribe.getPage())
@@ -118,11 +51,19 @@ public class OsWxMiniUtils {
         for (int i = 0; i < subscribe.getNameList().size(); i++) {
             WxMaSubscribeMessage.Data data = new WxMaSubscribeMessage.Data();
             data.setName(subscribe.getNameList().get(i));
-            data.setValue(valueList.get(i));
+            data.setValue(dto.getValueList().get(i));
             subscribeMessage.addData(data);
         }
 
-        this.wxService.getMsgService().sendSubscribeMsg(subscribeMessage);
+        try {
+            this.wxService.getMsgService().sendSubscribeMsg(subscribeMessage);
+        } catch (WxErrorException e) {
+            log.error("---------------sendSubscribeMsg----------------");
+            log.error("dto : " + dto.toString());
+            log.error(e.getError().toString());
+            throw e;
+        }
+
     }
 
 //    /**

@@ -1,14 +1,14 @@
 package com.onestop.wx.mini.api;
 
+import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
 import cn.binarywang.wx.miniapp.bean.WxMaPhoneNumberInfo;
 import cn.binarywang.wx.miniapp.bean.WxMaRunStepInfo;
 import cn.binarywang.wx.miniapp.bean.WxMaUserInfo;
+import cn.hutool.core.util.StrUtil;
 import com.onestop.common.core.util.Res;
-import com.onestop.wx.mini.util.JsonUtils;
-import com.onestop.wx.mini.util.OsWxMiniUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
+import me.chanjar.weixin.common.error.WxErrorException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * 微信小程序用户接口-demo
+ * 微信小程序用户接口
  * 如需扩展：业务模块中自行实现
  *
  * @author Clark
@@ -28,23 +28,28 @@ import java.util.List;
 @RequestMapping("wxmini/api/user")
 public class WxMiniUserApi {
     @Autowired
-    private OsWxMiniUtils wxMiniUtils;
+    private WxMaService wxService;
 
     /**
-     * 登陆接口
+     * 登陆接口:auth.code2Session
      *
      * @param code code
      * @return Res
      */
     @GetMapping("/login")
     public Res login(String code) {
-        if (StringUtils.isBlank(code)) {
+        if (StrUtil.isBlank(code)) {
             return Res.failed("empty jscode");
         }
 
-        WxMaJscode2SessionResult session = this.wxMiniUtils.code2Session(code);
-        //TODO 可以增加自己的逻辑，关联业务相关数据
-        return Res.ok(session);
+        try {
+            WxMaJscode2SessionResult session = this.wxService.getUserService().getSessionInfo(code);
+            return Res.ok(session);
+        } catch (WxErrorException e) {
+            log.error("==========code2Session异常==========");
+            log.error(e.getMessage());
+        }
+        return Res.failed();
     }
 
     /**
@@ -61,12 +66,12 @@ public class WxMiniUserApi {
     public Res info(String sessionKey,
                     String signature, String rawData, String encryptedData, String iv) {
         // 用户信息校验
-        if (!this.wxMiniUtils.checkUserInfo(sessionKey, rawData, signature)) {
+        if (!this.checkUserInfo(sessionKey, rawData, signature)) {
             return Res.failed("user check failed");
         }
 
         // 解密用户信息
-        WxMaUserInfo userInfo = this.wxMiniUtils.getUserInfo(sessionKey, encryptedData, iv);
+        WxMaUserInfo userInfo = this.wxService.getUserService().getUserInfo(sessionKey, encryptedData, iv);
 
         return Res.ok(userInfo);
     }
@@ -82,17 +87,17 @@ public class WxMiniUserApi {
      * @return Res
      */
     @GetMapping("/phone")
-    public String phone(String sessionKey, String signature,
+    public Res phone(String sessionKey, String signature,
                         String rawData, String encryptedData, String iv) {
         // 用户信息校验
-        if (!this.wxMiniUtils.checkUserInfo(sessionKey, rawData, signature)) {
-            return "user check failed";
+        if (!this.checkUserInfo(sessionKey, rawData, signature)) {
+            return Res.failed("user check failed");
         }
 
         // 获取用户绑定手机号信息
-        WxMaPhoneNumberInfo phoneNoInfo = this.wxMiniUtils.getPhoneNoInfo(sessionKey, encryptedData, iv);
+        WxMaPhoneNumberInfo phoneNoInfo = this.wxService.getUserService().getPhoneNoInfo(sessionKey, encryptedData, iv);
 
-        return JsonUtils.toJson(phoneNoInfo);
+        return Res.ok(phoneNoInfo);
     }
 
     /**
@@ -104,8 +109,21 @@ public class WxMiniUserApi {
      */
     @GetMapping("/runData")
     public Res runData(String sessionKey, String encryptedData, String iv) {
-        List<WxMaRunStepInfo> list = this.wxMiniUtils.getRunStepInfo(sessionKey, encryptedData, iv);
+        List<WxMaRunStepInfo> list = this.wxService.getRunService().getRunStepInfo(sessionKey, encryptedData, iv);
 
         return Res.ok(list);
+    }
+
+    /**
+     * 用户信息校验
+     *
+     * @param sessionKey sessionKey
+     * @param signature  signature
+     * @param rawData    rawData
+     * @return boolean
+     */
+    private boolean checkUserInfo(String sessionKey,
+                                 String signature, String rawData) {
+        return this.wxService.getUserService().checkUserInfo(sessionKey, rawData, signature);
     }
 }

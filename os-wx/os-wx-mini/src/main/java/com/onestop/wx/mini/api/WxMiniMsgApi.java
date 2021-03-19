@@ -1,20 +1,14 @@
 package com.onestop.wx.mini.api;
 
-import cn.binarywang.wx.miniapp.api.WxMaMsgService;
-import cn.binarywang.wx.miniapp.api.WxMaService;
-import cn.binarywang.wx.miniapp.bean.WxMaKefuMessage;
-import cn.binarywang.wx.miniapp.constant.WxMaConstants;
-import cn.hutool.core.collection.CollUtil;
 import com.onestop.common.core.util.Res;
 import com.onestop.wx.mini.util.OsWxMiniUtils;
+import com.onestop.wx.mini.util.dto.SubscribeReqDto;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.error.WxErrorException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 /**
  * 微信小程序用户接口
@@ -27,29 +21,13 @@ import java.util.List;
 @RequestMapping("wxmini/api/msg")
 public class WxMiniMsgApi {
     @Autowired
-    private WxMaService wxService;
-    @Autowired
-    private OsWxMiniUtils coreUtils;
-//    @Autowired
-//    private WxMaSubscribeProperties subscribeproperties;
+    private OsWxMiniUtils osWxMiniUtils;
 
-    /**
-     * 登陆接口
-     *
-     * @return Res
-     */
-    @GetMapping("/signIn")
-    public Res signIn() {
+
+    @PostMapping("/send")
+    public Res send(SubscribeReqDto dto) {
         try {
-            List<String> valueList = CollUtil.newArrayList();
-            valueList.add("常洪源");
-            valueList.add("2020-02-09 16:51");
-            this.coreUtils.sendSubscribeMsg("signIn","ohsEJ0f4BYyFXdK9sXUr28zXNr08", valueList);
-            valueList = CollUtil.newArrayList();
-            valueList.add("-500");
-            valueList.add("2020-02-09 16:51");
-            valueList.add("兑换礼品");
-            this.coreUtils.sendSubscribeMsg("point","ohsEJ0f4BYyFXdK9sXUr28zXNr08", valueList);
+            this.osWxMiniUtils.sendSubscribeMsg(dto);
             return Res.ok();
         } catch (WxErrorException e) {
             log.error(e.getMessage(), e);

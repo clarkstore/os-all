@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties(RedisProperties.class)
-@ConditionalOnProperty(prefix = "os.redis", name = "isopen", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "os.redis", name = "isopen", havingValue = "true")
 public class OsCoreRedisAutoConfiguration {
 
     @Autowired

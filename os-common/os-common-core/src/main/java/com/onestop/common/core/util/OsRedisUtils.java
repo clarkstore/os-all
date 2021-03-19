@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
  * @author Clark
  * @version 2020-12-23
  */
-//@Component
 public class OsRedisUtils {
     /**
      * 从Redis中获取值

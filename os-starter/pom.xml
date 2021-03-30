@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.github.clarkstore</groupId>
         <artifactId>os-parent</artifactId>
-        <version>0.1.7</version>
+        <version>0.1.8</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -15,6 +15,7 @@
 
     <modules>
         <module>os-core-spring-boot-starter</module>
+        <module>os-azure-spring-boot-starter</module>
         <module>os-wxmini-spring-boot-starter</module>
     </modules>
 

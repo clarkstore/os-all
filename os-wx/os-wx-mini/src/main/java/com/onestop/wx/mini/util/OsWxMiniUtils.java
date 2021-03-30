@@ -1,8 +1,7 @@
 package com.onestop.wx.mini.util;
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
-import cn.binarywang.wx.miniapp.bean.*;
-import com.onestop.common.core.util.Res;
+import cn.binarywang.wx.miniapp.bean.WxMaSubscribeMessage;
 import com.onestop.wx.mini.util.dto.SubscribeConfigs;
 import com.onestop.wx.mini.util.dto.SubscribeDto;
 import com.onestop.wx.mini.util.dto.SubscribeReqDto;
@@ -11,7 +10,7 @@ import me.chanjar.weixin.common.error.WxErrorException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
+import java.io.File;
 
 /**
  * 微信小程序API工具类
@@ -32,7 +31,7 @@ public class OsWxMiniUtils {
     /**
      * 发送订阅消息
      *
-     * @param dto     订阅消息请求类
+     * @param dto 订阅消息请求类
      * @throws WxErrorException WxErrorException
      */
     public void sendSubscribeMsg(SubscribeReqDto dto) throws WxErrorException {
@@ -63,7 +62,26 @@ public class OsWxMiniUtils {
             log.error(e.getError().toString());
             throw e;
         }
+    }
 
+    /**
+     * 获取小程序码（永久有效、数量暂无限制）
+     * 供自定义接口使用，必传filepath
+     * @param scene 最大32个可见字符，只支持数字，大小写英文以及部分特殊字符：!#$&'()*+,/:;=?@-._~，其它字符请自行编码为合法字符（因不支持%，中文无法使用 urlencode 处理，请使用其他编码方式）
+     * @param page 必须是已经发布的小程序存在的页面（否则报错），例如 pages/index/index, 根路径前不要填加 /,不能携带参数（参数请放在scene字段里），如果不填写这个字段，默认跳主页面
+     * @param filePath 二维码存放路径
+     * @return File
+     * @throws WxErrorException WxErrorException
+     */
+    public File createWxaCodeUnlimit(String scene, String page, String filePath) throws WxErrorException {
+        try {
+            return this.wxService.getQrcodeService().createWxaCodeUnlimit(scene, page, filePath);
+        } catch (WxErrorException e) {
+            log.error("---------------createWxaCodeUnlimit----------------");
+            log.error("scene : " + scene);
+            log.error(e.getError().toString());
+            throw e;
+        }
     }
 
 //    /**

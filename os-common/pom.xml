@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.github.clarkstore</groupId>
         <artifactId>os-parent</artifactId>
-        <version>0.1.7</version>
+        <version>0.1.8</version>
     </parent>
 
     <artifactId>os-common</artifactId>
@@ -16,6 +16,7 @@
 
     <modules>
         <module>os-common-core</module>
-<!--        <module>os-common-security</module>-->
+        <module>os-common-azure</module>
+        <!--        <module>os-common-security</module>-->
     </modules>
 </project>

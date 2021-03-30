@@ -85,7 +85,6 @@ public class OsAzureStorageUtils {
      * 下载文件
      * @param blobName 容器存储中的全路径：如：202103/abc.jpg
      * @param fileStream OutputStream
-     * @return void
      */
     public void download(String blobName, OutputStream fileStream) {
         try {

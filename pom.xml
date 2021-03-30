@@ -148,18 +148,6 @@
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
-<!--    <profiles>-->
-<!--        <profile>-->
-<!--            <id>disable-javadoc-doclint</id>-->
-<!--            <activation>-->
-<!--                <jdk>${java.version}</jdk>-->
-<!--            </activation>-->
-<!--            &lt;!&ndash; java8版本导致javadoc打包编译失败时候，添加&ndash;&gt;-->
-<!--            <properties>-->
-<!--                <javadoc.opts>-Xdoclint:none</javadoc.opts>-->
-<!--            </properties>-->
-<!--        </profile>-->
-<!--    </profiles>-->
     <build>
         <finalName>${project.name}</finalName>
         <pluginManagement>
@@ -209,13 +197,13 @@
                 </executions>
             </plugin>
             <!--生产javadoc插件-->
+            <!--jdk1.8中必须增加Xdoclint:none因为1.8 javadoc要求必须严格格式检查，否则会报错-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>2.9.1</version>
                 <executions>
                     <execution>
-                        <id>attach-javadocs</id>
                         <phase>package</phase>
                         <goals>
                             <goal>jar</goal>

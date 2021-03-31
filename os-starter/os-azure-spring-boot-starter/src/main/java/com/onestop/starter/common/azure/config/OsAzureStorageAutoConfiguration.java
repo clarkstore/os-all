@@ -25,7 +25,7 @@ public class OsAzureStorageAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean
     public OsAzureStorageUtils osAzureStorageUtils() {
-        OsAzureStorageUtils storageUtils = new OsAzureStorageUtils(this.properties.getConnectionString(), this.properties.getContainerName());
+        OsAzureStorageUtils storageUtils = new OsAzureStorageUtils(this.properties.getConnectionString(), this.properties.getContainerName(), this.properties.getExpireTimeInMinutes());
         return storageUtils;
     }
 }

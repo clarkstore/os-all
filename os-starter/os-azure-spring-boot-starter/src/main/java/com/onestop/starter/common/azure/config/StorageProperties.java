@@ -24,4 +24,8 @@ public class StorageProperties {
 	 * 容器名称必须为小写
 	 */
 	private String containerName = "os-storage";
+	/**
+	 * token超时时长，默认120分钟
+	 */
+	private int expireTimeInMinutes = 120;
 }

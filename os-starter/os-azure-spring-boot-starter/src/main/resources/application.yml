@@ -11,3 +11,5 @@ os:
       connectionString:
       # 容器名称必须为小写，默认值：os-storage
 #      containerName:
+      # token超时时长，默认120分钟
+#      expireTimeInMinutes: 120

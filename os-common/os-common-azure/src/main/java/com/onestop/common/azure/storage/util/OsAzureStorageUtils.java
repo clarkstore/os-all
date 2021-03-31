@@ -1,14 +1,15 @@
 package com.onestop.common.azure.storage.util;
 
+import cn.hutool.core.date.DateUtil;
 import com.microsoft.azure.storage.CloudStorageAccount;
 import com.microsoft.azure.storage.StorageException;
-import com.microsoft.azure.storage.blob.CloudBlobClient;
-import com.microsoft.azure.storage.blob.CloudBlobContainer;
-import com.microsoft.azure.storage.blob.CloudBlockBlob;
+import com.microsoft.azure.storage.blob.*;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.annotation.PostConstruct;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.EnumSet;
 
 /**
  * AzureStorage工具类
@@ -18,26 +19,35 @@ import java.io.OutputStream;
  */
 @Slf4j
 public class OsAzureStorageUtils {
+    /**
+     * 链接串
+     */
     private String connectionString;
     /**
      * 容器名称必须为小写
      */
     private String containerName;
     /**
+     * token超时时长
+     */
+    private int expireTimeInMinutes;
+    /**
      * 容器
      */
     private CloudBlobContainer container;
 
-    public OsAzureStorageUtils(String connectionString, String containerName) {
+    public OsAzureStorageUtils(String connectionString, String containerName, int expireTimeInMinutes) {
         this.connectionString = connectionString;
         this.containerName = containerName;
+        this.expireTimeInMinutes = expireTimeInMinutes;
     }
 
     /**
      * 创建blob容器
      * 容器名称必须为小写
      */
-    public void createCloudBlobClient() {
+    @PostConstruct
+    public void createBlobClient() {
         try {
             CloudStorageAccount account = CloudStorageAccount.parse(connectionString);
             CloudBlobClient serviceClient = account.createCloudBlobClient();
@@ -45,20 +55,19 @@ public class OsAzureStorageUtils {
             // Container name must be lower case.容器名称必须为小写
             this.container = serviceClient.getContainerReference(containerName);
             this.container.createIfNotExists();
-        }
-        catch (StorageException se) {
-            log.error("============StorageException==============");
+        } catch (StorageException se) {
+            log.error("============createBlobClient StorageException==============");
             log.error(se.getMessage());
-        }
-        catch (Exception e) {
-            log.error("============Exception==============");
+        } catch (Exception e) {
+            log.error("============createBlobClient Exception==============");
             log.error(e.getMessage());
         }
     }
 
     /**
      * 上传文件
-     * @param blobName 容器存储中的全路径：如：202103/abc.jpg
+     *
+     * @param blobName   容器存储中的全路径：如：202103/abc.jpg
      * @param fileStream InputStream
      * @return boolean
      */
@@ -69,13 +78,11 @@ public class OsAzureStorageUtils {
             log.debug("============upload==============");
             log.debug("blobName upload: " + blob.exists());
             return blob.exists();
-        }
-        catch (StorageException se) {
-            log.error("============StorageException==============");
+        } catch (StorageException se) {
+            log.error("============upload StorageException==============");
             log.error(se.getMessage());
-        }
-        catch (Exception e) {
-            log.error("============Exception==============");
+        } catch (Exception e) {
+            log.error("============upload Exception==============");
             log.error(e.getMessage());
         }
         return false;
@@ -83,7 +90,8 @@ public class OsAzureStorageUtils {
 
     /**
      * 下载文件
-     * @param blobName 容器存储中的全路径：如：202103/abc.jpg
+     *
+     * @param blobName   容器存储中的全路径：如：202103/abc.jpg
      * @param fileStream OutputStream
      */
     public void download(String blobName, OutputStream fileStream) {
@@ -94,14 +102,60 @@ public class OsAzureStorageUtils {
             if (blob.exists()) {
                 blob.download(fileStream);
             }
-        }
-        catch (StorageException se) {
-            log.error("============StorageException==============");
+        } catch (StorageException se) {
+            log.error("============download StorageException==============");
             log.error(se.getMessage());
-        }
-        catch (Exception e) {
-            log.error("============Exception==============");
+        } catch (Exception e) {
+            log.error("============download Exception==============");
             log.error(e.getMessage());
         }
+    }
+
+    /**
+     * 取得SaS Token
+     * 默认token超时时长120分钟
+     * @return SaS Token
+     */
+    public String getContainerSaSToken() {
+        return this.getContainerSaSToken(this.expireTimeInMinutes);
+    }
+
+    /**
+     * 取得SaS Token
+     * @param expireTimeInMinutes sasToken超时分钟
+     * @return SaS Token
+     */
+    public String getContainerSaSToken(int expireTimeInMinutes) {
+        try {
+            SharedAccessBlobPolicy sabp = createSharedAccessPolicy(
+                    EnumSet.of(SharedAccessBlobPermissions.READ, SharedAccessBlobPermissions.LIST), expireTimeInMinutes);
+            BlobContainerPermissions perms = new BlobContainerPermissions();
+            perms.getSharedAccessPolicies().put("readlist", sabp);
+            this.container.uploadPermissions(perms);
+
+            String containerReadListSas = this.container.generateSharedAccessSignature(sabp, null);
+            return containerReadListSas;
+        } catch (StorageException se) {
+            log.error("============getContainerSaSToken StorageException==============");
+            log.error(se.getMessage());
+        } catch (Exception e) {
+            log.error("============getContainerSaSToken Exception==============");
+            log.error(e.getMessage());
+        }
+        return null;
+    }
+
+    /**
+     * createSharedAccessPolicy
+     * @param sap EnumSet<SharedAccessBlobPermissions>
+     * @param expireTimeInMinutes sasToken超时分钟
+     * @return
+     */
+    private SharedAccessBlobPolicy createSharedAccessPolicy(EnumSet<SharedAccessBlobPermissions> sap,
+                                                            int expireTimeInMinutes) {
+        SharedAccessBlobPolicy policy = new SharedAccessBlobPolicy();
+        policy.setPermissions(sap);
+        policy.setSharedAccessExpiryTime(DateUtil.offsetMinute(DateUtil.date(), expireTimeInMinutes));
+        return policy;
     }
 }

@@ -56,12 +56,20 @@ public class OsAzureStorageUtils {
             this.container = serviceClient.getContainerReference(containerName);
             this.container.createIfNotExists();
         } catch (StorageException se) {
-            log.error("============createBlobClient StorageException==============");
+            log.error("============createBlobClient==============");
             log.error(se.getMessage());
         } catch (Exception e) {
-            log.error("============createBlobClient Exception==============");
+            log.error("============createBlobClient==============");
             log.error(e.getMessage());
         }
+    }
+
+    /**
+     * 取得Blob容器
+     * @return Blob容器
+     */
+    public CloudBlobContainer getContainer() {
+        return this.container;
     }
 
     /**
@@ -79,10 +87,10 @@ public class OsAzureStorageUtils {
             log.debug("blobName upload: " + blob.exists());
             return blob.exists();
         } catch (StorageException se) {
-            log.error("============upload StorageException==============");
+            log.error("============upload==============");
             log.error(se.getMessage());
         } catch (Exception e) {
-            log.error("============upload Exception==============");
+            log.error("============upload==============");
             log.error(e.getMessage());
         }
         return false;
@@ -103,10 +111,10 @@ public class OsAzureStorageUtils {
                 blob.download(fileStream);
             }
         } catch (StorageException se) {
-            log.error("============download StorageException==============");
+            log.error("============download==============");
             log.error(se.getMessage());
         } catch (Exception e) {
-            log.error("============download Exception==============");
+            log.error("============download==============");
             log.error(e.getMessage());
         }
     }
@@ -136,10 +144,10 @@ public class OsAzureStorageUtils {
             String containerReadListSas = this.container.generateSharedAccessSignature(sabp, null);
             return containerReadListSas;
         } catch (StorageException se) {
-            log.error("============getContainerSaSToken StorageException==============");
+            log.error("============getContainerSaSToken==============");
             log.error(se.getMessage());
         } catch (Exception e) {
-            log.error("============getContainerSaSToken Exception==============");
+            log.error("============getContainerSaSToken==============");
             log.error(e.getMessage());
         }
         return null;

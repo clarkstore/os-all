@@ -21,9 +21,9 @@ public class TokenProperties {
 	 */
 	private String secret = "1234567890ABCDEF";
 	/**
-	 * 设置token过期时间
+	 * token超时时长，默认120分钟
 	 */
-	private long expireTime = 7200000;
+	private int expireTimeInMinutes = 120;
 	/**
 	 * 设置token的claim
 	 */

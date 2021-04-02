@@ -2,13 +2,5 @@
 #httpclient:
 #  connect-timeout: 60000默认值
 #  read-timeout: 30000默认值
-#token配置
-os:
-  token:
-    #私钥
-    secret:
-    #
-    claim: keyword
-    # 过期时间2小时 2*60*60*1000
-    expireTime: 7200000
+
 

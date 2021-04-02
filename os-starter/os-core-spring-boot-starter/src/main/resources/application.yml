@@ -31,6 +31,6 @@ os:
     isopen: true
     # 私钥 16位
 #    secret: abcdefg1234567890
-    # 过期时间 默认：2小时 2*60*60*1000
-#    expireTime: 7200000
+    # 过期时间 默认：120分钟
+#    expireTimeInMinutes: 120
 

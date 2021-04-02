@@ -1,6 +1,7 @@
 package com.onestop.common.core.util;
 
 import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -26,15 +27,15 @@ public class OsTokenUtils {
     /**
      * 设置token过期时间
      */
-    private long expireTime;
+    private int expireTimeInMinutes;
     /**
      * 设置token的claim
      */
     private String claimKey;
 
-    public OsTokenUtils(String secret, long expireTime, String claimKey) {
+    public OsTokenUtils(String secret, int expireTimeInMinutes, String claimKey) {
         this.secret = secret;
-        this.expireTime = expireTime;
+        this.expireTimeInMinutes = expireTimeInMinutes;
         this.claimKey = claimKey;
     }
 
@@ -54,7 +55,7 @@ public class OsTokenUtils {
     public String sign(String claimValue) {
         try {
             // 设置过期时间
-            Date date = new Date(System.currentTimeMillis() + this.expireTime);
+            Date date = DateUtil.offsetMinute(DateUtil.date(), this.expireTimeInMinutes);
             // 私钥和加密算法
             Algorithm algorithm = Algorithm.HMAC256(this.secret);
             // 设置头部信息

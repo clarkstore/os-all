@@ -1,5 +1,6 @@
 package com.onestop.starter.common.core.config;
 
+import com.onestop.common.core.interceptor.OsTokenInterceptor;
 import com.onestop.common.core.util.OsTokenUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,13 @@ public class OsCoreTokenAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean
     public OsTokenUtils osTokenUtils() {
-        OsTokenUtils utils = new OsTokenUtils(this.properties.getSecret(), this.properties.getExpireTime(), this.properties.getClaimKey());
+        OsTokenUtils utils = new OsTokenUtils(this.properties.getSecret(), this.properties.getExpireTimeInMinutes(), this.properties.getClaimKey());
         return utils;
+    }
+
+    @Bean
+    @ConditionalOnMissingBean
+    public OsTokenInterceptor osTokenInterceptor() {
+        return new OsTokenInterceptor();
     }
 }

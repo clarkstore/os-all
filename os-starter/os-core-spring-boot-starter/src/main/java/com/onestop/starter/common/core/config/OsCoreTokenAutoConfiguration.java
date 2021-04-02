@@ -29,10 +29,4 @@ public class OsCoreTokenAutoConfiguration {
         OsTokenUtils utils = new OsTokenUtils(this.properties.getSecret(), this.properties.getExpireTimeInMinutes(), this.properties.getClaimKey());
         return utils;
     }
-
-    @Bean
-    @ConditionalOnMissingBean
-    public OsTokenInterceptor osTokenInterceptor() {
-        return new OsTokenInterceptor();
-    }
 }

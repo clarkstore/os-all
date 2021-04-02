@@ -6,12 +6,12 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-parent</artifactId>
-    <version>0.1.11</version>
+    <version>0.1.12</version>
     <packaging>pom</packaging>
 
     <name>os-parent</name>
     <description>onestop-starter集合</description>
-    <url>https://github.com/clarkstore/os-parent</url>
+    <url>https://gitee.com/clarkstore/os-parent</url>
 
     <developers>
         <developer>
@@ -26,9 +26,9 @@
         </license>
     </licenses>
     <scm>
-        <connection>scm:git:git@github.com:clarkstore/os-parent.git</connection>
-        <developerConnection>scm:git:git@github.com:clarkstore/os-parent.git</developerConnection>
-        <url>https://github.com/clarkstore/os-parent</url>
+        <connection>scm:git:git@gitee.com:clarkstore/os-parent.git</connection>
+        <developerConnection>scm:git:git@gitee.com:clarkstore/os-parent.git</developerConnection>
+        <url>https://gitee.com/clarkstore/os-parent</url>
     </scm>
 
     <properties>

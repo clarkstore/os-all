@@ -26,7 +26,7 @@ import java.util.Map;
  * @author Clark
  * @version 2021-04-02
  */
-//@Configuration
+@Configuration
 public class OsTokenInterceptor implements HandlerInterceptor {
     @Autowired
     protected OsTokenUtils tokenUtils;

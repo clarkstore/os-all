@@ -1,8 +1,6 @@
 package com.onestop.common.core.interceptor;
 
-import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.json.JSONUtil;
 import com.onestop.common.core.annotation.AuthToken;
 import com.onestop.common.core.constant.OsCoreConsts;
 import com.onestop.common.core.exception.BizException;
@@ -15,10 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.lang.reflect.Method;
-import java.util.Map;
 
 /**
  * 自定义token拦截器
@@ -31,13 +26,17 @@ public class OsTokenInterceptor implements HandlerInterceptor {
     @Autowired
     protected OsTokenUtils tokenUtils;
 
+    /**
+     * 统一验证token
+     * @param request request
+     * @param response response
+     * @param handler handler
+     * @return boolean
+     * @throws Exception
+     */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
-//        if (request.getMethod().equals("OPTIONS")) {
-//            response.setStatus(HttpServletResponse.SC_OK);
-//            return true;
-//        }
         // 如果不是映射到方法直接通过
         if (!(handler instanceof HandlerMethod)) {
             return true;
@@ -53,7 +52,7 @@ public class OsTokenInterceptor implements HandlerInterceptor {
                 if (StrUtil.isBlank(token) || !this.tokenUtils.verify(token)) {
                     throw new BizException("", "token验证失败");
                 }
-
+                // TODO 重写时追加自定义token逻辑
 //                if (StrUtil.isNotBlank(token) && StrUtil.isNotBlank(userid)) {
 //                    // 验证token
 //                    if (!TokenUtils.verify(token, userid)) {
@@ -66,33 +65,6 @@ public class OsTokenInterceptor implements HandlerInterceptor {
         }
 
         return true;
-    }
-
-    /**
-     * 返回token失败消息
-     *
-     * @param response
-     * @throws Exception
-     */
-    private void returnJson(HttpServletResponse response) {
-        Map<String, Object> map = CollUtil.newHashMap();
-        map.put("title", "验证失败");
-        map.put("description", "请重新登录");
-
-        String json = JSONUtil.toJsonPrettyStr(map);
-        PrintWriter writer = null;
-        response.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html; charset=utf-8");
-        try {
-            writer = response.getWriter();
-            writer.print(json);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (writer != null) {
-                writer.close();
-            }
-        }
     }
 
     @Override

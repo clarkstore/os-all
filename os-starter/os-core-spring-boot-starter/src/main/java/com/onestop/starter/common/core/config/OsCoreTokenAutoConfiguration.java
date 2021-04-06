@@ -1,8 +1,6 @@
 package com.onestop.starter.common.core.config;
 
-import com.onestop.common.core.interceptor.OsTokenInterceptor;
 import com.onestop.common.core.util.OsTokenUtils;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

@@ -1,14 +1,6 @@
 package com.onestop.common.core.config;
 
-import com.onestop.common.core.interceptor.OsTokenInterceptor;
-import com.onestop.common.core.util.OsTokenUtils;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
@@ -18,9 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author Clark
  * @version 2020-04-06
  */
-@Configuration
-@Order(Ordered.LOWEST_PRECEDENCE)
-public class OsWebConfig implements WebMvcConfigurer {
+public abstract class OsWebConfig implements WebMvcConfigurer {
     /**
      * 跨域支持
      *
@@ -34,21 +24,24 @@ public class OsWebConfig implements WebMvcConfigurer {
                 .allowedOrigins("*");
     }
 // TODO 根据业务重写以下方法
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        OsTokenInterceptor tokenInterceptor = this.tokenInterceptor();
-        if (tokenInterceptor != null) {
-            registry.addInterceptor(this.tokenInterceptor())
-                    .addPathPatterns("/**");
-        }
-    }
+
+//    @Override
+//    @ConditionalOnProperty(prefix = "os.token", name = "isopen", havingValue = "true")
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        OsTokenInterceptor tokenInterceptor = this.tokenInterceptor();
+//        if (tokenInterceptor != null) {
+//            registry.addInterceptor(this.tokenInterceptor())
+//                    .addPathPatterns("/**");
+//        }
+//    }
 
 // TODO 重写OsTokenInterceptor时，使用新类创建对象
-    @Bean
-    @ConditionalOnBean(OsTokenUtils.class)
-    public OsTokenInterceptor tokenInterceptor() {
-        return new OsTokenInterceptor();
-    }
+
+//    @Bean
+//    @ConditionalOnBean(OsTokenUtils.class)
+//    public OsTokenInterceptor tokenInterceptor() {
+//        return new OsTokenInterceptor();
+//    }
 
 // TODO 是否需要对前端通过header传递参数，进行统一处理
 

@@ -2,19 +2,24 @@ package com.onestop.common.core.exception;
 
 import com.onestop.common.core.util.Res;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * 全局异常处理
- *
+ * 新建异常已处理类时，通过@Order定义扩展顺序
  * @author Clark
  * @version 2020/08/06
  */
 @Slf4j
+@RestControllerAdvice
+@Order(Ordered.LOWEST_PRECEDENCE)
 public class OsGlobalExceptionHandler {
     /**
      *
-     * @param e Biz Error
+     * @param e 业务异常
      * @return Res 返回结果
      */
     @ExceptionHandler(value = {BizException.class})
@@ -26,7 +31,7 @@ public class OsGlobalExceptionHandler {
 
     /**
      *
-     * @param e Pay Error
+     * @param e 支付异常
      * @return Res 返回结果
      */
     @ExceptionHandler(value = {PayException.class})

@@ -50,10 +50,8 @@ public class OsTokenInterceptor implements HandlerInterceptor {
             AuthToken authToken = method.getAnnotation(AuthToken.class);
             if (authToken.required()) {
                 String token = request.getHeader(OsCoreConsts.HEADER_TOKEN);
-                if (StrUtil.isNotBlank(token)) {
-                    if (!this.tokenUtils.verify(token)) {
-                        throw new BizException("", "token验证失败");
-                    }
+                if (StrUtil.isBlank(token) || !this.tokenUtils.verify(token)) {
+                    throw new BizException("", "token验证失败");
                 }
 
 //                if (StrUtil.isNotBlank(token) && StrUtil.isNotBlank(userid)) {

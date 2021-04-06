@@ -1,6 +1,10 @@
 package com.onestop.common.core.config;
 
+import com.onestop.common.core.interceptor.OsTokenInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
@@ -10,7 +14,19 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author Clark
  * @version 2020-04-06
  */
-public abstract class OsWebConfig implements WebMvcConfigurer {
+@Configuration
+public class OsWebConfig implements WebMvcConfigurer {
+    // TODO 可以继承自定义Token拦截器
+    @Autowired
+    protected OsTokenInterceptor tokenInterceptor;
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        if (this.tokenInterceptor != null) {
+            registry.addInterceptor(this.tokenInterceptor)
+                    .addPathPatterns("/**");
+        }
+    }
+
     /**
      * 跨域支持
      *

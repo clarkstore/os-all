@@ -6,6 +6,7 @@ import com.onestop.common.core.constant.OsCoreConsts;
 import com.onestop.common.core.exception.BizException;
 import com.onestop.common.core.util.OsTokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -22,6 +23,7 @@ import java.lang.reflect.Method;
  * @version 2021-04-02
  */
 @Configuration
+@ConditionalOnBean(OsTokenUtils.class)
 public class OsTokenInterceptor implements HandlerInterceptor {
     @Autowired
     protected OsTokenUtils tokenUtils;

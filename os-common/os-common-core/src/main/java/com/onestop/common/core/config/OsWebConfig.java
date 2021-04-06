@@ -28,19 +28,12 @@ public abstract class OsWebConfig implements WebMvcConfigurer {
 //    @Override
 //    @ConditionalOnProperty(prefix = "os.token", name = "isopen", havingValue = "true")
 //    public void addInterceptors(InterceptorRegistry registry) {
-//        OsTokenInterceptor tokenInterceptor = this.tokenInterceptor();
-//        if (tokenInterceptor != null) {
-//            registry.addInterceptor(this.tokenInterceptor())
-//                    .addPathPatterns("/**");
+//        public void addInterceptors(InterceptorRegistry registry) {
+//            if (this.tokenInterceptor != null) {
+//                registry.addInterceptor(this.tokenInterceptor)
+//                        .addPathPatterns("/**");
+//            }
 //        }
-//    }
-
-// TODO 重写OsTokenInterceptor时，使用新类创建对象
-
-//    @Bean
-//    @ConditionalOnBean(OsTokenUtils.class)
-//    public OsTokenInterceptor tokenInterceptor() {
-//        return new OsTokenInterceptor();
 //    }
 
 // TODO 是否需要对前端通过header传递参数，进行统一处理

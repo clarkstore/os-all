@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.github.clarkstore</groupId>
         <artifactId>os-wx</artifactId>
-        <version>0.2.1</version>
+        <version>0.2.0</version>
     </parent>
 
     <artifactId>os-wx-mini</artifactId>

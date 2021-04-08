@@ -4,7 +4,6 @@ import cn.hutool.core.collection.CollUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.scheduling.support.CronTrigger;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.util.Map;
@@ -25,8 +24,10 @@ public class OsTaskSchedulerUtils {
     public void initialize() {
         //池大小
         this.taskScheduler.setPoolSize(20);
+        this.taskScheduler.setThreadNamePrefix("osTask--");
         //调度器shutdown被调用时等待当前被调度的任务完成
         this.taskScheduler.setWaitForTasksToCompleteOnShutdown(true);
+        this.taskScheduler.setAwaitTerminationSeconds(60);
         this.taskScheduler.initialize();
     }
 

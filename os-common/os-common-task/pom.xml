@@ -9,20 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>os-common-azure</artifactId>
+    <artifactId>os-common-task</artifactId>
     <packaging>jar</packaging>
 
-    <description>Azure扩展模块</description>
-    <properties>
-        <azure-storage.version>8.6.6</azure-storage.version>
-    </properties>
-
-    <dependencies>
-        <!--Azure storage-->
-        <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>azure-storage</artifactId>
-            <version>${azure-storage.version}</version>
-        </dependency>
-    </dependencies>
+    <description>定时任务模块</description>
 </project>

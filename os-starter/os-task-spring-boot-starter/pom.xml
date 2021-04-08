@@ -4,27 +4,24 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>com.github.clarkstore</groupId>
-        <artifactId>os-parent</artifactId>
+        <artifactId>os-starter</artifactId>
         <version>0.2.5</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>os-starter</artifactId>
-    <description>starter集合</description>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>os-core-spring-boot-starter</module>
-        <module>os-azure-spring-boot-starter</module>
-        <module>os-task-spring-boot-starter</module>
-        <module>os-wxmini-spring-boot-starter</module>
-    </modules>
+    <artifactId>os-task-spring-boot-starter</artifactId>
+    <packaging>jar</packaging>
+    <description>os-task-starter模块</description>
 
     <dependencies>
         <dependency>
+            <groupId>com.github.clarkstore</groupId>
+            <artifactId>os-common-task</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 </project>

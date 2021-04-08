@@ -1,0 +1,8 @@
+logging:
+  level:
+    org.springframework: info
+    com.onestop: debug
+os:
+  task:
+    # 开启配置
+    isopen: true

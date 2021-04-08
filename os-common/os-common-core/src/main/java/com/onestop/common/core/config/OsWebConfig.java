@@ -17,7 +17,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class OsWebConfig implements WebMvcConfigurer {
     // TODO 可以继承自定义Token拦截器
-    @Autowired
+    @Autowired(required = false)
     protected OsTokenInterceptor tokenInterceptor;
     @Override
     public void addInterceptors(InterceptorRegistry registry) {

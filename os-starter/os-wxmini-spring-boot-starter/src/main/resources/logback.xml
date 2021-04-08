@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false" scan="false">
 
-    <property name="PROJECT_NAME" value="os-core-starter" />
+    <property name="PROJECT_NAME" value="os-wxmini-starter" />
 
     <!-- Console log output -->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">

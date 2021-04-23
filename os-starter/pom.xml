@@ -18,6 +18,7 @@
         <module>os-azure-spring-boot-starter</module>
         <module>os-task-spring-boot-starter</module>
         <module>os-wxmini-spring-boot-starter</module>
+        <module>os-wxmp-spring-boot-starter</module>
     </modules>
 
     <dependencies>

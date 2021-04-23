@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @ToString
-@TableName("wxmp_user")
+//@TableName("wxmp_user")
 public class WxmpUser extends Model<WxmpUser> {
 
     @TableId(value = "id")

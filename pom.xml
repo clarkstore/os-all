@@ -87,6 +87,7 @@
         <module>os-common</module>
         <module>os-wx</module>
         <module>os-starter</module>
+        <module>os-demo</module>
     </modules>
 
     <dependencyManagement>

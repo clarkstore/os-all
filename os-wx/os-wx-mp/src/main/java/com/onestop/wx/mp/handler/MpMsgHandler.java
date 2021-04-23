@@ -2,7 +2,7 @@ package com.onestop.wx.mp.handler;
 
 import cn.hutool.core.util.StrUtil;
 import com.onestop.wx.mp.constant.WxMpConsts;
-import com.onestop.wx.mp.util.WxMpCoreUtils;
+import com.onestop.wx.mp.util.OsWxMpUtils;
 import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.common.session.WxSessionManager;
 import me.chanjar.weixin.mp.api.WxMpService;
@@ -23,7 +23,7 @@ import java.util.Map;
 public class MpMsgHandler extends MpBaseHandler {
 
     @Autowired
-    protected WxMpCoreUtils wxMpCoreUtils;
+    protected OsWxMpUtils wxMpCoreUtils;
 
     @Override
     public WxMpXmlOutMessage handle(WxMpXmlMessage wxMessage, Map<String, Object> context, WxMpService wxMpService,

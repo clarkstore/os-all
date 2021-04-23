@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest(classes = MpApplication.class)
 public class WxMpCoreUtilsTest {
     @Autowired
-    private WxMpCoreUtils wxMpCoreUtils;
+    private OsWxMpUtils wxMpCoreUtils;
 
     @Test
     public void getWxUser() {

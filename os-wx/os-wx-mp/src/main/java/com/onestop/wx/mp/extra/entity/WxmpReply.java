@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @ToString
-@TableName("wxmp_reply")
+//@TableName("wxmp_reply")
 public class WxmpReply extends Model<WxmpReply> {
 
     @TableId(value = "id")

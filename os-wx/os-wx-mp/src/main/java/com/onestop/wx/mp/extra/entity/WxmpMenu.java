@@ -12,8 +12,8 @@ import lombok.ToString;
  * @version 2020/08/06
  */
 @Data
-@TableName("wxmp_menu")
 @ToString
+//@TableName("wxmp_menu")
 public class WxmpMenu extends Model<WxmpMenu> {
 
     @TableId(value = "id")

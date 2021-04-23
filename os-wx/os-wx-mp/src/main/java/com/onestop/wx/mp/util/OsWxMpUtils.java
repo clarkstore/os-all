@@ -27,7 +27,7 @@ import java.util.Map;
  */
 @Slf4j
 @Component
-public class WxMpCoreUtils {
+public class OsWxMpUtils {
     @Autowired
     private WxMpService wxService;
 

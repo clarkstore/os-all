@@ -1,4 +1,4 @@
-package com.onestop.wx.mp.config;
+package com.onestop.starter.wx.mp.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

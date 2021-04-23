@@ -2,34 +2,26 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
     <parent>
+        <artifactId>os-starter</artifactId>
         <groupId>com.github.clarkstore</groupId>
-        <artifactId>os-parent</artifactId>
         <version>0.2.5</version>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>os-wx</artifactId>
-    <packaging>pom</packaging>
-
-    <description>微信服务模块</description>
-
-    <properties>
-        <wx-java.version>4.0.0</wx-java.version>
-    </properties>
+    <artifactId>os-wxmp-spring-boot-starter</artifactId>
+    <packaging>jar</packaging>
+    <description>os-wxmp-starter模块</description>
 
     <dependencies>
         <dependency>
             <groupId>com.github.clarkstore</groupId>
-            <artifactId>os-common-core</artifactId>
+            <artifactId>os-wx-mp</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
     </dependencies>
-
-    <modules>
-<!--        <module>os-wx-cp</module>-->
-        <module>os-wx-mini</module>
-        <module>os-wx-mp</module>
-<!--        <module>os-wx-pay</module>-->
-    </modules>
 </project>

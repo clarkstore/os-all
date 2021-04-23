@@ -61,7 +61,7 @@ public abstract class MpBaseHandler implements WxMpMessageHandler {
      * 查询关键字回复
      *
      * @param keyword
-     * @return
+     * @return 关键字回复
      */
     protected WxmpReply getReply(String keyword) {
         // 获取关键字回复配置

@@ -5,10 +5,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * @author Clark
- * @version 2020-08-25
+ * @version 2021-04-23
  */
 @Data
-@ConfigurationProperties(prefix = "wx.mp")
+@ConfigurationProperties(prefix = "os.wxmp")
 public class WxMpProperties {
     /**
      * 设置微信公众号的appid
@@ -23,10 +23,10 @@ public class WxMpProperties {
     /**
      * 设置微信公众号的token
      */
-    private String token;
+    private String token = "onestop";
 
     /**
      * 设置微信公众号的EncodingAESKey
      */
-    private String aesKey;
+    private String aesKey = "SRXP07cF633daFYh7jasMRDHYMKjANeEQe8kwrfWB5p";
 }

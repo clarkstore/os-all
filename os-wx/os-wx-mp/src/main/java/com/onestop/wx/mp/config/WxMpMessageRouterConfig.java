@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import me.chanjar.weixin.common.api.WxConsts;
 import me.chanjar.weixin.mp.api.WxMpMessageRouter;
 import me.chanjar.weixin.mp.api.WxMpService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,7 +14,7 @@ import static me.chanjar.weixin.common.api.WxConsts.*;
 /**
  * 消息路由配置
  * @author Clark
- * @version 2020-08-25
+ * @version 2021-04-23
  */
 @AllArgsConstructor
 @Configuration
@@ -24,6 +25,7 @@ public class WxMpMessageRouterConfig {
     private final MpUnsubscribeHandler unsubscribeHandler;
     private final MpSubscribeHandler subscribeHandler;
 
+    @Autowired
     private WxMpService wxMpService;
 
     @Bean

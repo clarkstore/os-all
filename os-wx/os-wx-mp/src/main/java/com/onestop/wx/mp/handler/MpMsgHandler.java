@@ -66,7 +66,7 @@ public class MpMsgHandler extends MpBaseHandler {
      * 转入多客服
      *
      * @param wxMessage
-     * @return
+     * @return WxMpXmlOutMessage
      */
     protected WxMpXmlOutMessage transferKfService(WxMpXmlMessage wxMessage) {
         // 当用户输入关键词如“你好”，“客服”等，并且有客服在线时，把消息转发给在线客服

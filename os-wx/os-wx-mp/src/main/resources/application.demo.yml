@@ -1,8 +1,13 @@
+server:
+  port: 80
+
 logging:
   level:
-    org.springframework: info
+    org.springframework.web: INFO
     me.chanjar.weixin: INFO
-    com.onestop: debug
+    com.onestop: DEBUG
+
+#服务号配置
 os:
   wxmp:
     # 开启配置

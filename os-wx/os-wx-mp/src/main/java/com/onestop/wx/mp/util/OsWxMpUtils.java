@@ -35,7 +35,7 @@ public class OsWxMpUtils {
      * 获取openid
      *
      * @param code
-     * @return
+     * @return Openid
      */
     public String getOpenid(String code) {
         try {
@@ -72,7 +72,7 @@ public class OsWxMpUtils {
      * 取得微信用户信息
      *
      * @param openid
-     * @return
+     * @return WxmpUser
      */
     public WxmpUser getWxUser(String openid) {
         WxmpUser condition = new WxmpUser();
@@ -88,7 +88,6 @@ public class OsWxMpUtils {
      * 关键字回复
      *
      * @param keyword
-     * @return
      */
     public void keywordReply(String openid, String keyword) {
         try {
@@ -122,7 +121,7 @@ public class OsWxMpUtils {
     /**
      * 创建菜单
      *
-     * @return
+     * @return String
      */
     public String menuCreate() {
         WxMenu wxMenu = this.getMenu();
@@ -138,7 +137,7 @@ public class OsWxMpUtils {
      * 从DB取得默认菜单配置
      * 支持小程序跳转菜单
      *
-     * @return
+     * @return WxMenu
      */
     private WxMenu getMenu() {
         WxMenu wxMenu = new WxMenu();

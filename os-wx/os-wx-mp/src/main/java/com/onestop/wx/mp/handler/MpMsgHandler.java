@@ -47,12 +47,6 @@ public class MpMsgHandler extends MpBaseHandler {
             return outMessage;
         }
 
-//             创建菜单
-        outMessage = this.createMenu(wxMessage);
-        if (outMessage != null) {
-            return outMessage;
-        }
-
 //            // 二维码
 //            outMessage = this.getQrcode(wxMessage);
 //            if (outMessage != null) {
@@ -100,24 +94,6 @@ public class MpMsgHandler extends MpBaseHandler {
 
         if (StrUtil.equalsIgnoreCase("openid", wxMessage.getContent())) {
             return WxMpXmlOutMessage.TEXT().content(wxMessage.getFromUser())
-                    .fromUser(wxMessage.getToUser()).toUser(wxMessage.getFromUser())
-                    .build();
-        }
-
-        return null;
-    }
-
-    /**
-     * 创建菜单
-     *
-     * @param wxMessage
-     * @return
-     */
-    private WxMpXmlOutMessage createMenu(WxMpXmlMessage wxMessage) {
-
-        if (StrUtil.equalsIgnoreCase("51CM", wxMessage.getContent())) {
-            String result = this.wxMpCoreUtils.menuCreate();
-            return WxMpXmlOutMessage.TEXT().content(result)
                     .fromUser(wxMessage.getToUser()).toUser(wxMessage.getFromUser())
                     .build();
         }

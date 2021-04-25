@@ -25,3 +25,6 @@ os:
     basePath: /wxmp
     #后台api路径配置
     apiPath: ${os.wxmp.basePath}/api
+    # 开启菜单配置
+    menu:
+      isopen: true

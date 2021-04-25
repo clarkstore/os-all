@@ -1,7 +1,7 @@
 package com.onestop.wx.mp.handler;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.onestop.wx.mp.extra.entity.WxmpReply;
+import com.onestop.wx.mp.extra.dto.WxmpReply;
 import me.chanjar.weixin.common.api.WxConsts;
 import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.common.session.WxSessionManager;
@@ -64,14 +64,15 @@ public abstract class MpBaseHandler implements WxMpMessageHandler {
      * @return 关键字回复
      */
     protected WxmpReply getReply(String keyword) {
-        // 获取关键字回复配置
-        WxmpReply condition = new WxmpReply();
-        condition.setKeyword(keyword);
-
-        QueryWrapper<WxmpReply> queryWrapper = new QueryWrapper<>();
-        queryWrapper.setEntity(condition);
-
-        return condition.selectOne(queryWrapper);
+//        // 获取关键字回复配置
+//        WxmpReply condition = new WxmpReply();
+//        condition.setKeyword(keyword);
+//
+//        QueryWrapper<WxmpReply> queryWrapper = new QueryWrapper<>();
+//        queryWrapper.setEntity(condition);
+//
+//        return condition.selectOne(queryWrapper);
+        return null;
     }
 
     /**

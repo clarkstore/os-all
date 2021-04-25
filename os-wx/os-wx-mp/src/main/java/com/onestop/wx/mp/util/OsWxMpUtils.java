@@ -1,7 +1,12 @@
 package com.onestop.wx.mp.util;
 
+import java.util.List;
 import java.util.Map;
 
+import com.onestop.wx.mp.constant.WxMpConsts;
+import com.onestop.wx.mp.extra.dto.MenuConfigs;
+import com.onestop.wx.mp.extra.dto.MenuDto;
+import me.chanjar.weixin.common.bean.menu.WxMenuButton;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -115,58 +120,54 @@ public class OsWxMpUtils {
     /**
      * 创建菜单
      *
-     * @return String
+     * @param configs
      */
-    public String menuCreate() {
-        WxMenu wxMenu = null;//this.getMenu();
+    public void menuCreate(MenuConfigs configs) {
+        WxMenu wxMenu = this.getMenu(configs);
         try {
             this.wxService.getMenuService().menuCreate(wxMenu);
-            return "Menu Create Succeed";
         } catch (WxErrorException e) {
-            return e.getMessage();
+            log.error("========menuCreate=======");
+            log.error(e.getError().toString());
         }
     }
 
     /**
-     * 从DB取得默认菜单配置
+     * 默认从配置文件中取得
      * 支持小程序跳转菜单
      *
-     * @return WxMenu
+     * @param configs
+     * @return me.chanjar.weixin.common.bean.menu.WxMenu
      */
-    // private WxMenu getMenu() {
-    //     WxMenu wxMenu = new WxMenu();
+    private WxMenu getMenu(MenuConfigs configs) {
+        WxMenu wxMenu = new WxMenu();
 
-    //     MenuDto condition = new MenuDto();
-    //     QueryWrapper<MenuDto> queryWrapper = new QueryWrapper<>();
-    //     queryWrapper.setEntity(condition);
-    //     queryWrapper.orderByAsc("sort");
+        List<MenuDto> menuList = configs.getConfigs();
 
-    //     List<MenuDto> menuList = condition.selectList(queryWrapper);
+        for (MenuDto m : menuList) {
+            if (WxMpConsts.MenuLevel.Level1.equals(m.getMenuLevel())) {
+                WxMenuButton b1 = new WxMenuButton();
+                b1.setType(m.getMenuType());
+                b1.setName(m.getMenuName());
+                b1.setKey(m.getMenuKey());
+                b1.setUrl(m.getUrl());
+                b1.setMediaId(m.getUrl());
+                b1.setAppId(m.getAppid());
+                b1.setPagePath(m.getPagepath());
+                wxMenu.getButtons().add(b1);
+            } else {
+                WxMenuButton b2 = new WxMenuButton();
+                b2.setType(m.getMenuType());
+                b2.setName(m.getMenuName());
+                b2.setKey(m.getMenuKey());
+                b2.setUrl(m.getUrl());
+                b2.setMediaId(m.getUrl());
+                b2.setAppId(m.getAppid());
+                b2.setPagePath(m.getPagepath());
+                wxMenu.getButtons().get(wxMenu.getButtons().size() - 1).getSubButtons().add(b2);
+            }
 
-    //     for (MenuDto m : menuList) {
-    //         if ("1".equals(m.getMenuLevel())) {
-    //             WxMenuButton b1 = new WxMenuButton();
-    //             b1.setType(m.getMenuType());
-    //             b1.setName(m.getMenuName());
-    //             b1.setKey(m.getMenuKey());
-    //             b1.setUrl(m.getUrl());
-    //             b1.setMediaId(m.getUrl());
-    //             b1.setAppId(m.getAppid());
-    //             b1.setPagePath(m.getPagepath());
-    //             wxMenu.getButtons().add(b1);
-    //         } else {
-    //             WxMenuButton b2 = new WxMenuButton();
-    //             b2.setType(m.getMenuType());
-    //             b2.setName(m.getMenuName());
-    //             b2.setKey(m.getMenuKey());
-    //             b2.setUrl(m.getUrl());
-    //             b2.setMediaId(m.getUrl());
-    //             b2.setAppId(m.getAppid());
-    //             b2.setPagePath(m.getPagepath());
-    //             wxMenu.getButtons().get(wxMenu.getButtons().size() - 1).getSubButtons().add(b2);
-    //         }
-
-    //     }
-    //     return wxMenu;
-    // }
+        }
+        return wxMenu;
+    }
 }

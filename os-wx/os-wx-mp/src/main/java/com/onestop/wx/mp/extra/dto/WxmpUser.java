@@ -1,10 +1,7 @@
-package com.onestop.wx.mp.extra.entity;
+package com.onestop.wx.mp.extra.dto;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
@@ -15,12 +12,11 @@ import java.time.LocalDateTime;
  * @author Clark
  * @version 2020/08/06
  */
-@Data
+@Getter
+@Setter
 @ToString
-//@TableName("wxmp_user")
-public class WxmpUser extends Model<WxmpUser> {
+public class WxmpUser {
 
-    @TableId(value = "id")
     private String id;
     /**
      * openid
@@ -37,11 +33,9 @@ public class WxmpUser extends Model<WxmpUser> {
     /**
      * 关注时间
      */
-    @TableField("subscribe_time")
     private LocalDateTime subscribeTime;
     /**
      * 取消关注时间
      */
-    @TableField("unsubscribe_time")
     private LocalDateTime unsubscribeTime;
 }

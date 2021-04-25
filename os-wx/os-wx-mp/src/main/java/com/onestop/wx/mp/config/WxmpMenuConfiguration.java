@@ -1,6 +1,6 @@
 package com.onestop.wx.mp.config;
 
-import com.onestop.wx.mp.extra.entity.MenuConfigs;
+import com.onestop.wx.mp.extra.dto.MenuConfigs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

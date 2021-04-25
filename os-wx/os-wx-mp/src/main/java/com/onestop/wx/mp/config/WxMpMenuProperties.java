@@ -1,6 +1,6 @@
 package com.onestop.wx.mp.config;
 
-import com.onestop.wx.mp.extra.entity.MenuDto;
+import com.onestop.wx.mp.extra.dto.MenuDto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

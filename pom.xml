@@ -6,7 +6,7 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-parent</artifactId>
-    <version>0.2.8</version>
+    <version>0.2.9</version>
     <packaging>pom</packaging>
 
     <name>os-parent</name>

@@ -1,47 +1,40 @@
 package com.onestop.wx.mp.extra.entity;
 
-import com.baomidou.mybatisplus.annotation.*;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 /**
  * 菜单信息
  *
  * @author Clark
- * @version 2020/08/06
+ * @version 2021/04/23
  */
-@Data
+@Getter
+@Setter
 @ToString
-//@TableName("wxmp_menu")
-public class WxmpMenu extends Model<WxmpMenu> {
+public class MenuDto {
 
-    @TableId(value = "id")
     private String id;
     /**
      * 父级菜单ID
      */
-    @TableField("parent_id")
     private String parentId;
     /**
      * 菜单组
      */
-    @TableField("menu_group")
     private String menuGroup;
     /**
      * 菜单的响应动作类型，view表示网页类型，click表示点击类型，miniprogram表示小程序类型
      */
-    @TableField("menu_type")
     private String menuType;
     /**
      * 菜单标题
      */
-    @TableField("menu_name")
     private String menuName;
     /**
      * 菜单key
      */
-    @TableField("menu_key")
     private String menuKey;
     /**
      * url: view、miniprogram类型必须
@@ -58,7 +51,6 @@ public class WxmpMenu extends Model<WxmpMenu> {
     /**
      * 菜单级别：1：一级、2：二级
      */
-    @TableField("menu_level")
     private String menuLevel;
     /**
      * 排序
@@ -67,6 +59,5 @@ public class WxmpMenu extends Model<WxmpMenu> {
     /**
      * 删除标识
      */
-    @TableField("deleted")
     private String deleted;
 }

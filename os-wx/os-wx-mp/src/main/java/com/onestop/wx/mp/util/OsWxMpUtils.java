@@ -1,23 +1,17 @@
 package com.onestop.wx.mp.util;
 
-import cn.hutool.core.util.StrUtil;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.onestop.wx.mp.extra.entity.WxmpMenu;
-import com.onestop.wx.mp.extra.entity.WxmpReply;
-import com.onestop.wx.mp.extra.entity.WxmpUser;
-import lombok.extern.slf4j.Slf4j;
-import me.chanjar.weixin.common.bean.menu.WxMenu;
-import me.chanjar.weixin.common.bean.menu.WxMenuButton;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.mp.api.WxMpService;
-import me.chanjar.weixin.mp.bean.kefu.WxMpKefuMessage;
-import me.chanjar.weixin.mp.bean.template.WxMpTemplateData;
-import me.chanjar.weixin.mp.bean.template.WxMpTemplateMessage;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-import java.util.Map;
+import cn.hutool.core.util.StrUtil;
+import lombok.extern.slf4j.Slf4j;
+import me.chanjar.weixin.common.bean.menu.WxMenu;
+import me.chanjar.weixin.common.error.WxErrorException;
+import me.chanjar.weixin.mp.api.WxMpService;
+import me.chanjar.weixin.mp.bean.template.WxMpTemplateData;
+import me.chanjar.weixin.mp.bean.template.WxMpTemplateMessage;
 
 /**
  * 微信服务号工具类
@@ -74,15 +68,15 @@ public class OsWxMpUtils {
      * @param openid
      * @return WxmpUser
      */
-    public WxmpUser getWxUser(String openid) {
-        WxmpUser condition = new WxmpUser();
-        condition.setOpenid(openid);
+    // public WxmpUser getWxUser(String openid) {
+    //     WxmpUser condition = new WxmpUser();
+    //     condition.setOpenid(openid);
 
-        QueryWrapper<WxmpUser> queryWrapper = new QueryWrapper<>();
-        queryWrapper.setEntity(condition);
-        WxmpUser entity = condition.selectOne(queryWrapper);
-        return entity;
-    }
+    //     QueryWrapper<WxmpUser> queryWrapper = new QueryWrapper<>();
+    //     queryWrapper.setEntity(condition);
+    //     WxmpUser entity = condition.selectOne(queryWrapper);
+    //     return entity;
+    // }
 
     /**
      * 关键字回复
@@ -90,32 +84,32 @@ public class OsWxMpUtils {
      * @param keyword
      */
     public void keywordReply(String openid, String keyword) {
-        try {
-            if (StrUtil.isBlank(openid) || StrUtil.isBlank(keyword)) {
-                return;
-            }
-            // 获取关键字回复配置
-            WxmpReply condition = new WxmpReply();
-            condition.setName(keyword);
+        // try {
+        //     if (StrUtil.isBlank(openid) || StrUtil.isBlank(keyword)) {
+        //         return;
+        //     }
+        //     // 获取关键字回复配置
+        //     WxmpReply condition = new WxmpReply();
+        //     condition.setName(keyword);
 
-            QueryWrapper<WxmpReply> queryWrapper = new QueryWrapper<>();
-            queryWrapper.setEntity(condition);
-            WxmpReply entity = condition.selectOne(queryWrapper);
+        //     QueryWrapper<WxmpReply> queryWrapper = new QueryWrapper<>();
+        //     queryWrapper.setEntity(condition);
+        //     WxmpReply entity = condition.selectOne(queryWrapper);
 
-            // 发送文本客服消息
-            if (entity != null) {
-                WxMpKefuMessage message = WxMpKefuMessage.TEXT()
-                        .toUser(openid)
-                        .content(entity.getReplyText())
-                        .build();
-                this.wxService.getKefuService().sendKefuMessage(message);
-            }
-        } catch (WxErrorException e) {
-            log.error("==========关键字回复异常==========");
-            log.error("openid=" + openid);
-            log.error("keyword=" + keyword);
-            log.error(e.getMessage());
-        }
+        //     // 发送文本客服消息
+        //     if (entity != null) {
+        //         WxMpKefuMessage message = WxMpKefuMessage.TEXT()
+        //                 .toUser(openid)
+        //                 .content(entity.getReplyText())
+        //                 .build();
+        //         this.wxService.getKefuService().sendKefuMessage(message);
+        //     }
+        // } catch (WxErrorException e) {
+        //     log.error("==========关键字回复异常==========");
+        //     log.error("openid=" + openid);
+        //     log.error("keyword=" + keyword);
+        //     log.error(e.getMessage());
+        // }
     }
 
     /**
@@ -124,7 +118,7 @@ public class OsWxMpUtils {
      * @return String
      */
     public String menuCreate() {
-        WxMenu wxMenu = this.getMenu();
+        WxMenu wxMenu = null;//this.getMenu();
         try {
             this.wxService.getMenuService().menuCreate(wxMenu);
             return "Menu Create Succeed";
@@ -139,40 +133,40 @@ public class OsWxMpUtils {
      *
      * @return WxMenu
      */
-    private WxMenu getMenu() {
-        WxMenu wxMenu = new WxMenu();
+    // private WxMenu getMenu() {
+    //     WxMenu wxMenu = new WxMenu();
 
-        WxmpMenu condition = new WxmpMenu();
-        QueryWrapper<WxmpMenu> queryWrapper = new QueryWrapper<>();
-        queryWrapper.setEntity(condition);
-        queryWrapper.orderByAsc("sort");
+    //     MenuDto condition = new MenuDto();
+    //     QueryWrapper<MenuDto> queryWrapper = new QueryWrapper<>();
+    //     queryWrapper.setEntity(condition);
+    //     queryWrapper.orderByAsc("sort");
 
-        List<WxmpMenu> menuList = condition.selectList(queryWrapper);
+    //     List<MenuDto> menuList = condition.selectList(queryWrapper);
 
-        for (WxmpMenu m : menuList) {
-            if ("1".equals(m.getMenuLevel())) {
-                WxMenuButton b1 = new WxMenuButton();
-                b1.setType(m.getMenuType());
-                b1.setName(m.getMenuName());
-                b1.setKey(m.getMenuKey());
-                b1.setUrl(m.getUrl());
-                b1.setMediaId(m.getUrl());
-                b1.setAppId(m.getAppid());
-                b1.setPagePath(m.getPagepath());
-                wxMenu.getButtons().add(b1);
-            } else {
-                WxMenuButton b2 = new WxMenuButton();
-                b2.setType(m.getMenuType());
-                b2.setName(m.getMenuName());
-                b2.setKey(m.getMenuKey());
-                b2.setUrl(m.getUrl());
-                b2.setMediaId(m.getUrl());
-                b2.setAppId(m.getAppid());
-                b2.setPagePath(m.getPagepath());
-                wxMenu.getButtons().get(wxMenu.getButtons().size() - 1).getSubButtons().add(b2);
-            }
+    //     for (MenuDto m : menuList) {
+    //         if ("1".equals(m.getMenuLevel())) {
+    //             WxMenuButton b1 = new WxMenuButton();
+    //             b1.setType(m.getMenuType());
+    //             b1.setName(m.getMenuName());
+    //             b1.setKey(m.getMenuKey());
+    //             b1.setUrl(m.getUrl());
+    //             b1.setMediaId(m.getUrl());
+    //             b1.setAppId(m.getAppid());
+    //             b1.setPagePath(m.getPagepath());
+    //             wxMenu.getButtons().add(b1);
+    //         } else {
+    //             WxMenuButton b2 = new WxMenuButton();
+    //             b2.setType(m.getMenuType());
+    //             b2.setName(m.getMenuName());
+    //             b2.setKey(m.getMenuKey());
+    //             b2.setUrl(m.getUrl());
+    //             b2.setMediaId(m.getUrl());
+    //             b2.setAppId(m.getAppid());
+    //             b2.setPagePath(m.getPagepath());
+    //             wxMenu.getButtons().get(wxMenu.getButtons().size() - 1).getSubButtons().add(b2);
+    //         }
 
-        }
-        return wxMenu;
-    }
+    //     }
+    //     return wxMenu;
+    // }
 }

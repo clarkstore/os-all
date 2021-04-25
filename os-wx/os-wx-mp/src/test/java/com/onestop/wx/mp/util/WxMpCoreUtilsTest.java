@@ -11,11 +11,11 @@ public class WxMpCoreUtilsTest {
     @Autowired
     private OsWxMpUtils wxMpCoreUtils;
 
-    @Test
-    public void getWxUser() {
-        WxmpUser user = this.wxMpCoreUtils.getWxUser("123");
-        System.out.println("user : " + user.toString());
-    }
+    // @Test
+    // public void getWxUser() {
+    //     WxmpUser user = this.wxMpCoreUtils.getWxUser("123");
+    //     System.out.println("user : " + user.toString());
+    // }
 
     @Test
     public void menuCreate() {

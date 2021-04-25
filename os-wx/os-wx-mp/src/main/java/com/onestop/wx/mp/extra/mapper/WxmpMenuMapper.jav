@@ -1,7 +1,7 @@
 package com.onestop.wx.mp.extra.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.onestop.wx.mp.extra.entity.WxmpMenu;
+import com.onestop.wx.mp.extra.entity.MenuDto;
 
 /**
  * <p>

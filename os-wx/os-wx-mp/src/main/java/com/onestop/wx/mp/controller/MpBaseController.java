@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("${os.wxmp.basePath}/portal")
 public class MpBaseController {
     @Autowired
-    private WxMpService wxService;
+    private WxMpService wxMpService;
 
     @Autowired
     private WxMpMessageRouter router;
@@ -40,7 +40,7 @@ public class MpBaseController {
             throw new IllegalArgumentException("请求参数非法，请核实!");
         }
 
-        if (this.wxService.checkSignature(timestamp, nonce, signature)) {
+        if (this.wxMpService.checkSignature(timestamp, nonce, signature)) {
             return echostr;
         }
 
@@ -58,7 +58,7 @@ public class MpBaseController {
                         + " timestamp=[{}], nonce=[{}], requestBody=[\n{}\n] ",
                 signature, encType, msgSignature, timestamp, nonce, requestBody);
 
-        if (!this.wxService.checkSignature(timestamp, nonce, signature)) {
+        if (!this.wxMpService.checkSignature(timestamp, nonce, signature)) {
             throw new IllegalArgumentException("非法请求，可能属于伪造的请求！");
         }
 
@@ -75,7 +75,7 @@ public class MpBaseController {
         } else if ("aes".equals(encType)) {
             // aes加密的消息
             WxMpXmlMessage inMessage = WxMpXmlMessage.fromEncryptedXml(
-                    requestBody, this.wxService.getWxMpConfigStorage(), timestamp,
+                    requestBody, this.wxMpService.getWxMpConfigStorage(), timestamp,
                     nonce, msgSignature);
             log.debug("\n消息解密后内容为：\n{} ", inMessage.toString());
             WxMpXmlOutMessage outMessage = this.route(inMessage);
@@ -83,7 +83,7 @@ public class MpBaseController {
                 return "";
             }
 
-            out = outMessage.toEncryptedXml(this.wxService.getWxMpConfigStorage());
+            out = outMessage.toEncryptedXml(this.wxMpService.getWxMpConfigStorage());
         }
 
         log.debug("\n组装回复信息：{}", out);
@@ -103,7 +103,7 @@ public class MpBaseController {
     @GetMapping(value = "getJsTicket")
     public WxJsapiSignature getJsTicket(String url) {
         try {
-            return this.wxService.createJsapiSignature(url);
+            return this.wxMpService.createJsapiSignature(url);
         } catch (WxErrorException e) {
             e.printStackTrace();
         }

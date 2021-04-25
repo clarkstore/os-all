@@ -10,12 +10,11 @@ logging:
 #服务号配置
 os:
   wxmp:
-    # 开启配置
-    isopen: true
-    appid: #微信appid
-    secret: #微信Secret
-    token: onestop #默认值
-    aesKey: SRXP07cF633daFYh7jasMRDHYMKjANeEQe8kwrfWB5p #默认值
+#    isopen: true # 开启配置
+#    appid: #微信appid
+#    secret: #微信Secret
+#    token: onestop #默认值
+#    aesKey: SRXP07cF633daFYh7jasMRDHYMKjANeEQe8kwrfWB5p #默认值
     #后台配置
     basePath: /wxmp
     #后台api路径配置

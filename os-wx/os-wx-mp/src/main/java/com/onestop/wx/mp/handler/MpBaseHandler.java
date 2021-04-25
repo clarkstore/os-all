@@ -1,6 +1,5 @@
 package com.onestop.wx.mp.handler;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.onestop.wx.mp.extra.dto.WxmpReply;
 import me.chanjar.weixin.common.api.WxConsts;
 import me.chanjar.weixin.common.error.WxErrorException;

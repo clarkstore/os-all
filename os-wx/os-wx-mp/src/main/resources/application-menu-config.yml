@@ -1,0 +1,61 @@
+menu:
+  config:
+    name: menu-config
+os:
+  wxmp:
+    menu:
+      configs:
+        #菜单ID
+        - id: 1
+          #父级菜单ID
+          parentId: 0
+          #菜单的响应动作类型，view表示网页类型，click表示点击类型，miniprogram表示小程序类型
+          menuType: view
+          #菜单标题
+          menuName: 预约
+          #菜单key
+          menuKey: b1
+          #view、miniprogram类型必须
+          url: https://mp.weixin.qq.com/mp/homepage?__biz=MzU4NTAwNDI3MQ%3D%3D&hid=1&sn=85fad7528fa9009f2bb55b371d5fbb6f
+          #小程序的appid
+#          appid:
+          #小程序的页面路径
+#          pagepath:
+          #菜单级别：1：一级、2：二级
+          menuLevel: 1
+        #菜单ID
+        - id: 2
+          #父级菜单ID
+          parentId: 0
+          #菜单的响应动作类型，view表示网页类型，click表示点击类型，miniprogram表示小程序类型
+          menuType: click
+          #菜单标题
+          menuName: 自助服务
+          #菜单key
+          menuKey: b2
+          #view、miniprogram类型必须
+#          url:
+          #小程序的appid
+#          appid:
+          #小程序的页面路径
+#          pagepath:
+          #菜单级别：1：一级、2：二级
+          menuLevel: 1
+        #菜单ID
+        - id: 21
+          #父级菜单ID
+          parentId: 2
+          #菜单的响应动作类型，view表示网页类型，click表示点击类型，miniprogram表示小程序类型
+          menuType: view
+          #菜单标题
+          menuName: 个人中心
+          #菜单key
+          menuKey: authUserCenter
+          #view、miniprogram类型必须
+          url: https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx930d31e7062a95ea&redirect_uri=http://vx.ithelpdesk.cn/wechat/api/goto/userIndex&response_type=code&scope=snsapi_userinfo&state=&connect_redirect=1#wechat_redirect
+          #小程序的appid
+          #          appid:
+          #小程序的页面路径
+          #          pagepath:
+          #菜单级别：1：一级、2：二级
+          menuLevel: 2

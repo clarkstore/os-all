@@ -3,9 +3,15 @@ server:
 
 logging:
   level:
-    org.springframework.web: INFO
+    org.springframework: INFO
     me.chanjar.weixin: INFO
     com.onestop: DEBUG
+
+spring:
+  profiles:
+    #引入菜单配置
+    include:
+      - menu-config
 
 #服务号配置
 os:

@@ -3,9 +3,11 @@ package com.onestop.wx.mp.util;
 import java.util.List;
 import java.util.Map;
 
+import com.onestop.common.core.exception.BizException;
 import com.onestop.wx.mp.constant.WxMpConsts;
 import com.onestop.wx.mp.extra.dto.MenuConfigs;
 import com.onestop.wx.mp.extra.dto.MenuDto;
+import lombok.SneakyThrows;
 import me.chanjar.weixin.common.bean.menu.WxMenuButton;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -122,6 +124,7 @@ public class OsWxMpUtils {
      *
      * @param configs
      */
+    @SneakyThrows(BizException.class)
     public void menuCreate(MenuConfigs configs) {
         WxMenu wxMenu = this.getMenu(configs);
         try {
@@ -129,6 +132,7 @@ public class OsWxMpUtils {
         } catch (WxErrorException e) {
             log.error("========menuCreate=======");
             log.error(e.getError().toString());
+            throw new BizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
         }
     }
 

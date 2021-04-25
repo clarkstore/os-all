@@ -30,9 +30,10 @@ public class OsTokenInterceptor implements HandlerInterceptor {
 
     /**
      * 统一验证token
-     * @param request request
+     *
+     * @param request  request
      * @param response response
-     * @param handler handler
+     * @param handler  handler
      * @return boolean
      * @throws Exception
      */
@@ -52,7 +53,7 @@ public class OsTokenInterceptor implements HandlerInterceptor {
             if (authToken.required()) {
                 String token = request.getHeader(OsCoreConsts.HEADER_TOKEN);
                 if (StrUtil.isBlank(token) || !this.tokenUtils.verify(token)) {
-                    throw new BizException("", "token验证失败");
+                    throw new BizException(1, "token验证失败");
                 }
                 // TODO 重写时追加自定义token逻辑
 //                if (StrUtil.isNotBlank(token) && StrUtil.isNotBlank(userid)) {

@@ -14,7 +14,7 @@ public class PayException extends RuntimeException {
     /**
      * 异常编号
      */
-    protected String code;
+    protected int code;
     /**
      * 异常内容
      */

@@ -1,24 +1,23 @@
 package com.onestop.wx.mp.util;
 
-import java.util.List;
-import java.util.Map;
-
+import cn.hutool.core.util.StrUtil;
 import com.onestop.common.core.exception.BizException;
 import com.onestop.wx.mp.constant.WxMpConsts;
-import com.onestop.wx.mp.extra.dto.MenuConfigs;
-import com.onestop.wx.mp.extra.dto.MenuDto;
+import com.onestop.wx.mp.model.dto.MenuConfigs;
+import com.onestop.wx.mp.model.dto.MenuDto;
 import lombok.SneakyThrows;
-import me.chanjar.weixin.common.bean.menu.WxMenuButton;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-import cn.hutool.core.util.StrUtil;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.bean.menu.WxMenu;
+import me.chanjar.weixin.common.bean.menu.WxMenuButton;
 import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.template.WxMpTemplateData;
 import me.chanjar.weixin.mp.bean.template.WxMpTemplateMessage;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * 微信服务号工具类
@@ -30,7 +29,7 @@ import me.chanjar.weixin.mp.bean.template.WxMpTemplateMessage;
 @Component
 public class OsWxMpUtils {
     @Autowired
-    private WxMpService wxService;
+    private WxMpService wxMpService;
 
     /**
      * 获取openid
@@ -40,7 +39,7 @@ public class OsWxMpUtils {
      */
     public String getOpenid(String code) {
         try {
-            String openid = this.wxService.getOAuth2Service().getAccessToken(code).getOpenId();
+            String openid = this.wxMpService.getOAuth2Service().getAccessToken(code).getOpenId();
             return openid;
         } catch (WxErrorException e) {
             log.error("==========获取openid异常==========");
@@ -66,7 +65,7 @@ public class OsWxMpUtils {
         // 填充参数
         args.forEach((k, v) -> templateMessage.addData(new WxMpTemplateData(k, v)));
 
-        String msgId = this.wxService.getTemplateMsgService().sendTemplateMsg(templateMessage);
+        String msgId = this.wxMpService.getTemplateMsgService().sendTemplateMsg(templateMessage);
     }
 
     /**
@@ -128,7 +127,7 @@ public class OsWxMpUtils {
     public void menuCreate(MenuConfigs configs) {
         WxMenu wxMenu = this.getMenu(configs);
         try {
-            this.wxService.getMenuService().menuCreate(wxMenu);
+            this.wxMpService.getMenuService().menuCreate(wxMenu);
         } catch (WxErrorException e) {
             log.error("========menuCreate=======");
             log.error(e.getError().toString());

@@ -1,13 +1,17 @@
 package com.onestop.starter.wx.mp.config;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * @author Clark
  * @version 2021-04-23
  */
-@Data
+@Getter
+@Setter
+@ToString
 @ConfigurationProperties(prefix = "os.wxmp")
 public class WxMpProperties {
     /**

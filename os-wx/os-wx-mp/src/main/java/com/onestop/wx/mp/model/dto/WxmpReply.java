@@ -1,4 +1,4 @@
-package com.onestop.wx.mp.extra.dto;
+package com.onestop.wx.mp.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;

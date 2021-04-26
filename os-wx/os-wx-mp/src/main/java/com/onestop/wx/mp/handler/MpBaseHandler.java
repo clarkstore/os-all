@@ -1,6 +1,6 @@
 package com.onestop.wx.mp.handler;
 
-import com.onestop.wx.mp.extra.dto.WxmpReply;
+import com.onestop.wx.mp.model.dto.WxmpReply;
 import me.chanjar.weixin.common.api.WxConsts;
 import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.common.session.WxSessionManager;

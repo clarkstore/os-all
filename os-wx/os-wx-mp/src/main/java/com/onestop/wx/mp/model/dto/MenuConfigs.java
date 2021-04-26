@@ -1,10 +1,12 @@
-package com.onestop.wx.mp.extra.dto;
+package com.onestop.wx.mp.model.dto;
 
+import com.onestop.wx.mp.model.dto.MenuDto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import java.util.List;
+
 /**
  * 菜单信息
  *

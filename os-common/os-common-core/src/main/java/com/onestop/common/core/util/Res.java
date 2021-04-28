@@ -1,6 +1,8 @@
 package com.onestop.common.core.util;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.io.Serializable;
 
@@ -11,7 +13,9 @@ import java.io.Serializable;
  * @author Clark
  * @version 2020-07-22
  */
-@Data
+@Getter
+@Setter
+@ToString
 public class Res<T> implements Serializable {
     private static final long serialVersionUID = 1L;
     /**

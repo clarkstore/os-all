@@ -37,7 +37,7 @@ public abstract class MpBaseHandler implements WxMpMessageHandler {
      * 构建关键字回复信息
      *
      * @param wxMessage
-     * @return
+     * @return WxMpXmlOutMessage
      */
     public WxMpXmlOutMessage buildReply(WxMpXmlMessage wxMessage) {
         WxmpReply reply = this.getReply(wxMessage.getContent());

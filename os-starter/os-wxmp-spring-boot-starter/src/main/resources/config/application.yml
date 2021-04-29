@@ -4,6 +4,7 @@ spring:
     #引入菜单配置
     include:
       - menu-config
+      - reply-config
 os:
   wxmp:
     #后台配置

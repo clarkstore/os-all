@@ -1,6 +1,6 @@
 package com.onestop.wx.mp.handler;
 
-import com.onestop.wx.mp.model.dto.WxmpReply;
+import com.onestop.wx.mp.model.dto.ReplyDto;
 import me.chanjar.weixin.common.api.WxConsts;
 import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.common.session.WxSessionManager;
@@ -40,7 +40,7 @@ public abstract class MpBaseHandler implements WxMpMessageHandler {
      * @return WxMpXmlOutMessage
      */
     public WxMpXmlOutMessage buildReply(WxMpXmlMessage wxMessage) {
-        WxmpReply reply = this.getReply(wxMessage.getContent());
+        ReplyDto reply = this.getReply(wxMessage.getContent());
 
         if (reply != null) {
             switch (reply.getMsgType()) {
@@ -62,7 +62,7 @@ public abstract class MpBaseHandler implements WxMpMessageHandler {
      * @param keyword
      * @return 关键字回复
      */
-    protected WxmpReply getReply(String keyword) {
+    protected ReplyDto getReply(String keyword) {
 //        // 获取关键字回复配置
 //        WxmpReply condition = new WxmpReply();
 //        condition.setKeyword(keyword);

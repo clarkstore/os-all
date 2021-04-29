@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties(WxMaProperties.class)
-@ConditionalOnProperty(prefix = "os.wxmini", name = "isopen", havingValue = "true")
+@ConditionalOnProperty(prefix = "os.wxmini", name = "enabled", havingValue = "true")
 public class OsWxminiMaAutoConfiguration {
     @Autowired
     private WxMaProperties properties;

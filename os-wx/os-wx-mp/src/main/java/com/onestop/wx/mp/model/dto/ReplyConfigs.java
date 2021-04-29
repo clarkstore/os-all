@@ -7,7 +7,7 @@ import lombok.ToString;
 import java.util.List;
 
 /**
- * 菜单信息
+ * 关键字回复
  *
  * @author Clark
  * @version 2021/04/23
@@ -15,9 +15,9 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class MenuConfigs {
+public class ReplyConfigs {
   /**
      * 菜单配置
      */
-    private List<MenuDto> configs;
+    private List<ReplyDto> configs;
 }

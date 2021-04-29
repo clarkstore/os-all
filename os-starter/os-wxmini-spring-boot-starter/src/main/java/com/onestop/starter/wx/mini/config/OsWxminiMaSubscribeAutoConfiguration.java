@@ -19,7 +19,7 @@ import java.util.Map;
  */
 @Configuration
 @EnableConfigurationProperties(WxMaSubscribeProperties.class)
-@ConditionalOnProperty(prefix = "os.wxmini.subscribe", name = "isopen", havingValue = "true")
+@ConditionalOnProperty(prefix = "os.wxmini.subscribe", name = "enabled", havingValue = "true")
 public class OsWxminiMaSubscribeAutoConfiguration {
     @Autowired
     private WxMaSubscribeProperties properties;

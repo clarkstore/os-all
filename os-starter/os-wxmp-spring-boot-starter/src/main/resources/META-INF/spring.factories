@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.onestop.starter.wx.mp.config.OsWxmpAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.onestop.starter.wx.mp.config.OsAutoConfiguration

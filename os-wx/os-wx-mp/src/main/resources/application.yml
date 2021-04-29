@@ -6,25 +6,26 @@ logging:
     org.springframework: INFO
     me.chanjar.weixin: INFO
     com.onestop: DEBUG
-
-spring:
-  profiles:
-    #引入菜单配置
-    include:
-      - menu-config
+# 在wxmp-starter中配置
+#spring:
+#  profiles:
+#    #引入菜单配置
+#    include:
+#      - menu-config
+#      - reply-config
 
 #服务号配置
 os:
   wxmp:
-    isopen: true # 开启配置
+    enabled: true # 开启配置
     appid: #微信appid
     secret: #微信Secret
     token: onestop #默认值
     aesKey: SRXP07cF633daFYh7jasMRDHYMKjANeEQe8kwrfWB5p #默认值
-    #后台配置
-    basePath: /wxmp
-    #后台api路径配置
-    apiPath: ${os.wxmp.basePath}/api
+    #后台配置 在wxmp-starter中配置
+#    basePath: /wxmp
+    #后台api路径配置 在wxmp-starter中配置
+#    apiPath: ${os.wxmp.basePath}/api
     # 开启菜单配置
     menu:
-      isopen: true
+      enabled: true

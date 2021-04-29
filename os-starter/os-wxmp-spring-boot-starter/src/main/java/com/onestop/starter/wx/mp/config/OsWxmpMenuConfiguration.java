@@ -1,4 +1,4 @@
-package com.onestop.wx.mp.config;
+package com.onestop.starter.wx.mp.config;
 
 import com.onestop.wx.mp.model.dto.MenuConfigs;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +11,12 @@ import org.springframework.context.annotation.Configuration;
 /**
  * os-wx-mp配置
  * @author Clark
- * @version 2021-04-23
+ * @version 2021-04-29
  */
 @Configuration
 @EnableConfigurationProperties(WxMpMenuProperties.class)
-@ConditionalOnProperty(prefix = "os.wxmp.menu", name = "isopen", havingValue = "true")
-public class WxmpMenuConfiguration {
+@ConditionalOnProperty(prefix = "os.wxmp.menu", name = "enabled", havingValue = "true")
+public class OsWxmpMenuConfiguration {
     @Autowired
     private WxMpMenuProperties properties;
 

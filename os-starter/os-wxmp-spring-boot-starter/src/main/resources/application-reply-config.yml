@@ -1,0 +1,19 @@
+menu:
+  config:
+    name: reply-config
+os:
+  wxmp:
+    reply:
+      configs:
+        #菜单ID
+        - id: 1
+          #规则名
+          name: test
+          #回复类型 01：关注、02：关键字回复、03：客服消息
+          replyType: 02
+          #关键字
+          keyword：test
+          #消息类型：文本、图片、图文、视频、音频
+          msgType: text
+          #文本回复内容
+          replyText: test文本回复

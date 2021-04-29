@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-public class WxmpReply {
+public class ReplyDto {
 
     private String id;
     /**
@@ -46,7 +46,6 @@ public class WxmpReply {
      * 更新时间
      */
     private LocalDateTime updateTime;
-
     /**
      * 删除标识
      */

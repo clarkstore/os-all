@@ -1,7 +1,7 @@
 package com.onestop.wx.mp.handler;
 
-import com.onestop.wx.mp.model.dto.ReplyDto;
-import me.chanjar.weixin.common.api.WxConsts;
+import cn.hutool.core.util.StrUtil;
+import com.onestop.wx.mp.model.dto.ReplyConfigs;
 import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.common.session.WxSessionManager;
 import me.chanjar.weixin.mp.api.WxMpMessageHandler;
@@ -16,7 +16,7 @@ import java.util.Map;
  * 消息处理基类
  *
  * @author Clark
- * @version 2018-05-08
+ * @version 2021-04-29
  */
 public abstract class MpBaseHandler implements WxMpMessageHandler {
     /**
@@ -26,6 +26,11 @@ public abstract class MpBaseHandler implements WxMpMessageHandler {
 
     @Autowired
     public WxMpService wxMpService;
+    /**
+     * 关键字回复配置
+     */
+    @Autowired(required = false)
+    public ReplyConfigs replyConfigs;
 
     @Override
     public WxMpXmlOutMessage handle(WxMpXmlMessage wxMessage, Map<String, Object> context, WxMpService wxMpService,
@@ -40,37 +45,14 @@ public abstract class MpBaseHandler implements WxMpMessageHandler {
      * @return WxMpXmlOutMessage
      */
     public WxMpXmlOutMessage buildReply(WxMpXmlMessage wxMessage) {
-        ReplyDto reply = this.getReply(wxMessage.getContent());
+        String replyText = this.replyConfigs.getReplyText(wxMessage.getContent());
 
-        if (reply != null) {
-            switch (reply.getMsgType()) {
-                case WxConsts.XmlMsgType.TEXT:
-                    return WxMpXmlOutMessage.TEXT().content(reply.getReplyText())
-                            .fromUser(wxMessage.getToUser()).toUser(wxMessage.getFromUser())
-                            .build();
-                default:
-                    break;
-            }
+        if(StrUtil.isNotBlank(replyText)) {
+            return WxMpXmlOutMessage.TEXT().content(replyText)
+                    .fromUser(wxMessage.getToUser()).toUser(wxMessage.getFromUser())
+                    .build();
         }
 
-        return null;
-    }
-
-    /**
-     * 查询关键字回复
-     *
-     * @param keyword
-     * @return 关键字回复
-     */
-    protected ReplyDto getReply(String keyword) {
-//        // 获取关键字回复配置
-//        WxmpReply condition = new WxmpReply();
-//        condition.setKeyword(keyword);
-//
-//        QueryWrapper<WxmpReply> queryWrapper = new QueryWrapper<>();
-//        queryWrapper.setEntity(condition);
-//
-//        return condition.selectOne(queryWrapper);
         return null;
     }
 

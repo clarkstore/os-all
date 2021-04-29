@@ -3,6 +3,7 @@ package com.onestop.common.core.interceptor;
 import cn.hutool.core.util.StrUtil;
 import com.onestop.common.core.annotation.AuthToken;
 import com.onestop.common.core.constant.OsCoreConsts;
+import com.onestop.common.core.exception.BaseException;
 import com.onestop.common.core.exception.BizException;
 import com.onestop.common.core.util.OsTokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +54,7 @@ public class OsTokenInterceptor implements HandlerInterceptor {
             if (authToken.required()) {
                 String token = request.getHeader(OsCoreConsts.HEADER_TOKEN);
                 if (StrUtil.isBlank(token) || !this.tokenUtils.verify(token)) {
-                    throw new BizException(1, "token验证失败");
+                    throw new BizException("token验证失败");
                 }
                 // TODO 重写时追加自定义token逻辑
 //                if (StrUtil.isNotBlank(token) && StrUtil.isNotBlank(userid)) {

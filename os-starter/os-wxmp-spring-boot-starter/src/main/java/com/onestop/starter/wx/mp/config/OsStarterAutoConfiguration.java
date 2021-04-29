@@ -11,5 +11,5 @@ import org.springframework.context.annotation.Import;
  */
 @Configuration
 @Import({OsWxmpAutoConfiguration.class, OsWxmpMenuConfiguration.class})
-public class OsAutoConfiguration {
+public class OsStarterAutoConfiguration {
 }

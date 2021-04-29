@@ -5,12 +5,13 @@ import com.onestop.common.core.exception.BizException;
 import com.onestop.wx.mp.constant.WxMpConsts;
 import com.onestop.wx.mp.model.dto.MenuConfigs;
 import com.onestop.wx.mp.model.dto.MenuDto;
-import lombok.SneakyThrows;
+import com.onestop.wx.mp.model.dto.ReplyConfigs;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.bean.menu.WxMenu;
 import me.chanjar.weixin.common.bean.menu.WxMenuButton;
 import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.mp.api.WxMpService;
+import me.chanjar.weixin.mp.bean.kefu.WxMpKefuMessage;
 import me.chanjar.weixin.mp.bean.template.WxMpTemplateData;
 import me.chanjar.weixin.mp.bean.template.WxMpTemplateMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,11 @@ import java.util.Map;
 public class OsWxMpUtils {
     @Autowired
     private WxMpService wxMpService;
+    /**
+     * 关键字回复配置类
+     */
+    @Autowired(required = false)
+    private ReplyConfigs replyConfigs;
 
     /**
      * 获取openid
@@ -69,53 +75,34 @@ public class OsWxMpUtils {
     }
 
     /**
-     * 取得微信用户信息
-     *
-     * @param openid
-     * @return WxmpUser
-     */
-    // public WxmpUser getWxUser(String openid) {
-    //     WxmpUser condition = new WxmpUser();
-    //     condition.setOpenid(openid);
-
-    //     QueryWrapper<WxmpUser> queryWrapper = new QueryWrapper<>();
-    //     queryWrapper.setEntity(condition);
-    //     WxmpUser entity = condition.selectOne(queryWrapper);
-    //     return entity;
-    // }
-
-    /**
      * 关键字回复
      *
      * @param keyword
      */
     public void keywordReply(String openid, String keyword) {
-        // try {
-        //     if (StrUtil.isBlank(openid) || StrUtil.isBlank(keyword)) {
-        //         return;
-        //     }
-        //     // 获取关键字回复配置
-        //     WxmpReply condition = new WxmpReply();
-        //     condition.setName(keyword);
+        try {
+            if (this.replyConfigs == null) {
+                throw new BizException("配置项：os.wxmp.reply.enabled 未设置");
+            }
+            if (StrUtil.isBlank(openid) || StrUtil.isBlank(keyword)) {
+                return;
+            }
 
-        //     QueryWrapper<WxmpReply> queryWrapper = new QueryWrapper<>();
-        //     queryWrapper.setEntity(condition);
-        //     WxmpReply entity = condition.selectOne(queryWrapper);
-
-        //     // 发送文本客服消息
-        //     if (entity != null) {
-        //         WxMpKefuMessage message = WxMpKefuMessage.TEXT()
-        //                 .toUser(openid)
-        //                 .content(entity.getReplyText())
-        //                 .build();
-        //         this.wxService.getKefuService().sendKefuMessage(message);
-        //     }
-        // } catch (WxErrorException e) {
-        //     log.error("==========关键字回复异常==========");
-        //     log.error("openid=" + openid);
-        //     log.error("keyword=" + keyword);
-        //     log.error(e.getMessage());
-        // }
+            String replyText = this.replyConfigs.getReplyText(keyword);
+            if (StrUtil.isNotBlank(replyText)) {
+                // 发送文本客服消息
+                WxMpKefuMessage message = WxMpKefuMessage.TEXT()
+                        .toUser(openid)
+                        .content(replyText)
+                        .build();
+                this.wxMpService.getKefuService().sendKefuMessage(message);
+            }
+        } catch (WxErrorException e) {
+            log.error("==========关键字回复异常==========");
+            log.error("openid=" + openid);
+            log.error("keyword=" + keyword);
+            log.error(e.getMessage());
+        }
     }
 
     /**
@@ -123,7 +110,6 @@ public class OsWxMpUtils {
      *
      * @param configs
      */
-    @SneakyThrows(BizException.class)
     public void menuCreate(MenuConfigs configs) {
         WxMenu wxMenu = this.getMenu(configs);
         try {

@@ -6,7 +6,7 @@ os:
   azure:
     storage:
       # 开启邮件工具类
-      isopen: true
+      enabled: true
       # 连接字符串
       connectionString:
       # 容器名称必须为小写，默认值：os-storage

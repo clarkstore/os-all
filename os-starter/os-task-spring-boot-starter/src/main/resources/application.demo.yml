@@ -5,4 +5,4 @@ logging:
 os:
   task:
     # 开启配置
-    isopen: true
+    enabled: true

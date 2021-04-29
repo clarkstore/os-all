@@ -1,6 +1,5 @@
 package com.onestop.wx.mp.api;
 
-import cn.hutool.json.JSONUtil;
 import com.onestop.common.core.exception.BizException;
 import com.onestop.common.core.util.Res;
 import com.onestop.wx.mp.model.dto.MenuConfigs;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
  * 微信服务号菜单接口
  *
  * @author Clark
- * @version 2020-08-23
+ * @version 2021-04-23
  */
 @Slf4j
 @RestController
@@ -27,14 +26,12 @@ public class WxMpMenuApi {
     @GetMapping("/create")
     public Res create() {
         try {
-            log.error("================");
-            log.error("menuConfigs=" + JSONUtil.toJsonStr(this.menuConfigs));
             this.osWxMpUtils.menuCreate(this.menuConfigs);
             return Res.ok("菜单构建成功");
         } catch (BizException e) {
             return Res.failed(e.getMsg());
         } catch (NullPointerException e) {
-            return Res.failed("配置项：menu.isopen未设置");
+            return Res.failed("配置项：os.wxmp.menu.enabled 未设置");
         }
     }
 

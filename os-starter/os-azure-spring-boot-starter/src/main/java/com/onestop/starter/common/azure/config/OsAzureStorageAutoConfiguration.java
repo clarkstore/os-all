@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties(StorageProperties.class)
-@ConditionalOnProperty(prefix = "os.azure.storage", name = "isopen", havingValue = "true")
+@ConditionalOnProperty(prefix = "os.azure.storage", name = "enabled", havingValue = "true")
 public class OsAzureStorageAutoConfiguration {
 
     @Autowired

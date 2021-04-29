@@ -3,6 +3,7 @@ package com.onestop.wx.mp.handler;
 import cn.hutool.core.util.StrUtil;
 import com.onestop.wx.mp.constant.WxMpConsts;
 import com.onestop.wx.mp.util.OsWxMpUtils;
+import me.chanjar.weixin.common.api.WxConsts;
 import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.common.session.WxSessionManager;
 import me.chanjar.weixin.mp.api.WxMpService;
@@ -17,7 +18,7 @@ import java.util.Map;
  * 默认消息处理类
  *
  * @author Clark
- * @version 2020-08-11
+ * @version 2021-04-29
  */
 @Component
 public class MpMsgHandler extends MpBaseHandler {
@@ -28,31 +29,29 @@ public class MpMsgHandler extends MpBaseHandler {
     @Override
     public WxMpXmlOutMessage handle(WxMpXmlMessage wxMessage, Map<String, Object> context, WxMpService wxMpService,
                                     WxSessionManager sessionManager) {
-//        if (wxMessage.getMsgType().equalsIgnoreCase(WxConsts.XmlMsgType.TEXT)) {
-        // 接入多客服
-        WxMpXmlOutMessage outMessage = this.transferKfService(wxMessage);
-        if (outMessage != null) {
-            return outMessage;
-        }
-
-        // 关键字回复
-        outMessage = super.buildReply(wxMessage);
-        if (outMessage != null) {
-            return outMessage;
-        }
-
-        // 取得openid
-        outMessage = this.getOpenid(wxMessage);
-        if (outMessage != null) {
-            return outMessage;
-        }
+        if (wxMessage.getMsgType().equalsIgnoreCase(WxConsts.XmlMsgType.TEXT)) {
+            // 关键字回复
+            WxMpXmlOutMessage outMessage = super.buildReply(wxMessage);
+            if (outMessage != null) {
+                return outMessage;
+            }
+            // 接入多客服
+            outMessage = this.transferKfService(wxMessage);
+            if (outMessage != null) {
+                return outMessage;
+            }
+            // 取得openid
+            outMessage = this.getOpenid(wxMessage);
+            if (outMessage != null) {
+                return outMessage;
+            }
 
 //            // 二维码
 //            outMessage = this.getQrcode(wxMessage);
 //            if (outMessage != null) {
 //                return outMessage;
 //            }
-//        }
+        }
         return null;
     }
 

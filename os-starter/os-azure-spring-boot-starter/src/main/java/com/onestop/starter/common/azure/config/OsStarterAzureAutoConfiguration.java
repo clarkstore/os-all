@@ -10,5 +10,5 @@ import org.springframework.context.annotation.Import;
  */
 @Configuration
 @Import({ OsAzureStorageAutoConfiguration.class })
-public class OsStarterAutoConfiguration {
+public class OsStarterAzureAutoConfiguration {
 }

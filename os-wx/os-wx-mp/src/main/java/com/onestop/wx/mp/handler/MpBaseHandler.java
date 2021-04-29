@@ -45,14 +45,15 @@ public abstract class MpBaseHandler implements WxMpMessageHandler {
      * @return WxMpXmlOutMessage
      */
     public WxMpXmlOutMessage buildReply(WxMpXmlMessage wxMessage) {
-        String replyText = this.replyConfigs.getReplyText(wxMessage.getContent());
+        if (this.replyConfigs != null) {
+            String replyText = this.replyConfigs.getReplyText(wxMessage.getContent());
 
-        if(StrUtil.isNotBlank(replyText)) {
-            return WxMpXmlOutMessage.TEXT().content(replyText)
-                    .fromUser(wxMessage.getToUser()).toUser(wxMessage.getFromUser())
-                    .build();
+            if (StrUtil.isNotBlank(replyText)) {
+                return WxMpXmlOutMessage.TEXT().content(replyText)
+                        .fromUser(wxMessage.getToUser()).toUser(wxMessage.getFromUser())
+                        .build();
+            }
         }
-
         return null;
     }
 

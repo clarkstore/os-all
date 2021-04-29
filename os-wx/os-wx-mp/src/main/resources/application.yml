@@ -29,3 +29,6 @@ os:
     # 开启菜单配置
     menu:
       enabled: true
+    # 开启关键字回复配置
+    reply:
+      enabled: true

@@ -1,4 +1,4 @@
-package com.onestop.starter.common.task.config;
+package com.onestop.starter.common.core.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -9,6 +9,6 @@ import org.springframework.context.annotation.Import;
  * @version 2021-02-24
  */
 @Configuration
-@Import({ OsTaskSchedulerAutoConfiguration.class })
-public class OsStarterAutoConfiguration {
+@Import({ OsCoreMailAutoConfiguration.class, OsCoreTokenAutoConfiguration.class })
+public class OsStarterCoreAutoConfiguration {
 }

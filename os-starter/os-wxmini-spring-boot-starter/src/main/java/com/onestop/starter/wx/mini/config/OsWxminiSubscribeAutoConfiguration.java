@@ -18,11 +18,11 @@ import java.util.Map;
  * @version 2021-03-18
  */
 @Configuration
-@EnableConfigurationProperties(WxMaSubscribeProperties.class)
+@EnableConfigurationProperties(WxminiSubscribeProperties.class)
 @ConditionalOnProperty(prefix = "os.wxmini.subscribe", name = "enabled", havingValue = "true")
-public class OsWxminiMaSubscribeAutoConfiguration {
+public class OsWxminiSubscribeAutoConfiguration {
     @Autowired
-    private WxMaSubscribeProperties properties;
+    private WxminiSubscribeProperties properties;
 
     @Bean
     @ConditionalOnMissingBean

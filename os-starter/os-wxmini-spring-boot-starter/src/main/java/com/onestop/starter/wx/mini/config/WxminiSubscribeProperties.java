@@ -18,7 +18,7 @@ import java.util.List;
 @Setter
 @ToString
 @ConfigurationProperties(prefix = "os.wxmini.subscribe")
-public class WxMaSubscribeProperties {
+public class WxminiSubscribeProperties {
     /**
      * 跳转小程序类型：developer为开发版；trial为体验版；formal为正式版；默认为正式版
      */

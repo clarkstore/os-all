@@ -15,7 +15,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Setter
 @ToString
 @ConfigurationProperties(prefix = "os.wxmini")
-public class WxMaProperties {
+public class WxminiProperties {
     /**
      * 设置微信小程序的appid
      */

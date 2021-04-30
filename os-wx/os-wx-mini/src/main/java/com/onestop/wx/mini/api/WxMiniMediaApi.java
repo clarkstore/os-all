@@ -29,7 +29,7 @@ import java.util.List;
  */
 @Slf4j
 @RestController
-@RequestMapping("wxmini/api/media")
+@RequestMapping("${os.wxmini.apiPath}/media")
 public class WxMiniMediaApi {
     @Autowired
     private WxMaService wxService;

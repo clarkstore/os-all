@@ -25,7 +25,7 @@ import java.util.List;
  */
 @Slf4j
 @RestController
-@RequestMapping("wxmini/api/user")
+@RequestMapping("${os.wxmini.apiPath}/user")
 public class WxMiniUserApi {
     @Autowired
     private WxMaService wxService;

@@ -1,22 +1,8 @@
-logging:
-  level:
-    org.springframework.web: info
-    cn.binarywang.wx.miniapp: debug
-    com.onestop: debug
+menu:
+  config:
+    name: subscribe-config
 os:
   wxmini:
-    # 开启小程序配置
-    enabled: true
-    #小程序
-    appid: #微信小程序的appid
-    secret: #微信小程序的Secret
-    token: onestop #默认值
-    aesKey: SRXP07cF633daFYh7jasMRDHYMKjANeEQe8kwrfWB5p #默认值
-    msgDataFormat: JSON #默认JSON
-    #上传路径
-    uploadPath: e:/upload/ #/home/csl/wxMini/upload/
-    #素材原路径
-    mediaPath: e:/upload/
     #订阅消息模板
     subscribe:
       # 开启订阅消息配置

@@ -19,7 +19,7 @@ import java.util.Objects;
  */
 @Slf4j
 @RestController
-@RequestMapping("wxmini/portal")
+@RequestMapping("${os.wxmini.basePath}/portal")
 public class WxMiniPortalController {
     @Autowired
     private WxMaService wxService;

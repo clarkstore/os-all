@@ -1,25 +1,14 @@
-server:
-  port: 80
-
-logging:
-  level:
-    org.springframework.web: info
-    cn.binarywang.wx.miniapp: info
-    com.onestop: debug
+menu:
+  config:
+    name: subscribe-config
 os:
   wxmini:
-    #上传路径
-    uploadPath: e:/upload/ #/home/csl/wxMini/upload/
-    #素材原路径
-    mediaPath: e:/upload/
-    #小程序
-    appid: #微信小程序的appid
-    secret: #微信小程序的Secret
-    token: onestop #微信小程序消息服务器配置的token
-    aesKey: SRXP07cF633daFYh7jasMRDHYMKjANeEQe8kwrfWB5p #微信小程序消息服务器配置的token
-    msgDataFormat: JSON
     #订阅消息模板
     subscribe:
+      # 开启订阅消息配置
+      enabled: true
+      #跳转小程序类型：developer为开发版；trial为体验版；formal为正式版；默认为正式版
+      miniprogramState: developer
       configs:
         #subscribeCode订阅编号为业务调用自定义常量
         #订阅消息-签到

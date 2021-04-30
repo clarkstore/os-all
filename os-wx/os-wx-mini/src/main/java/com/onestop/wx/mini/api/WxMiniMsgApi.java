@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Slf4j
 @RestController
-@RequestMapping("wxmini/api/msg")
+@RequestMapping("${os.wxmini.apiPath}/msg")
 public class WxMiniMsgApi {
     @Autowired
     private OsWxMiniUtils osWxMiniUtils;

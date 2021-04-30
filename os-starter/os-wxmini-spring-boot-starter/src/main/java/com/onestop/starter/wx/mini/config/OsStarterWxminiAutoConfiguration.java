@@ -9,6 +9,6 @@ import org.springframework.context.annotation.Import;
  * @version 2021-03-18
  */
 @Configuration
-@Import({ OsWxminiAutoConfiguration.class, OsWxminiSubscribeAutoConfiguration.class })
+@Import({ OsStarterWxminiAutoConfiguration.class, OsWxminiSubscribeAutoConfiguration.class })
 public class OsStarterWxminiAutoConfiguration {
 }

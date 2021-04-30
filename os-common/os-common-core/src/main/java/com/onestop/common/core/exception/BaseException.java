@@ -1,7 +1,6 @@
 package com.onestop.common.core.exception;
 
 import lombok.*;
-import lombok.experimental.Tolerate;
 
 /**
  * 自定义异常基类

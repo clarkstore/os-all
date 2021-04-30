@@ -18,11 +18,11 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ConditionalOnClass(WxMpService.class)
-@EnableConfigurationProperties(WxMpProperties.class)
+@EnableConfigurationProperties(WxmpProperties.class)
 @ConditionalOnProperty(prefix = "os.wxmp", name = "enabled", havingValue = "true")
 public class OsWxmpAutoConfiguration {
     @Autowired
-    private WxMpProperties properties;
+    private WxmpProperties properties;
 
     @Bean
     @ConditionalOnMissingBean

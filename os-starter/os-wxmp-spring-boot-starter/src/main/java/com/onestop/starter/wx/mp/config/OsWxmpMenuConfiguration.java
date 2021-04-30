@@ -14,11 +14,11 @@ import org.springframework.context.annotation.Configuration;
  * @version 2021-04-29
  */
 @Configuration
-@EnableConfigurationProperties(WxMpMenuProperties.class)
+@EnableConfigurationProperties(WxmpMenuProperties.class)
 @ConditionalOnProperty(prefix = "os.wxmp.menu", name = "enabled", havingValue = "true")
 public class OsWxmpMenuConfiguration {
     @Autowired
-    private WxMpMenuProperties properties;
+    private WxmpMenuProperties properties;
 
     @Bean
     @ConditionalOnMissingBean

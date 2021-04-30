@@ -1,12 +1,14 @@
 package com.onestop.wx.mp.api;
 
-import cn.hutool.json.JSONUtil;
 import com.onestop.common.core.exception.BizException;
 import com.onestop.common.core.util.Res;
 import com.onestop.wx.mp.model.dto.ReplyConfigs;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
@@ -26,8 +28,6 @@ public class WxMpReplyApi {
     @PostMapping("/update")
     public Res update(@RequestBody Map<String, String> replyTextMap) {
         try {
-            log.error("================");
-            log.error("replyTextMap=" + JSONUtil.toJsonStr(replyTextMap));
             this.replyConfigs.setReplyTextMap(replyTextMap);
             return Res.ok("关键字回复列表已更新");
         } catch (BizException e) {

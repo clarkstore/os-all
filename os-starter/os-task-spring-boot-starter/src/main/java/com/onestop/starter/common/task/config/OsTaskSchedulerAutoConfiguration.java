@@ -14,7 +14,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
  * @version 2021-04-08
  */
 @Configuration
-@ConditionalOnProperty(prefix = "os.task", name = "isopen", havingValue = "true")
+@ConditionalOnProperty(prefix = "os.task", name = "enabled", havingValue = "true")
 public class OsTaskSchedulerAutoConfiguration {
 
     @Bean

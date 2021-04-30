@@ -4,6 +4,7 @@ import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.api.impl.WxMaServiceImpl;
 import cn.binarywang.wx.miniapp.config.impl.WxMaDefaultConfigImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -16,6 +17,7 @@ import org.springframework.context.annotation.Configuration;
  * @version 2021-03-18
  */
 @Configuration
+@ConditionalOnClass(WxMaService.class)
 @EnableConfigurationProperties(WxminiProperties.class)
 @ConditionalOnProperty(prefix = "os.wxmini", name = "enabled", havingValue = "true")
 public class OsWxminiAutoConfiguration {

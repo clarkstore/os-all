@@ -18,11 +18,11 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ConditionalOnClass(WxMaService.class)
-@EnableConfigurationProperties(WxminiProperties.class)
+@EnableConfigurationProperties(OsWxminiProperties.class)
 @ConditionalOnProperty(prefix = "os.wxmini", name = "enabled", havingValue = "true")
 public class OsWxminiAutoConfiguration {
     @Autowired
-    private WxminiProperties properties;
+    private OsWxminiProperties properties;
 
     @Bean
     @ConditionalOnMissingBean

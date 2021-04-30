@@ -13,7 +13,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Setter
 @ToString
 @ConfigurationProperties(prefix = "os.wxmp")
-public class WxmpProperties {
+public class OsWxmpProperties {
     /**
      * 设置微信公众号的appid
      */

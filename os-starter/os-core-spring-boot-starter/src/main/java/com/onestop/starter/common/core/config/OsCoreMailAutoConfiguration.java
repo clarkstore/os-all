@@ -2,7 +2,6 @@ package com.onestop.starter.common.core.config;
 
 import cn.hutool.extra.mail.MailAccount;
 import com.onestop.common.core.util.OsMailUtils;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -16,12 +15,12 @@ import org.springframework.context.annotation.Configuration;
  * @version 2021-02-24
  */
 @Configuration
-@EnableConfigurationProperties(MailProperties.class)
+@EnableConfigurationProperties(OsMailProperties.class)
 @ConditionalOnProperty(prefix = "os.mail", name = "enabled", havingValue = "true")
 public class OsCoreMailAutoConfiguration {
 
     @Autowired
-    private MailProperties properties;
+    private OsMailProperties properties;
 
     @Bean
     @ConditionalOnMissingBean

@@ -15,7 +15,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Setter
 @ToString
 @ConfigurationProperties(prefix = "os.mail")
-public class MailProperties {
+public class OsMailProperties {
 	/**
 	 * 邮件服务器的SMTP地址
 	 */

@@ -15,12 +15,12 @@ import org.springframework.context.annotation.Configuration;
  * @version 2021-03-30
  */
 @Configuration
-@EnableConfigurationProperties(StorageProperties.class)
+@EnableConfigurationProperties(OsStorageProperties.class)
 @ConditionalOnProperty(prefix = "os.azure.storage", name = "enabled", havingValue = "true")
 public class OsAzureStorageAutoConfiguration {
 
     @Autowired
-    private StorageProperties properties;
+    private OsStorageProperties properties;
 
     @Bean
     @ConditionalOnMissingBean

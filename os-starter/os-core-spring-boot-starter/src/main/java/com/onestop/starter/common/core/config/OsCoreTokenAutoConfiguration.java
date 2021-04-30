@@ -14,12 +14,12 @@ import org.springframework.context.annotation.Configuration;
  * @version 2021-02-24
  */
 @Configuration
-@EnableConfigurationProperties(TokenProperties.class)
+@EnableConfigurationProperties(OsTokenProperties.class)
 @ConditionalOnProperty(prefix = "os.token", name = "enabled", havingValue = "true")
 public class OsCoreTokenAutoConfiguration {
 
     @Autowired
-    private TokenProperties properties;
+    private OsTokenProperties properties;
 
     @Bean
     @ConditionalOnMissingBean

@@ -15,7 +15,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Setter
 @ToString
 @ConfigurationProperties(prefix = "os.azure.storage")
-public class StorageProperties {
+public class OsStorageProperties {
 	/**
 	 * 连接字符串
 	 */

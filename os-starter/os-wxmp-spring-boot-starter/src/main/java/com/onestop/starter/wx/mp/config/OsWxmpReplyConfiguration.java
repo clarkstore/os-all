@@ -14,11 +14,11 @@ import org.springframework.context.annotation.Configuration;
  * @version 2021-04-29
  */
 @Configuration
-@EnableConfigurationProperties(WxmpReplyProperties.class)
+@EnableConfigurationProperties(OsWxmpReplyProperties.class)
 @ConditionalOnProperty(prefix = "os.wxmp.reply", name = "enabled", havingValue = "true")
 public class OsWxmpReplyConfiguration {
     @Autowired
-    private WxmpReplyProperties properties;
+    private OsWxmpReplyProperties properties;
 
     @Bean
     @ConditionalOnMissingBean

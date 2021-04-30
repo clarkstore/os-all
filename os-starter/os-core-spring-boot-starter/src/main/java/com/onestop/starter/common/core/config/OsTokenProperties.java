@@ -15,7 +15,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Setter
 @ToString
 @ConfigurationProperties(prefix = "os.token")
-public class TokenProperties {
+public class OsTokenProperties {
 	/**
 	 * 设置token的Secret
 	 */

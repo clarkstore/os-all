@@ -21,11 +21,11 @@ public class Res<T> implements Serializable {
     /**
      * 返回标记：成功标记=0，失败标记=1
      */
-    protected int code;
+    private int code;
     /**
      * 返回信息
      */
-    protected String msg;
+    private String msg;
     /**
      * 数据
      */

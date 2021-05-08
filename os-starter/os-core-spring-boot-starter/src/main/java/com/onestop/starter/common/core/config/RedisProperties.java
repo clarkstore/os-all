@@ -3,7 +3,6 @@ package com.onestop.starter.common.core.config;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * Mail配置
@@ -14,7 +13,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Getter
 @Setter
 @ToString
-@ConfigurationProperties(prefix = "os.redis")
+//@ConfigurationProperties(prefix = "os.redis")
 public class RedisProperties {
 	/**
 	 * 邮件服务器的SMTP地址

@@ -1,7 +1,7 @@
 package com.onestop.wx.mp.util;
 
 import cn.hutool.core.util.StrUtil;
-import com.onestop.common.core.exception.BizException;
+import com.onestop.common.core.exception.OsBizException;
 import com.onestop.wx.mp.constant.WxMpConsts;
 import com.onestop.wx.mp.model.dto.MenuConfigs;
 import com.onestop.wx.mp.model.dto.MenuDto;
@@ -82,7 +82,7 @@ public class OsWxMpUtils {
     public void keywordReply(String openid, String keyword) {
         try {
             if (this.replyConfigs == null) {
-                throw new BizException("配置项：os.wxmp.reply.enabled 未设置");
+                throw new OsBizException("配置项：os.wxmp.reply.enabled 未设置");
             }
             if (StrUtil.isBlank(openid) || StrUtil.isBlank(keyword)) {
                 return;
@@ -117,7 +117,7 @@ public class OsWxMpUtils {
         } catch (WxErrorException e) {
             log.error("========menuCreate=======");
             log.error(e.getError().toString());
-            throw new BizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
+            throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
         }
     }
 

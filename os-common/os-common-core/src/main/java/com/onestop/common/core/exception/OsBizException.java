@@ -5,12 +5,12 @@ package com.onestop.common.core.exception;
  * @author Clark
  * @version 2020/04/07
  */
-public class BizException extends BaseException {
-    public BizException(String msg) {
+public class OsBizException extends OsBaseException {
+    public OsBizException(String msg) {
         super(msg);
     }
 
-    public BizException(int code, String msg) {
+    public OsBizException(int code, String msg) {
         super(code, msg);
     }
 }

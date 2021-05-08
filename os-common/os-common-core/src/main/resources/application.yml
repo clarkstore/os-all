@@ -2,5 +2,8 @@
 #httpclient:
 #  connect-timeout: 60000默认值
 #  read-timeout: 30000默认值
-
-
+spring:
+  redis:
+    redisson:
+      # 配置单点模式
+      config: classpath:redisson.yml

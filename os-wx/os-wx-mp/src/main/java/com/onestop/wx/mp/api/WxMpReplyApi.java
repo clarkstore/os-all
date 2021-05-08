@@ -1,6 +1,6 @@
 package com.onestop.wx.mp.api;
 
-import com.onestop.common.core.exception.BizException;
+import com.onestop.common.core.exception.OsBizException;
 import com.onestop.common.core.util.Res;
 import com.onestop.wx.mp.model.dto.ReplyConfigs;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +30,7 @@ public class WxMpReplyApi {
         try {
             this.replyConfigs.setReplyTextMap(replyTextMap);
             return Res.ok("关键字回复列表已更新");
-        } catch (BizException e) {
+        } catch (OsBizException e) {
             return Res.failed(e.getMsg());
         } catch (NullPointerException e) {
             return Res.failed("配置项：os.wxmp.reply.enabled 未设置");

@@ -22,8 +22,8 @@ public class OsGlobalExceptionHandler {
      * @param e 业务异常
      * @return Res 返回结果
      */
-    @ExceptionHandler(value = {BizException.class})
-    public Res bizExceptionHandle(BizException e) {
+    @ExceptionHandler(value = {OsBizException.class})
+    public Res bizExceptionHandle(OsBizException e) {
         log.error("=========业务异常=========");
         log.error(e.getMsg());
         return Res.failed(e.getMsg());
@@ -34,8 +34,8 @@ public class OsGlobalExceptionHandler {
      * @param e 支付异常
      * @return Res 返回结果
      */
-    @ExceptionHandler(value = {PayException.class})
-    public Res payExceptionHandle(PayException e) {
+    @ExceptionHandler(value = {OsPayException.class})
+    public Res payExceptionHandle(OsPayException e) {
         log.error("=========支付异常=========");
         log.error(e.getMsg());
         return Res.failed(e.getMsg());

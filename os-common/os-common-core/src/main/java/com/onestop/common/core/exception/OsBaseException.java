@@ -9,7 +9,7 @@ import lombok.*;
  */
 @Getter
 @Setter
-public abstract class BaseException extends RuntimeException {
+public abstract class OsBaseException extends RuntimeException {
     /**
      * 异常编号
      */
@@ -19,12 +19,12 @@ public abstract class BaseException extends RuntimeException {
      */
     protected String msg;
 
-    public BaseException(String msg) {
+    public OsBaseException(String msg) {
         super(msg);
         this.msg = msg;
     }
 
-    public BaseException(int code, String msg) {
+    public OsBaseException(int code, String msg) {
         super(msg);
         this.code = code;
         this.msg = msg;

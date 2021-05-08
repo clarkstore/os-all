@@ -33,4 +33,12 @@ os:
 #    secret: abcdefg1234567890
     # 过期时间 默认：120分钟
 #    expireTimeInMinutes: 120
-
+#spring.redis:
+#  enable: true
+#  redisson:
+#    file: classpath:redisson.yml
+spring:
+  redis:
+    redisson:
+      # 配置单点模式
+      config: classpath:redisson.yml

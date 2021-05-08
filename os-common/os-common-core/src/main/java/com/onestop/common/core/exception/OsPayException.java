@@ -5,12 +5,12 @@ package com.onestop.common.core.exception;
  * @author Clark
  * @version 2020/07/22
  */
-public class PayException extends BaseException {
-    public PayException(String msg) {
+public class OsPayException extends OsBaseException {
+    public OsPayException(String msg) {
         super(msg);
     }
 
-    public PayException(int code, String msg) {
+    public OsPayException(int code, String msg) {
         super(code, msg);
     }
 }

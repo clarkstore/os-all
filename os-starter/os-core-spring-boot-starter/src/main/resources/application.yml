@@ -3,10 +3,7 @@ logging:
     org.springframework: INFO
     org.thymeleaf: INFO
     com.onestop: DEBUG
-#REST超时配置
-#httpclient:
-#  connect-timeout: 60000默认值
-#  read-timeout: 30000默认值
+
 os:
   mail:
     # 开启邮件工具类

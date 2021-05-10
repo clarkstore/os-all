@@ -37,22 +37,22 @@ public class OsUtilsTest {
 
     @Test
     public void redis() {
-//        try {
-//            osRedisUtils.set("abc",5, 5);
-//
-//            for (int i = 0; i < 10; i++) {
-//                log.error("1 abc=" + osRedisUtils.get("abc"));
-//                if (osRedisUtils.getExpire("abc") == -2) {
-//                    osRedisUtils.set("abc",5, 5);
-//                } else {
-//                    osRedisUtils.decr("abc");
-//                }
-//                log.error("2 abc=" + osRedisUtils.get("abc"));
-//                Thread.sleep(1000);
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        try {
+            osRedisUtils.set("abc",5, 5);
+
+            for (int i = 0; i < 10; i++) {
+                log.error("1 abc=" + osRedisUtils.get("abc"));
+                if (osRedisUtils.getExpire("abc") == -2) {
+                    osRedisUtils.set("abc",5, 5);
+                } else {
+                    osRedisUtils.decr("abc");
+                }
+                log.error("2 abc=" + osRedisUtils.get("abc"));
+                Thread.sleep(1000);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }

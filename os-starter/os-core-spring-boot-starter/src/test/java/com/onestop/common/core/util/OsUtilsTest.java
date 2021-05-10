@@ -3,8 +3,6 @@ package com.onestop.common.core.util;
 import com.onestop.starter.common.core.StarterCoreApplication;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.redisson.api.RAtomicLong;
-import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -19,7 +17,7 @@ public class OsUtilsTest {
     private OsTokenUtils osTokenUtils;
 
     @Autowired(required = false)
-    private RedissonClient redissonClient;
+    private OsRedisUtils osRedisUtils;
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
@@ -39,13 +37,22 @@ public class OsUtilsTest {
 
     @Test
     public void redis() {
-        RAtomicLong atomicLong = this.redissonClient.getAtomicLong("abc");
-        log.error("1 abc=" + atomicLong.get());
-        atomicLong.delete();
-        log.error("2 abc=" + atomicLong.get());
-        atomicLong.set(1);
-        log.error("3 abc=" + atomicLong.get());
-        atomicLong.incrementAndGet();
-        log.error("4 abc=" + atomicLong.get());
+//        try {
+//            osRedisUtils.set("abc",5, 5);
+//
+//            for (int i = 0; i < 10; i++) {
+//                log.error("1 abc=" + osRedisUtils.get("abc"));
+//                if (osRedisUtils.getExpire("abc") == -2) {
+//                    osRedisUtils.set("abc",5, 5);
+//                } else {
+//                    osRedisUtils.decr("abc");
+//                }
+//                log.error("2 abc=" + osRedisUtils.get("abc"));
+//                Thread.sleep(1000);
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
     }
 }

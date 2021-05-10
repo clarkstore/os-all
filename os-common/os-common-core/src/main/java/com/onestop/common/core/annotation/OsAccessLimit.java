@@ -16,10 +16,10 @@ public @interface OsAccessLimit {
     /**
      * 单位时间限制通过请求数
      */
-    long count() default 10;
+    long limitCount() default 10;
 
     /**
      * 单位时间，单位秒
      */
-    long sec() default 5;
+    long limitSec() default 5;
 }

@@ -7,7 +7,7 @@ logging:
 os:
   mail:
     # 开启邮件工具类
-    enabled: true
+    enabled: false
     # 邮件服务器的SMTP地址 默认：126
 #    host: smtp.126.com
     # 邮件服务器的SMTP端口 默认：25
@@ -24,11 +24,11 @@ os:
 #    sslEnable: false
   token:
     # 开启邮件工具类
-    enabled: true
+    enabled: false
     # 私钥 16位
 #    secret: abcdefg1234567890
     # 过期时间 默认：120分钟
 #    expireTimeInMinutes: 120
   redis:
     # 开启redis工具类
-    enabled: true
+    enabled: false

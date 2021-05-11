@@ -17,7 +17,6 @@ import org.springframework.context.annotation.Configuration;
 @EnableConfigurationProperties(OsTokenProperties.class)
 @ConditionalOnProperty(prefix = "os.token", name = "enabled", havingValue = "true")
 public class OsCoreTokenAutoConfiguration {
-
     @Autowired
     private OsTokenProperties properties;
 

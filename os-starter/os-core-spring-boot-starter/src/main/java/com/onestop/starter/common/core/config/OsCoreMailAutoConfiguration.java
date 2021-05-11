@@ -18,7 +18,6 @@ import org.springframework.context.annotation.Configuration;
 @EnableConfigurationProperties(OsMailProperties.class)
 @ConditionalOnProperty(prefix = "os.mail", name = "enabled", havingValue = "true")
 public class OsCoreMailAutoConfiguration {
-
     @Autowired
     private OsMailProperties properties;
 

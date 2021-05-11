@@ -42,13 +42,13 @@ public class OsAccessLimitInterceptor implements HandlerInterceptor {
         //判断该方法上是否有自定义注解@OsAccessLimit
         if (method.isAnnotationPresent(OsAccessLimit.class)) {
             OsAccessLimit accessLimit = method.getAnnotation(OsAccessLimit.class);
-//获取注解属性值
+            //获取注解属性值
+            String key = accessLimit.key();
             long count = accessLimit.limitCount();
             long sec = accessLimit.limitSec();
-            //可将用户的id加上  限制每一个用户只能访问几次
-            String key = request.getRequestURI();
-            log.info("key : {}", key);
             //从redis中获取记录
+            log.debug("==========OsAccessLimitInterceptor=========");
+            log.debug("====key= " + key);
             Object maxLimit = osRedisUtils.get(key);
             if (maxLimit == null) {
                 //第一次，计数器设置为1，设置redis过期时间
@@ -57,7 +57,7 @@ public class OsAccessLimitInterceptor implements HandlerInterceptor {
                 //计数器加1
                 osRedisUtils.incr(key);
             } else {
-                throw new OsAccessLimitException("过度访问资源,客官休息一会哦！");
+                throw new OsAccessLimitException();
             }
         }
 

@@ -13,6 +13,7 @@ import java.lang.annotation.*;
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface OsAccessLimit {
+    String key() default "";
     /**
      * 单位时间限制通过请求数
      */

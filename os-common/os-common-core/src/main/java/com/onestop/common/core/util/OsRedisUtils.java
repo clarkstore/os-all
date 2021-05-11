@@ -44,9 +44,11 @@ public class OsRedisUtils {
 
     /**
      * 根据key获取过期时间
+     * 如果该值没有设置过期时间，就返回-1;
+     * 如果没有该值，就返回-2;
      *
      * @param key 键 不能为null
-     * @return 时间(秒) 返回0代表为永久有效
+     * @return 时间(秒)
      */
     public long getExpire(String key) {
         return redisTemplate.getExpire(key);

@@ -39,7 +39,7 @@ public class OsAccessLimitInterceptor implements HandlerInterceptor {
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         Method method = handlerMethod.getMethod();
 
-        //判断该方法上是否有自定义注解@AccessLimit
+        //判断该方法上是否有自定义注解@OsAccessLimit
         if (method.isAnnotationPresent(OsAccessLimit.class)) {
             OsAccessLimit accessLimit = method.getAnnotation(OsAccessLimit.class);
 //获取注解属性值

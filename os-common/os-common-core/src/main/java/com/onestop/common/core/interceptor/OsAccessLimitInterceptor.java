@@ -1,7 +1,10 @@
 package com.onestop.common.core.interceptor;
 
+import cn.hutool.core.util.StrUtil;
 import com.onestop.common.core.annotation.OsAccessLimit;
+import com.onestop.common.core.constant.OsLimitTypeEnum;
 import com.onestop.common.core.exception.OsAccessLimitException;
+import com.onestop.common.core.util.OsIPUtils;
 import com.onestop.common.core.util.OsRedisUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +16,11 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
+import java.util.StringJoiner;
 
 /**
  * 限流拦截器
+ *
  * @author Clark
  * @version 2021/5/10
  */
@@ -42,17 +47,34 @@ public class OsAccessLimitInterceptor implements HandlerInterceptor {
         //判断该方法上是否有自定义注解@OsAccessLimit
         if (method.isAnnotationPresent(OsAccessLimit.class)) {
             OsAccessLimit accessLimit = method.getAnnotation(OsAccessLimit.class);
+            String key;
             //获取注解属性值
-            String key = accessLimit.key();
             long count = accessLimit.limitCount();
             long sec = accessLimit.limitSec();
+            OsLimitTypeEnum limitType = accessLimit.limitType();
+
+            switch (limitType) {
+                case IP:
+                    key = OsIPUtils.getIpAddr(request);
+                    break;
+                case CUSTOMER:
+                    key = accessLimit.key();
+                    break;
+                default:
+                    //类名_方法名
+                    StringJoiner sj = new StringJoiner(StrUtil.UNDERLINE);
+                    sj.add(method.getDeclaringClass().getSimpleName());
+                    sj.add(method.getName());
+                    key = sj.toString();
+            }
+
             //从redis中获取记录
             log.debug("==========OsAccessLimitInterceptor=========");
             log.debug("====key= " + key);
             Object maxLimit = osRedisUtils.get(key);
             if (maxLimit == null) {
                 //第一次，计数器设置为1，设置redis过期时间
-                osRedisUtils.set(key,1, sec);
+                osRedisUtils.set(key, 1, sec);
             } else if (Long.parseLong(maxLimit.toString()) < count) {
                 //计数器加1
                 osRedisUtils.incr(key);

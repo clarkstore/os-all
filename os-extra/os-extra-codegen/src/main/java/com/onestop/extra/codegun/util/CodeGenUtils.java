@@ -115,7 +115,7 @@ public class CodeGenUtils {
 //        strategy.setTablePrefix(config.getStringArray("TablePrefix"));
         strategy.setEntityTableFieldAnnotationEnable(true);
         strategy.setVersionFieldName("version");
-        strategy.setLogicDeleteFieldName("del_flag");
+        strategy.setLogicDeleteFieldName("deleted");
         mpg.setStrategy(strategy);
 
         mpg.execute();

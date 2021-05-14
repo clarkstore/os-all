@@ -112,7 +112,7 @@ public class CodeGenUtils {
         strategy.setEntityLombokModel(true);
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-//        strategy.setTablePrefix(config.getStringArray("TablePrefix"));
+        strategy.setTablePrefix(config.getStringArray("TablePrefix"));
         strategy.setEntityTableFieldAnnotationEnable(true);
         strategy.setVersionFieldName("version");
         strategy.setLogicDeleteFieldName("deleted");

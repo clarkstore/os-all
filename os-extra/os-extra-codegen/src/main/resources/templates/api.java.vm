@@ -48,7 +48,7 @@ public class ${entity}Api {
      */
     @GetMapping("/{id}")
     public Res<$!{entity}> get(@PathVariable String id) {
-        return Res.data($!{table.entityPath}Service.getById(id));
+        return Res.ok($!{table.entityPath}Service.getById(id));
     }
 
     /**
@@ -60,7 +60,7 @@ public class ${entity}Api {
     */
     @GetMapping("/page")
     public Res<IPage> page(Page page, $!{entity} $!{table.entityPath}) {
-        return Res.data($!{table.entityPath}Service.page(page, Wrappers.query($!{table.entityPath})));
+        return Res.ok($!{table.entityPath}Service.page(page, Wrappers.query($!{table.entityPath})));
     }
 
     /**
@@ -87,7 +87,7 @@ public class ${entity}Api {
             return Res.ok();
         }
         // 并发操作，失败
-        return Res.msg(Res.MsgCode.ERR_CODE_201);
+        return Res.failed();
     }
 
     /**

@@ -26,7 +26,10 @@
             <artifactId>druid-spring-boot-starter</artifactId>
         </dependency>
         <!--alibaba连接池-->
-
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
         <!-- mybatis-plus begin -->
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -42,11 +45,6 @@
             <groupId>org.apache.velocity</groupId>
             <artifactId>velocity-engine-core</artifactId>
             <version>${velocity.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
         <dependency>

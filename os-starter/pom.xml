@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.github.clarkstore</groupId>
         <artifactId>os-parent</artifactId>
-        <version>0.3.2</version>
+        <version>0.3.3</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -19,6 +19,7 @@
         <module>os-task-spring-boot-starter</module>
         <module>os-wxmini-spring-boot-starter</module>
         <module>os-wxmp-spring-boot-starter</module>
+        <module>os-mybatis-spring-boot-starter</module>
     </modules>
 
     <dependencies>

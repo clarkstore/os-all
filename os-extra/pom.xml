@@ -2,22 +2,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.github.clarkstore</groupId>
         <artifactId>os-parent</artifactId>
+        <groupId>com.github.clarkstore</groupId>
         <version>0.3.2</version>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>os-common</artifactId>
+    <artifactId>os-extra</artifactId>
     <packaging>pom</packaging>
 
-    <description>公共模块</description>
+    <description>扩展模块</description>
 
     <modules>
-        <module>os-common-core</module>
-        <module>os-common-azure</module>
-        <module>os-common-task</module>
-        <!--        <module>os-common-security</module>-->
+        <module>os-extra-codegen</module>
     </modules>
 </project>

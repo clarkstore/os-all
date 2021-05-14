@@ -1,0 +1,105 @@
+package ${package.Controller};
+
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+#if(${restControllerStyle})
+#else
+import org.springframework.stereotype.Controller;
+#end
+import Res;
+#if(${superControllerClassPackage})
+import ${superControllerClassPackage};
+#end
+import ${package.Entity}.${entity};
+import ${package.Service}.${table.serviceName};
+
+/**
+ * <p>
+ * $!{table.comment} 前端控制器
+ * </p>
+ *
+ * @author ${author}
+ * @date ${date}
+ */
+#if(${restControllerStyle})
+@RestController
+#else
+@Controller
+#end
+@RequestMapping("${wx.cp.apiPath}#if(${package.ModuleName})/${package.ModuleName}#end/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end")
+#if(${superControllerClass})
+public class ${entity}Api extends ${superControllerClass} {
+#else
+public class ${entity}Api {
+#end
+
+    @Autowired
+    private $!{table.serviceName} $!{table.entityPath}Service;
+
+    /**
+     * 通过ID查询
+     *
+     * @param id ID
+     * @return $!{entity}
+     */
+    @GetMapping("/{id}")
+    public Res<$!{entity}> get(@PathVariable String id) {
+        return Res.data($!{table.entityPath}Service.getById(id));
+    }
+
+    /**
+    * 分页查询信息
+    *
+    * @param page 分页对象
+    * @param $!{table.entityPath} 实体
+    * @return 分页对象
+    */
+    @GetMapping("/page")
+    public Res<IPage> page(Page page, $!{entity} $!{table.entityPath}) {
+        return Res.data($!{table.entityPath}Service.page(page, Wrappers.query($!{table.entityPath})));
+    }
+
+    /**
+     * 增加
+     * @param  $!{table.entityPath} 实体
+     * @return Res
+     */
+    @PostMapping("/add")
+    public Res add(@RequestBody $!{entity} $!{table.entityPath}) {
+        if ($!{table.entityPath}Service.save($!{table.entityPath})) {
+            return Res.ok();
+        }
+        return Res.failed();
+    }
+
+    /**
+     * 更新
+     * @param  $!{table.entityPath} 实体
+     * @return Res
+     */
+    @PostMapping("/update")
+    public Res update(@RequestBody $!{entity} $!{table.entityPath}) {
+        if ($!{table.entityPath}Service.updateById($!{table.entityPath})) {
+            return Res.ok();
+        }
+        // 并发操作，失败
+        return Res.msg(Res.MsgCode.ERR_CODE_201);
+    }
+
+    /**
+     * 删除
+     * @param id ID
+     * @return Res
+     */
+    @DeleteMapping("/{id}")
+    public Res delete(@PathVariable String id) {
+        if ($!{table.entityPath}Service.removeById(id)) {
+            return Res.ok();
+        }
+        return Res.failed();
+    }
+}

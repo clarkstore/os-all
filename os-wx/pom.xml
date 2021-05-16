@@ -14,15 +14,10 @@
 
     <description>微信服务模块</description>
 
-    <properties>
-        <wx-java.version>4.0.0</wx-java.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>com.github.clarkstore</groupId>
             <artifactId>os-common-core</artifactId>
-            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

@@ -13,10 +13,6 @@
     <packaging>jar</packaging>
 
     <description>公共模块</description>
-    <properties>
-<!--        <javax-mail.version>1.4.7</javax-mail.version>-->
-<!--        <redisson-starter.version>3.15.4</redisson-starter.version>-->
-    </properties>
 
     <dependencies>
         <!--Redis redisson-->
@@ -43,7 +39,6 @@
         <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
-<!--            <version>${javax-mail.version}</version>-->
         </dependency>
         <!-- html模板 -->
         <dependency>
@@ -54,7 +49,6 @@
         <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
-<!--            <version>${java-jwt.version}</version>-->
         </dependency>
     </dependencies>
 </project>

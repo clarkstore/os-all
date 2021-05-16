@@ -18,7 +18,6 @@
         <dependency>
             <groupId>com.github.binarywang</groupId>
             <artifactId>weixin-java-miniapp</artifactId>
-            <version>${wx-java.version}</version>
         </dependency>
         <!--文件上传-->
         <dependency>

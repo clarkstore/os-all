@@ -13,16 +13,12 @@
     <packaging>jar</packaging>
 
     <description>Azure扩展模块</description>
-    <properties>
-<!--        <azure-storage.version>8.6.6</azure-storage.version>-->
-    </properties>
 
     <dependencies>
         <!--Azure storage-->
         <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-storage</artifactId>
-<!--            <version>${azure-storage.version}</version>-->
         </dependency>
     </dependencies>
 </project>

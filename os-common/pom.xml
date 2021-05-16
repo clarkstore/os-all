@@ -15,6 +15,7 @@
     <description>公共模块</description>
 
     <modules>
+        <module>os-common-bom</module>
         <module>os-common-core</module>
         <module>os-common-azure</module>
         <module>os-common-task</module>

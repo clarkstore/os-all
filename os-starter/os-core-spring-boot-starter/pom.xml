@@ -17,7 +17,7 @@
         <dependency>
             <groupId>com.github.clarkstore</groupId>
             <artifactId>os-common-core</artifactId>
-            <version>${project.version}</version>
+<!--            <version>${project.version}</version>-->
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

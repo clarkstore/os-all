@@ -28,7 +28,7 @@ public class OsRedisUtils {
      *
      * @param key  键
      * @param time 时间(秒)
-     * @return
+     * @return boolean
      */
     public boolean expire(String key, long time) {
         try {
@@ -139,7 +139,7 @@ public class OsRedisUtils {
      * 递增: +1
      *
      * @param key   键
-     * @return
+     * @return long
      */
     public long incr(String key) {
         return redisTemplate.opsForValue().increment(key);
@@ -150,7 +150,7 @@ public class OsRedisUtils {
      *
      * @param key   键
      * @param delta 要增加几(大于0)
-     * @return
+     * @return long
      */
     public long incr(String key, long delta) {
         if (delta < 0) {
@@ -163,7 +163,7 @@ public class OsRedisUtils {
      * 递减: -1
      *
      * @param key   键
-     * @return
+     * @return long
      */
     public long decr(String key) {
         return redisTemplate.opsForValue().decrement(key);
@@ -174,7 +174,7 @@ public class OsRedisUtils {
      *
      * @param key   键
      * @param delta 要减少几(小于0)
-     * @return
+     * @return long
      */
     public long decr(String key, long delta) {
         if (delta < 0) {
@@ -310,7 +310,7 @@ public class OsRedisUtils {
      * @param key  键
      * @param item 项
      * @param by   要增加几(大于0)
-     * @return
+     * @return double
      */
     public double hincr(String key, String item, double by) {
         return redisTemplate.opsForHash().increment(key, item, by);
@@ -322,7 +322,7 @@ public class OsRedisUtils {
      * @param key  键
      * @param item 项
      * @param by   要减少记(小于0)
-     * @return
+     * @return double
      */
     public double hdecr(String key, String item, double by) {
         return redisTemplate.opsForHash().increment(key, item, -by);
@@ -333,7 +333,7 @@ public class OsRedisUtils {
      * 根据key获取Set中的所有值
      *
      * @param key 键
-     * @return
+     * @return Set<Object>
      */
     public Set<Object> sGet(String key) {
         try {
@@ -365,7 +365,7 @@ public class OsRedisUtils {
      *
      * @param key    键
      * @param values 值 可以是多个
-     * @return 成功个数
+     * @return long成功个数
      */
     public long sSet(String key, Object... values) {
         try {
@@ -382,7 +382,7 @@ public class OsRedisUtils {
      * @param key    键
      * @param time   时间(秒)
      * @param values 值 可以是多个
-     * @return 成功个数
+     * @return long成功个数
      */
     public long sSetAndTime(String key, long time, Object... values) {
         try {
@@ -401,7 +401,7 @@ public class OsRedisUtils {
      * 获取set缓存的长度
      *
      * @param key 键
-     * @return
+     * @return long
      */
     public long sGetSetSize(String key) {
         try {
@@ -417,7 +417,7 @@ public class OsRedisUtils {
      *
      * @param key    键
      * @param values 值 可以是多个
-     * @return 移除的个数
+     * @return long移除的个数
      */
     public long setRemove(String key, Object... values) {
         try {
@@ -436,7 +436,7 @@ public class OsRedisUtils {
      * @param key   键
      * @param start 开始
      * @param end   结束 0 到 -1代表所有值
-     * @return
+     * @return List<Object>
      */
     public List<Object> lGet(String key, long start, long end) {
         try {
@@ -451,7 +451,7 @@ public class OsRedisUtils {
      * 获取list缓存的长度
      *
      * @param key 键
-     * @return
+     * @return long
      */
     public long lGetListSize(String key) {
         try {
@@ -467,7 +467,7 @@ public class OsRedisUtils {
      *
      * @param key   键
      * @param index 索引 index>=0时， 0 表头，1 第二个元素，依次类推；index<0时，-1，表尾，-2倒数第二个元素，依次类推
-     * @return
+     * @return Object
      */
     public Object lGetIndex(String key, long index) {
         try {
@@ -483,7 +483,7 @@ public class OsRedisUtils {
      *
      * @param key   键
      * @param value 值
-     * @return
+     * @return boolean
      */
     public boolean lSet(String key, Object value) {
         try {
@@ -501,13 +501,14 @@ public class OsRedisUtils {
      * @param key   键
      * @param value 值
      * @param time  时间(秒)
-     * @return
+     * @return boolean
      */
     public boolean lSet(String key, Object value, long time) {
         try {
             redisTemplate.opsForList().rightPush(key, value);
-            if (time > 0)
+            if (time > 0) {
                 expire(key, time);
+            }
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -520,7 +521,7 @@ public class OsRedisUtils {
      *
      * @param key   键
      * @param value 值
-     * @return
+     * @return boolean
      */
     public boolean lSet(String key, List<Object> value) {
         try {
@@ -538,7 +539,7 @@ public class OsRedisUtils {
      * @param key   键
      * @param value 值
      * @param time  时间(秒)
-     * @return
+     * @return boolean
      */
     public boolean lSet(String key, List<Object> value, long time) {
         try {
@@ -559,7 +560,7 @@ public class OsRedisUtils {
      * @param key   键
      * @param index 索引
      * @param value 值
-     * @return
+     * @return boolean
      */
     public boolean lUpdateIndex(String key, long index, Object value) {
         try {
@@ -577,7 +578,7 @@ public class OsRedisUtils {
      * @param key   键
      * @param count 移除多少个
      * @param value 值
-     * @return 移除的个数
+     * @return boolean移除的个数
      */
     public long lRemove(String key, long count, Object value) {
         try {

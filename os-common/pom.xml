@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.github.clarkstore</groupId>
         <artifactId>os-parent</artifactId>
-        <version>0.3.3</version>
+        <version>0.3.4</version>
     </parent>
 
     <artifactId>os-common</artifactId>
@@ -15,7 +15,7 @@
     <description>公共模块</description>
 
     <modules>
-<!--        <module>os-common-bom</module>-->
+        <module>os-common-bom</module>
         <module>os-common-core</module>
         <module>os-common-azure</module>
         <module>os-common-task</module>

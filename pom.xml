@@ -6,7 +6,7 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-parent</artifactId>
-    <version>0.3.3</version>
+    <version>0.3.4</version>
     <packaging>pom</packaging>
 
     <name>os-parent</name>
@@ -104,7 +104,7 @@
 <!--            <dependency>-->
 <!--                <groupId>com.github.clarkstore</groupId>-->
 <!--                <artifactId>os-common-bom</artifactId>-->
-<!--                <version>${project.version}</version>-->
+<!--                <version>0.0.1</version>-->
 <!--                <type>pom</type>-->
 <!--                <scope>import</scope>-->
 <!--            </dependency>-->

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  * 全局异常处理
  * 新建异常已处理类时，通过@Order定义扩展顺序
  * @author Clark
- * @version 2021/05/10
+ * @version 2021/05/17
  */
 @Slf4j
 @RestControllerAdvice
@@ -24,7 +24,7 @@ public class OsGlobalExceptionHandler {
      */
     @ExceptionHandler(value = {OsAccessLimitException.class})
     public Res accessLimitExceptionHandle(OsAccessLimitException e) {
-        log.error("=========GlobalExceptionHandler=========");
+        log.error("=========限流异常=========");
         log.error(e.getMsg());
         return Res.failed(e.getMsg());
     }

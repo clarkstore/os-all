@@ -30,7 +30,6 @@
     </scm>
 
     <properties>
-        <onestop.version>0.3.6</onestop.version>
         <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-boot.version>2.4.5</spring-boot.version>
@@ -61,33 +60,33 @@
             <dependency>
                 <groupId>com.github.clarkstore</groupId>
                 <artifactId>os-common-core</artifactId>
-                <version>${onestop.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.clarkstore</groupId>
                 <artifactId>os-common-azure</artifactId>
-                <version>${onestop.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.clarkstore</groupId>
                 <artifactId>os-common-mybatis</artifactId>
-                <version>${onestop.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.clarkstore</groupId>
                 <artifactId>os-common-task</artifactId>
-                <version>${onestop.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <!--os-wx-->
             <dependency>
                 <groupId>com.github.clarkstore</groupId>
                 <artifactId>os-wx-mini</artifactId>
-                <version>${onestop.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.clarkstore</groupId>
                 <artifactId>os-wx-mp</artifactId>
-                <version>${onestop.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <!--第三方-->
             <!--web 模块-->
@@ -181,14 +180,14 @@
             </plugins>
         </pluginManagement>
         <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>versions-maven-plugin</artifactId>
-                <version>${versions-maven-plugin.version}</version>
-                <configuration>
-                    <generateBackupPoms>false</generateBackupPoms>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.codehaus.mojo</groupId>-->
+<!--                <artifactId>versions-maven-plugin</artifactId>-->
+<!--                <version>${versions-maven-plugin.version}</version>-->
+<!--                <configuration>-->
+<!--                    <generateBackupPoms>false</generateBackupPoms>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -200,15 +199,15 @@
                     <skip>true</skip>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>${maven-release-plugin.version}</version>
-                <configuration>
-                    <tagNameFormat>v@{project.version}</tagNameFormat>
-                    <autoVersionSubmodules>true</autoVersionSubmodules>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-release-plugin</artifactId>-->
+<!--                <version>${maven-release-plugin.version}</version>-->
+<!--                <configuration>-->
+<!--                    <tagNameFormat>v@{project.version}</tagNameFormat>-->
+<!--                    <autoVersionSubmodules>true</autoVersionSubmodules>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
             <!--生产源码文件插件-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

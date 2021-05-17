@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  * mybatis-plus自定义填充公共字段
  *
  * @author Clark
- * @date 2021/05/14
+ * @version 2021/05/14
  */
 @Component
 public class OsMetaObjectHandler implements MetaObjectHandler {

@@ -7,7 +7,27 @@
     <artifactId>os-common-bom</artifactId>
     <packaging>pom</packaging>
     <version>0.3.6</version>
+    <name>os-common-bom</name>
     <description>onestop公共版本控制</description>
+    <url>https://gitee.com/clarkstore/os-parent</url>
+
+    <developers>
+        <developer>
+            <name>Clark</name>
+            <email>changhongyuan@126.com</email>
+        </developer>
+    </developers>
+    <licenses>
+        <license>
+            <name>The MIT License</name>
+            <url>http://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:git@gitee.com:clarkstore/os-parent.git</connection>
+        <developerConnection>scm:git:git@gitee.com:clarkstore/os-parent.git</developerConnection>
+        <url>https://gitee.com/clarkstore/os-parent</url>
+    </scm>
 
     <properties>
         <onestop.version>0.3.6</onestop.version>

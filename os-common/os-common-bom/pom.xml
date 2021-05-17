@@ -13,7 +13,7 @@
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-common-bom</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1</version>
+    <version>0.3.4</version>
     <description>onestop公共版本控制</description>
 
     <properties>
@@ -136,4 +136,18 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <distributionManagement>
+        <snapshotRepository>
+            <!--oss需要对应到settings.xml下的service的id-->
+            <id>oss</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <uniqueVersion>true</uniqueVersion>
+            <id>oss</id>
+            <name>releases</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <layout>default</layout>
+        </repository>
+    </distributionManagement>
 </project>

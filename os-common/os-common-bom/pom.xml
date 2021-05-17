@@ -13,11 +13,11 @@
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-common-bom</artifactId>
     <packaging>pom</packaging>
-    <version>0.3.4</version>
+    <version>0.3.5</version>
     <description>onestop公共版本控制</description>
 
     <properties>
-        <onestop.version>0.3.4</onestop.version>
+        <onestop.version>0.3.5</onestop.version>
         <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-boot.version>2.4.5</spring-boot.version>

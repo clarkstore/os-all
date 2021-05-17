@@ -6,7 +6,7 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-parent</artifactId>
-    <version>0.3.5</version>
+    <version>0.3.6</version>
     <packaging>pom</packaging>
 
     <name>os-parent</name>
@@ -223,11 +223,9 @@
             <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
         </snapshotRepository>
         <repository>
-            <uniqueVersion>true</uniqueVersion>
             <id>oss</id>
             <name>releases</name>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-            <layout>default</layout>
         </repository>
     </distributionManagement>
     <build>

@@ -29,7 +29,6 @@ import java.util.StringJoiner;
 @Configuration
 @ConditionalOnBean(OsRedisUtils.class)
 public class OsAccessLimitInterceptor implements HandlerInterceptor {
-
     @Autowired
     private OsRedisUtils osRedisUtils;
 

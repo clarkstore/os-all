@@ -1,9 +1,9 @@
-package com.onestop.starter.common.core.config;
+package com.onestop.starter.common.redis.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.onestop.common.core.util.OsRedisUtils;
+import com.onestop.starter.common.redis.util.OsRedisUtils;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -31,7 +31,7 @@ import java.time.Duration;
 @Configuration
 @EnableConfigurationProperties(OsRedisProperties.class)
 @ConditionalOnProperty(prefix = "os.redis", name = "enabled", havingValue = "true")
-public class OsCoreRedisAutoConfiguration {
+public class OsRedisAutoConfiguration {
     @Autowired
     private OsRedisProperties properties;
 

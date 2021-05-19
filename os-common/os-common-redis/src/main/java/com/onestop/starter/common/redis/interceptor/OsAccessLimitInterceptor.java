@@ -1,11 +1,11 @@
-package com.onestop.common.core.interceptor;
+package com.onestop.starter.common.redis.interceptor;
 
 import cn.hutool.core.util.StrUtil;
-import com.onestop.common.core.annotation.OsAccessLimit;
-import com.onestop.common.core.constant.OsLimitTypeEnum;
-import com.onestop.common.core.exception.OsAccessLimitException;
-import com.onestop.common.core.util.OsIPUtils;
-import com.onestop.common.core.util.OsRedisUtils;
+import com.onestop.starter.common.redis.annotation.OsAccessLimit;
+import com.onestop.starter.common.redis.constant.OsLimitTypeEnum;
+import com.onestop.starter.common.redis.exception.OsAccessLimitException;
+import com.onestop.starter.common.redis.util.OsIPUtils;
+import com.onestop.starter.common.redis.util.OsRedisUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;

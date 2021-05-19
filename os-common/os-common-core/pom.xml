@@ -6,7 +6,7 @@
     <parent>
         <artifactId>os-common</artifactId>
         <groupId>com.github.clarkstore</groupId>
-        <version>0.3.7</version>
+        <version>0.3.8</version>
     </parent>
 
     <artifactId>os-common-core</artifactId>
@@ -26,15 +26,15 @@
 <!--            <artifactId>redisson-spring-data-24</artifactId>-->
 <!--            <version>${redisson-starter.version}</version>-->
 <!--        </dependency>-->
-        <!--Redis lettuce-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-pool2</artifactId>
-        </dependency>
+<!--        &lt;!&ndash;Redis lettuce&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-data-redis</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.commons</groupId>-->
+<!--            <artifactId>commons-pool2</artifactId>-->
+<!--        </dependency>-->
         <!--Mail-->
         <dependency>
             <groupId>javax.mail</groupId>

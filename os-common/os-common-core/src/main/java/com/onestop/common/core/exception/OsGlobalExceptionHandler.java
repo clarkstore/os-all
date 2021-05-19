@@ -19,17 +19,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class OsGlobalExceptionHandler {
     /**
      *
-     * @param e 限流异常
-     * @return Res 返回结果
-     */
-    @ExceptionHandler(value = {OsAccessLimitException.class})
-    public Res accessLimitExceptionHandle(OsAccessLimitException e) {
-        log.error("=========限流异常=========");
-        log.error(e.getMsg());
-        return Res.failed(e.getMsg());
-    }
-    /**
-     *
      * @param e 业务异常
      * @return Res 返回结果
      */

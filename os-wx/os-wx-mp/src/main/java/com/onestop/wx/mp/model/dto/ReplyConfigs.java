@@ -1,7 +1,7 @@
 package com.onestop.wx.mp.model.dto;
 
 import cn.hutool.core.collection.CollUtil;
-import com.onestop.common.core.util.OsRedisUtils;
+import com.onestop.starter.common.redis.util.OsRedisUtils;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

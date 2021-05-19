@@ -1,6 +1,6 @@
-package com.onestop.common.core.annotation;
+package com.onestop.starter.common.redis.annotation;
 
-import com.onestop.common.core.constant.OsLimitTypeEnum;
+import com.onestop.starter.common.redis.constant.OsLimitTypeEnum;
 
 import java.lang.annotation.*;
 

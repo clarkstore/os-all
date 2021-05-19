@@ -1,4 +1,4 @@
-package com.onestop.common.core.constant;
+package com.onestop.starter.common.redis.constant;
 
 /**
  * @author Clark

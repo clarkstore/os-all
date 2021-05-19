@@ -1,4 +1,6 @@
-package com.onestop.common.core.exception;
+package com.onestop.starter.common.redis.exception;
+
+import com.onestop.common.core.exception.OsBaseException;
 
 /**
  * 限流异常

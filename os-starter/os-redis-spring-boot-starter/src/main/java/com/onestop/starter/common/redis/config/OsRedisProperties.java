@@ -1,4 +1,4 @@
-package com.onestop.starter.common.core.config;
+package com.onestop.starter.common.redis.config;
 
 import io.lettuce.core.RedisURI;
 import lombok.*;

@@ -1,4 +1,4 @@
-package com.onestop.common.core.util;
+package com.onestop.starter.common.redis.util;
 
 import javax.servlet.http.HttpServletRequest;
 

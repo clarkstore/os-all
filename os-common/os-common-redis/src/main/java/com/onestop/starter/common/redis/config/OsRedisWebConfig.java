@@ -1,6 +1,6 @@
-package com.onestop.common.core.config;
+package com.onestop.starter.common.redis.config;
 
-import com.onestop.common.core.interceptor.OsTokenInterceptor;
+import com.onestop.starter.common.redis.interceptor.OsAccessLimitInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -15,14 +15,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @version 2020-04-06
  */
 @Configuration
-public class OsWebConfig implements WebMvcConfigurer {
-    // TODO 可以继承自定义Token拦截器
+public class OsRedisWebConfig implements WebMvcConfigurer {
+    // TODO 可以继承自定义限流拦截器
     @Autowired(required = false)
-    protected OsTokenInterceptor tokenInterceptor;
+    private OsAccessLimitInterceptor accessLimitInterceptor;
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        if (this.tokenInterceptor != null) {
-            registry.addInterceptor(this.tokenInterceptor)
+        if (this.accessLimitInterceptor != null) {
+            registry.addInterceptor(this.accessLimitInterceptor)
                     .addPathPatterns("/**");
         //  .excludePathPatterns("/不被拦截路径 通常为登录注册或者首页");
         }
@@ -40,10 +40,4 @@ public class OsWebConfig implements WebMvcConfigurer {
                 .allowedMethods("*")
                 .allowedOrigins("*");
     }
-// TODO 根据业务重写以下方法
-// TODO 是否需要对前端通过header传递参数，进行统一处理
-//    @ModelAttribute(name = "openid")
-//    public String getHeaderOpenid() {
-//        return request.getHeader(WxConsts.HEADER_OPENID);
-//    }
 }

@@ -16,12 +16,16 @@ import java.util.List;
 
 /**
  * 代码生成器
+ * @author Clark
+ * @version 2021-05-20
  */
 @Slf4j
 @Component
 public class CodeGenUtils {
     /**
      * 获取配置信息
+     *
+     * @return Configuration
      */
     public Configuration getConfig() {
         try {
@@ -32,6 +36,9 @@ public class CodeGenUtils {
         return null;
     }
 
+    /**
+     * 生成代码
+     */
     public void codeGenerator() {
         Configuration config = getConfig();
 

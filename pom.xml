@@ -6,7 +6,7 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-parent</artifactId>
-    <version>0.3.10</version>
+    <version>0.3.11</version>
     <packaging>pom</packaging>
 
     <name>os-parent</name>
@@ -15,7 +15,7 @@
 
     <developers>
         <developer>
-            <name>Clark</name>
+            <name>ClarkChang</name>
             <email>changhongyuan@126.com</email>
         </developer>
     </developers>

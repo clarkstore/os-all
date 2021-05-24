@@ -6,7 +6,7 @@
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-common-bom</artifactId>
     <packaging>pom</packaging>
-    <version>0.3.12</version>
+    <version>0.3.13</version>
     <name>os-common-bom</name>
     <description>onestop公共版本控制</description>
     <url>https://gitee.com/clarkstore/os-parent</url>
@@ -33,13 +33,16 @@
         <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-boot.version>2.4.5</spring-boot.version>
-        <hutool.version>5.6.4</hutool.version>
         <druid.version>1.2.6</druid.version>
+        <!--公共模块-->
+        <hutool.version>5.6.4</hutool.version>
+        <java-jwt.version>3.12.0</java-jwt.version>
+        <javax-mail.version>1.4.7</javax-mail.version>
+        <!--redis模块-->
+        <redisson-starter.version>3.15.5</redisson-starter.version>
+        <!--mybatis模块-->
         <mysql-connector-java.version>8.0.23</mysql-connector-java.version>
         <mybatis-plus.version>3.4.2</mybatis-plus.version>
-        <java-jwt.version>3.12.0</java-jwt.version>
-        <!--公共模块-->
-        <javax-mail.version>1.4.7</javax-mail.version>
         <!--azure-storage模块-->
         <azure-storage.version>8.6.6</azure-storage.version>
         <!--微信模块-->
@@ -158,6 +161,17 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--Redis redisson-->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-data-24</artifactId>
+                <version>${redisson-starter.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

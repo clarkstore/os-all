@@ -6,7 +6,7 @@
     <parent>
         <artifactId>os-common</artifactId>
         <groupId>com.github.clarkstore</groupId>
-        <version>0.3.12</version>
+        <version>0.3.13</version>
     </parent>
 
     <artifactId>os-common-core</artifactId>
@@ -15,26 +15,6 @@
     <description>公共模块</description>
 
     <dependencies>
-        <!--Redis redisson-->
-<!--        <dependency>-->
-<!--            <groupId>org.redisson</groupId>-->
-<!--            <artifactId>redisson-spring-boot-starter</artifactId>-->
-<!--            <version>${redisson-starter.version}</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.redisson</groupId>-->
-<!--            <artifactId>redisson-spring-data-24</artifactId>-->
-<!--            <version>${redisson-starter.version}</version>-->
-<!--        </dependency>-->
-<!--        &lt;!&ndash;Redis lettuce&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-data-redis</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.commons</groupId>-->
-<!--            <artifactId>commons-pool2</artifactId>-->
-<!--        </dependency>-->
         <!--Mail-->
         <dependency>
             <groupId>javax.mail</groupId>

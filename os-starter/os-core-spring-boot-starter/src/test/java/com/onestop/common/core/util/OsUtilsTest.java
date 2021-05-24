@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.redis.core.StringRedisTemplate;
 
 @Slf4j
 @SpringBootTest(classes = StarterCoreApplication.class)
@@ -15,12 +14,6 @@ public class OsUtilsTest {
     private OsMailUtils osMailUtils;
     @Autowired(required = false)
     private OsTokenUtils osTokenUtils;
-
-    @Autowired(required = false)
-    private OsRedisUtils osRedisUtils;
-
-    @Autowired
-    private StringRedisTemplate stringRedisTemplate;
 
     @Test
     public void sendMail() {
@@ -33,29 +26,5 @@ public class OsUtilsTest {
         log.error("======================");
         log.error("sign=" + sign);
         log.error("verify=" + osTokenUtils.verify(sign,"abc"));
-    }
-
-    @Test
-    public void redis() {
-        try {
-            osRedisUtils.del("abc");
-            log.error("Expire=" + osRedisUtils.getExpire("abc"));
-            osRedisUtils.set("abc",2, 3);
-
-            for (int i = 0; i < 5; i++) {
-                log.error("1 abc=" + osRedisUtils.get("abc"));
-                log.error("Expire=" + osRedisUtils.getExpire("abc"));
-//                if (osRedisUtils.getExpire("abc") == -2) {
-//                    osRedisUtils.set("abc",5, 5);
-//                } else {
-//                    osRedisUtils.decr("abc");
-//                }
-//                log.error("2 abc=" + osRedisUtils.get("abc"));
-                Thread.sleep(1000);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }
 }

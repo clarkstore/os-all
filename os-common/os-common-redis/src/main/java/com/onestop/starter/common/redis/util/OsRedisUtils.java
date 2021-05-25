@@ -601,16 +601,30 @@ public class OsRedisUtils {
     }
 
     //============================== redisson lock=================================
+    /**
+     * 取得锁
+     * @param key 是锁key，不是redis的key
+     * @return boolean
+     */
     public boolean tryLock(String key) {
         RLock lock = redissonClient.getLock(key);
         return lock.tryLock();
     }
 
+    /**
+     * 释放锁
+     * @param key 是锁key，不是redis的key
+     */
     public void unlock(String key) {
         RLock lock = redissonClient.getLock(key);
         lock.unlock();
     }
 
+    /**
+     * 读写锁
+     * @param key 是锁key，不是redis的key
+     * @return RReadWriteLock
+     */
     public RReadWriteLock rwLock(String key) {
         return redissonClient.getReadWriteLock(key);
     }

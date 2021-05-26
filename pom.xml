@@ -6,7 +6,7 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-parent</artifactId>
-    <version>0.3.13</version>
+    <version>0.3.14</version>
     <packaging>pom</packaging>
 
     <name>os-parent</name>
@@ -22,7 +22,7 @@
     <licenses>
         <license>
             <name>Apache License</name>
-            <url>https://www.apache.org/licenses/LICENSE-2.0.html</url>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
         </license>
     </licenses>
     <scm>

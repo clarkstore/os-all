@@ -51,6 +51,12 @@ GitHub：[https://github.com/clarkstore/os-parent](https://github.com/clarkstore
    - 服务号
    - 微信支付
 
+---
+### 开源协议
+遵循 [Apache 2.0 协议](https://www.apache.org/licenses/LICENSE-2.0.html) ，
+允许商业使用，但务必保留类作者、Copyright 信息。
+
+![](apache.png)
 
 ---
 ### 赞助商

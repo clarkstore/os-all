@@ -22,8 +22,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.LocalDateTime;
-
 /**
  * 回复信息
  *
@@ -56,14 +54,6 @@ public class ReplyDto {
      * 文本回复内容
      */
     private String replyText;
-    /**
-     * 创建时间
-     */
-    private LocalDateTime createTime;
-    /**
-     * 更新时间
-     */
-    private LocalDateTime updateTime;
     /**
      * 删除标识
      */

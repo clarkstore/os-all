@@ -22,7 +22,7 @@
     <licenses>
         <license>
             <name>Apache License</name>
-            <url>http://opensource.org/licenses/MIT</url>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.html</url>
         </license>
     </licenses>
     <scm>
@@ -34,7 +34,7 @@
     <properties>
         <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-boot.version>2.4.5</spring-boot.version>
+        <spring-boot.version>2.5.0</spring-boot.version>
         <!--部署-->
         <versions-maven-plugin.version>2.8.1</versions-maven-plugin.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>

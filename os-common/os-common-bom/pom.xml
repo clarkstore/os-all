@@ -19,8 +19,8 @@
     </developers>
     <licenses>
         <license>
-            <name>The MIT License</name>
-            <url>http://opensource.org/licenses/MIT</url>
+            <name>Apache License</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.html</url>
         </license>
     </licenses>
     <scm>
@@ -32,17 +32,17 @@
     <properties>
         <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-boot.version>2.4.5</spring-boot.version>
+        <spring-boot.version>2.5.0</spring-boot.version>
         <druid.version>1.2.6</druid.version>
         <!--公共模块-->
-        <hutool.version>5.6.4</hutool.version>
+        <hutool.version>5.6.5</hutool.version>
         <java-jwt.version>3.12.0</java-jwt.version>
         <javax-mail.version>1.4.7</javax-mail.version>
         <!--redis模块-->
         <redisson-starter.version>3.15.5</redisson-starter.version>
         <!--mybatis模块-->
         <mysql-connector-java.version>8.0.23</mysql-connector-java.version>
-        <mybatis-plus.version>3.4.2</mybatis-plus.version>
+        <mybatis-plus.version>3.4.3</mybatis-plus.version>
         <!--azure-storage模块-->
         <azure-storage.version>8.6.6</azure-storage.version>
         <!--微信模块-->

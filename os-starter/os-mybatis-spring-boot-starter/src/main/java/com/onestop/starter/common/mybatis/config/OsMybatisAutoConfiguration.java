@@ -1,9 +1,11 @@
 package com.onestop.starter.common.mybatis.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
+import com.onestop.common.mybatis.extra.CustomIdGenerator;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,5 +26,14 @@ public class OsMybatisAutoConfiguration {
         //乐观锁
         interceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());
         return interceptor;
+    }
+
+    /**
+     * 自定义ID生成器
+     * @return id
+     */
+    @Bean
+    public IdentifierGenerator idGenerator() {
+        return new CustomIdGenerator();
     }
 }

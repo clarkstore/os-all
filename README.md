@@ -45,7 +45,7 @@ GitHub：[https://github.com/clarkstore/os-parent](https://github.com/clarkstore
    - redis模块
    - 定时任务模块
    - 安全模块：api路径访问控制 待发布
-4. 微信模块【基于weixin-java开源项目封装】
+4. 微信模块
    - 企业微信
    - 小程序
    - 服务号

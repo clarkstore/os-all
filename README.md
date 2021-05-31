@@ -1,19 +1,10 @@
 [![](logo.png)](https://*.png "一站")
 ----
-<p align="center">
-     <a target="_blank" href="https://www.apache.org/licenses/LICENSE-2.0">
-        <img alt="" src="https://img.shields.io/badge/License-Apache--2.0-brightgreen.svg"/>
-     </a>
-     <a target="_blank" href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">
-        <img alt="" src="https://img.shields.io/badge/JDK-1.8+-green.svg"/>
-     </a>
-     <a target="_blank" href="https://maven-badges.herokuapp.com/maven-central/com.github.clarkstore/os-parent">
-        <img alt="" src="https://maven-badges.herokuapp.com/maven-central/com.github.clarkstore/os-parent/badge.svg"/>
-     </a> 
-     <a target="_blank" href="https://gitee.com/clarkstore/os-parent/guide/donate">
-        <img alt="" src="https://img.shields.io/badge/OneStop%20Author-Clark-ff69b4.svg"/>
-     </a>
-</p>
+[![License](https://img.shields.io/badge/License-Apache--2.0-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+[![JDK](https://img.shields.io/badge/JDK-1.8+-green.svg)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+[![maven-central](https://maven-badges.herokuapp.com/maven-central/com.github.clarkstore/os-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.clarkstore/os-parent)
+[![Author](https://img.shields.io/badge/OneStop%20Author-Clark-blue.svg)](https://gitee.com/clarkstore/os-parent/guide/donate)
+[![使用IntelliJ IDEA开发维护](https://img.shields.io/badge/IntelliJ%20IDEA-提供支持-blue.svg)](https://www.jetbrains.com/?from=os-parent)
 
 ## OneStop工具平台
 ### 平台简介：

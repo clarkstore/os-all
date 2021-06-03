@@ -36,11 +36,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class OsRedisWebConfig implements WebMvcConfigurer {
     // TODO 可以继承自定义限流拦截器
     @Autowired(required = false)
-    private OsAccessLimitInterceptor accessLimitInterceptor;
+    private OsAccessLimitInterceptor osAccessLimitInterceptor;
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        if (this.accessLimitInterceptor != null) {
-            registry.addInterceptor(this.accessLimitInterceptor)
+        if (this.osAccessLimitInterceptor != null) {
+            registry.addInterceptor(this.osAccessLimitInterceptor)
                     .addPathPatterns("/**");
         //  .excludePathPatterns("/不被拦截路径 通常为登录注册或者首页");
         }

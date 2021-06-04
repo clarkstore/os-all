@@ -19,9 +19,11 @@
 package com.onestop.starter.common.redis.config;
 
 import io.lettuce.core.RedisURI;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * Mail配置
@@ -29,10 +31,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @author Clark
  * @version 2021-02-24
  */
-@Getter
-@Setter
-@ToString
-@ConfigurationProperties(prefix = "spring.redis")
+//@Getter
+//@Setter
+//@ToString
+//@ConfigurationProperties(prefix = "spring.redis")
 public class OsRedisProperties {
 	/**
 	 * 邮件服务器的SMTP地址

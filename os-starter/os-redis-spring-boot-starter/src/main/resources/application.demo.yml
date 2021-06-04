@@ -9,7 +9,7 @@ os:
     enabled: true
 spring:
   redis:
-    database: 2
+    database: 0
     # Redis服务器地址
     host: 127.0.0.1
     # Redis服务器连接端口

@@ -16,6 +16,8 @@ spring:
     port: 6379
     # Redis服务器连接密码（默认为空）
     password:
+    # SSL
+    ssl: false
     # 连接超时时间（毫秒）
     timeout: 5000
     lettuce:

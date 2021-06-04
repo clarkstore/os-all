@@ -51,6 +51,10 @@ public class OsRedisProperties {
 	 */
 	private Integer database = 0;
 	/**
+	 * SSL
+	 */
+	private boolean ssl = false;
+	/**
 	 * 超时
 	 */
 	private long timeout = RedisURI.DEFAULT_TIMEOUT;

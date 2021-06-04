@@ -18,12 +18,8 @@
 
 package com.onestop.starter.common.redis.util;
 
-import org.redisson.api.RLock;
-import org.redisson.api.RReadWriteLock;
-import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import java.util.Collection;
@@ -38,7 +34,7 @@ import java.util.concurrent.TimeUnit;
  * @author Clark
  * @version 2021-05-10
  */
-@Component
+//@Component
 public class OsRedisUtils {
     /**
      * 注入redisTemplate bean
@@ -48,8 +44,8 @@ public class OsRedisUtils {
     /**
      * redisson Client
      */
-    @Autowired
-    private RedissonClient redissonClient;
+//    @Autowired
+//    private RedissonClient redissonClient;
 
     /**
      * 指定缓存失效时间
@@ -619,31 +615,31 @@ public class OsRedisUtils {
     }
 
     //============================== redisson lock=================================
-    /**
-     * 取得锁
-     * @param key 是锁key，不是redis的key
-     * @return boolean
-     */
-    public boolean tryLock(String key) {
-        RLock lock = redissonClient.getLock(key);
-        return lock.tryLock();
-    }
-
-    /**
-     * 释放锁
-     * @param key 是锁key，不是redis的key
-     */
-    public void unlock(String key) {
-        RLock lock = redissonClient.getLock(key);
-        lock.unlock();
-    }
-
-    /**
-     * 读写锁
-     * @param key 是锁key，不是redis的key
-     * @return RReadWriteLock
-     */
-    public RReadWriteLock rwLock(String key) {
-        return redissonClient.getReadWriteLock(key);
-    }
+//    /**
+//     * 取得锁
+//     * @param key 是锁key，不是redis的key
+//     * @return boolean
+//     */
+//    public boolean tryLock(String key) {
+//        RLock lock = redissonClient.getLock(key);
+//        return lock.tryLock();
+//    }
+//
+//    /**
+//     * 释放锁
+//     * @param key 是锁key，不是redis的key
+//     */
+//    public void unlock(String key) {
+//        RLock lock = redissonClient.getLock(key);
+//        lock.unlock();
+//    }
+//
+//    /**
+//     * 读写锁
+//     * @param key 是锁key，不是redis的key
+//     * @return RReadWriteLock
+//     */
+//    public RReadWriteLock rwLock(String key) {
+//        return redissonClient.getReadWriteLock(key);
+//    }
 }

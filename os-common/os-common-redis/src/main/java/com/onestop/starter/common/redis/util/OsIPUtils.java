@@ -36,31 +36,16 @@ public class OsIPUtils {
     private static final String UNKNOWN = "unknown";
 
     /**
-     * 获取IP地址
-     * 使用 Nginx等反向代理软件， 则不能通过request.getRemoteAddr()获取IP地址
-     * 如果使用了多级反向代理的话，X-Forwarded-For的值并不止一个，而是一串IP地址，X-Forwarded-For中第一个非 unknown的有效IP字符串，则为真实IP地址
-     *
-     * @param request
-     * @return IP地址
-     */
-    @Deprecated
-    public static String getIpAddr(HttpServletRequest request) {
-        String ip = request.getHeader("x-forwarded-for");
-        if (ip == null || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
-            ip = request.getHeader("Proxy-Client-IP");
-        }
-        if (ip == null || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
-            ip = request.getHeader("WL-Proxy-Client-IP");
-        }
-        if (ip == null || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
-            ip = request.getRemoteAddr();
-        }
-        return "0:0:0:0:0:0:0:1".equals(ip) ? "127.0.0.1" : ip;
-    }
-
-    /**
      * 获取客户端的IP地址<br/>
      * 注意本地测试访问项目地址时，浏览器请求不要用 localhost，请用本机IP；否则，取不到 IP
+     *
+     * nginx配置
+     * location ^~ /wxmini/ {
+     *     proxy_set_header        X-Real-IP       $remote_addr;
+     *     proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+     *     proxy_pass http://127.0.0.1:9931/wxmini/;
+     * }
+     *
      * @param request
      * @return IP地址
      */
@@ -109,7 +94,7 @@ public class OsIPUtils {
                 ip = inet.getHostAddress();
             }
         }
-        log.error("getClientIp  IP is " + ip + ", headerName = " + headerName);
+        log.debug("getClientIp  IP is " + ip + ", headerName = " + headerName);
         return ip;
     }
 

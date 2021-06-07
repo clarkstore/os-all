@@ -75,7 +75,7 @@ public class OsAccessLimitInterceptor implements HandlerInterceptor {
 
             switch (limitType) {
                 case IP:
-                    key = OsIPUtils.getIpAddr(request);
+                    key = OsIPUtils.getClientIpAddress(request);
                     break;
                 case CUSTOMER:
                     key = accessLimit.key();

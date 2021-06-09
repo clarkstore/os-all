@@ -25,6 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.error.WxErrorException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -43,7 +44,7 @@ public class WxMiniMsgApi {
 
 
     @PostMapping("/send")
-    public Res send(SubscribeReqDto dto) {
+    public Res send(@RequestBody SubscribeReqDto dto) {
         try {
             this.osWxMiniUtils.sendSubscribeMsg(dto);
             return Res.ok();

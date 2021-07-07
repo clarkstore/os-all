@@ -18,7 +18,7 @@
 
 package com.onestop.common.task.util;
 
-import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.map.MapUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.scheduling.support.CronTrigger;
@@ -36,7 +36,7 @@ import java.util.concurrent.ScheduledFuture;
 public class OsTaskSchedulerUtils {
     @Autowired
     private ThreadPoolTaskScheduler taskScheduler;
-    private static Map<String, ScheduledFuture<?>> scheduledFutureMap = CollUtil.newHashMap();
+    private static Map<String, ScheduledFuture<?>> scheduledFutureMap = MapUtil.newHashMap();
 
     @PostConstruct
     public void initialize() {

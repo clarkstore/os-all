@@ -34,7 +34,7 @@ import java.io.File;
  * 微信小程序API工具类
  *
  * @author Clark
- * @version 2021-03-18
+ * @version 2021-07-07
  */
 @Slf4j
 @Component
@@ -66,7 +66,7 @@ public class OsWxMiniUtils {
 
         //封装参数
         for (int i = 0; i < subscribe.getNameList().size(); i++) {
-            WxMaSubscribeMessage.Data data = new WxMaSubscribeMessage.Data();
+            WxMaSubscribeMessage.MsgData data = new WxMaSubscribeMessage.MsgData();
             data.setName(subscribe.getNameList().get(i));
             data.setValue(dto.getValueList().get(i));
             subscribeMessage.addData(data);

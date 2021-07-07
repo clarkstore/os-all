@@ -18,7 +18,7 @@
 
 package com.onestop.starter.wx.mini.config;
 
-import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.map.MapUtil;
 import com.onestop.wx.mini.util.dto.SubscribeConfigs;
 import com.onestop.wx.mini.util.dto.SubscribeDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +45,7 @@ public class OsWxminiSubscribeAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean
     public SubscribeConfigs subscribeConfigs() {
-        Map<String, SubscribeDto> configMap = CollUtil.newHashMap();
+        Map<String, SubscribeDto> configMap = MapUtil.newHashMap();
         this.properties.getConfigs().forEach(item -> {
             configMap.put(item.getMsgId(), item);
         });

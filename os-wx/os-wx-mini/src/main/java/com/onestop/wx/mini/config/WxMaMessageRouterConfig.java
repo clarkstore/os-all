@@ -35,7 +35,7 @@ import java.io.File;
 /**
  * 消息路由配置
  * @author Clark
- * @version 2020-08-25
+ * @version 2021-07-07
  */
 @Configuration
 public class WxMaMessageRouterConfig {
@@ -58,7 +58,7 @@ public class WxMaMessageRouterConfig {
         service.getMsgService().sendSubscribeMsg(WxMaSubscribeMessage.builder()
                 .templateId("此处更换为自己的模板id")
                 .data(Lists.newArrayList(
-                        new WxMaSubscribeMessage.Data("keyword1", "339208499")))
+                        new WxMaSubscribeMessage.MsgData("keyword1", "339208499")))
                 .toUser(wxMessage.getFromUser())
                 .build());
         return null;

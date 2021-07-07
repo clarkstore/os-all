@@ -18,7 +18,7 @@
 
 package com.onestop.wx.mp.model.dto;
 
-import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.map.MapUtil;
 import com.onestop.starter.common.redis.util.OsRedisUtils;
 import lombok.Getter;
 import lombok.Setter;
@@ -63,7 +63,7 @@ public class ReplyConfigs {
             this.replyTextMap = replyTextMap;
         } else {
             // 缓存数据
-            Map<String, Object> map = CollUtil.newHashMap();
+            Map<String, Object> map = MapUtil.newHashMap();
             replyTextMap.forEach((key, value) -> {
                 map.put(key, value);
             });
@@ -78,7 +78,7 @@ public class ReplyConfigs {
      */
     public Map<String, String> getReplyTextMap() {
         if (this.replyTextMap == null) {
-            this.replyTextMap = CollUtil.newHashMap();
+            this.replyTextMap = MapUtil.newHashMap();
 
             if (this.osRedisUtils == null) {
                 // 取配置数据

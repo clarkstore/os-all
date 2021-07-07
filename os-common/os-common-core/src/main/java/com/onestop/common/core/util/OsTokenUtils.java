@@ -18,8 +18,8 @@
 
 package com.onestop.common.core.util;
 
-import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.StrUtil;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -33,6 +33,7 @@ import java.util.Map;
 
 /**
  * Token工具类
+ * TODO hutool-jwt改造
  *
  * @author Clark
  * @version 2021-01-07
@@ -77,7 +78,7 @@ public class OsTokenUtils {
             // 私钥和加密算法
             Algorithm algorithm = Algorithm.HMAC256(this.secret);
             // 设置头部信息
-            Map<String, Object> header = CollUtil.newHashMap();
+            Map<String, Object> header = MapUtil.newHashMap();
             header.put("Type", "Jwt");
             header.put("alg", "HS256");
             // 返回token字符串

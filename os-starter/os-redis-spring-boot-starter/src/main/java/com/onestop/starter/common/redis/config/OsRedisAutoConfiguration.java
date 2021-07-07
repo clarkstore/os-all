@@ -39,50 +39,8 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * @version 2021-05-10
  */
 @Configuration
-//@EnableConfigurationProperties(OsRedisProperties.class)
 @ConditionalOnProperty(prefix = "os.redis", name = "enabled", havingValue = "true")
 public class OsRedisAutoConfiguration {
-//    @Autowired
-//    private OsRedisProperties properties;
-//
-//    @Bean
-//    public LettuceConnectionFactory lettuceConnectionFactory() {
-//        GenericObjectPoolConfig genericObjectPoolConfig = new GenericObjectPoolConfig();
-//        if (this.properties != null && this.properties.getLettuce() != null && this.properties.getLettuce().getPool() != null) {
-//            genericObjectPoolConfig.setMaxIdle(this.properties.getLettuce().getPool().getMaxIdle());
-//            genericObjectPoolConfig.setMinIdle(this.properties.getLettuce().getPool().getMinIdle());
-//            genericObjectPoolConfig.setMaxTotal(this.properties.getLettuce().getPool().getMaxActive());
-//            genericObjectPoolConfig.setMaxWaitMillis(this.properties.getLettuce().getPool().getMaxWait());
-//        }
-//
-//        genericObjectPoolConfig.setTimeBetweenEvictionRunsMillis(100);
-//        RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
-//        redisStandaloneConfiguration.setHostName(this.properties.getHost());
-//        redisStandaloneConfiguration.setPort(this.properties.getPort());
-//        redisStandaloneConfiguration.setPassword(RedisPassword.of(this.properties.getPassword()));
-//        redisStandaloneConfiguration.setDatabase(this.properties.getDatabase());
-//
-//        LettuceClientConfiguration clientConfig = null;
-//        if (this.properties.isSsl()) {
-//            clientConfig = LettucePoolingClientConfiguration.builder()
-//                    .commandTimeout(Duration.ofMillis(this.properties.getTimeout()))
-//                    .shutdownTimeout(Duration.ofMillis(this.properties.getLettuce().getShutdownTimeout()))
-//                    .poolConfig(genericObjectPoolConfig)
-//                    .useSsl()
-//                    .build();
-//        } else {
-//            clientConfig = LettucePoolingClientConfiguration.builder()
-//                    .commandTimeout(Duration.ofMillis(this.properties.getTimeout()))
-//                    .shutdownTimeout(Duration.ofMillis(this.properties.getLettuce().getShutdownTimeout()))
-//                    .poolConfig(genericObjectPoolConfig)
-//                    .build();
-//        }
-//
-//        LettuceConnectionFactory factory = new LettuceConnectionFactory(redisStandaloneConfiguration, clientConfig);
-////        factory.setShareNativeConnection(true);
-////        factory.setValidateConnection(false);
-//        return factory;
-//    }
 
     @Bean
     @ConditionalOnMissingBean

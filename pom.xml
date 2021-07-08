@@ -6,7 +6,7 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-parent</artifactId>
-    <version>0.3.22</version>
+    <version>0.3.23</version>
     <packaging>pom</packaging>
 
     <name>os-parent</name>
@@ -89,13 +89,6 @@
                 <groupId>com.github.clarkstore</groupId>
                 <artifactId>os-common-bom</artifactId>
                 <version>${project.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

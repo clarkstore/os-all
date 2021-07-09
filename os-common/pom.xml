@@ -21,7 +21,7 @@
         <module>os-common-task</module>
         <module>os-common-mybatis</module>
         <module>os-common-redis</module>
-        <module>os-common-feign</module>
+<!--        <module>os-common-feign</module>-->
         <!--        <module>os-common-security</module>-->
     </modules>
 </project>

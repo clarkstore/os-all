@@ -234,7 +234,7 @@ public class WxPayUtils {
                 log.debug("支付结果通知成功，商户订单号:" + params.get("out_trade_no"));
                 // 更新订单信息
                 // 发送通知等
-                Map<String, String> xml = CollUtil.newHashMap();
+                Map<String, String> xml = MapUtil.newHashMap();
                 xml.put("return_code", "SUCCESS");
                 xml.put("return_msg", "OK");
                 return WxPayKit.toXml(xml);
@@ -261,7 +261,7 @@ public class WxPayUtils {
             log.debug("退款通知通知成功，退款通知解密后的数据=" + decryptData);
             // 更新订单信息
             // 发送通知等
-            Map<String, String> xml = CollUtil.newHashMap();
+            Map<String, String> xml = MapUtil.newHashMap();
             xml.put("return_code", "SUCCESS");
             xml.put("return_msg", "OK");
             return WxPayKit.toXml(xml);
@@ -277,7 +277,7 @@ public class WxPayUtils {
     @Deprecated
     public Map<String, String> profitSharing() throws PayException {
         List<Map<String, Object>> list = CollUtil.newArrayList();
-        Map<String, Object> map = CollUtil.newHashMap();
+        Map<String, Object> map = MapUtil.newHashMap();
         map.put("type", ReceiverType.WECHATID.getType());
         map.put("account", "changziyu");
         map.put("amount", 10);

@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.github.clarkstore</groupId>
         <artifactId>os-parent</artifactId>
-        <version>0.3.25</version>
+        <version>0.3.26</version>
     </parent>
 
     <artifactId>os-common</artifactId>

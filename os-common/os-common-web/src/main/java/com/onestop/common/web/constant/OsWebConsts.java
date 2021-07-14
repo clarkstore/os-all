@@ -16,17 +16,16 @@
  *
  */
 
-package com.onestop.starter.common.core.config;
-
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+package com.onestop.common.web.constant;
 
 /**
- * os-common-core配置
+ * core常量
  * @author Clark
- * @version 2021-02-24
+ * @version 2021/04/02
  */
-@Configuration
-@Import({ OsCoreMailAutoConfiguration.class })
-public class OsStarterCoreAutoConfiguration {
+public interface OsWebConsts {
+    /**
+     * Header中token常量
+     */
+    String HEADER_TOKEN = "osToken";
 }

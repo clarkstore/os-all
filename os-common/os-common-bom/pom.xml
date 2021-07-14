@@ -6,7 +6,7 @@
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-common-bom</artifactId>
     <packaging>pom</packaging>
-    <version>0.3.26</version>
+    <version>0.3.27</version>
     <name>os-common-bom</name>
     <description>onestop公共版本控制</description>
     <url>https://gitee.com/clarkstore/os-parent</url>
@@ -111,6 +111,11 @@
             <dependency>
                 <groupId>com.github.clarkstore</groupId>
                 <artifactId>os-common-redis</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.clarkstore</groupId>
+                <artifactId>os-common-web</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <!--os-wx-->

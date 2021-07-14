@@ -16,9 +16,10 @@
  *
  */
 
-package com.onestop.starter.common.core.config;
+package com.onestop.starter.common.web.config;
 
-import com.onestop.common.core.util.OsTokenUtils;
+
+import com.onestop.common.web.util.OsTokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -34,7 +35,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableConfigurationProperties(OsTokenProperties.class)
 @ConditionalOnProperty(prefix = "os.token", name = "enabled", havingValue = "true")
-public class OsCoreTokenAutoConfiguration {
+public class OsWebTokenAutoConfiguration {
     @Autowired
     private OsTokenProperties properties;
 

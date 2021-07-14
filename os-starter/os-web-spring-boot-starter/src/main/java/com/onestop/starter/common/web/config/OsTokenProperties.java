@@ -16,17 +16,34 @@
  *
  */
 
-package com.onestop.starter.common.core.config;
+package com.onestop.starter.common.web.config;
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * os-common-core配置
+ * Token配置
+ *
  * @author Clark
- * @version 2021-02-24
+ * @version 2021-01-08
  */
-@Configuration
-@Import({ OsCoreMailAutoConfiguration.class })
-public class OsStarterCoreAutoConfiguration {
+@Getter
+@Setter
+@ToString
+@ConfigurationProperties(prefix = "os.token")
+public class OsTokenProperties {
+	/**
+	 * 设置token的Secret
+	 */
+	private String secret = "1234567890ABCDEF";
+	/**
+	 * token超时时长，默认120分钟
+	 */
+	private int expireTimeInMinutes = 120;
+	/**
+	 * 设置token的claim
+	 */
+	private String claimKey = "keyword";
 }

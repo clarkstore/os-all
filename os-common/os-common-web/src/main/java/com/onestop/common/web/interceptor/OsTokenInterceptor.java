@@ -16,13 +16,13 @@
  *
  */
 
-package com.onestop.common.core.interceptor;
+package com.onestop.common.web.interceptor;
 
 import cn.hutool.core.util.StrUtil;
-import com.onestop.common.core.annotation.OsAuthToken;
-import com.onestop.common.core.constant.OsCoreConsts;
 import com.onestop.common.core.exception.OsBizException;
-import com.onestop.common.core.util.OsTokenUtils;
+import com.onestop.common.web.annotation.OsAuthToken;
+import com.onestop.common.web.constant.OsWebConsts;
+import com.onestop.common.web.util.OsTokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Configuration;
@@ -69,7 +69,7 @@ public class OsTokenInterceptor implements HandlerInterceptor {
         if (method.isAnnotationPresent(OsAuthToken.class)) {
             OsAuthToken authToken = method.getAnnotation(OsAuthToken.class);
             if (authToken.required()) {
-                String token = request.getHeader(OsCoreConsts.HEADER_TOKEN);
+                String token = request.getHeader(OsWebConsts.HEADER_TOKEN);
                 if (StrUtil.isBlank(token) || !this.tokenUtils.verify(token)) {
                     throw new OsBizException("token验证失败");
                 }

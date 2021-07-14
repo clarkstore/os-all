@@ -16,8 +16,10 @@
  *
  */
 
-package com.onestop.common.core.exception;
+package com.onestop.common.web.exception;
 
+import com.onestop.common.core.exception.OsBizException;
+import com.onestop.common.core.exception.OsPayException;
 import com.onestop.common.core.util.Res;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
@@ -27,7 +29,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * 全局异常处理
- * 新建异常已处理类时，通过@Order定义扩展顺序
+ * 新建异常处理类时，通过@Order定义扩展顺序
  * @author Clark
  * @version 2021/05/17
  */
@@ -60,15 +62,15 @@ public class OsGlobalExceptionHandler {
     }
 
     /**
-     *
+     * TODO 新建异常处理类时，自行处理未知异常
      * @param e 未知异常
      * @return Res 返回结果
      */
-    @ExceptionHandler(value = {Exception.class})
-    public Res exceptionHandle(Exception e) {
-        log.error("=========未知异常=========");
-        log.error(e.getMessage());
-        e.printStackTrace();
-        return Res.restResult(Res.MsgCode.FAIL, e.getMessage(), null);
-    }
+//    @ExceptionHandler(value = {Exception.class})
+//    public Res exceptionHandle(Exception e) {
+//        log.error("=========未知异常=========");
+//        log.error(e.getMessage());
+//        e.printStackTrace();
+//        return Res.restResult(Res.MsgCode.FAIL, e.getMessage(), null);
+//    }
 }

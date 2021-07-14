@@ -16,7 +16,7 @@
  *
  */
 
-package com.onestop.common.core.util;
+package com.onestop.common.web.util;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.map.MapUtil;

@@ -1,0 +1,14 @@
+logging:
+  level:
+    org.springframework: INFO
+    org.thymeleaf: INFO
+    com.onestop: DEBUG
+
+os:
+  token:
+    # 开启邮件工具类
+    enabled: false
+    # 私钥 16位
+#    secret: abcdefg1234567890
+    # 过期时间 默认：120分钟
+#    expireTimeInMinutes: 120

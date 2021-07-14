@@ -16,7 +16,7 @@
  *
  */
 
-package com.onestop.common.core.config;
+package com.onestop.common.web.config;
 
 import com.onestop.common.core.util.Res;
 import org.springframework.core.MethodParameter;

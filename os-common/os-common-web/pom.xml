@@ -27,25 +27,19 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>os-common-feign</artifactId>
-    <description>Feign模块</description>
+    <artifactId>os-common-web</artifactId>
     <packaging>jar</packaging>
+    <description>web模块</description>
 
     <dependencies>
-        <!--SpringCloud ailibaba sentinel -->
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+            <groupId>com.github.clarkstore</groupId>
+            <artifactId>os-common-core</artifactId>
         </dependency>
-        <!--feign 依赖-->
+        <!-- Jwt -->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-        <!-- LB 扩展 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
         </dependency>
     </dependencies>
 </project>

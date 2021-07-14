@@ -16,17 +16,17 @@
  *
  */
 
-package com.onestop.starter.common.core.config;
+package com.onestop.starter.common.web.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 /**
- * os-common-core配置
+ * os-common-web配置
  * @author Clark
- * @version 2021-02-24
+ * @version 2021-07-14
  */
 @Configuration
-@Import({ OsCoreMailAutoConfiguration.class })
-public class OsStarterCoreAutoConfiguration {
+@Import({ OsWebTokenAutoConfiguration.class })
+public class OsStarterWebAutoConfiguration {
 }

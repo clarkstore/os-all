@@ -16,19 +16,16 @@
  *
  */
 
-package com.onestop.common.core.annotation;
+package com.onestop.starter.common.web;
 
-import java.lang.annotation.*;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
-/**
- * 验证Token
- * @author Clark
- * @version 2021/5/8
- */
-@Inherited
-@Documented
-@Target({ElementType.METHOD, ElementType.TYPE})
-@Retention(RetentionPolicy.RUNTIME)
-public @interface OsAuthToken {
-    boolean required() default true;
+@SpringBootApplication
+@ComponentScan(basePackages = {"com.onestop"})
+public class StarterWebApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(StarterWebApplication.class, args);
+    }
 }

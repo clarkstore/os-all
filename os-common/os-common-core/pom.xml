@@ -6,12 +6,11 @@
     <parent>
         <artifactId>os-common</artifactId>
         <groupId>com.github.clarkstore</groupId>
-        <version>0.3.26</version>
+        <version>0.3.27</version>
     </parent>
 
     <artifactId>os-common-core</artifactId>
     <packaging>jar</packaging>
-
     <description>公共模块</description>
 
     <dependencies>
@@ -24,11 +23,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-        <!-- Jwt -->
-        <dependency>
-            <groupId>com.auth0</groupId>
-            <artifactId>java-jwt</artifactId>
         </dependency>
     </dependencies>
 </project>

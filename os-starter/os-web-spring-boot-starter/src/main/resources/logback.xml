@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false" scan="false">
 
-    <property name="PROJECT_NAME" value="os-core" />
+    <property name="PROJECT_NAME" value="os-web-starter" />
 
     <!-- Console log output -->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
@@ -11,7 +11,7 @@
     </appender>
 
     <!-- Level: FATAL 0  ERROR 3  WARN 4  INFO 6  DEBUG 7 -->
-    <root level="DEBUG">
+    <root level="ERROR">
         <appender-ref ref="console" />
     </root>
 </configuration>

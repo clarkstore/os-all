@@ -20,7 +20,6 @@ package com.onestop.common.feign.config;
 
 import feign.Logger;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * feignClient配置
@@ -28,7 +27,7 @@ import org.springframework.context.annotation.Configuration;
  * @author Clark
  * @version 2021-07-07
  */
-@Configuration
+//@Configuration
 public class FeignConfig {
 
     /**

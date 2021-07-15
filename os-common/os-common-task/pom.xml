@@ -5,12 +5,23 @@
     <parent>
         <artifactId>os-common</artifactId>
         <groupId>com.github.clarkstore</groupId>
-        <version>0.3.27</version>
+        <version>0.4.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>os-common-task</artifactId>
     <packaging>jar</packaging>
-
     <description>定时任务模块</description>
+
+    <dependencies>
+        <!--web 模块-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.clarkstore</groupId>
+            <artifactId>os-common-core</artifactId>
+        </dependency>
+    </dependencies>
 </project>

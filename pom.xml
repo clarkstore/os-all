@@ -6,7 +6,7 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-parent</artifactId>
-    <version>0.3.27</version>
+    <version>0.4.0</version>
     <packaging>pom</packaging>
 
     <name>os-parent</name>
@@ -46,11 +46,6 @@
     </properties>
 
     <dependencies>
-        <!--web 模块-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
         <!--添加lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>

@@ -44,12 +44,12 @@ public class OsBlockHandler implements BlockExceptionHandler {
 
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, BlockException e) throws Exception {
-        log.error("sentinel 降级 资源名称{}", e.getRule().getResource(), e);
+        log.error("sentinel降级 资源名称{}", e.getRule().getResource(), e);
 
         response.setContentType(ContentType.JSON.toString());
         //服务限流
         if (e instanceof FlowException) {
-            log.error("-------当前访问人数较多，请稍后再试--------");
+            log.error("-------服务限流，请稍后再试--------");
             Res res = Res.failed(HttpStatus.TOO_MANY_REQUESTS.value(), HttpStatus.TOO_MANY_REQUESTS.getReasonPhrase());
             response.setStatus(HttpStatus.TOO_MANY_REQUESTS.value());
             response.getWriter().print(JSONUtil.toJsonStr(res));

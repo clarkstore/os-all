@@ -42,8 +42,6 @@ import org.springframework.context.annotation.Scope;
  */
 @Configuration
 //@ConditionalOnProperty(prefix = "os.sentinel.gateway", name = "enabled", havingValue = "true")
-//
-@ConditionalOnMissingClass("SentinelGatewayAutoConfiguration")
 @AutoConfigureBefore(SentinelFeignAutoConfiguration.class)
 public class OsSentinelAutoConfiguration {
     @Bean
@@ -56,6 +54,8 @@ public class OsSentinelAutoConfiguration {
         return OsSentinelFeign.builder();
     }
 
+    //不与网关限流并用
+    @ConditionalOnMissingClass("SentinelGatewayAutoConfiguration")
     @Bean
     @ConditionalOnMissingBean
     public BlockExceptionHandler blockExceptionHandler() {

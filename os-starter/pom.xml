@@ -15,16 +15,21 @@
 
     <modules>
         <module>os-core-spring-boot-starter</module>
+        <module>os-web-spring-boot-starter</module>
         <module>os-azure-spring-boot-starter</module>
         <module>os-task-spring-boot-starter</module>
         <module>os-wxmini-spring-boot-starter</module>
         <module>os-wxmp-spring-boot-starter</module>
         <module>os-mybatis-spring-boot-starter</module>
         <module>os-redis-spring-boot-starter</module>
-        <module>os-web-spring-boot-starter</module>
+        <module>os-sentinel-feign-spring-boot-starter</module>
     </modules>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>

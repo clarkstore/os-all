@@ -95,6 +95,17 @@ public class Res<T> implements Serializable {
     }
 
     /**
+     * 失败
+     * @param code 错误码
+     * @param msg 失败消息
+     * @param <T> 泛型
+     * @return Res 返回结果
+     */
+    public static <T> Res<T> failed(int code, String msg) {
+        return restResult(code, msg, null);
+    }
+
+    /**
      * 返回结果
      * @param code 结果标识
      * @param msg 消息

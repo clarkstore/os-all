@@ -3,3 +3,7 @@ logging:
     org.springframework: INFO
     org.thymeleaf: INFO
     com.onestop: DEBUG
+# os.sentinel.app代表独立服务，os.sentinel.gateway代表网关
+os:
+  sentinel:
+    app: true

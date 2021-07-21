@@ -27,7 +27,6 @@ import feign.Feign;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -41,7 +40,6 @@ import org.springframework.context.annotation.Scope;
  * @version 2021-07-20
  */
 @Configuration
-//@ConditionalOnProperty(prefix = "os.sentinel.gateway", name = "enabled", havingValue = "true")
 @AutoConfigureBefore(SentinelFeignAutoConfiguration.class)
 public class OsSentinelAutoConfiguration {
     @Bean
@@ -54,9 +52,9 @@ public class OsSentinelAutoConfiguration {
         return OsSentinelFeign.builder();
     }
 
-    //不与网关限流并用
-    @ConditionalOnMissingClass("SentinelGatewayAutoConfiguration")
+    //不可与网关限流降级并用：os.sentinel.app代表独立服务，os.sentinel.gateway代表网关
     @Bean
+    @ConditionalOnProperty(name = {"os.sentinel.app"})
     @ConditionalOnMissingBean
     public BlockExceptionHandler blockExceptionHandler() {
         return new OsBlockHandler();

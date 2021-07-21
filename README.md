@@ -10,10 +10,6 @@
 ### 平台简介：
 ##### 本项目构建初衷是结合近年若干项目使用的技术与经验，整理可为类似项目提供业务快速实现的自身共性的定制工具平台为目标，纯属个人实践积累总结与偏好。非基础工具包适合所有需求场景。
 
-Gitee：[https://gitee.com/clarkstore/os-parent](https://gitee.com/clarkstore/os-parent)
-
-GitHub：[https://github.com/clarkstore/os-parent](https://github.com/clarkstore/os-parent)
-
 #### 温馨提示：使用前请确认业务场景与技术实现是否匹配。
 1. 使用前认真阅读各模块下:README.md
 2. 个人维护不定期更新
@@ -25,22 +21,41 @@ GitHub：[https://github.com/clarkstore/os-parent](https://github.com/clarkstore
    - os-core
    - os-mybatis
    - os-redis
+   - os-sentinel-feign
    - os-task
    - os-wxmini
    - os-wxmp
 3. 公共模块
    - Azure模块
    - bom配置模块
-   - 核心模块
+   - core核心模块
    - mybatis模块
    - redis模块
-   - 定时任务模块
+   - sentinel-feign模块
+   - task定时任务模块
    - 安全模块：api路径访问控制 待发布
 4. 微信模块
    - 企业微信
    - 小程序
    - 服务号
    - 微信支付
+
+---
+
+#### OneStop工具平台地址：
+Gitee：[https://gitee.com/clarkstore/os-parent](https://gitee.com/clarkstore/os-parent)
+
+GitHub：[https://github.com/clarkstore/os-parent](https://github.com/clarkstore/os-parent)
+
+#### Os-Biz基础平台地址：
+Gitee：[https://gitee.com/clarkstore/os-biz](https://gitee.com/clarkstore/os-biz)
+
+GitHub：[https://gitee.com/clarkstore/os-biz](https://gitee.com/clarkstore/os-biz)
+
+#### Os-Nacos微服务平台地址：
+Gitee：[https://gitee.com/clarkstore/os-nacos](https://gitee.com/clarkstore/os-nacos)
+
+GitHub：[https://gitee.com/clarkstore/os-nacos](https://gitee.com/clarkstore/os-nacos)
 
 ---
 ### 开源协议

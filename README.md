@@ -13,19 +13,33 @@
 #### 温馨提示：使用前请确认业务场景与技术实现是否匹配。
 1. 使用前认真阅读各模块下:README.md
 2. 个人维护不定期更新
----    
+
+#### 核心依赖
+- Spring Boot
+- Spring Cloud
+- Spring Cloud Alibaba
+- lombok
+- hutool
+- druid
+- mybatis-plus
+- WxJava
+- ...
+
+---
+#### 模块目录
 1. os-extra模块
-   - os-extra-codegen
-2. os-starter模块【自定义starter不要修改，供业务模块引入】
+   - os-extra-codegen【代码生成器】
+2. [os-starter模块](os-starter/README.md)【自定义starter供业务模块引入】
    - os-azure
    - os-core
    - os-mybatis
    - os-redis
    - os-sentinel-feign
    - os-task
+   - os-web
    - os-wxmini
    - os-wxmp
-3. 公共模块
+3. [公共模块](os-common/README.md)
    - Azure模块
    - bom配置模块
    - core核心模块
@@ -33,12 +47,13 @@
    - redis模块
    - sentinel-feign模块
    - task定时任务模块
-   - 安全模块：api路径访问控制 待发布
-4. 微信模块
-   - 企业微信
+   - web模块
+   - 安全模块：api路径访问控制【待发布】
+4. [微信模块](os-wx/README.md)
+   - 企业微信【待发布】
    - 小程序
    - 服务号
-   - 微信支付
+   - 微信支付【待发布】
 
 ---
 

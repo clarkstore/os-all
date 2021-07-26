@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 微信小程序用户接口
+ * 微信小程序消息接口
  *
  * @author Clark
  * @version 2020-08-23

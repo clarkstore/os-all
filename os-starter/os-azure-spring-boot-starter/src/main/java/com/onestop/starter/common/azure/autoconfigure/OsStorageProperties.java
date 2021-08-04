@@ -16,7 +16,7 @@
  *
  */
 
-package com.onestop.starter.common.azure.config;
+package com.onestop.starter.common.azure.autoconfigure;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -16,7 +16,7 @@
  *
  */
 
-package com.onestop.starter.common.azure.config;
+package com.onestop.starter.common.azure.autoconfigure;
 
 import com.onestop.common.azure.storage.util.OsAzureStorageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +35,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableConfigurationProperties(OsStorageProperties.class)
 @ConditionalOnProperty(prefix = "os.azure.storage", name = "enabled", havingValue = "true")
-public class OsAzureStorageAutoConfiguration {
+public class OsStorageAutoConfiguration {
 
     @Autowired
     private OsStorageProperties properties;

@@ -16,16 +16,17 @@
  *
  */
 
-package com.onestop.starter.common.mybatis;
+package com.onestop.starter.common.azure.autoconfigure;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
-@SpringBootApplication
-@ComponentScan(basePackages = {"com.onestop"})
-public class StarterMybatisApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(StarterMybatisApplication.class, args);
-    }
+/**
+ * os-common-azure配置
+ * @author Clark
+ * @version 2021-03-30
+ */
+@Configuration
+@Import({ OsStorageAutoConfiguration.class })
+public class OsAzureAutoConfiguration {
 }

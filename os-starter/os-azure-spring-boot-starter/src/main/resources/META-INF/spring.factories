@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.onestop.starter.common.azure.config.OsStarterAzureAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.onestop.starter.common.azure.autoconfigure.OsAzureAutoConfiguration

@@ -1,0 +1,14 @@
+logging:
+  level:
+    org.springframework: INFO
+    org.thymeleaf: INFO
+    com.onestop: DEBUG
+
+os:
+  sms:
+    # 开启短信工具类
+    enabled: true
+    # AccessKey ID
+    accessKeyId: xxxx
+    # AccessKey Secret
+    accessKeySecret: xxxx

@@ -16,16 +16,26 @@
  *
  */
 
-package com.onestop.starter.common.azure;
+package com.onestop.starter.ali.sms.autoconfigure;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@SpringBootApplication
-@ComponentScan(basePackages = {"com.onestop"})
-public class StarterAzureApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(StarterAzureApplication.class, args);
-    }
+/**
+ * @author Clark
+ * @version 2021/8/4
+ */
+@Getter
+@Setter
+@ConfigurationProperties(prefix = "os.sms")
+public class OsSmsProperties {
+    /**
+     * AccessKey ID
+     */
+    private String accessKeyId;
+    /**
+     * AccessKey Secret
+     */
+    private String accessKeySecret;
 }

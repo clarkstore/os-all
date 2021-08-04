@@ -6,7 +6,7 @@
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-common-bom</artifactId>
     <packaging>pom</packaging>
-    <version>0.4.1</version>
+    <version>0.4.2</version>
     <name>os-common-bom</name>
     <description>onestop公共版本控制</description>
     <url>https://gitee.com/clarkstore/os-parent</url>
@@ -45,6 +45,8 @@
         <mybatis-plus.version>3.4.3.1</mybatis-plus.version>
         <!--azure-storage模块-->
         <azure-storage.version>8.6.6</azure-storage.version>
+        <!--ali模块-->
+        <ali-sms.version>2.0.4</ali-sms.version>
         <!--微信模块-->
         <wx-java.version>4.1.0</wx-java.version>
         <!--Nacos微服务配置-->
@@ -88,6 +90,11 @@
                 <scope>import</scope>
             </dependency>
             <!--os-common-->
+            <dependency>
+                <groupId>com.github.clarkstore</groupId>
+                <artifactId>os-ali-sms</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.github.clarkstore</groupId>
                 <artifactId>os-common-azure</artifactId>
@@ -159,6 +166,12 @@
                 <artifactId>mail</artifactId>
                 <version>${javax-mail.version}</version>
             </dependency>
+            <!-- ali-sms -->
+<!--            <dependency>-->
+<!--                <groupId>com.aliyun</groupId>-->
+<!--                <artifactId>dysmsapi20170525</artifactId>-->
+<!--                <version>${ali-sms.version}</version>-->
+<!--            </dependency>-->
             <!-- Jwt -->
             <dependency>
                 <groupId>com.auth0</groupId>

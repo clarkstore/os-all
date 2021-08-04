@@ -16,7 +16,7 @@
  *
  */
 
-package com.onestop.starter.common.core.config;
+package com.onestop.starter.common.core.autoconfigure;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -27,6 +27,6 @@ import org.springframework.context.annotation.Import;
  * @version 2021-02-24
  */
 @Configuration
-@Import({ OsCoreMailAutoConfiguration.class })
-public class OsStarterCoreAutoConfiguration {
+@Import({ OsMailAutoConfiguration.class })
+public class OsCoreAutoConfiguration {
 }

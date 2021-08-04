@@ -6,12 +6,11 @@
     <parent>
         <groupId>com.github.clarkstore</groupId>
         <artifactId>os-parent</artifactId>
-        <version>0.4.1</version>
+        <version>0.4.2</version>
     </parent>
 
     <artifactId>os-wx</artifactId>
     <packaging>pom</packaging>
-
     <description>微信服务模块</description>
 
     <dependencies>

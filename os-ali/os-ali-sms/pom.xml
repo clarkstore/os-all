@@ -21,24 +21,33 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>os-starter</artifactId>
+        <artifactId>os-ali</artifactId>
         <groupId>com.github.clarkstore</groupId>
         <version>0.4.2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>os-web-spring-boot-starter</artifactId>
+    <artifactId>os-ali-sms</artifactId>
     <packaging>jar</packaging>
-    <description>os-common-web-starter模块</description>
+    <description>阿里云通信模块</description>
 
     <dependencies>
         <dependency>
-            <groupId>com.github.clarkstore</groupId>
-            <artifactId>os-common-web</artifactId>
+            <groupId>com.aliyun</groupId>
+            <artifactId>dysmsapi20170525</artifactId>
+            <version>2.0.4</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.aliyun</groupId>
+                    <artifactId>tea</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+        <!--1.1.12版本存在bug-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <groupId>com.aliyun</groupId>
+            <artifactId>tea</artifactId>
+            <version>1.1.13</version>
         </dependency>
     </dependencies>
 </project>

@@ -16,7 +16,7 @@
  *
  */
 
-package com.onestop.starter.common.core.config;
+package com.onestop.starter.common.core.autoconfigure;
 
 import cn.hutool.extra.mail.MailAccount;
 import com.onestop.common.core.util.OsMailUtils;
@@ -35,7 +35,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableConfigurationProperties(OsMailProperties.class)
 @ConditionalOnProperty(prefix = "os.mail", name = "enabled", havingValue = "true")
-public class OsCoreMailAutoConfiguration {
+public class OsMailAutoConfiguration {
     @Autowired
     private OsMailProperties properties;
 

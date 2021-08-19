@@ -6,7 +6,7 @@
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-common-bom</artifactId>
     <packaging>pom</packaging>
-    <version>0.4.2</version>
+    <version>0.4.3</version>
     <name>os-common-bom</name>
     <description>onestop公共版本控制</description>
     <url>https://gitee.com/clarkstore/os-parent</url>
@@ -35,7 +35,7 @@
         <spring-boot.version>2.5.2</spring-boot.version>
         <druid.version>1.2.6</druid.version>
         <!--公共模块-->
-        <hutool.version>5.7.5</hutool.version>
+        <hutool.version>5.7.7</hutool.version>
         <java-jwt.version>3.12.0</java-jwt.version>
         <javax-mail.version>1.4.7</javax-mail.version>
         <!--redis模块-->

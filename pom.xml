@@ -6,7 +6,7 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-parent</artifactId>
-    <version>0.4.2</version>
+    <version>0.4.3</version>
     <packaging>pom</packaging>
 
     <name>os-parent</name>
@@ -208,10 +208,10 @@
     </build>
     <repositories>
         <!--阿里云代理-->
-<!--        <repository>-->
-<!--            <id>aliyun</id>-->
-<!--            <name>aliyun</name>-->
-<!--            <url>https://maven.aliyun.com/repository/public</url>-->
-<!--        </repository>-->
+       <repository>
+           <id>aliyun</id>
+           <name>aliyun</name>
+           <url>https://maven.aliyun.com/repository/public</url>
+        </repository>
     </repositories>
 </project>

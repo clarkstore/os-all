@@ -99,7 +99,7 @@ public class OsOssUtils {
     }
 
     /**
-     * 删除单个文件
+     * 删除文件或目录。如果要删除目录，目录必须为空。
      *
      * @param objectName Object完整路径（例如exampledir/exampleobject.txt），不能包含Bucket名称。
      */

@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.github.clarkstore</groupId>
         <artifactId>os-parent</artifactId>
-        <version>0.4.3</version>
+        <version>0.4.4</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -24,6 +24,7 @@
         <module>os-redis-spring-boot-starter</module>
         <module>os-sentinel-feign-spring-boot-starter</module>
         <module>os-alisms-spring-boot-starter</module>
+        <module>os-alioss-spring-boot-starter</module>
     </modules>
 
     <dependencies>

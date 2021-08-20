@@ -1,0 +1,18 @@
+logging:
+  level:
+    org.springframework: INFO
+    org.thymeleaf: INFO
+    com.onestop: DEBUG
+
+os:
+  oss:
+    # 开启oss工具类
+    enabled: true
+    # AccessKey ID
+    accessKeyId: xxxx
+    # AccessKey Secret
+    accessKeySecret: xxxx
+    # endpoint
+    endpoint: xxxx
+    # bucketName
+    bucketName: xxxx

@@ -114,6 +114,16 @@ public class OsRedisUtils {
      * 普通缓存获取
      *
      * @param key 键
+     * @return String值(推荐JSON格式存储时使用)
+     */
+    public String getStr(String key) {
+        return key == null ? null : redisTemplate.opsForValue().get(key).toString();
+    }
+
+    /**
+     * 普通缓存获取
+     *
+     * @param key 键
      * @return 值
      */
     public Object get(String key) {

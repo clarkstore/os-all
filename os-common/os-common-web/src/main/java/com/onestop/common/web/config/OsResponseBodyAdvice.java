@@ -18,33 +18,70 @@
 
 package com.onestop.common.web.config;
 
+import cn.hutool.json.JSONUtil;
 import com.onestop.common.core.util.Res;
+import com.onestop.common.web.annotation.OsResAesAnnotation;
+import com.onestop.common.web.util.OsAesUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
+import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
+import java.lang.reflect.AnnotatedElement;
+
 /**
  * 实现统一处理controller返回
  *
  * @author Clark
- * @version 2020-04-06
+ * @version 2020-09-09
  */
 //@RestControllerAdvice("com.onestop")
 public abstract class OsResponseBodyAdvice implements ResponseBodyAdvice<Object> {
+    @Autowired(required = false)
+    protected OsAesUtils aesUtils;
+
+    /**
+     * 拦截逻辑
+     * @param returnType
+     * @param converterType
+     * @return
+     */
     @Override
     public boolean supports(MethodParameter returnType, Class converterType) {
-        return true;
+        boolean isIntercept = true;
+        //拦截OsResAesAnnotation注释
+        AnnotatedElement annotatedElement = returnType.getAnnotatedElement();
+        OsResAesAnnotation resAesAnnotation = AnnotationUtils.findAnnotation(annotatedElement, OsResAesAnnotation.class);
+        if (resAesAnnotation == null) {
+            isIntercept = false;
+        }
+
+        //拦截指定方法
+//        Method method = returnType.getMethod();
+//        if ("test".equals(method.getName())) {
+//            isIntercept = true;
+//        }
+        return isIntercept;
     }
 
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType
             , Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
+        // 全局未定义加密配置
+        if (this.aesUtils == null) {
+            return body;
+        }
         if (body instanceof Res) {
             Res res = (Res) body;
-//            TODO 重写统一返回处理
-            return res;
+            // 继承类可重写统一返回处理
+            if (res.getData() != null) {
+                // 数据加密
+                String encrypt = this.aesUtils.aesEncrypt(JSONUtil.toJsonStr(res.getData()));
+                res.setData(encrypt);
+            }
         }
 
         return body;

@@ -29,6 +29,6 @@ import java.lang.annotation.*;
 @Documented
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface OsAuthToken {
+public @interface OsAuthTokenAnnotation {
     boolean required() default true;
 }

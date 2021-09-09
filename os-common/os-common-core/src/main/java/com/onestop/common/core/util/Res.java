@@ -60,6 +60,16 @@ public class Res<T> implements Serializable {
 
     /**
      * 成功
+     * @param msg 消息
+     * @param <T> 泛型
+     * @return Res 返回结果
+     */
+    public static <T> Res<T> ok(String msg) {
+        return restResult(MsgCode.SUCCESS, msg, null);
+    }
+
+    /**
+     * 成功
      * @param data 数据
      * @param <T> 泛型
      * @return Res 返回结果
@@ -77,21 +87,22 @@ public class Res<T> implements Serializable {
     }
     /**
      * 失败
-     * @param data 数据
-     * @param <T> 泛型
-     * @return Res 返回结果
-     */
-    public static <T> Res<T> failed(T data) {
-        return restResult(MsgCode.FAIL, null, data);
-    }
-    /**
-     * 失败
      * @param msg 失败消息
      * @param <T> 泛型
      * @return Res 返回结果
      */
     public static <T> Res<T> failed(String msg) {
         return restResult(MsgCode.FAIL, msg, null);
+    }
+
+    /**
+     * 失败
+     * @param data 数据
+     * @param <T> 泛型
+     * @return Res 返回结果
+     */
+    public static <T> Res<T> failed(T data) {
+        return restResult(MsgCode.FAIL, null, data);
     }
 
     /**

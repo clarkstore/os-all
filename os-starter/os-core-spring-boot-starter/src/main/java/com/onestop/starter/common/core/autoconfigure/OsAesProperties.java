@@ -37,5 +37,5 @@ public class OsAesProperties {
 	/**
 	 * 设置aes的Secret
 	 */
-	private String secret = "1234567890ABCDEF";
+	private String secret = "0123456789ABCDEF";
 }

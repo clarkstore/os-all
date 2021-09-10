@@ -18,15 +18,30 @@
 
 package com.onestop.starter.common.core.autoconfigure;
 
+import com.onestop.common.core.util.OsAesUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 
 /**
- * os-common-core配置
+ * AES加解密配置
  * @author Clark
  * @version 2021-09-10
  */
 @Configuration
-@Import({ OsMailAutoConfiguration.class, OsAesAutoConfiguration.class })
-public class OsCoreAutoConfiguration {
+@EnableConfigurationProperties(OsAesProperties.class)
+@ConditionalOnProperty(prefix = "os.aes", name = "enabled", havingValue = "true")
+public class OsAesAutoConfiguration {
+    @Autowired
+    private OsAesProperties properties;
+
+    @Bean
+    @ConditionalOnMissingBean
+    public OsAesUtils osAesUtils() {
+        OsAesUtils aesUtils = new OsAesUtils(this.properties.getSecret());
+        return aesUtils;
+    }
 }

@@ -18,7 +18,6 @@
 
 package com.onestop.starter.common.web.config;
 
-import com.onestop.common.web.util.OsAesUtils;
 import com.onestop.common.web.util.OsTokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -44,14 +43,6 @@ public class OsStarterWebAutoConfiguration {
     @ConditionalOnProperty(prefix = "os.web", name = "tokenEnabled", havingValue = "true")
     public OsTokenUtils osTokenUtils() {
         OsTokenUtils utils = new OsTokenUtils(this.properties.getTokenSecret(), this.properties.getTokenExpireTimeInMinutes(), this.properties.getTokenClaimKey());
-        return utils;
-    }
-
-    @Bean
-    @ConditionalOnMissingBean
-    @ConditionalOnProperty(prefix = "os.web", name = "aesEnabled", havingValue = "true")
-    public OsAesUtils osAesUtils() {
-        OsAesUtils utils = new OsAesUtils(this.properties.getAesSecret());
         return utils;
     }
 }

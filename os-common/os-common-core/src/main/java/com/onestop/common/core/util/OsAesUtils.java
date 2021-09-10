@@ -1,4 +1,4 @@
-package com.onestop.common.web.util;
+package com.onestop.common.core.util;
 
 import cn.hutool.crypto.symmetric.AES;
 

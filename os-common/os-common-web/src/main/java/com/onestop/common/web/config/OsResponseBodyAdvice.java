@@ -19,9 +19,9 @@
 package com.onestop.common.web.config;
 
 import cn.hutool.json.JSONUtil;
+import com.onestop.common.core.util.OsAesUtils;
 import com.onestop.common.core.util.Res;
 import com.onestop.common.web.annotation.OsResAesAnnotation;
-import com.onestop.common.web.util.OsAesUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.annotation.AnnotationUtils;

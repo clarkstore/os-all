@@ -16,16 +16,26 @@
  *
  */
 
-package com.onestop.starter.common.web;
+package com.onestop.starter.common.core.autoconfigure;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@SpringBootApplication
-@ComponentScan(basePackages = {"com.onestop"})
-public class StarterWebApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(StarterWebApplication.class, args);
-    }
+/**
+ * Mail配置
+ *
+ * @author Clark
+ * @version 2021-02-24
+ */
+@Getter
+@Setter
+@ToString
+@ConfigurationProperties(prefix = "os.aes")
+public class OsAesProperties {
+	/**
+	 * 设置aes的Secret
+	 */
+	private String secret = "1234567890ABCDEF";
 }

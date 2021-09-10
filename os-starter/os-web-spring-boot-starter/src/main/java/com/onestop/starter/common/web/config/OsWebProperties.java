@@ -46,9 +46,4 @@ public class OsWebProperties {
 	 * 设置token的claim
 	 */
 	private String tokenClaimKey = "keyword";
-
-	/**
-	 * 设置aes的Secret
-	 */
-	private String aesSecret = "1234567890ABCDEF";
 }

@@ -64,8 +64,8 @@ public class Res<T> implements Serializable {
      * @param <T> 泛型
      * @return Res 返回结果
      */
-    public static <T> Res<T> ok(String msg) {
-        return restResult(MsgCode.SUCCESS, msg, null);
+    public static <T> Res<T> ok(String msg, T data) {
+        return restResult(MsgCode.SUCCESS, msg, data);
     }
 
     /**

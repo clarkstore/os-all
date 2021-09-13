@@ -5,6 +5,11 @@ logging:
     com.onestop: DEBUG
 
 os:
+  aes:
+    # 开启aes工具类
+    enabled: false
+    # 私钥 16位
+    secret: 0123456789ABCDEF
   mail:
     # 开启邮件工具类
     enabled: true
@@ -22,3 +27,8 @@ os:
 #    starttlsEnable: true
     # 使用SSL安全连接
 #    sslEnable: false
+  token:
+    # 开启token工具类
+    enabled: false
+    # 私钥 16位
+    secret: 0123456789ABCDEF

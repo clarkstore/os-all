@@ -41,10 +41,5 @@
             <groupId>com.github.clarkstore</groupId>
             <artifactId>os-common-core</artifactId>
         </dependency>
-        <!-- Jwt -->
-        <dependency>
-            <groupId>com.auth0</groupId>
-            <artifactId>java-jwt</artifactId>
-        </dependency>
     </dependencies>
 </project>

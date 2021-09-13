@@ -16,9 +16,9 @@
  *
  */
 
-package com.onestop.starter.common.web.config;
+package com.onestop.starter.common.core.autoconfigure;
 
-import com.onestop.common.web.util.OsTokenUtils;
+import com.onestop.common.core.util.OsTokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -27,22 +27,21 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * os-common-web配置
+ * Token配置
  * @author Clark
- * @version 2021-07-14
+ * @version 2021-09-13
  */
 @Configuration
-@EnableConfigurationProperties(OsWebProperties.class)
-public class OsStarterWebAutoConfiguration {
-
+@EnableConfigurationProperties(OsTokenProperties.class)
+@ConditionalOnProperty(prefix = "os.token", name = "enabled", havingValue = "true")
+public class OsTokenAutoConfiguration {
     @Autowired
-    private OsWebProperties properties;
+    private OsTokenProperties properties;
 
     @Bean
     @ConditionalOnMissingBean
-    @ConditionalOnProperty(prefix = "os.web", name = "tokenEnabled", havingValue = "true")
     public OsTokenUtils osTokenUtils() {
-        OsTokenUtils utils = new OsTokenUtils(this.properties.getTokenSecret(), this.properties.getTokenExpireTimeInMinutes(), this.properties.getTokenClaimKey());
+        OsTokenUtils utils = new OsTokenUtils(this.properties.getSecret());
         return utils;
     }
 }

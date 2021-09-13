@@ -41,7 +41,7 @@ public class OsAesAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean
     public OsAesUtils osAesUtils() {
-        OsAesUtils aesUtils = new OsAesUtils(this.properties.getSecret());
-        return aesUtils;
+        OsAesUtils utils = new OsAesUtils(this.properties.getSecret());
+        return utils;
     }
 }

@@ -29,6 +29,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author Clark
  * @version 2020-04-06
  */
+//@RestControllerAdvice
 @Configuration
 public class OsWebConfig implements WebMvcConfigurer {
     // TODO 可以继承自定义Token拦截器

@@ -6,6 +6,7 @@ import java.io.UnsupportedEncodingException;
 
 /**
  * AES方法类
+ * 前端配置resources/aesUtils.js使用
  *
  * @author Clark
  * @version 2021-09-09

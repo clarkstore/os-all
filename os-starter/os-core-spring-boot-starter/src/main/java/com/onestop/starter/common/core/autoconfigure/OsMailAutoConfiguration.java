@@ -51,8 +51,8 @@ public class OsMailAutoConfiguration {
         account.setStarttlsEnable(this.properties.isStarttlsEnable());
         account.setSslEnable(this.properties.isSslEnable());
 
-        OsMailUtils mailUtils = new OsMailUtils();
-        mailUtils.setMailAccount(account);
-        return mailUtils;
+        OsMailUtils utils = new OsMailUtils();
+        utils.setMailAccount(account);
+        return utils;
     }
 }

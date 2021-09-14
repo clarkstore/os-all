@@ -18,15 +18,11 @@
 
 package com.onestop.common.core.util;
 
-import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.exceptions.ValidateException;
-import cn.hutool.core.map.MapUtil;
 import cn.hutool.jwt.JWT;
-import cn.hutool.jwt.JWTPayload;
 import cn.hutool.jwt.JWTUtil;
 import cn.hutool.jwt.JWTValidator;
 
-import java.util.Date;
 import java.util.Map;
 
 /**
@@ -84,16 +80,5 @@ public class OsTokenUtils {
         }
 
         return jwt.verify();
-    }
-
-    public static void main(String[] args) {
-        OsTokenUtils utils = new OsTokenUtils("0123456789");
-        // 设置过期时间
-        Date date = DateUtil.offsetMinute(DateUtil.date(), 1);
-        Map<String, Object> payload = MapUtil.newHashMap();
-        payload.put(JWTPayload.EXPIRES_AT, date);
-        String token = utils.sign(payload);
-        boolean result = utils.verify(token);
-        System.out.println("result= " + result);
     }
 }

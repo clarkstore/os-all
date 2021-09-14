@@ -6,7 +6,7 @@
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-common-bom</artifactId>
     <packaging>pom</packaging>
-    <version>0.4.13</version>
+    <version>0.4.15</version>
     <name>os-common-bom</name>
     <description>onestop公共版本控制</description>
     <url>https://gitee.com/clarkstore/os-parent</url>
@@ -40,12 +40,12 @@
         <!--redis模块-->
         <redisson-starter.version>3.15.5</redisson-starter.version>
         <!--mybatis模块-->
-        <mysql-connector-java.version>8.0.23</mysql-connector-java.version>
-        <mybatis-plus.version>3.4.3.2</mybatis-plus.version>
+        <mysql-connector-java.version>8.0.26</mysql-connector-java.version>
+        <mybatis-plus.version>3.4.3.3</mybatis-plus.version>
         <!--azure-storage模块-->
         <azure-storage.version>8.6.6</azure-storage.version>
         <!--ali模块-->
-        <ali-oss.version>3.10.2</ali-oss.version>
+        <ali-oss.version>3.13.1</ali-oss.version>
         <ali-sms.version>2.0.5</ali-sms.version>
         <!--微信模块-->
         <wx-java.version>4.1.0</wx-java.version>

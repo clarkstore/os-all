@@ -34,7 +34,7 @@ public class OsAesUtils {
      * aes解密
      *
      * @param encrypt 解密Hex（16进制）或Base64表示的字符串，默认UTF-8编码
-     * @return
+     * @return 解密后字符串
      */
     public String aesDecrypt(String encrypt) {
         String decryptStr = aes.decryptStr(encrypt);

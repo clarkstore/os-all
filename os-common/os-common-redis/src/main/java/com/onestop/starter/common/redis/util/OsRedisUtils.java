@@ -18,6 +18,8 @@
 
 package com.onestop.starter.common.redis.util;
 
+import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.util.StrUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.CollectionUtils;
@@ -106,6 +108,40 @@ public class OsRedisUtils {
             } else {
                 this.redisTemplate.delete((Collection<String>) CollectionUtils.arrayToList(key));
             }
+        }
+    }
+
+    /**
+     * 删除指定前缀的缓存：参数不可为空
+     * @param prefix
+     */
+    public void delByPrefix(String prefix) {
+        if (StrUtil.isBlank(prefix)) {
+            return;
+        }
+        Set<String> keys = this.redisTemplate.keys(prefix + "*");
+        if (CollUtil.isNotEmpty(keys)) {
+            this.redisTemplate.delete(keys);
+        }
+    }
+
+    /**
+     * 删除多层Key：模糊匹配
+     * @param prefix 参数可为空
+     * @param key 参数不可为空
+     */
+    public void delByPrefixAndKey(String prefix, String key) {
+        if (StrUtil.isBlank(key)) {
+            return;
+        }
+        String queryKey = "*" + key;
+        if (StrUtil.isNotBlank(prefix)) {
+            queryKey = prefix + queryKey;
+        }
+
+        Set<String> keys = this.redisTemplate.keys(queryKey);
+        if (CollUtil.isNotEmpty(keys)) {
+            this.redisTemplate.delete(keys);
         }
     }
 

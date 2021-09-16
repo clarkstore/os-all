@@ -43,12 +43,6 @@ public abstract class OsResponseBodyAdvice implements ResponseBodyAdvice<Object>
     @Autowired(required = false)
     protected OsAesUtils aesUtils;
 
-    /**
-     * 拦截逻辑
-     * @param returnType
-     * @param converterType
-     * @return
-     */
     @Override
     public boolean supports(MethodParameter returnType, Class converterType) {
         boolean isIntercept = true;

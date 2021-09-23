@@ -27,7 +27,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author ${author}
- * @date ${date}
+ * @version ${date}
  */
 @Service
 #if(${kotlin})

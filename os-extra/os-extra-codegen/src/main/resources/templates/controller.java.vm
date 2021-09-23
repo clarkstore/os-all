@@ -38,7 +38,7 @@ import ${package.Service}.${table.serviceName};
  * </p>
  *
  * @author ${author}
- * @date ${date}
+ * @version ${date}
  */
 #if(${restControllerStyle})
 @RestController

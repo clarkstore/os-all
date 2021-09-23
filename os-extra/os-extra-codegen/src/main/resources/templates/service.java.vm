@@ -24,7 +24,7 @@ import ${superServiceClassPackage};
  * </p>
  *
  * @author ${author}
- * @date ${date}
+ * @version ${date}
  */
 #if(${kotlin})
 interface ${table.serviceName} : ${superServiceClass}<${entity}>

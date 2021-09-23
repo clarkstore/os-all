@@ -24,7 +24,7 @@ import ${superMapperClassPackage};
  * </p>
  *
  * @author ${author}
- * @date ${date}
+ * @version ${date}
  */
 #if(${kotlin})
 interface ${table.mapperName} : ${superMapperClass}<${entity}>

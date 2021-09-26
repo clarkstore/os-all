@@ -6,7 +6,7 @@
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-common-bom</artifactId>
     <packaging>pom</packaging>
-    <version>0.4.16</version>
+    <version>0.4.17</version>
     <name>os-common-bom</name>
     <description>onestop公共版本控制</description>
     <url>https://gitee.com/clarkstore/os-parent</url>
@@ -32,7 +32,7 @@
     <properties>
         <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-boot.version>2.5.4</spring-boot.version>
+        <spring-boot.version>2.5.5</spring-boot.version>
         <druid.version>1.2.6</druid.version>
         <!--公共模块-->
         <hutool.version>5.7.12</hutool.version>
@@ -41,7 +41,7 @@
         <redisson-starter.version>3.15.5</redisson-starter.version>
         <!--mybatis模块-->
         <mysql-connector-java.version>8.0.26</mysql-connector-java.version>
-        <mybatis-plus.version>3.4.3.3</mybatis-plus.version>
+        <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
         <!--azure-storage模块-->
         <azure-storage.version>8.6.6</azure-storage.version>
         <!--ali模块-->
@@ -50,7 +50,7 @@
         <!--微信模块-->
         <wx-java.version>4.1.0</wx-java.version>
         <!--Nacos微服务配置-->
-        <spring-cloud.version>2020.0.3</spring-cloud.version>
+        <spring-cloud.version>2020.0.4</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
         <nacos-client.version>2.0.1</nacos-client.version>
         <!--部署-->
@@ -165,7 +165,7 @@
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
-             <!--Mail-->
+            <!--Mail-->
             <dependency>
                 <groupId>javax.mail</groupId>
                 <artifactId>mail</artifactId>
@@ -219,16 +219,16 @@
                 <version>${mybatis-plus.version}</version>
             </dependency>
             <!--Redis redisson-->
-<!--            <dependency>-->
-<!--                <groupId>org.redisson</groupId>-->
-<!--                <artifactId>redisson-spring-boot-starter</artifactId>-->
-<!--                <version>${redisson-starter.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>org.redisson</groupId>-->
-<!--                <artifactId>redisson-spring-data-24</artifactId>-->
-<!--                <version>${redisson-starter.version}</version>-->
-<!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>org.redisson</groupId>-->
+            <!--                <artifactId>redisson-spring-boot-starter</artifactId>-->
+            <!--                <version>${redisson-starter.version}</version>-->
+            <!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>org.redisson</groupId>-->
+            <!--                <artifactId>redisson-spring-data-24</artifactId>-->
+            <!--                <version>${redisson-starter.version}</version>-->
+            <!--            </dependency>-->
         </dependencies>
     </dependencyManagement>
 

@@ -33,7 +33,7 @@
         <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-boot.version>2.5.5</spring-boot.version>
-        <druid.version>1.2.6</druid.version>
+        <druid.version>1.2.8</druid.version>
         <!--公共模块-->
         <hutool.version>5.7.13</hutool.version>
         <javax-mail.version>1.4.7</javax-mail.version>

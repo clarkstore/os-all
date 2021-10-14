@@ -6,7 +6,7 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-parent</artifactId>
-    <version>0.4.18</version>
+    <version>0.4.16</version>
     <packaging>pom</packaging>
 
     <name>os-parent</name>
@@ -34,7 +34,7 @@
     <properties>
         <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-boot.version>2.5.5</spring-boot.version>
+        <spring-boot.version>2.5.4</spring-boot.version>
         <!--部署-->
         <versions-maven-plugin.version>2.8.1</versions-maven-plugin.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
@@ -82,7 +82,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>${project.groupId}</groupId>
+                <groupId>com.github.clarkstore</groupId>
                 <artifactId>os-common-bom</artifactId>
                 <version>${project.version}</version>
                 <type>pom</type>
@@ -93,14 +93,13 @@
 
     <distributionManagement>
         <snapshotRepository>
-            <!--oss需要对应到settings.xml下的service的id-->
-            <id>oss</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <id>rdc-snapshots</id>
+            <url>https://packages.aliyun.com/maven/repository/2129162-snapshot-JwhYLG/</url>
         </snapshotRepository>
         <repository>
-            <id>oss</id>
-            <name>releases</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>rdc-releases</id>
+            <url>https://packages.aliyun.com/maven/repository/2129162-release-T1kZgH/</url>
+            <layout>default</layout>
         </repository>
     </distributionManagement>
     <build>
@@ -179,39 +178,39 @@
                 </executions>
             </plugin>
             <!--gpg加密插件-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>${maven-gpg-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-gpg-plugin</artifactId>-->
+<!--                <version>${maven-gpg-plugin.version}</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>verify</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>sign</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
             <!--自动发布：自动执行close->release->drop三步曲-->
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>${nexus-staging-maven-plugin.version}</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>oss</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.sonatype.plugins</groupId>-->
+<!--                <artifactId>nexus-staging-maven-plugin</artifactId>-->
+<!--                <version>${nexus-staging-maven-plugin.version}</version>-->
+<!--                <extensions>true</extensions>-->
+<!--                <configuration>-->
+<!--                    <serverId>oss</serverId>-->
+<!--                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>-->
+<!--                    <autoReleaseAfterClose>true</autoReleaseAfterClose>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
         </plugins>
     </build>
     <repositories>
         <!--阿里云代理-->
-        <!--       <repository>-->
-        <!--           <id>aliyun</id>-->
-        <!--           <name>aliyun</name>-->
-        <!--           <url>https://maven.aliyun.com/repository/public</url>-->
-        <!--        </repository>-->
+<!--       <repository>-->
+<!--           <id>aliyun</id>-->
+<!--           <name>aliyun</name>-->
+<!--           <url>https://maven.aliyun.com/repository/public</url>-->
+<!--        </repository>-->
     </repositories>
 </project>

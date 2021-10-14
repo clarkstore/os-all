@@ -52,7 +52,9 @@ public class OsSentinelAutoConfiguration {
         return OsSentinelFeign.builder();
     }
 
-    //不可与网关限流降级并用：os.sentinel.app代表独立服务，os.sentinel.gateway代表网关
+    /**
+     * 不可与网关限流降级并用：os.sentinel.app代表独立服务，os.sentinel.gateway代表网关
+     */
     @Bean
     @ConditionalOnProperty(name = {"os.sentinel.app"})
     @ConditionalOnMissingBean

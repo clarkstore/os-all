@@ -16,9 +16,9 @@
  *
  */
 
-package com.onestop.starter.wx.mp.config;
+package com.onestop.starter.wx.mp.autoconfigure;
 
-import com.onestop.wx.mp.model.dto.MenuConfigs;
+import com.onestop.wx.mp.model.dto.ReplyConfigs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -32,16 +32,16 @@ import org.springframework.context.annotation.Configuration;
  * @version 2021-04-29
  */
 @Configuration
-@EnableConfigurationProperties(OsWxmpMenuProperties.class)
-@ConditionalOnProperty(prefix = "os.wxmp.menu", name = "enabled", havingValue = "true")
-public class OsWxmpMenuConfiguration {
+@EnableConfigurationProperties(OsWxmpReplyProperties.class)
+@ConditionalOnProperty(prefix = "os.wxmp.reply", name = "enabled", havingValue = "true")
+public class OsWxmpReplyConfiguration {
     @Autowired
-    private OsWxmpMenuProperties properties;
+    private OsWxmpReplyProperties properties;
 
     @Bean
     @ConditionalOnMissingBean
-    public MenuConfigs menuConfigs() {
-        MenuConfigs config = new MenuConfigs();
+    public ReplyConfigs replyConfigs() {
+        ReplyConfigs config = new ReplyConfigs();
         config.setConfigs(this.properties.getConfigs());
         return config;
     }

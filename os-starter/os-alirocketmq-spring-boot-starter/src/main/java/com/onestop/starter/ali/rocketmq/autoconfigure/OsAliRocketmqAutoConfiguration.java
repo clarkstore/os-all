@@ -16,37 +16,23 @@
  *
  */
 
-package com.onestop.starter.ali.sms.autoconfigure;
+package com.onestop.starter.ali.rocketmq.autoconfigure;
 
-import com.onestop.ali.sms.util.OsSmsUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * os-ali-sms配置
+ * os-ali-rocketmq配置
  * @author Clark
- * @version 2021-08-04
+ * @version 2021-10-20
  */
 @Configuration
-@EnableConfigurationProperties(OsSmsProperties.class)
-@ConditionalOnProperty(prefix = "os.sms", name = "enabled", havingValue = "true")
-public class OsAlismsAutoConfiguration {
+@EnableConfigurationProperties(OsRocketMqProperties.class)
+@ConditionalOnProperty(prefix = "os.rocketmq", name = "enabled", havingValue = "true")
+public class OsAliRocketmqAutoConfiguration {
     @Autowired
-    private OsSmsProperties properties;
+    private OsRocketMqProperties properties;
 
-    @Bean
-    @ConditionalOnMissingBean
-    public OsSmsUtils osSmsUtils() {
-        OsSmsUtils osSmsUtils = null;
-        try {
-            osSmsUtils = new OsSmsUtils(this.properties.getAccessKeyId(), this.properties.getAccessKeySecret());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return osSmsUtils;
-    }
 }

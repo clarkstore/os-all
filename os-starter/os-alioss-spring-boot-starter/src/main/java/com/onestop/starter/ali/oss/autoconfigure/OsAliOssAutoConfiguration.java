@@ -16,9 +16,9 @@
  *
  */
 
-package com.onestop.starter.wx.mp.config;
+package com.onestop.starter.ali.oss.autoconfigure;
 
-import com.onestop.wx.mp.model.dto.ReplyConfigs;
+import com.onestop.ali.oss.util.OsOssUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -27,22 +27,26 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * os-wx-mp配置
+ * os-ali-oss配置
  * @author Clark
- * @version 2021-04-29
+ * @version 2021-08-20
  */
 @Configuration
-@EnableConfigurationProperties(OsWxmpReplyProperties.class)
-@ConditionalOnProperty(prefix = "os.wxmp.reply", name = "enabled", havingValue = "true")
-public class OsWxmpReplyConfiguration {
+@EnableConfigurationProperties(OsOssProperties.class)
+@ConditionalOnProperty(prefix = "os.oss", name = "enabled", havingValue = "true")
+public class OsAliOssAutoConfiguration {
     @Autowired
-    private OsWxmpReplyProperties properties;
+    private OsOssProperties properties;
 
     @Bean
     @ConditionalOnMissingBean
-    public ReplyConfigs replyConfigs() {
-        ReplyConfigs config = new ReplyConfigs();
-        config.setConfigs(this.properties.getConfigs());
-        return config;
+    public OsOssUtils osOssUtils() {
+        OsOssUtils osOssUtils = null;
+        try {
+            osOssUtils = new OsOssUtils(this.properties.getAccessKeyId(), this.properties.getAccessKeySecret(), this.properties.getEndpoint(), this.properties.getBucketName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return osOssUtils;
     }
 }

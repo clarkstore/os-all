@@ -6,7 +6,7 @@
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-common-bom</artifactId>
     <packaging>pom</packaging>
-    <version>0.4.18</version>
+    <version>0.4.19</version>
     <name>os-common-bom</name>
     <description>onestop公共版本控制</description>
     <url>https://gitee.com/clarkstore/os-parent</url>
@@ -46,6 +46,7 @@
         <azure-storage.version>8.6.6</azure-storage.version>
         <!--ali模块-->
         <ali-oss.version>3.13.1</ali-oss.version>
+        <ali-rocketmq.version>1.8.8.1.Final</ali-rocketmq.version>
         <ali-sms.version>2.0.5</ali-sms.version>
         <!--微信模块-->
         <wx-java.version>4.1.0</wx-java.version>
@@ -89,17 +90,23 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!--os-common-->
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>os-ali-sms</artifactId>
-                <version>${project.version}</version>
-            </dependency>
+            <!--os-ali-->
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>os-ali-oss</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>os-ali-rocketmq</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>os-ali-sms</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--os-common-->
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>os-common-azure</artifactId>
@@ -171,17 +178,23 @@
                 <artifactId>mail</artifactId>
                 <version>${javax-mail.version}</version>
             </dependency>
-            <!-- ali-sms -->
-            <dependency>
-                <groupId>com.aliyun</groupId>
-                <artifactId>dysmsapi20170525</artifactId>
-                <version>${ali-sms.version}</version>
-            </dependency>
             <!-- ali-oss -->
             <dependency>
                 <groupId>com.aliyun.oss</groupId>
                 <artifactId>aliyun-sdk-oss</artifactId>
                 <version>${ali-oss.version}</version>
+            </dependency>
+            <!-- ali-rocketmq -->
+            <dependency>
+                <groupId>com.aliyun.openservices</groupId>
+                <artifactId>ons-client</artifactId>
+                <version>${ali-rocketmq.version}</version>
+            </dependency>
+            <!-- ali-sms -->
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>dysmsapi20170525</artifactId>
+                <version>${ali-sms.version}</version>
             </dependency>
             <!--Azure storage-->
             <dependency>

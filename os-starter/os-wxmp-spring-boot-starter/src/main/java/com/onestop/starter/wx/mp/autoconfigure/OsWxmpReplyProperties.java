@@ -16,16 +16,29 @@
  *
  */
 
-package com.onestop.starter.wx.mp;
+package com.onestop.starter.wx.mp.autoconfigure;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
+import com.onestop.wx.mp.model.dto.ReplyDto;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@SpringBootApplication
-@ComponentScan(basePackages = {"com.onestop"})
-public class StarterWxmpApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(StarterWxmpApplication.class, args);
-    }
+import java.util.List;
+
+/**
+ * 关键字回复配置
+ *
+ * @author Clark
+ * @version 2021-04-29
+ */
+@Getter
+@Setter
+@ToString
+@ConfigurationProperties(prefix = "os.wxmp.reply")
+public class OsWxmpReplyProperties {
+    /**
+     * 菜单配置
+     */
+    private List<ReplyDto> configs;
 }

@@ -23,7 +23,7 @@
     <parent>
         <artifactId>os-parent</artifactId>
         <groupId>com.github.clarkstore</groupId>
-        <version>0.4.18</version>
+        <version>0.4.19</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -33,6 +33,7 @@
     <modules>
         <module>os-ali-oss</module>
         <module>os-ali-sms</module>
+        <module>os-ali-rocketmq</module>
     </modules>
 
 </project>

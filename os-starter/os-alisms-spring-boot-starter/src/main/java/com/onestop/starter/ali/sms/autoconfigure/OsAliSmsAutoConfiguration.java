@@ -16,9 +16,9 @@
  *
  */
 
-package com.onestop.starter.ali.oss.autoconfigure;
+package com.onestop.starter.ali.sms.autoconfigure;
 
-import com.onestop.ali.oss.util.OsOssUtils;
+import com.onestop.ali.sms.util.OsSmsUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -27,26 +27,26 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * os-ali-oss配置
+ * os-ali-sms配置
  * @author Clark
- * @version 2021-08-20
+ * @version 2021-08-04
  */
 @Configuration
-@EnableConfigurationProperties(OsOssProperties.class)
-@ConditionalOnProperty(prefix = "os.oss", name = "enabled", havingValue = "true")
-public class OsAliossAutoConfiguration {
+@EnableConfigurationProperties(OsSmsProperties.class)
+@ConditionalOnProperty(prefix = "os.sms", name = "enabled", havingValue = "true")
+public class OsAliSmsAutoConfiguration {
     @Autowired
-    private OsOssProperties properties;
+    private OsSmsProperties properties;
 
     @Bean
     @ConditionalOnMissingBean
-    public OsOssUtils osOssUtils() {
-        OsOssUtils osOssUtils = null;
+    public OsSmsUtils osSmsUtils() {
+        OsSmsUtils osSmsUtils = null;
         try {
-            osOssUtils = new OsOssUtils(this.properties.getAccessKeyId(), this.properties.getAccessKeySecret(), this.properties.getEndpoint(), this.properties.getBucketName());
+            osSmsUtils = new OsSmsUtils(this.properties.getAccessKeyId(), this.properties.getAccessKeySecret());
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return osOssUtils;
+        return osSmsUtils;
     }
 }

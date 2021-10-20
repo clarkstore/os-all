@@ -16,39 +16,29 @@
  *
  */
 
-package com.onestop.starter.wx.mp.config;
+package com.onestop.starter.wx.mp.autoconfigure;
 
+import com.onestop.wx.mp.model.dto.MenuDto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import java.util.List;
+
 /**
+ * 菜单配置
+ *
  * @author Clark
- * @version 2021-04-23
+ * @version 2021-04-29
  */
 @Getter
 @Setter
 @ToString
-@ConfigurationProperties(prefix = "os.wxmp")
-public class OsWxmpProperties {
+@ConfigurationProperties(prefix = "os.wxmp.menu")
+public class OsWxmpMenuProperties {
     /**
-     * 设置微信公众号的appid
+     * 菜单配置
      */
-    private String appid;
-
-    /**
-     * 设置微信公众号的app secret
-     */
-    private String secret;
-
-    /**
-     * 设置微信公众号的token
-     */
-    private String token = "onestop";
-
-    /**
-     * 设置微信公众号的EncodingAESKey
-     */
-    private String aesKey = "SRXP07cF633daFYh7jasMRDHYMKjANeEQe8kwrfWB5p";
+    private List<MenuDto> configs;
 }

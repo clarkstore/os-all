@@ -16,7 +16,7 @@
  *
  */
 
-package com.onestop.starter.wx.mp.config;
+package com.onestop.starter.wx.mp.autoconfigure;
 
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.api.impl.WxMpServiceImpl;

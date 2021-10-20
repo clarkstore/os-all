@@ -16,29 +16,18 @@
  *
  */
 
-package com.onestop.starter.wx.mp.config;
+package com.onestop.starter.wx.mp.autoconfigure;
 
-import com.onestop.wx.mp.model.dto.ReplyDto;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-
-import java.util.List;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 /**
- * 关键字回复配置
+ * os-wx-mp配置
  *
  * @author Clark
  * @version 2021-04-29
  */
-@Getter
-@Setter
-@ToString
-@ConfigurationProperties(prefix = "os.wxmp.reply")
-public class OsWxmpReplyProperties {
-    /**
-     * 菜单配置
-     */
-    private List<ReplyDto> configs;
+@Configuration
+@Import({OsWxmpAutoConfiguration.class, OsWxmpMenuConfiguration.class})
+public class OsStarterWxmpAutoConfiguration {
 }

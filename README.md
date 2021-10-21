@@ -30,6 +30,9 @@
 1. os-extra模块
    - os-extra-codegen【代码生成器】
 2. [os-starter模块](os-starter/README.md)【自定义starter供业务模块引入】
+   - os-alioss
+   - os-alirocketmq
+   - os-alisms
    - os-azure
    - os-core
    - os-mybatis
@@ -49,7 +52,11 @@
    - task定时任务模块
    - web模块
    - 安全模块：api路径访问控制【待发布】
-4. [微信模块](os-wx/README.md)
+4. [阿里模块](os-ali/README.md)
+   - 对象存储
+   - 消息队列RocketMQ
+   - 短信服务
+5. [微信模块](os-wx/README.md)
    - 企业微信【待发布】
    - 小程序
    - 服务号

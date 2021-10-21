@@ -18,9 +18,12 @@
 
 package com.onestop.starter.ali.rocketmq.autoconfigure;
 
+import com.aliyun.openservices.ons.api.bean.OrderProducerBean;
+import com.aliyun.openservices.ons.api.bean.ProducerBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -35,4 +38,25 @@ public class OsAliRocketmqAutoConfiguration {
     @Autowired
     private OsRocketMqProperties properties;
 
+    /**
+     * 普通消息生产者
+     * @return
+     */
+    @Bean(initMethod = "start", destroyMethod = "shutdown")
+    public ProducerBean buildProducer() {
+        ProducerBean producer = new ProducerBean();
+        producer.setProperties(properties.getMqPropertie());
+        return producer;
+    }
+
+    /**
+     * 顺序消息生产者
+     * @return
+     */
+    @Bean(initMethod = "start", destroyMethod = "shutdown")
+    public OrderProducerBean buildOrderProducer() {
+        OrderProducerBean orderProducerBean = new OrderProducerBean();
+        orderProducerBean.setProperties(properties.getMqPropertie());
+        return orderProducerBean;
+    }
 }

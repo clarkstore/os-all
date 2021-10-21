@@ -49,6 +49,10 @@ public class OsRocketMqProperties {
     private String orderGroupId;
     private String orderTag = "*";
 
+    /**
+     * 获取配置
+     * @return Properties
+     */
     public Properties getMqPropertie() {
         Properties properties = new Properties();
         properties.setProperty(PropertyKeyConst.AccessKey, this.accessKey);

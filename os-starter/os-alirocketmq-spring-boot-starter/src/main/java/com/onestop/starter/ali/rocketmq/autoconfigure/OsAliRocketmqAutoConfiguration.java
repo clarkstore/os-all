@@ -20,6 +20,8 @@ package com.onestop.starter.ali.rocketmq.autoconfigure;
 
 import com.aliyun.openservices.ons.api.bean.OrderProducerBean;
 import com.aliyun.openservices.ons.api.bean.ProducerBean;
+import com.aliyun.openservices.ons.api.bean.TransactionProducerBean;
+import com.aliyun.openservices.ons.api.transaction.LocalTransactionChecker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -28,6 +30,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * os-ali-rocketmq配置
+ *
  * @author Clark
  * @version 2021-10-20
  */
@@ -38,8 +41,12 @@ public class OsAliRocketmqAutoConfiguration {
     @Autowired
     private OsRocketMqProperties properties;
 
+    @Autowired
+    private LocalTransactionChecker localTransactionChecker;
+
     /**
      * 普通消息生产者
+     *
      * @return
      */
     @Bean(initMethod = "start", destroyMethod = "shutdown")
@@ -51,6 +58,7 @@ public class OsAliRocketmqAutoConfiguration {
 
     /**
      * 顺序消息生产者
+     *
      * @return
      */
     @Bean(initMethod = "start", destroyMethod = "shutdown")
@@ -58,5 +66,18 @@ public class OsAliRocketmqAutoConfiguration {
         OrderProducerBean orderProducerBean = new OrderProducerBean();
         orderProducerBean.setProperties(properties.getMqPropertie());
         return orderProducerBean;
+    }
+
+    /**
+     * 事务消息生产者
+     *
+     * @return
+     */
+    @Bean(initMethod = "start", destroyMethod = "shutdown")
+    public TransactionProducerBean buildTransactionProducer() {
+        TransactionProducerBean producer = new TransactionProducerBean();
+        producer.setProperties(properties.getMqPropertie());
+        producer.setLocalTransactionChecker(localTransactionChecker);
+        return producer;
     }
 }

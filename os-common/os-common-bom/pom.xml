@@ -45,9 +45,9 @@
         <!--azure-storage模块-->
         <azure-storage.version>8.6.6</azure-storage.version>
         <!--ali模块-->
-        <ali-oss.version>3.13.1</ali-oss.version>
-        <ali-rocketmq.version>1.8.8.1.Final</ali-rocketmq.version>
-        <ali-sms.version>2.0.5</ali-sms.version>
+        <ali-oss.version>3.13.2</ali-oss.version>
+        <ali-rocketmq.version>2.0.0.Final</ali-rocketmq.version>
+        <ali-sms.version>2.0.6</ali-sms.version>
         <!--微信模块-->
         <wx-java.version>4.1.0</wx-java.version>
         <!--Nacos微服务配置-->

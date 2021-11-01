@@ -33,7 +33,7 @@
    - os-alioss
    - os-alirocketmq
    - os-alisms
-   - os-azure
+   - os-azure (暂停维护：最终版本V0.5.1)
    - os-core
    - os-mybatis
    - os-redis
@@ -43,7 +43,7 @@
    - os-wxmini
    - os-wxmp
 3. [公共模块](os-common/README.md)
-   - Azure模块
+   - Azure模块 (移除：最终版本V0.5.1)
    - bom配置模块
    - core核心模块
    - mybatis模块

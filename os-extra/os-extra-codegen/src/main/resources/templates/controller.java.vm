@@ -63,7 +63,7 @@ public class ${table.controllerName} {
      */
     @GetMapping("/{id}")
     public R<$!{entity}> get(@PathVariable String id) {
-        return R.ok($!{table.entityPath}Service.getById(id));
+        return R.ok(this.$!{table.entityPath}Service.getById(id));
     }
 
     /**
@@ -75,7 +75,7 @@ public class ${table.controllerName} {
     */
     @RequestMapping("/page")
     public R<IPage> page(Page page, $!{entity} $!{table.entityPath}) {
-        return R.ok($!{table.entityPath}Service.page(page, Wrappers.query($!{table.entityPath})));
+        return R.ok(this.$!{table.entityPath}Service.page(page, Wrappers.query($!{table.entityPath})));
     }
 
     /**
@@ -85,7 +85,7 @@ public class ${table.controllerName} {
      */
     @PostMapping
     public R<Boolean> save(@RequestBody $!{entity} $!{table.entityPath}) {
-        return R.ok($!{table.entityPath}Service.saveOrUpdate($!{table.entityPath}));
+        return R.ok(this.$!{table.entityPath}Service.saveOrUpdate($!{table.entityPath}));
     }
 
     /**
@@ -95,6 +95,6 @@ public class ${table.controllerName} {
      */
     @DeleteMapping("/{id}")
     public R<Boolean> delete(@PathVariable String id) {
-        return R.ok($!{table.entityPath}Service.removeById(id));
+        return R.ok(this.$!{table.entityPath}Service.removeById(id));
     }
 }

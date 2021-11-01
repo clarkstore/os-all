@@ -63,7 +63,7 @@ public class ${entity}Api {
      */
     @GetMapping("/{id}")
     public Res<$!{entity}> get(@PathVariable String id) {
-        return Res.ok($!{table.entityPath}Service.getById(id));
+        return Res.ok(this.$!{table.entityPath}Service.getById(id));
     }
 
     /**
@@ -75,7 +75,7 @@ public class ${entity}Api {
     */
     @GetMapping("/page")
     public Res<IPage> page(Page page, $!{entity} $!{table.entityPath}) {
-        return Res.ok($!{table.entityPath}Service.page(page, Wrappers.query($!{table.entityPath})));
+        return Res.ok(this.$!{table.entityPath}Service.page(page, Wrappers.query($!{table.entityPath})));
     }
 
     /**
@@ -85,7 +85,7 @@ public class ${entity}Api {
      */
     @PostMapping("/add")
     public Res add(@RequestBody $!{entity} $!{table.entityPath}) {
-        if ($!{table.entityPath}Service.save($!{table.entityPath})) {
+        if (this.$!{table.entityPath}Service.save($!{table.entityPath})) {
             return Res.ok();
         }
         return Res.failed();
@@ -98,7 +98,7 @@ public class ${entity}Api {
      */
     @PostMapping("/update")
     public Res update(@RequestBody $!{entity} $!{table.entityPath}) {
-        if ($!{table.entityPath}Service.updateById($!{table.entityPath})) {
+        if (this.$!{table.entityPath}Service.updateById($!{table.entityPath})) {
             return Res.ok();
         }
         // 并发操作，失败
@@ -112,7 +112,7 @@ public class ${entity}Api {
      */
     @DeleteMapping("/{id}")
     public Res delete(@PathVariable String id) {
-        if ($!{table.entityPath}Service.removeById(id)) {
+        if (this.$!{table.entityPath}Service.removeById(id)) {
             return Res.ok();
         }
         return Res.failed();

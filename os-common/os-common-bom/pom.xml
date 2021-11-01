@@ -6,7 +6,7 @@
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-common-bom</artifactId>
     <packaging>pom</packaging>
-    <version>0.5.1</version>
+    <version>0.5.2</version>
     <name>os-common-bom</name>
     <description>onestop公共版本控制</description>
     <url>https://gitee.com/clarkstore/os-parent</url>
@@ -43,7 +43,7 @@
         <mysql-connector-java.version>8.0.26</mysql-connector-java.version>
         <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
         <!--azure-storage模块-->
-        <azure-storage.version>8.6.6</azure-storage.version>
+<!--        <azure-storage.version>8.6.6</azure-storage.version>-->
         <!--ali模块-->
         <ali-oss.version>3.13.2</ali-oss.version>
         <ali-rocketmq.version>2.0.0.Final</ali-rocketmq.version>
@@ -107,11 +107,11 @@
                 <version>${project.version}</version>
             </dependency>
             <!--os-common-->
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>os-common-azure</artifactId>
-                <version>${project.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>${project.groupId}</groupId>-->
+<!--                <artifactId>os-common-azure</artifactId>-->
+<!--                <version>${project.version}</version>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>os-common-core</artifactId>
@@ -197,11 +197,11 @@
                 <version>${ali-sms.version}</version>
             </dependency>
             <!--Azure storage-->
-            <dependency>
-                <groupId>com.microsoft.azure</groupId>
-                <artifactId>azure-storage</artifactId>
-                <version>${azure-storage.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.microsoft.azure</groupId>-->
+<!--                <artifactId>azure-storage</artifactId>-->
+<!--                <version>${azure-storage.version}</version>-->
+<!--            </dependency>-->
             <!--微信依赖-->
             <dependency>
                 <groupId>com.github.binarywang</groupId>

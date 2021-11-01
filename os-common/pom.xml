@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.github.clarkstore</groupId>
         <artifactId>os-parent</artifactId>
-        <version>0.5.1</version>
+        <version>0.5.2</version>
     </parent>
 
     <artifactId>os-common</artifactId>
@@ -17,7 +17,6 @@
     <modules>
         <module>os-common-bom</module>
         <module>os-common-core</module>
-        <module>os-common-azure</module>
         <module>os-common-task</module>
         <module>os-common-mybatis</module>
         <module>os-common-redis</module>

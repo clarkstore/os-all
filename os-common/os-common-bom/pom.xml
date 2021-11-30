@@ -6,7 +6,7 @@
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-common-bom</artifactId>
     <packaging>pom</packaging>
-    <version>0.5.3</version>
+    <version>0.5.4</version>
     <name>os-common-bom</name>
     <description>onestop公共版本控制</description>
     <url>https://gitee.com/clarkstore/os-parent</url>
@@ -44,10 +44,10 @@
         <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
         <!--ali模块-->
         <ali-oss.version>3.13.2</ali-oss.version>
-        <ali-rocketmq.version>2.0.0.Final</ali-rocketmq.version>
-        <ali-sms.version>2.0.7</ali-sms.version>
+        <ali-rocketmq.version>2.0.1.Final</ali-rocketmq.version>
+        <ali-sms.version>2.0.8</ali-sms.version>
         <!--微信模块-->
-        <wx-java.version>4.1.0</wx-java.version>
+        <wx-java.version>4.2.0</wx-java.version>
         <!--Nacos微服务配置-->
         <spring-cloud.version>2020.0.4</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>

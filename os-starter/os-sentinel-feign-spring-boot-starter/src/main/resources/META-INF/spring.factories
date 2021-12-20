@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.onestop.starter.common.sentinel.config.OsStarterSentinelAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=cn.onestop.starter.common.sentinel.config.OsStarterSentinelAutoConfiguration

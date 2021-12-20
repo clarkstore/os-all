@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.onestop.starter.common.mybatis.config.OsStarterMybatisAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=cn.onestop.starter.common.mybatis.config.OsStarterMybatisAutoConfiguration

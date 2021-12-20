@@ -6,7 +6,7 @@
     <parent>
         <artifactId>os-all</artifactId>
         <groupId>com.github.clarkstore</groupId>
-        <version>0.5.5</version>
+        <version>0.5.6</version>
     </parent>
 
     <artifactId>os-wx</artifactId>
@@ -21,9 +21,7 @@
     </dependencies>
 
     <modules>
-<!--        <module>os-wx-cp</module>-->
         <module>os-wx-mini</module>
         <module>os-wx-mp</module>
-<!--        <module>os-wx-pay</module>-->
     </modules>
 </project>

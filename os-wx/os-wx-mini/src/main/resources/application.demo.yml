@@ -5,7 +5,7 @@ logging:
   level:
     org.springframework: info
     cn.binarywang.wx.miniapp: debug
-    com.onestop: debug
+    cn.onestop: debug
 # 在wxmini-starter中配置
 #spring:
 #  profiles:

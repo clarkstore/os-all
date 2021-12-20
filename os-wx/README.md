@@ -20,9 +20,9 @@
 ---
 
 #### OneStop工具平台地址：
-Gitee：[https://gitee.com/clarkstore/os-parent](https://gitee.com/clarkstore/os-parent)
+Gitee：[https://gitee.com/clarkstore/os-all](https://gitee.com/clarkstore/os-all)
 
-GitHub：[https://github.com/clarkstore/os-parent](https://github.com/clarkstore/os-parent)
+GitHub：[https://github.com/clarkstore/os-all](https://github.com/clarkstore/os-all)
 
 #### Os-Biz基础平台地址：
 Gitee：[https://gitee.com/clarkstore/os-biz](https://gitee.com/clarkstore/os-biz)

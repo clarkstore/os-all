@@ -43,7 +43,6 @@
    - os-wxmini
    - os-wxmp
 3. [公共模块](os-common/README.md)
-   - Azure模块 (移除：最终版本V0.5.1)
    - bom配置模块
    - core核心模块
    - mybatis模块
@@ -51,7 +50,6 @@
    - sentinel-feign模块
    - task定时任务模块
    - web模块
-   - 安全模块：api路径访问控制【待发布】
 4. [阿里模块](os-ali/README.md)
    - 对象存储
    - 消息队列RocketMQ

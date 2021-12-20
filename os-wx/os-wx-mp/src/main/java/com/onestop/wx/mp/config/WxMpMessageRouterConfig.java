@@ -18,7 +18,6 @@
 
 package com.onestop.wx.mp.config;
 
-import cn.onestop.wx.mp.handler.*;
 import com.onestop.wx.mp.handler.*;
 import lombok.AllArgsConstructor;
 import me.chanjar.weixin.common.api.WxConsts;

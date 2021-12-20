@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.clarkstore</groupId>
-    <artifactId>os-parent</artifactId>
+    <artifactId>os-all</artifactId>
     <version>0.5.5</version>
     <packaging>pom</packaging>
 
-    <name>os-parent</name>
+    <name>os-all</name>
     <description>onestop-starter集合</description>
-    <url>https://gitee.com/clarkstore/os-parent</url>
+    <url>https://gitee.com/clarkstore/os-all</url>
 
     <developers>
         <developer>
@@ -26,9 +26,9 @@
         </license>
     </licenses>
     <scm>
-        <connection>scm:git:git@gitee.com:clarkstore/os-parent.git</connection>
-        <developerConnection>scm:git:git@gitee.com:clarkstore/os-parent.git</developerConnection>
-        <url>https://gitee.com/clarkstore/os-parent</url>
+        <connection>scm:git:git@gitee.com:clarkstore/os-all.git</connection>
+        <developerConnection>scm:git:git@gitee.com:clarkstore/os-all.git</developerConnection>
+        <url>https://gitee.com/clarkstore/os-all</url>
     </scm>
 
     <properties>

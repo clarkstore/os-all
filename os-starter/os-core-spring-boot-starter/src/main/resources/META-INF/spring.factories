@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=cn.onestop.starter.common.core.autoconfigure.OsCoreAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.onestop.starter.common.core.autoconfigure.OsCoreAutoConfiguration

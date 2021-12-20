@@ -1,7 +1,3 @@
-logging:
-  level:
-    org.springframework: info
-    cn.onestop: debug
 os:
   task:
     # 开启配置

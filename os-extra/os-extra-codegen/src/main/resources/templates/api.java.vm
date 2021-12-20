@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.*;
 #else
 import org.springframework.stereotype.Controller;
 #end
-import cn.onestop.common.core.util.Res;
+import Res;
 #if(${superControllerClassPackage})
 import ${superControllerClassPackage};
 #end

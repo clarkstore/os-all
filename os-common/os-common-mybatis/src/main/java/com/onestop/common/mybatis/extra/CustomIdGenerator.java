@@ -26,13 +26,13 @@ import lombok.extern.slf4j.Slf4j;
  * 自定义ID生成器
  *
  * @author Clark
- * @version 2021-05-26
+ * @version 2021-12-27
  */
 @Slf4j
 public class CustomIdGenerator implements IdentifierGenerator {
 
     @Override
     public Long nextId(Object entity) {
-        return IdUtil.getSnowflake(1, 1).nextId();
+        return IdUtil.getSnowflakeNextId();
     }
 }

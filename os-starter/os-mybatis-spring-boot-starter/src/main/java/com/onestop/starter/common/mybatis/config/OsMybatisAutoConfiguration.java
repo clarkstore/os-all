@@ -19,11 +19,13 @@
 package com.onestop.starter.common.mybatis.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.onestop.common.mybatis.extra.CustomIdGenerator;
+import com.onestop.common.mybatis.extra.OsMetaObjectHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -49,5 +51,14 @@ public class OsMybatisAutoConfiguration {
     @Bean
     public IdentifierGenerator idGenerator() {
         return new CustomIdGenerator();
+    }
+
+    /**
+     * 字段自动填充
+     * @return {@link MetaObjectHandler}
+     */
+    @Bean
+    public OsMetaObjectHandler osMetaObjectHandler() {
+        return new OsMetaObjectHandler();
     }
 }

@@ -43,6 +43,8 @@ public class OsMetaObjectHandler implements MetaObjectHandler {
         log.debug("mybatis plus start insert fill ....");
         fillValIfNullByName("createTime", LocalDateTime.now(), metaObject, false);
         fillValIfNullByName("createBy", getUserName(), metaObject, false);
+        fillValIfNullByName("updateTime", LocalDateTime.now(), metaObject, true);
+        fillValIfNullByName("updateBy", getUserName(), metaObject, true);
     }
 
     @Override

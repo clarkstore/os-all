@@ -5,7 +5,7 @@
     <parent>
         <artifactId>os-common</artifactId>
         <groupId>com.github.clarkstore</groupId>
-        <version>0.5.10</version>
+        <version>0.5.11</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -13,11 +13,6 @@
     <description>mybatis-plus模块</description>
 
     <dependencies>
-        <!--security 依赖-->
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-        </dependency>
         <!-- mybatis-plus begin -->
         <dependency>
             <groupId>com.baomidou</groupId>

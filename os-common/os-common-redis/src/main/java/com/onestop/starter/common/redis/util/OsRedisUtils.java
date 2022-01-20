@@ -36,7 +36,6 @@ import java.util.concurrent.TimeUnit;
  * @author Clark
  * @version 2021-05-10
  */
-//@Component
 public class OsRedisUtils {
     /**
      * 注入redisTemplate bean

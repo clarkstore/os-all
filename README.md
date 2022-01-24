@@ -30,9 +30,9 @@
 1. os-extra模块
    - os-extra-codegen【代码生成器】
 2. [os-starter模块](os-starter/README.md)【自定义starter供业务模块引入】
-   - os-alioss
-   - os-alirocketmq
-   - os-alisms
+   - os-oss
+   - os-rocketmq
+   - os-sms
    - os-azure (暂停维护：最终版本V0.5.1)
    - os-core
    - os-mybatis
@@ -88,5 +88,3 @@ GitHub：[https://gitee.com/clarkstore/os-nacos](https://gitee.com/clarkstore/os
 ### 赞助商
 [![JetBrains IDEA](jetbrains.png)](https://jb.gg/OpenSource)
 [感谢JetBrains IDEA对开源项目的支持](https://jb.gg/OpenSource)
-
-

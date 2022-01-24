@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.onestop.starter.ali.oss.autoconfigure.OsAliOssAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.onestop.ali.oss.autoconfigure.OsOssAutoConfiguration

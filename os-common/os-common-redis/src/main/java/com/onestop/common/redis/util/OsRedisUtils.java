@@ -16,7 +16,7 @@
  *
  */
 
-package com.onestop.starter.common.redis.util;
+package com.onestop.common.redis.util;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;

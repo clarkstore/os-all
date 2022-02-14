@@ -19,6 +19,7 @@
 package com.onestop.starter.common.redis.util;
 
 import cn.onestop.starter.common.redis.StarterRedisApplication;
+import com.onestop.common.redis.util.OsRedisUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

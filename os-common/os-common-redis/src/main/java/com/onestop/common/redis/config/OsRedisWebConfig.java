@@ -16,9 +16,9 @@
  *
  */
 
-package com.onestop.common.redis.autoconfigure;
+package com.onestop.common.redis.config;
 
-import com.onestop.starter.common.redis.interceptor.OsAccessLimitInterceptor;
+import com.onestop.common.redis.interceptor.OsAccessLimitInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

@@ -16,7 +16,7 @@
  *
  */
 
-package com.onestop.starter.common.redis.util;
+package com.onestop.common.redis.util;
 
 import lombok.extern.slf4j.Slf4j;
 

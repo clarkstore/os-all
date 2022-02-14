@@ -16,39 +16,16 @@
  *
  */
 
-package com.onestop.starter.common.redis.annotation;
-
-import com.onestop.starter.common.redis.constant.OsLimitTypeEnum;
-
-import java.lang.annotation.*;
+package com.onestop.common.redis.constant;
 
 /**
- * 限流
- *
  * @author Clark
- * @version 2021/5/8
+ * @version 2021/5/12
  */
-@Inherited
-@Documented
-@Target({ElementType.METHOD, ElementType.TYPE})
-@Retention(RetentionPolicy.RUNTIME)
-public @interface OsAccessLimit {
+public enum OsLimitTypeEnum {
+    //定义枚举的值
     /**
-     * 自定义Key
+     * 根据IP、自定义Key、以及默认方法名
      */
-    String key() default "";
-    /**
-     * 单位时间限制通过请求数、默认200次
-     */
-    long limitCount() default 200;
-
-    /**
-     * 单位时间，单位秒、默认10秒
-     */
-    long limitSec() default 10;
-
-    /**
-     * 限制类型、默认方法名为Key
-     */
-    OsLimitTypeEnum limitType() default OsLimitTypeEnum.METHOD_NAME;
+    IP, CUSTOMER, METHOD_NAME;
 }

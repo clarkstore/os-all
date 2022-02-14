@@ -19,7 +19,7 @@
         <module>os-oss-spring-boot-starter</module>
         <module>os-redis-spring-boot-starter</module>
         <module>os-rocketmq-spring-boot-starter</module>
-        <module>os-sentinel-feign-spring-boot-starter</module>
+<!--        <module>os-sentinel-feign-spring-boot-starter</module>-->
         <module>os-sms-spring-boot-starter</module>
         <module>os-web-spring-boot-starter</module>
         <module>os-task-spring-boot-starter</module>

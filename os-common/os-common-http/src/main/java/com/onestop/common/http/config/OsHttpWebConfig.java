@@ -16,9 +16,9 @@
  *
  */
 
-package com.onestop.common.redis.config;
+package com.onestop.common.http.config;
 
-import com.onestop.common.redis.interceptor.OsAccessLimitInterceptor;
+import com.onestop.common.http.interceptor.OsAccessLimitInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -33,7 +33,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @version 2020-04-06
  */
 @Configuration
-public class OsRedisWebConfig implements WebMvcConfigurer {
+public class OsHttpWebConfig implements WebMvcConfigurer {
     // TODO 可以继承自定义限流拦截器
     @Autowired(required = false)
     private OsAccessLimitInterceptor osAccessLimitInterceptor;

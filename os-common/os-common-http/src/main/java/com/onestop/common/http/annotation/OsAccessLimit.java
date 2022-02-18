@@ -16,9 +16,9 @@
  *
  */
 
-package com.onestop.common.redis.annotation;
+package com.onestop.common.http.annotation;
 
-import com.onestop.common.redis.constant.OsLimitTypeEnum;
+import com.onestop.common.http.constant.OsLimitTypeEnum;
 
 import java.lang.annotation.*;
 

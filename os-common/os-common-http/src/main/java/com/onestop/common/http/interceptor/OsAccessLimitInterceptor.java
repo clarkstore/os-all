@@ -16,13 +16,13 @@
  *
  */
 
-package com.onestop.common.redis.interceptor;
+package com.onestop.common.http.interceptor;
 
 import cn.hutool.core.util.StrUtil;
-import com.onestop.common.redis.annotation.OsAccessLimit;
-import com.onestop.common.redis.exception.OsAccessLimitException;
-import com.onestop.common.redis.constant.OsLimitTypeEnum;
-import com.onestop.common.redis.util.OsIPUtils;
+import com.onestop.common.http.annotation.OsAccessLimit;
+import com.onestop.common.http.constant.OsLimitTypeEnum;
+import com.onestop.common.http.exception.OsAccessLimitException;
+import com.onestop.common.http.util.OsIPUtils;
 import com.onestop.common.redis.util.OsRedisUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -16,17 +16,21 @@
  *
  */
 
-package com.onestop.common.redis.autoconfigure;
+package com.onestop.common.http.autoconfigure;
 
+import okhttp3.OkHttpClient;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 
 /**
- * os-common-core配置
+ * os-common-http配置
  * @author Clark
- * @version 2021-02-24
+ * @version 2022-02-14
  */
 @Configuration
-@Import({ OsRedisAutoConfiguration.class })
-public class OsStarterRedisAutoConfiguration {
+public class OsHttpAutoConfiguration {
+    @Bean
+    public OkHttpClient.Builder okHttpClient() {
+        return new OkHttpClient.Builder();
+    }
 }

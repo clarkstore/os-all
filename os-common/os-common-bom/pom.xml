@@ -34,12 +34,13 @@
         <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-boot.version>2.6.3</spring-boot.version>
+        <hutool.version>5.7.20</hutool.version>
         <druid.version>1.2.8</druid.version>
         <!--公共模块-->
-        <hutool.version>5.7.20</hutool.version>
         <javax-mail.version>1.6.2</javax-mail.version>
-        <!--redis模块-->
-<!--        <redisson-starter.version>3.15.5</redisson-starter.version>-->
+        <!--http模块-->
+        <sentinel-core.version>1.8.3</sentinel-core.version>
+        <retrofit-spring-boot-starter.version>2.2.18</retrofit-spring-boot-starter.version>
         <!--mybatis模块-->
         <mysql-connector-java.version>8.0.28</mysql-connector-java.version>
         <mybatis-plus.version>3.5.1</mybatis-plus.version>
@@ -112,6 +113,11 @@
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
+                <artifactId>os-common-http</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>os-common-mybatis</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -171,7 +177,17 @@
                 <artifactId>javax.mail</artifactId>
                 <version>${javax-mail.version}</version>
             </dependency>
-
+            <!--http-->
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-core</artifactId>
+                <version>${sentinel-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.lianjiatech</groupId>
+                <artifactId>retrofit-spring-boot-starter</artifactId>
+                <version>${retrofit-spring-boot-starter.version}</version>
+            </dependency>
             <!-- ali-oss -->
             <dependency>
                 <groupId>com.aliyun.oss</groupId>
@@ -219,17 +235,6 @@
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
-            <!--Redis redisson-->
-            <!--            <dependency>-->
-            <!--                <groupId>org.redisson</groupId>-->
-            <!--                <artifactId>redisson-spring-boot-starter</artifactId>-->
-            <!--                <version>${redisson-starter.version}</version>-->
-            <!--            </dependency>-->
-            <!--            <dependency>-->
-            <!--                <groupId>org.redisson</groupId>-->
-            <!--                <artifactId>redisson-spring-data-24</artifactId>-->
-            <!--                <version>${redisson-starter.version}</version>-->
-            <!--            </dependency>-->
         </dependencies>
     </dependencyManagement>
 

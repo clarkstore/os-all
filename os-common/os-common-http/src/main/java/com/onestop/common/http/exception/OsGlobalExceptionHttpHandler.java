@@ -16,7 +16,7 @@
  *
  */
 
-package com.onestop.common.redis.exception;
+package com.onestop.common.http.exception;
 
 import com.onestop.common.core.util.Res;
 import lombok.extern.slf4j.Slf4j;
@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @Slf4j
 @RestControllerAdvice
 @Order(Ordered.LOWEST_PRECEDENCE - 1)
-public class OsGlobalExceptionRedisHandler {
+public class OsGlobalExceptionHttpHandler {
     /**
      *
      * @param e 限流异常

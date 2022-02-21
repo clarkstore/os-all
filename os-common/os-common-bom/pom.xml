@@ -34,7 +34,7 @@
         <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-boot.version>2.6.3</spring-boot.version>
-        <hutool.version>5.7.20</hutool.version>
+        <hutool.version>5.7.21</hutool.version>
         <druid.version>1.2.8</druid.version>
         <!--公共模块-->
         <javax-mail.version>1.6.2</javax-mail.version>
@@ -45,9 +45,9 @@
         <mysql-connector-java.version>8.0.28</mysql-connector-java.version>
         <mybatis-plus.version>3.5.1</mybatis-plus.version>
         <!--ali模块-->
-        <ali-oss.version>3.13.2</ali-oss.version>
+        <ali-oss.version>3.14.0</ali-oss.version>
         <ali-rocketmq.version>2.0.1.Final</ali-rocketmq.version>
-        <ali-sms.version>2.0.8</ali-sms.version>
+        <ali-sms.version>2.0.9</ali-sms.version>
         <!--微信模块-->
         <wx-java.version>4.2.0</wx-java.version>
         <!--Nacos微服务配置-->

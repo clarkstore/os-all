@@ -3,34 +3,32 @@
 
 ---
 
-1. Azure模块
-- Azure存储功能
-2. bom配置模块
+1. bom配置模块
 - 核心版本配置
-3. core核心模块
+2. core核心模块
 - OS框架统一响应信息主体类
 - OS自定义异常类
+- AES方法类:解密
 - html模板邮件工具类
+- token工具类
+3. http模块
+- 自定义限流注解
+- HttpWebConfig
+- 限流异常、全局异常处理
+- 限流拦截器
+- 引入retrofit-spring-boot-starter实现，httpclient等功能
 4. mybatis模块
 - 自定义ID生成器
 - 自定义填充公共字段
 5. redis模块
-- 自定义限流注解
-- RedisWebConfig
-- 限流异常、全局异常处理
-- 限流拦截器
 - Redis工具类 
-6. sentinel-feign模块
-- sentinel统一降级限流
-7. task定时任务模块
+6. task定时任务模块
 - 定时任务工具类
-8.  web模块
+7. web模块
 - 自定义token验证注解
 - WebConfig
 - 全局异常处理
 - token验证截器
-- token工具类
-9.安全模块：api路径访问控制【待发布】
 
 ---
 

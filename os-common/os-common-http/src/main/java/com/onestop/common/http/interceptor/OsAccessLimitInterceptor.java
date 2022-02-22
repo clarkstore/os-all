@@ -79,7 +79,10 @@ public class OsAccessLimitInterceptor implements HandlerInterceptor {
                     break;
                 case CUSTOMER:
                     key = accessLimit.key();
-                    break;
+                    // 未配置key，使用方法名为key
+                    if (StrUtil.isNotBlank(key)) {
+                        break;
+                    }
                 default:
                     //类名_方法名
                     StringJoiner sj = new StringJoiner(StrUtil.UNDERLINE);

@@ -42,11 +42,6 @@ public class OsRedisUtils {
      */
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
-    /**
-     * redisson Client
-     */
-//    @Autowired
-//    private RedissonClient redissonClient;
 
     /**
      * 指定缓存失效时间

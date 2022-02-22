@@ -94,10 +94,10 @@ public class OsAccessLimitInterceptor implements HandlerInterceptor {
             Object maxLimit = osRedisUtils.get(key);
             if (maxLimit == null) {
                 //第一次，计数器设置为1，设置redis过期时间
-                osRedisUtils.set(key, 1, sec);
+                this.osRedisUtils.set(key, 1, sec);
             } else if (Long.parseLong(maxLimit.toString()) < count) {
                 //计数器加1
-                osRedisUtils.incr(key);
+                this.osRedisUtils.incr(key);
             } else {
                 throw new OsAccessLimitException();
             }

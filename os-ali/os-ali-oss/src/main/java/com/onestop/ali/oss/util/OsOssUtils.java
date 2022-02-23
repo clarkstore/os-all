@@ -25,13 +25,14 @@ import com.aliyun.oss.model.*;
 import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
  * 阿里OSS服务工具类
  *
  * @author Clark
- * @version 2021/8/19
+ * @version 2022-02-23
  */
 public class OsOssUtils {
     // accessKeyId和accessKeySecret是OSS的访问密钥，您可以在控制台上创建和查看，
@@ -67,12 +68,20 @@ public class OsOssUtils {
     }
 
     /**
+     * 取得OSS client对象
+     * @return
+     */
+    public OSS getClient() {
+        return this.client;
+    }
+
+    /**
      * 取得Bucket信息
      *
      * @return BucketInfo
      */
     public BucketInfo getBucketInfo() {
-        BucketInfo info = client.getBucketInfo(this.bucketName);
+        BucketInfo info = this.client.getBucketInfo(this.bucketName);
         return info;
     }
 
@@ -144,5 +153,19 @@ public class OsOssUtils {
         } while (objectListing.isTruncated());
 
         this.deleteObject(prefix);
+    }
+
+    /**
+     * 取出文件上传路径
+     * @param bucketName
+     * @param key
+     * @param expiration
+     * @return 文件上传路径
+     */
+    public String generatePresignedUrl(String bucketName, String key, Date expiration) {
+        String url = this.client
+                .generatePresignedUrl(bucketName, key,
+                        expiration).toString();
+        return url;
     }
 }

@@ -20,7 +20,6 @@ package com.onestop.common.mybatis.extra;
 
 import cn.hutool.core.util.IdUtil;
 import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 自定义ID生成器
@@ -28,7 +27,6 @@ import lombok.extern.slf4j.Slf4j;
  * @author Clark
  * @version 2021-12-27
  */
-@Slf4j
 public class CustomIdGenerator implements IdentifierGenerator {
 
     @Override

@@ -157,12 +157,11 @@ public class OsOssUtils {
 
     /**
      * 取出文件上传路径
-     * @param bucketName
-     * @param key
+     * @param key objectName
      * @param expiration
      * @return 文件上传路径
      */
-    public String generatePresignedUrl(String bucketName, String key, Date expiration) {
+    public String generatePresignedUrl(String key, Date expiration) {
         String url = this.client
                 .generatePresignedUrl(bucketName, key,
                         expiration).toString();

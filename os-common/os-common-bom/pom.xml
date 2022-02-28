@@ -7,7 +7,7 @@
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-common-bom</artifactId>
     <packaging>pom</packaging>
-    <version>0.6.0</version>
+    <version>0.6.1</version>
     <name>os-common-bom</name>
     <description>onestop公共版本控制</description>
     <url>https://gitee.com/clarkstore/os-all</url>
@@ -40,10 +40,12 @@
         <javax-mail.version>1.6.2</javax-mail.version>
         <!--http模块-->
         <sentinel-core.version>1.8.3</sentinel-core.version>
-        <retrofit-spring-boot-starter.version>2.2.18</retrofit-spring-boot-starter.version>
+        <retrofit-spring-boot-starter.version>2.2.21</retrofit-spring-boot-starter.version>
         <!--mybatis模块-->
         <mysql-connector-java.version>8.0.28</mysql-connector-java.version>
         <mybatis-plus.version>3.5.1</mybatis-plus.version>
+        <!--task模块-->
+        <plumelog-schedule-starter.version>1.1</plumelog-schedule-starter.version>
         <!--ali模块-->
         <ali-oss.version>3.14.0</ali-oss.version>
         <ali-rocketmq.version>2.0.1.Final</ali-rocketmq.version>
@@ -187,6 +189,12 @@
                 <groupId>com.github.lianjiatech</groupId>
                 <artifactId>retrofit-spring-boot-starter</artifactId>
                 <version>${retrofit-spring-boot-starter.version}</version>
+            </dependency>
+            <!--task-->
+            <dependency>
+                <groupId>com.plumelog</groupId>
+                <artifactId>spring-boot-schedule-admin-starter</artifactId>
+                <version>${plumelog-schedule-starter.version}</version>
             </dependency>
             <!-- ali-oss -->
             <dependency>

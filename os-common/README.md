@@ -24,6 +24,7 @@
 - Redis工具类 
 6. task定时任务模块
 - 定时任务工具类
+- 引入SpringScheduleAdmin
 7. web模块
 - 自定义token验证注解
 - WebConfig

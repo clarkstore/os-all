@@ -16,13 +16,10 @@
 
 #### 核心依赖
 - Spring Boot
-- Spring Cloud
-- Spring Cloud Alibaba
 - lombok
 - hutool
 - druid
 - mybatis-plus
-- WxJava
 - ...
 
 ---
@@ -37,7 +34,6 @@
    - os-core
    - os-mybatis
    - os-redis
-   - os-sentinel-feign
    - os-task
    - os-web
    - os-wxmini
@@ -47,7 +43,6 @@
    - core核心模块
    - mybatis模块
    - redis模块
-   - sentinel-feign模块
    - task定时任务模块
    - web模块
 4. [阿里模块](os-ali/README.md)

@@ -25,6 +25,7 @@
         <module>os-wxmini-spring-boot-starter</module>
         <module>os-wxmp-spring-boot-starter</module>
         <module>os-http-spring-boot-starter</module>
+        <module>os-log-spring-boot-starter</module>
     </modules>
 
     <dependencies>

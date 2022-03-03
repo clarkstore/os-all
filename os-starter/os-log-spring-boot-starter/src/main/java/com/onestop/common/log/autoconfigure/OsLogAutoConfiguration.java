@@ -40,7 +40,7 @@ public class OsLogAutoConfiguration {
     /**
      * 自定义日志拦截器
      */
-    @Value("${os.log.aspect:com.onestop.demo.log.config.OsBizLogAspect}")
+    @Value("${os.log.aspect:com.onestop.common.log.config.OsBizLogAspect}")
     private String className;
 
     @Bean("asyncLogExecutor")

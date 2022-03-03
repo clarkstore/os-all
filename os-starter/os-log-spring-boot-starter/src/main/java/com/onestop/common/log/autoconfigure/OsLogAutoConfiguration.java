@@ -18,7 +18,7 @@
 
 package com.onestop.common.log.autoconfigure;
 
-import com.onestop.common.log.config.OsBizLogAspect;
+import com.onestop.common.log.aspect.OsBizLogAspect;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -40,7 +40,7 @@ public class OsLogAutoConfiguration {
     /**
      * 自定义日志拦截器
      */
-    @Value("${os.log.aspect:com.onestop.common.log.config.OsBizLogAspect}")
+    @Value("${os.log.aspect:com.onestop.common.log.aspect.OsBizLogAspect}")
     private String className;
 
     @Bean("asyncLogExecutor")

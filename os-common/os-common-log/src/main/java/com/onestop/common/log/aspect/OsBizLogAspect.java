@@ -1,4 +1,4 @@
-package com.onestop.common.log.config;
+package com.onestop.common.log.aspect;
 
 import cn.hutool.core.exceptions.ExceptionUtil;
 import cn.hutool.core.map.MapUtil;

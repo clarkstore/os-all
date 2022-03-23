@@ -20,9 +20,9 @@ package com.onestop.common.web.interceptor;
 
 import cn.hutool.core.util.StrUtil;
 import com.onestop.common.core.exception.OsBizException;
-import com.onestop.common.core.util.OsTokenUtils;
 import com.onestop.common.web.annotation.OsAuthTokenAnnotation;
 import com.onestop.common.web.constant.OsWebConsts;
+import com.onestop.common.web.util.OsTokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Configuration;

@@ -16,9 +16,9 @@
  *
  */
 
-package com.onestop.common.core.autoconfigure;
+package com.onestop.common.web.autoconfigure;
 
-import com.onestop.common.core.util.OsTokenUtils;
+import com.onestop.common.web.util.OsTokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

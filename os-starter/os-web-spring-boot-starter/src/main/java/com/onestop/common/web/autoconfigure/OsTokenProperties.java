@@ -16,7 +16,7 @@
  *
  */
 
-package com.onestop.common.core.autoconfigure;
+package com.onestop.common.web.autoconfigure;
 
 import lombok.Getter;
 import lombok.Setter;

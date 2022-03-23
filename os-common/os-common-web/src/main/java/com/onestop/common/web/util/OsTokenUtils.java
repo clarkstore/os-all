@@ -16,7 +16,7 @@
  *
  */
 
-package com.onestop.common.core.util;
+package com.onestop.common.web.util;
 
 import cn.hutool.core.exceptions.ValidateException;
 import cn.hutool.jwt.JWT;

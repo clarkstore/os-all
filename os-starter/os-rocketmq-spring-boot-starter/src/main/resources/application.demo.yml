@@ -1,7 +1,5 @@
 os:
   rocketmq:
-    # 开启短信工具类
-    enabled: true
     accessKey: XXX
     secretKey: XXX
     nameSrvAddr: XXX

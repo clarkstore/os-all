@@ -23,7 +23,6 @@ import com.aliyun.openservices.ons.api.bean.ProducerBean;
 import com.aliyun.openservices.ons.api.bean.TransactionProducerBean;
 import com.aliyun.openservices.ons.api.transaction.LocalTransactionChecker;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -36,7 +35,6 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties(OsRocketMqProperties.class)
-@ConditionalOnProperty(prefix = "os.rocketmq", name = "enabled", havingValue = "true")
 public class OsRocketmqAutoConfiguration {
     @Autowired
     private OsRocketMqProperties properties;

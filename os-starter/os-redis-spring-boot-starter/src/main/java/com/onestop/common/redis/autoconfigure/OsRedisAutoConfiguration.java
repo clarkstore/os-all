@@ -27,7 +27,6 @@ import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.onestop.common.redis.util.OsRedisUtils;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
@@ -43,7 +42,6 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * @version 2021-05-10
  */
 @Configuration
-@ConditionalOnProperty(prefix = "os.redis", name = "enabled", havingValue = "true")
 public class OsRedisAutoConfiguration {
 
     @Bean

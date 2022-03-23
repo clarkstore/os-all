@@ -28,5 +28,5 @@ import org.springframework.context.annotation.Import;
  */
 @Configuration
 @Import({ OsTaskSchedulerAutoConfiguration.class })
-public class OsStarterTaskAutoConfiguration {
+public class OsTaskAutoConfiguration {
 }

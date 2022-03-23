@@ -19,6 +19,7 @@
 package com.onestop.wx.mini.util;
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
+import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
 import cn.binarywang.wx.miniapp.bean.WxMaSubscribeMessage;
 import com.onestop.wx.mini.util.dto.SubscribeConfigs;
 import com.onestop.wx.mini.util.dto.SubscribeDto;
@@ -45,6 +46,17 @@ public class OsWxMiniUtils {
     private WxMaService wxService;
     @Autowired
     private SubscribeConfigs subscribeConfigs;
+
+    /**
+     * 获取登录后的session信息
+     *
+     * @param jscode 登录时获取的 code
+     * @return the wx mini code 2 session result
+     * @throws WxErrorException the wx error exception
+     */
+    public WxMaJscode2SessionResult jscode2session(String jscode) throws WxErrorException {
+        return this.wxService.jsCode2SessionInfo(jscode);
+    }
 
     /**
      * 发送订阅消息

@@ -21,7 +21,6 @@ package com.onestop.common.task.autoconfigure;
 import com.onestop.common.task.util.OsTaskSchedulerUtils;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
@@ -32,7 +31,6 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
  * @version 2021-04-08
  */
 @Configuration
-@ConditionalOnProperty(prefix = "os.task", name = "enabled", havingValue = "true")
 public class OsTaskSchedulerAutoConfiguration {
 
     @Bean

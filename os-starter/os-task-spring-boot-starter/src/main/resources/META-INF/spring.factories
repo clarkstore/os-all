@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.onestop.common.task.autoconfigure.OsStarterTaskAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.onestop.common.task.autoconfigure.OsTaskAutoConfiguration

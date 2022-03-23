@@ -1,4 +1,0 @@
-os:
-  task:
-    # 开启配置
-    enabled: true

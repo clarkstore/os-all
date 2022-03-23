@@ -21,7 +21,6 @@ package com.onestop.ali.oss.autoconfigure;
 import com.onestop.ali.oss.util.OsOssUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,7 +32,6 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties(OsOssProperties.class)
-@ConditionalOnProperty(prefix = "os.oss", name = "enabled", havingValue = "true")
 public class OsOssAutoConfiguration {
     @Autowired
     private OsOssProperties properties;

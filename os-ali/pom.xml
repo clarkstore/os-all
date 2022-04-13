@@ -34,6 +34,7 @@
         <module>os-ali-oss</module>
         <module>os-ali-sms</module>
         <module>os-ali-rocketmq</module>
+        <module>os-ali-nlp</module>
     </modules>
 
 </project>

@@ -26,6 +26,7 @@
         <module>os-wxmp-spring-boot-starter</module>
         <module>os-http-spring-boot-starter</module>
         <module>os-log-spring-boot-starter</module>
+        <module>os-nlp-spring-boot-starter</module>
     </modules>
 
     <dependencies>

@@ -35,12 +35,6 @@ import java.util.List;
  * @version 2022-02-23
  */
 public class OsOssUtils {
-    // accessKeyId和accessKeySecret是OSS的访问密钥，您可以在控制台上创建和查看，
-    // 创建和查看访问密钥的链接地址是：https://ak-console.aliyun.com/#/。
-    // 注意：accessKeyId和accessKeySecret前后都没有空格，从控制台复制时请检查并去除多余的空格。
-    private String accessKeyId;
-    private String accessKeySecret;
-
     // endpoint是访问OSS的域名。如果您已经在OSS的控制台上 创建了Bucket，请在控制台上查看域名。
     // 如果您还没有创建Bucket，endpoint选择请参看文档中心的“开发人员指南 > 基本概念 > 访问域名”，
     // 链接地址是：https://help.aliyun.com/document_detail/oss/user_guide/oss_concept/endpoint.html?spm=5176.docoss/user_guide/endpoint_region
@@ -69,7 +63,7 @@ public class OsOssUtils {
 
     /**
      * 取得OSS client对象
-     * @return
+     * @return OSS
      */
     public OSS getClient() {
         return this.client;

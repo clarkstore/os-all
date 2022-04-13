@@ -71,7 +71,7 @@ public class OsBizLogAspect {
     /**
      *  获取方法参数名和参数值
      * @param joinPoint
-     * @return
+     * @return String
      */
     protected String getNameAndValue(ProceedingJoinPoint joinPoint) {
         final Signature signature = joinPoint.getSignature();

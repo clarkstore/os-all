@@ -86,24 +86,4 @@ public class OsNlpUtils {
                 .build();
         return res;
     }
-
-    public static void main(String[] args) {
-        OsNlpReq req = OsNlpReq.builder()
-                .text("我们都是新中国人你好吗").build();
-
-        OsNlpUtils utils = new OsNlpUtils("LTAI5tMsqUDQSu3wCEKF8Vcv", "kwYN1aHhxD7fnZzNvSUpheMuzpiOJD");
-        try {
-            OsNlpRes res = utils.parse(req);
-            res.getWordList();
-            System.out.println("=============================");
-            System.out.println(res.getRequestId());
-            System.out.println(res.getWordList().toString());
-            OsNlpRes res2 = utils.parseByCustomized(req);
-            System.out.println("=============================");
-            System.out.println(res2.getRequestId());
-            System.out.println(res2.getWordList().toString());
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
 }

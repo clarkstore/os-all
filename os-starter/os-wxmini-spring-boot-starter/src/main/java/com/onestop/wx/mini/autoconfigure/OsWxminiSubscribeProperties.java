@@ -18,7 +18,7 @@
 
 package com.onestop.wx.mini.autoconfigure;
 
-import com.onestop.wx.mini.util.dto.SubscribeDto;
+import com.onestop.wx.mini.model.dto.SubscribeDto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

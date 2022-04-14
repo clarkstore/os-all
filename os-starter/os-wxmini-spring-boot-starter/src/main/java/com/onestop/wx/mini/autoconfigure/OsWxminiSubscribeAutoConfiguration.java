@@ -19,8 +19,8 @@
 package com.onestop.wx.mini.autoconfigure;
 
 import cn.hutool.core.map.MapUtil;
-import com.onestop.wx.mini.util.dto.SubscribeConfigs;
-import com.onestop.wx.mini.util.dto.SubscribeDto;
+import com.onestop.wx.mini.model.dto.SubscribeConfigs;
+import com.onestop.wx.mini.model.dto.SubscribeDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

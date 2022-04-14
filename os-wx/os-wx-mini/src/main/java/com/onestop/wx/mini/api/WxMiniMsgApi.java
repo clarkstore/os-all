@@ -19,7 +19,7 @@
 package com.onestop.wx.mini.api;
 
 import com.onestop.common.core.util.Res;
-import com.onestop.wx.mini.util.dto.SubscribeReqDto;
+import com.onestop.wx.mini.model.dto.SubscribeReqDto;
 import com.onestop.wx.mini.util.OsWxMiniUtils;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.error.WxErrorException;

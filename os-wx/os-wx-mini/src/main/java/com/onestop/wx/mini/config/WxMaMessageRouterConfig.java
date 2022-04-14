@@ -16,7 +16,7 @@
  *
  */
 
-package com.onestop.wx.mini.autoconfigure;
+package com.onestop.wx.mini.config;
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.bean.WxMaKefuMessage;

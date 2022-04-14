@@ -56,7 +56,7 @@ public class OsLogAutoConfiguration {
     /**
      * 日志拦截器
      *
-     * @return
+     * @return OsBizLogAspect
      */
     @Bean
     public OsBizLogAspect bizLogAspect() {

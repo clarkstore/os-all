@@ -18,8 +18,6 @@
 
 package com.onestop.common.http.autoconfigure;
 
-import okhttp3.OkHttpClient;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -29,8 +27,4 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class OsHttpAutoConfiguration {
-    @Bean
-    public OkHttpClient.Builder okHttpClient() {
-        return new OkHttpClient.Builder();
-    }
 }

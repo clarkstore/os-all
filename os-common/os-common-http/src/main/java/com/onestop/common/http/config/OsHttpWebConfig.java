@@ -19,22 +19,21 @@
 package com.onestop.common.http.config;
 
 import com.onestop.common.http.interceptor.OsAccessLimitInterceptor;
+import com.onestop.common.web.config.OsWebConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * WEB初始化配置基类
  * 可以继承实现拦截器重写等
  *
  * @author Clark
- * @version 2020-04-06
+ * @version 2022-04-26
  */
 //@RestControllerAdvice
 @Configuration
-public class OsHttpWebConfig implements WebMvcConfigurer {
+public class OsHttpWebConfig extends OsWebConfig {
     // TODO 可以继承自定义限流拦截器
     @Autowired(required = false)
     private OsAccessLimitInterceptor osAccessLimitInterceptor;
@@ -45,18 +44,5 @@ public class OsHttpWebConfig implements WebMvcConfigurer {
                     .addPathPatterns("/**");
         //  .excludePathPatterns("/不被拦截路径 通常为登录注册或者首页");
         }
-    }
-
-    /**
-     * 跨域支持
-     *
-     * @param registry
-     */
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedHeaders("Access-Control-Allow-Origin:*")
-                .allowedMethods("*")
-                .allowedOrigins("*");
     }
 }

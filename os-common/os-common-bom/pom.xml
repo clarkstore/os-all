@@ -33,14 +33,13 @@
     <properties>
         <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-boot.version>2.6.6</spring-boot.version>
+        <spring-boot.version>2.6.7</spring-boot.version>
         <hutool.version>5.7.22</hutool.version>
         <druid.version>1.2.9</druid.version>
         <!--公共模块-->
         <javax-mail.version>1.6.2</javax-mail.version>
         <!--http模块-->
-        <sentinel-core.version>1.8.3</sentinel-core.version>
-        <retrofit-spring-boot-starter.version>2.2.21</retrofit-spring-boot-starter.version>
+        <retrofit-spring-boot-starter.version>2.2.22</retrofit-spring-boot-starter.version>
         <!--mybatis模块-->
         <mysql-connector-java.version>8.0.28</mysql-connector-java.version>
         <mybatis-plus.version>3.5.1</mybatis-plus.version>
@@ -53,7 +52,7 @@
         <ons-client.version>2.0.1.Final</ons-client.version>
         <dysmsapi20170525.version>2.0.9</dysmsapi20170525.version>
         <!--微信模块-->
-        <wx-java.version>4.2.0</wx-java.version>
+        <wx-java.version>4.3.0</wx-java.version>
         <!--部署-->
         <versions-maven-plugin.version>2.8.1</versions-maven-plugin.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
@@ -173,11 +172,6 @@
                 <version>${javax-mail.version}</version>
             </dependency>
             <!--http-->
-            <dependency>
-                <groupId>com.alibaba.csp</groupId>
-                <artifactId>sentinel-core</artifactId>
-                <version>${sentinel-core.version}</version>
-            </dependency>
             <dependency>
                 <groupId>com.github.lianjiatech</groupId>
                 <artifactId>retrofit-spring-boot-starter</artifactId>

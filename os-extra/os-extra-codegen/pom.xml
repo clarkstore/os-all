@@ -5,7 +5,7 @@
     <parent>
         <artifactId>os-extra</artifactId>
         <groupId>com.github.clarkstore</groupId>
-        <version>0.6.8</version>
+        <version>0.6.9</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -14,8 +14,8 @@
 
     <description>代码生成模块</description>
     <properties>
-        <mybatis-plus-generator.version>3.4.1</mybatis-plus-generator.version>
-        <velocity.version>2.2</velocity.version>
+        <mybatis-plus-generator.version>3.5.2</mybatis-plus-generator.version>
+        <velocity.version>2.3</velocity.version>
         <commons-configuration.version>1.10</commons-configuration.version>
     </properties>
 

@@ -13,8 +13,6 @@ logging:
 #      - subscribe-config
 os:
   wxmini:
-    # 开启小程序配置
-    enabled: true
     #小程序
     appid: #微信小程序的appid
     secret: #微信小程序的Secret

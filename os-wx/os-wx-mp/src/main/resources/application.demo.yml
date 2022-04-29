@@ -16,7 +16,6 @@ logging:
 #服务号配置
 os:
   wxmp:
-    enabled: true # 开启配置
     appid: #微信appid
     secret: #微信Secret
     token: onestop #默认值

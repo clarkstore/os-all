@@ -34,8 +34,8 @@
         <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-boot.version>2.6.7</spring-boot.version>
-        <hutool.version>5.7.22</hutool.version>
-        <druid.version>1.2.9</druid.version>
+        <hutool.version>5.8.0</hutool.version>
+        <druid-spring-boot-starter.version>1.2.9</druid-spring-boot-starter.version>
         <!--公共模块-->
         <javax-mail.version>1.6.2</javax-mail.version>
         <!--http模块-->
@@ -43,11 +43,11 @@
         <mysql-connector-java.version>8.0.29</mysql-connector-java.version>
         <mybatis-plus.version>3.5.1</mybatis-plus.version>
         <!--task模块-->
-        <plumelog-schedule-starter.version>1.1</plumelog-schedule-starter.version>
+        <spring-boot-schedule-admin-starter.version>1.1</spring-boot-schedule-admin-starter.version>
         <!--ali模块-->
         <aliyun-java-sdk-core.version>4.6.0</aliyun-java-sdk-core.version>
         <aliyun-java-sdk-alinlp.version>1.0.18</aliyun-java-sdk-alinlp.version>
-        <aliyun-sdk-oss.version>3.14.0</aliyun-sdk-oss.version>
+        <aliyun-sdk-oss.version>3.14.1</aliyun-sdk-oss.version>
         <ons-client.version>2.0.1.Final</ons-client.version>
         <dysmsapi20170525.version>2.0.9</dysmsapi20170525.version>
         <!--微信模块-->
@@ -180,7 +180,7 @@
             <dependency>
                 <groupId>com.plumelog</groupId>
                 <artifactId>spring-boot-schedule-admin-starter</artifactId>
-                <version>${plumelog-schedule-starter.version}</version>
+                <version>${spring-boot-schedule-admin-starter.version}</version>
             </dependency>
             <!-- ali-nlp -->
             <dependency>
@@ -232,7 +232,7 @@
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
-                <version>${druid.version}</version>
+                <version>${druid-spring-boot-starter.version}</version>
             </dependency>
             <!-- mybatis-plus begin -->
             <dependency>

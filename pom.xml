@@ -6,7 +6,7 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-all</artifactId>
-    <version>0.6.10</version>
+    <version>0.6.11</version>
     <packaging>pom</packaging>
 
     <name>os-all</name>
@@ -51,11 +51,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
-        </dependency>
-        <!--添加huTool-->
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
         </dependency>
         <!--测试 SpringBoot2.4.0使用JUnit5-->
         <dependency>

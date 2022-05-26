@@ -18,7 +18,7 @@
 
 package com.onestop.common.web.autoconfigure;
 
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.context.annotation.Import;
 
 /**
@@ -26,7 +26,7 @@ import org.springframework.context.annotation.Import;
  * @author Clark
  * @version 2022-03-23
  */
-@Configuration
-@Import({ OsAesAutoConfiguration.class, OsTokenAutoConfiguration.class })
+@AutoConfiguration
+@Import({ OsAesConfiguration.class, OsTokenConfiguration.class })
 public class OsWebAutoConfiguration {
 }

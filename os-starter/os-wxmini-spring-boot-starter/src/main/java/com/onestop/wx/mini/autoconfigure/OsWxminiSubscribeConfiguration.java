@@ -16,10 +16,11 @@
  *
  */
 
-package com.onestop.common.core.autoconfigure;
+package com.onestop.wx.mini.autoconfigure;
 
-import cn.hutool.extra.mail.MailAccount;
-import com.onestop.common.core.util.OsMailUtils;
+import cn.hutool.core.map.MapUtil;
+import com.onestop.wx.mini.model.dto.SubscribeConfigs;
+import com.onestop.wx.mini.model.dto.SubscribeDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -27,32 +28,31 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.Map;
+
 /**
- * 邮件配置
+ * 小程序订阅消息配置
  * @author Clark
- * @version 2021-02-24
+ * @version 2021-03-18
  */
 @Configuration
-@EnableConfigurationProperties(OsMailProperties.class)
-@ConditionalOnProperty(prefix = "os.mail", name = "enabled", havingValue = "true")
-public class OsMailAutoConfiguration {
+@EnableConfigurationProperties(OsWxminiSubscribeProperties.class)
+@ConditionalOnProperty(prefix = "os.wxmini.subscribe", name = "enabled", havingValue = "true")
+public class OsWxminiSubscribeConfiguration {
     @Autowired
-    private OsMailProperties properties;
+    private OsWxminiSubscribeProperties properties;
 
     @Bean
     @ConditionalOnMissingBean
-    public OsMailUtils osMailUtils() {
-        MailAccount account = new MailAccount();
-        account.setHost(this.properties.getHost());
-        account.setPort(this.properties.getPort());
-        account.setFrom(this.properties.getFrom());
-        account.setUser(this.properties.getUser());
-        account.setPass(this.properties.getPass());
-        account.setStarttlsEnable(this.properties.isStarttlsEnable());
-        account.setSslEnable(this.properties.isSslEnable());
+    public SubscribeConfigs subscribeConfigs() {
+        Map<String, SubscribeDto> configMap = MapUtil.newHashMap();
+        this.properties.getConfigs().forEach(item -> {
+            configMap.put(item.getMsgId(), item);
+        });
 
-        OsMailUtils utils = new OsMailUtils();
-        utils.setMailAccount(account);
-        return utils;
+        return SubscribeConfigs.builder()
+                .configMap(configMap)
+                .miniprogramState(this.properties.getMiniprogramState())
+                .build();
     }
 }

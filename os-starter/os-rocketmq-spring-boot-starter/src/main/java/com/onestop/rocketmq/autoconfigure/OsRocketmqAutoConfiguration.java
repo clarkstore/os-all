@@ -23,9 +23,9 @@ import com.aliyun.openservices.ons.api.bean.ProducerBean;
 import com.aliyun.openservices.ons.api.bean.TransactionProducerBean;
 import com.aliyun.openservices.ons.api.transaction.LocalTransactionChecker;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * os-ali-rocketmq配置
@@ -33,7 +33,7 @@ import org.springframework.context.annotation.Configuration;
  * @author Clark
  * @version 2021-10-20
  */
-@Configuration
+@AutoConfiguration
 @EnableConfigurationProperties(OsRocketMqProperties.class)
 public class OsRocketmqAutoConfiguration {
     @Autowired

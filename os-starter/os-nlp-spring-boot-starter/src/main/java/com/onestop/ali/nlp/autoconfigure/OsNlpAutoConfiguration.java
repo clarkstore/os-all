@@ -20,17 +20,17 @@ package com.onestop.ali.nlp.autoconfigure;
 
 import com.onestop.ali.nlp.util.OsNlpUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * os-ali-nlp配置
  * @author Clark
  * @version 2022-04-13
  */
-@Configuration
+@AutoConfiguration
 @EnableConfigurationProperties(OsNlpProperties.class)
 public class OsNlpAutoConfiguration {
     @Autowired

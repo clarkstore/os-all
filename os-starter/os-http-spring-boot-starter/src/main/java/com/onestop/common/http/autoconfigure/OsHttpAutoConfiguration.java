@@ -18,13 +18,13 @@
 
 package com.onestop.common.http.autoconfigure;
 
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 
 /**
  * os-common-http配置
  * @author Clark
  * @version 2022-02-14
  */
-@Configuration
+@AutoConfiguration
 public class OsHttpAutoConfiguration {
 }

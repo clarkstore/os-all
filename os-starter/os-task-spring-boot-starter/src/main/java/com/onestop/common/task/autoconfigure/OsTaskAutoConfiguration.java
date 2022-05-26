@@ -18,15 +18,31 @@
 
 package com.onestop.common.task.autoconfigure;
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+import com.onestop.common.task.util.OsTaskSchedulerUtils;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 /**
- * os-common-core配置
+ * os-common-task配置
  * @author Clark
  * @version 2021-02-24
  */
-@Configuration
-@Import({ OsTaskSchedulerAutoConfiguration.class })
+@AutoConfiguration
 public class OsTaskAutoConfiguration {
+    @Bean
+    @ConditionalOnMissingBean
+    public ThreadPoolTaskScheduler taskScheduler() {
+        ThreadPoolTaskScheduler taskScheduler = new ThreadPoolTaskScheduler();
+        return taskScheduler;
+    }
+
+    @Bean
+    @ConditionalOnBean(ThreadPoolTaskScheduler.class)
+    public OsTaskSchedulerUtils osTaskSchedulerUtils() {
+        OsTaskSchedulerUtils schedulerUtils = new OsTaskSchedulerUtils();
+        return schedulerUtils;
+    }
 }

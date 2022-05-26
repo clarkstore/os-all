@@ -16,32 +16,41 @@
  *
  */
 
-package com.onestop.common.web.autoconfigure;
+package com.onestop.wx.mp.autoconfigure;
 
-import com.onestop.common.web.util.OsTokenUtils;
+import me.chanjar.weixin.mp.api.WxMpService;
+import me.chanjar.weixin.mp.api.impl.WxMpServiceImpl;
+import me.chanjar.weixin.mp.config.impl.WxMpDefaultConfigImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Token配置
+ * os-wx-mp配置
  * @author Clark
- * @version 2021-09-13
+ * @version 2021-04-29
  */
 @Configuration
-@EnableConfigurationProperties(OsTokenProperties.class)
-@ConditionalOnProperty(prefix = "os.token", name = "enabled", havingValue = "true")
-public class OsTokenAutoConfiguration {
+@ConditionalOnClass(WxMpService.class)
+@EnableConfigurationProperties(OsWxmpProperties.class)
+public class OsWxmpConfiguration {
     @Autowired
-    private OsTokenProperties properties;
+    private OsWxmpProperties properties;
 
     @Bean
     @ConditionalOnMissingBean
-    public OsTokenUtils osTokenUtils() {
-        OsTokenUtils utils = new OsTokenUtils(this.properties.getSecret());
-        return utils;
+    public WxMpService wxMpService() {
+        WxMpDefaultConfigImpl configStorage = new WxMpDefaultConfigImpl();
+        configStorage.setAppId(this.properties.getAppid());
+        configStorage.setSecret(this.properties.getSecret());
+        configStorage.setToken(this.properties.getToken());
+        configStorage.setAesKey(this.properties.getAesKey());
+
+        WxMpService service = new WxMpServiceImpl();
+        service.setWxMpConfigStorage(configStorage);
+        return service;
     }
 }

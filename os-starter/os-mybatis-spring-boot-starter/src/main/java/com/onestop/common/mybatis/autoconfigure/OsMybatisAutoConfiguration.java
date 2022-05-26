@@ -26,11 +26,16 @@ import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInt
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.onestop.common.mybatis.extra.CustomIdGenerator;
 import com.onestop.common.mybatis.extra.OsMetaObjectHandler;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
-@Configuration
+/**
+ * os-common-mybatis配置
+ * @author Clark
+ * @version 2022-05-26
+ */
+@AutoConfiguration
 public class OsMybatisAutoConfiguration {
     /**
      * 新的分页插件,一缓和二缓遵循mybatis的规则,需要设置 MybatisConfiguration#useDeprecatedExecutor = false 避免缓存出现问题

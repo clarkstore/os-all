@@ -16,11 +16,9 @@
  *
  */
 
-package com.onestop.wx.mini.autoconfigure;
+package com.onestop.common.web.autoconfigure;
 
-import cn.hutool.core.map.MapUtil;
-import com.onestop.wx.mini.model.dto.SubscribeConfigs;
-import com.onestop.wx.mini.model.dto.SubscribeDto;
+import com.onestop.common.web.util.OsAesUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -28,31 +26,22 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.Map;
-
 /**
- * 小程序订阅消息配置
+ * AES加解密配置
  * @author Clark
- * @version 2021-03-18
+ * @version 2021-09-10
  */
 @Configuration
-@EnableConfigurationProperties(OsWxminiSubscribeProperties.class)
-@ConditionalOnProperty(prefix = "os.wxmini.subscribe", name = "enabled", havingValue = "true")
-public class OsWxminiSubscribeAutoConfiguration {
+@EnableConfigurationProperties(OsAesProperties.class)
+@ConditionalOnProperty(prefix = "os.aes", name = "enabled", havingValue = "true")
+public class OsAesConfiguration {
     @Autowired
-    private OsWxminiSubscribeProperties properties;
+    private OsAesProperties properties;
 
     @Bean
     @ConditionalOnMissingBean
-    public SubscribeConfigs subscribeConfigs() {
-        Map<String, SubscribeDto> configMap = MapUtil.newHashMap();
-        this.properties.getConfigs().forEach(item -> {
-            configMap.put(item.getMsgId(), item);
-        });
-
-        return SubscribeConfigs.builder()
-                .configMap(configMap)
-                .miniprogramState(this.properties.getMiniprogramState())
-                .build();
+    public OsAesUtils osAesUtils() {
+        OsAesUtils utils = new OsAesUtils(this.properties.getSecret());
+        return utils;
     }
 }

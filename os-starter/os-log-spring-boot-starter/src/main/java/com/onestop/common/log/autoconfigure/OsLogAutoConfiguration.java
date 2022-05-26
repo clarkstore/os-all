@@ -21,8 +21,8 @@ package com.onestop.common.log.autoconfigure;
 import com.onestop.common.log.aspect.OsBizLogAspect;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.task.AsyncTaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
@@ -32,7 +32,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
  * @version 2022-03-03
  */
 @Setter
-@Configuration
+@AutoConfiguration
 public class OsLogAutoConfiguration {
     private static final int MAX_POOL_SIZE = 10;
 

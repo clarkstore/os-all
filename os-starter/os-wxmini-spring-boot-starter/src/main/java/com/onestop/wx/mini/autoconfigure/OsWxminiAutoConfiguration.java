@@ -18,40 +18,15 @@
 
 package com.onestop.wx.mini.autoconfigure;
 
-import cn.binarywang.wx.miniapp.api.WxMaService;
-import cn.binarywang.wx.miniapp.api.impl.WxMaServiceImpl;
-import cn.binarywang.wx.miniapp.config.impl.WxMaDefaultConfigImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.context.annotation.Import;
 
 /**
- * 小程序配置
+ * os-wx-mini配置
  * @author Clark
  * @version 2021-03-18
  */
-@Configuration
-@ConditionalOnClass(WxMaService.class)
-@EnableConfigurationProperties(OsWxminiProperties.class)
+@AutoConfiguration
+@Import({ OsWxminiConfiguration.class, OsWxminiSubscribeConfiguration.class })
 public class OsWxminiAutoConfiguration {
-    @Autowired
-    private OsWxminiProperties properties;
-
-    @Bean
-    @ConditionalOnMissingBean
-    public WxMaService wxMaService() {
-        WxMaDefaultConfigImpl config = new WxMaDefaultConfigImpl();
-        config.setAppid(this.properties.getAppid());
-        config.setSecret(this.properties.getSecret());
-        config.setToken(this.properties.getToken());
-        config.setAesKey(this.properties.getAesKey());
-        config.setMsgDataFormat(this.properties.getMsgDataFormat());
-
-        WxMaService service = new WxMaServiceImpl();
-        service.setWxMaConfig(config);
-        return service;
-    }
 }

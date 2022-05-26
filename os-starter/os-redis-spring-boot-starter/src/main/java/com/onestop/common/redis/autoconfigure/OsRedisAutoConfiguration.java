@@ -26,9 +26,9 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.onestop.common.redis.util.OsRedisUtils;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -41,7 +41,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * @author Clark
  * @version 2021-05-10
  */
-@Configuration
+@AutoConfiguration
 public class OsRedisAutoConfiguration {
 
     @Bean

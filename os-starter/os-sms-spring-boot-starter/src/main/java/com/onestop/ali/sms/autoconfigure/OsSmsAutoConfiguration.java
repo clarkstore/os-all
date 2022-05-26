@@ -28,7 +28,7 @@ import org.springframework.context.annotation.Bean;
 /**
  * os-ali-sms配置
  * @author Clark
- * @version 2021-08-04
+ * @version 2022-05-26
  */
 @AutoConfiguration
 @EnableConfigurationProperties(OsSmsProperties.class)

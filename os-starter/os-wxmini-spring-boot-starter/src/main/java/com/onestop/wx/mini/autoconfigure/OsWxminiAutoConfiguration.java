@@ -24,7 +24,7 @@ import org.springframework.context.annotation.Import;
 /**
  * os-wx-mini配置
  * @author Clark
- * @version 2021-03-18
+ * @version 2022-05-26
  */
 @AutoConfiguration
 @Import({ OsWxminiConfiguration.class, OsWxminiSubscribeConfiguration.class })

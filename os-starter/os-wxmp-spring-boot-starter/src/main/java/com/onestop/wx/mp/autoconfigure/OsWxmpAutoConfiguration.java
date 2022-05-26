@@ -25,7 +25,7 @@ import org.springframework.context.annotation.Import;
  * os-wx-mp配置
  *
  * @author Clark
- * @version 2021-04-29
+ * @version 2022-05-26
  */
 @AutoConfiguration
 @Import({OsWxmpConfiguration.class, OsWxmpMenuConfiguration.class})

@@ -29,7 +29,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 /**
  * os-common-log配置
  * @author Clark
- * @version 2022-03-03
+ * @version 2022-05-26
  */
 @Setter
 @AutoConfiguration

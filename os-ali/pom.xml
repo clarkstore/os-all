@@ -31,10 +31,10 @@
     <packaging>pom</packaging>
     <description>ali服务模块</description>
     <modules>
-        <module>os-ali-oss</module>
-        <module>os-ali-sms</module>
-        <module>os-ali-rocketmq</module>
         <module>os-ali-nlp</module>
+        <module>os-ali-oss</module>
+        <module>os-ali-rocketmq</module>
+        <module>os-ali-sms</module>
     </modules>
 
 </project>

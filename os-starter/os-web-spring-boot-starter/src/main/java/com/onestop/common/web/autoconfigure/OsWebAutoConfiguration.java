@@ -24,7 +24,7 @@ import org.springframework.context.annotation.Import;
 /**
  * os-common-web配置
  * @author Clark
- * @version 2022-03-23
+ * @version 2022-05-26
  */
 @AutoConfiguration
 @Import({ OsAesConfiguration.class, OsTokenConfiguration.class })

@@ -28,7 +28,7 @@ import org.springframework.context.annotation.Bean;
 /**
  * os-ali-oss配置
  * @author Clark
- * @version 2021-08-20
+ * @version 2022-05-26
  */
 @AutoConfiguration
 @EnableConfigurationProperties(OsOssProperties.class)

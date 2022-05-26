@@ -23,7 +23,7 @@ import org.springframework.boot.autoconfigure.AutoConfiguration;
 /**
  * os-common-http配置
  * @author Clark
- * @version 2022-02-14
+ * @version 2022-05-26
  */
 @AutoConfiguration
 public class OsHttpAutoConfiguration {

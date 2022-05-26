@@ -39,7 +39,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * Token配置
  *
  * @author Clark
- * @version 2021-05-10
+ * @version 2022-05-26
  */
 @AutoConfiguration
 public class OsRedisAutoConfiguration {

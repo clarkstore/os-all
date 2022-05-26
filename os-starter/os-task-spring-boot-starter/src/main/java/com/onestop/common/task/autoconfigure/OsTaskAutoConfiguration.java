@@ -28,7 +28,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 /**
  * os-common-task配置
  * @author Clark
- * @version 2021-02-24
+ * @version 2022-05-26
  */
 @AutoConfiguration
 public class OsTaskAutoConfiguration {

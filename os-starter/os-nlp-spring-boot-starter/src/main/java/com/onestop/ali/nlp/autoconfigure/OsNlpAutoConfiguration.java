@@ -28,7 +28,7 @@ import org.springframework.context.annotation.Bean;
 /**
  * os-ali-nlp配置
  * @author Clark
- * @version 2022-04-13
+ * @version 2022-05-26
  */
 @AutoConfiguration
 @EnableConfigurationProperties(OsNlpProperties.class)

@@ -41,7 +41,7 @@
         <!--http模块-->
         <!--mybatis模块-->
         <mysql-connector-java.version>8.0.29</mysql-connector-java.version>
-        <mybatis-plus.version>3.5.1</mybatis-plus.version>
+        <mybatis-plus.version>3.5.2</mybatis-plus.version>
         <!--task模块-->
         <spring-boot-schedule-admin-starter.version>1.1</spring-boot-schedule-admin-starter.version>
         <!--ali模块-->

@@ -33,8 +33,8 @@
     <properties>
         <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-boot.version>2.7.0</spring-boot.version>
-        <hutool.version>5.8.3</hutool.version>
+        <spring-boot.version>2.7.1</spring-boot.version>
+        <hutool.version>5.8.4</hutool.version>
         <druid-spring-boot-starter.version>1.2.11</druid-spring-boot-starter.version>
         <!--公共模块-->
         <javax-mail.version>1.6.2</javax-mail.version>
@@ -47,9 +47,9 @@
         <!--ali模块-->
         <aliyun-java-sdk-core.version>4.6.0</aliyun-java-sdk-core.version>
         <aliyun-java-sdk-alinlp.version>1.0.18</aliyun-java-sdk-alinlp.version>
-        <aliyun-sdk-oss.version>3.15.0</aliyun-sdk-oss.version>
-        <ons-client.version>2.0.1.Final</ons-client.version>
-        <dysmsapi20170525.version>2.0.9</dysmsapi20170525.version>
+        <aliyun-sdk-oss.version>3.15.1</aliyun-sdk-oss.version>
+        <ons-client.version>2.0.2.Final</ons-client.version>
+        <dysmsapi20170525.version>2.0.15</dysmsapi20170525.version>
         <!--微信模块-->
         <wx-java.version>4.3.0</wx-java.version>
         <!--部署-->

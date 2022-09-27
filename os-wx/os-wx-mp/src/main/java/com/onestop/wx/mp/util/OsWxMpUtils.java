@@ -20,9 +20,9 @@ package com.onestop.wx.mp.util;
 
 import cn.hutool.core.util.StrUtil;
 import com.onestop.common.core.exception.OsBizException;
+import com.onestop.wx.mp.constant.WxMpConsts;
 import com.onestop.wx.mp.model.dto.MenuConfigs;
 import com.onestop.wx.mp.model.dto.MenuDto;
-import com.onestop.wx.mp.constant.WxMpConsts;
 import com.onestop.wx.mp.model.dto.ReplyConfigs;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.bean.menu.WxMenu;
@@ -30,6 +30,7 @@ import me.chanjar.weixin.common.bean.menu.WxMenuButton;
 import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.kefu.WxMpKefuMessage;
+import me.chanjar.weixin.mp.bean.result.WxMpQrCodeTicket;
 import me.chanjar.weixin.mp.bean.template.WxMpTemplateData;
 import me.chanjar.weixin.mp.bean.template.WxMpTemplateMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,9 +68,9 @@ public class OsWxMpUtils {
             return openid;
         } catch (WxErrorException e) {
             log.error("==========获取openid异常==========");
-            log.error(e.getMessage());
+            log.error(e.getError().toString());
+            throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
         }
-        return null;
     }
 
     /**
@@ -80,16 +81,22 @@ public class OsWxMpUtils {
      * @param url
      * @param args
      */
-    public void sendTemplateMsg(String openid, String templateId, String url, Map<String, String> args) throws WxErrorException {
-        WxMpTemplateMessage templateMessage = WxMpTemplateMessage.builder().toUser(openid).templateId(templateId).build();
-        // 详情链接
-        if (StrUtil.isNotBlank(url)) {
-            templateMessage.setUrl(url);
-        }
-        // 填充参数
-        args.forEach((k, v) -> templateMessage.addData(new WxMpTemplateData(k, v)));
+    public void sendTemplateMsg(String openid, String templateId, String url, Map<String, String> args) {
+        try {
+            WxMpTemplateMessage templateMessage = WxMpTemplateMessage.builder().toUser(openid).templateId(templateId).build();
+            // 详情链接
+            if (StrUtil.isNotBlank(url)) {
+                templateMessage.setUrl(url);
+            }
+            // 填充参数
+            args.forEach((k, v) -> templateMessage.addData(new WxMpTemplateData(k, v)));
 
-        String msgId = this.wxMpService.getTemplateMsgService().sendTemplateMsg(templateMessage);
+            String msgId = this.wxMpService.getTemplateMsgService().sendTemplateMsg(templateMessage);
+        } catch (WxErrorException e) {
+            log.error("==========发送模板消息异常==========");
+            log.error(e.getError().toString());
+            throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
+        }
     }
 
     /**
@@ -119,7 +126,8 @@ public class OsWxMpUtils {
             log.error("==========关键字回复异常==========");
             log.error("openid=" + openid);
             log.error("keyword=" + keyword);
-            log.error(e.getMessage());
+            log.error(e.getError().toString());
+            throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
         }
     }
 
@@ -176,5 +184,41 @@ public class OsWxMpUtils {
 
         }
         return wxMenu;
+    }
+
+    /**
+     * 根据参数创建临时二维码,返回二维码链接
+     *
+     * @param sceneStr
+     * @return String
+     */
+    public String getQrcodeTmpImgUrl(String sceneStr, Integer expireSeconds) {
+        try {
+            WxMpQrCodeTicket ticket = this.wxMpService.getQrcodeService().qrCodeCreateTmpTicket(sceneStr, expireSeconds);
+            String url = this.wxMpService.getQrcodeService().qrCodePictureUrl(ticket.getTicket());
+            return url;
+        } catch (WxErrorException e) {
+            log.error("==========创建临时二维码异常==========");
+            log.error(e.getError().toString());
+            throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
+        }
+    }
+
+    /**
+     * 根据参数创建永久二维码,返回二维码链接
+     *
+     * @param sceneStr
+     * @return String
+     */
+    public String getQrcodeImgUrl(String sceneStr) {
+        try {
+            WxMpQrCodeTicket ticket = this.wxMpService.getQrcodeService().qrCodeCreateLastTicket(sceneStr);
+            String url = this.wxMpService.getQrcodeService().qrCodePictureUrl(ticket.getTicket());
+            return url;
+        } catch (WxErrorException e) {
+            log.error("==========创建永久二维码异常==========");
+            log.error(e.getError().toString());
+            throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
+        }
     }
 }

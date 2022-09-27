@@ -24,6 +24,7 @@ import com.onestop.wx.mp.constant.WxMpConsts;
 import com.onestop.wx.mp.model.dto.MenuConfigs;
 import com.onestop.wx.mp.model.dto.MenuDto;
 import com.onestop.wx.mp.model.dto.ReplyConfigs;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.bean.menu.WxMenu;
 import me.chanjar.weixin.common.bean.menu.WxMenuButton;
@@ -48,6 +49,11 @@ import java.util.Map;
 @Slf4j
 @Component
 public class OsWxMpUtils {
+    /**
+     * 网站应用授权登录，应用授权作用域，拥有多个作用域用逗号（,）分隔，网页应用目前仅填写snsapi_login即可
+     */
+    private static final String BUILD_QR_CONNECT_URL_SCOPE = "snsapi_login";
+    @Getter
     @Autowired
     private WxMpService wxMpService;
     /**
@@ -220,5 +226,16 @@ public class OsWxMpUtils {
             log.error(e.getError().toString());
             throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
         }
+    }
+
+    /**
+     * 网站应用授权登录的url
+     *
+     * @param redirectUri 用户授权完成后的重定向链接，无需urlencode, 方法内会进行encode
+     * @param state       非必填，用于保持请求和回调的状态，授权请求后原样带回给第三方。该参数可用于防止csrf攻击（跨站请求伪造攻击），建议第三方带上该参数，可设置为简单的随机数加session进行校验
+     * @return url string
+     */
+    public String buildQrConnectUrl(String redirectUri, String state) {
+        return this.wxMpService.buildQrConnectUrl(redirectUri, BUILD_QR_CONNECT_URL_SCOPE, state);
     }
 }

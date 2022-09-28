@@ -18,7 +18,7 @@
 
 package com.onestop.wx.mp.handler;
 
-import com.onestop.wx.mp.constant.WxMpConsts;
+import com.onestop.wx.mp.constant.OsWxMpConsts;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.common.session.WxSessionManager;
@@ -65,7 +65,7 @@ public class MpSubscribeHandler extends MpBaseHandler {
             }
 
             // 关注信息回复
-            wxMessage.setContent(WxMpConsts.MsgReply.KEYWORD_SUBSCRIBE);
+            wxMessage.setContent(OsWxMpConsts.MsgReply.KEYWORD_SUBSCRIBE);
             outMessage = super.buildReply(wxMessage);
             if (outMessage != null) {
                 return outMessage;

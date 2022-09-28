@@ -25,7 +25,7 @@ import me.chanjar.weixin.common.api.WxConsts;
  * @author Clark
  * @version 2021/04/25
  */
-public class WxMpConsts extends WxConsts {
+public class OsWxMpConsts extends WxConsts {
     /**
      * 菜单级别
      */

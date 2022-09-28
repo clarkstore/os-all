@@ -20,12 +20,13 @@ package com.onestop.wx.mp.util;
 
 import cn.hutool.core.util.StrUtil;
 import com.onestop.common.core.exception.OsBizException;
-import com.onestop.wx.mp.constant.WxMpConsts;
+import com.onestop.wx.mp.constant.OsWxMpConsts;
 import com.onestop.wx.mp.model.dto.MenuConfigs;
 import com.onestop.wx.mp.model.dto.MenuDto;
 import com.onestop.wx.mp.model.dto.ReplyConfigs;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import me.chanjar.weixin.common.api.WxConsts;
 import me.chanjar.weixin.common.bean.menu.WxMenu;
 import me.chanjar.weixin.common.bean.menu.WxMenuButton;
 import me.chanjar.weixin.common.error.WxErrorException;
@@ -49,10 +50,6 @@ import java.util.Map;
 @Slf4j
 @Component
 public class OsWxMpUtils {
-    /**
-     * 网站应用授权登录，应用授权作用域，拥有多个作用域用逗号（,）分隔，网页应用目前仅填写snsapi_login即可
-     */
-    private static final String BUILD_QR_CONNECT_URL_SCOPE = "snsapi_login";
     @Getter
     @Autowired
     private WxMpService wxMpService;
@@ -166,7 +163,7 @@ public class OsWxMpUtils {
         List<MenuDto> menuList = configs.getConfigs();
 
         for (MenuDto m : menuList) {
-            if (WxMpConsts.MenuLevel.Level1.equals(m.getMenuLevel())) {
+            if (OsWxMpConsts.MenuLevel.Level1.equals(m.getMenuLevel())) {
                 WxMenuButton b1 = new WxMenuButton();
                 b1.setType(m.getMenuType());
                 b1.setName(m.getMenuName());
@@ -236,6 +233,6 @@ public class OsWxMpUtils {
      * @return url string
      */
     public String buildQrConnectUrl(String redirectUri, String state) {
-        return this.wxMpService.buildQrConnectUrl(redirectUri, BUILD_QR_CONNECT_URL_SCOPE, state);
+        return this.wxMpService.buildQrConnectUrl(redirectUri, WxConsts.QrConnectScope.SNSAPI_LOGIN, state);
     }
 }

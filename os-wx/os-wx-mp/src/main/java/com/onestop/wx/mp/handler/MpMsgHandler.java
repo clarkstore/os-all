@@ -19,7 +19,7 @@
 package com.onestop.wx.mp.handler;
 
 import cn.hutool.core.util.StrUtil;
-import com.onestop.wx.mp.constant.WxMpConsts;
+import com.onestop.wx.mp.constant.OsWxMpConsts;
 import com.onestop.wx.mp.util.OsWxMpUtils;
 import me.chanjar.weixin.common.api.WxConsts;
 import me.chanjar.weixin.common.error.WxErrorException;
@@ -81,7 +81,7 @@ public class MpMsgHandler extends MpBaseHandler {
      */
     protected WxMpXmlOutMessage transferKfService(WxMpXmlMessage wxMessage) {
         // 当用户输入关键词如“你好”，“客服”等，并且有客服在线时，把消息转发给在线客服
-        if (StrUtil.startWithAny(wxMessage.getContent(), WxMpConsts.TransferKf.KEYWORDS)) {
+        if (StrUtil.startWithAny(wxMessage.getContent(), OsWxMpConsts.TransferKf.KEYWORDS)) {
             try {
                 // 客服在线，接入多客服
                 if (super.wxMpService.getKefuService().kfOnlineList()
@@ -92,7 +92,7 @@ public class MpMsgHandler extends MpBaseHandler {
                             .toUser(wxMessage.getFromUser()).build();
                 }
                 // 返回非服务时间消息
-                wxMessage.setContent(WxMpConsts.MsgReply.KEYWORD_KF_WORKINGTIME);
+                wxMessage.setContent(OsWxMpConsts.MsgReply.KEYWORD_KF_WORKINGTIME);
                 return this.buildReply(wxMessage);
             } catch (WxErrorException e) {
                 e.printStackTrace();

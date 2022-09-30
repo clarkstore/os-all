@@ -235,4 +235,16 @@ public class OsWxMpUtils {
     public String buildQrConnectUrl(String redirectUri, String state) {
         return this.wxMpService.buildQrConnectUrl(redirectUri, WxConsts.QrConnectScope.SNSAPI_LOGIN, state);
     }
+
+    /**
+     * 构造oauth2授权的url连接.
+     *
+     * @param redirectUri 用户授权完成后的重定向链接，无需urlencode, 方法内会进行encode
+     * @param scope       scope,静默:snsapi_base, 带信息授权:snsapi_userinfo
+     * @param state       state
+     * @return url
+     */
+    public String buildAuthorizationUrl(String redirectUri, String scope, String state) {
+        return this.wxMpService.getOAuth2Service().buildAuthorizationUrl(redirectUri, scope, state);
+    }
 }

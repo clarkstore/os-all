@@ -168,11 +168,6 @@
                 <version>${javax-mail.version}</version>
             </dependency>
             <!--http-->
-            <dependency>
-                <groupId>com.github.lianjiatech</groupId>
-                <artifactId>retrofit-spring-boot-starter</artifactId>
-                <version>${retrofit-spring-boot-starter.version}</version>
-            </dependency>
             <!--task-->
             <dependency>
                 <groupId>com.plumelog</groupId>

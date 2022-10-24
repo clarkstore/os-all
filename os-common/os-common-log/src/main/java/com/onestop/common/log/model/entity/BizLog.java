@@ -56,7 +56,7 @@ public class BizLog extends Model<BizLog> {
     private String name;
 
     /**
-     * 日志类型（1代表自动调用接口，2代表手动调用接口）
+     * 日志类型（1接口注释，2手动调用）
      */
     @TableField("type")
     private String type;

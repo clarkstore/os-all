@@ -46,7 +46,7 @@ public class OsBizLogAspect {
         long startTime = System.currentTimeMillis();
         BizLog bizLog = BizLog.builder()
                 .name(osLog.value())
-                .type(OsLogConsts.TYPE_AUTO)
+                .type(OsLogConsts.TYPE_ANNOTATION)
                 .status(OsLogConsts.STATUS_SUCCESS)
                 .reqContent(getNameAndValue(joinPoint))
                 .build();

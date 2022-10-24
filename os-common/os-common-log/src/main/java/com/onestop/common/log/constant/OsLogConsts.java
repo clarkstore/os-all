@@ -33,11 +33,11 @@ public interface OsLogConsts {
      */
     String STATUS_FAIL = "0";
     /**
-     * 业务类型 1:自动调用接口
+     * 日志类型 1:接口注释
      */
-    String TYPE_AUTO = "1";
+    String TYPE_ANNOTATION = "1";
     /**
-     * 业务类型 2:手动调用接口
+     * 日志类型 2:手动调用
      */
     String TYPE_MANUAL = "2";
 }

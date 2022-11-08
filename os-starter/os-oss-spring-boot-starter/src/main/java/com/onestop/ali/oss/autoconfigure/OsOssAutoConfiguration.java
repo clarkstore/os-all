@@ -33,7 +33,7 @@ import org.springframework.context.annotation.Bean;
  */
 @AutoConfiguration
 @EnableConfigurationProperties(OsOssProperties.class)
-@ConditionalOnProperty(prefix = "os", name = "oss")
+@ConditionalOnProperty(value = {"os.oss.accessKeyId", "os.oss.accessKeySecret", "os.oss.endpoint"})
 public class OsOssAutoConfiguration {
     @Autowired
     private OsOssProperties properties;

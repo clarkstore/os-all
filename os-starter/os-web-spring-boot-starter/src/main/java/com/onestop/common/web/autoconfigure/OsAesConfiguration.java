@@ -33,7 +33,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties(OsAesProperties.class)
-@ConditionalOnProperty(prefix = "os.aes", name = "enabled", havingValue = "true")
+@ConditionalOnProperty(value = {"os.aes.secret"})
 public class OsAesConfiguration {
     @Autowired
     private OsAesProperties properties;

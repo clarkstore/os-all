@@ -43,7 +43,7 @@ public class OsMailProperties {
 	 */
 	private Integer port = 25;
 	/**
-	 * 设置token的claim
+	 * 发件人邮箱（必须正确，否则发送失败）
 	 */
 	private String from;
 	/**

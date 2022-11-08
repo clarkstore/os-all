@@ -33,7 +33,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties(OsTokenProperties.class)
-@ConditionalOnProperty(prefix = "os.token", name = "enabled", havingValue = "true")
+@ConditionalOnProperty(value = {"os.token.secret"})
 public class OsTokenConfiguration {
     @Autowired
     private OsTokenProperties properties;

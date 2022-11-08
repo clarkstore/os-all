@@ -29,7 +29,7 @@ import java.util.Map;
  * <p>JSAPI支付</p>
  *
  * @author Clark
- * @version 2020-04-07
+ * @version 2022-10-24
  */
 @Slf4j
 @Configuration

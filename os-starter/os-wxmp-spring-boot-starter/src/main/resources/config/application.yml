@@ -7,7 +7,5 @@ spring:
       - reply-config
 os:
   wxmp:
-    #后台配置
-    basePath: /wxmp
     #后台api路径配置
-    apiPath: ${os.wxmp.basePath}/api
+    apiPath: ${os.service.apiPath:/wxmp/api}

@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @Slf4j
 @RestController
-@RequestMapping("${os.wxmp.basePath}/portal")
+@RequestMapping("${os.wxmp.apiPath}/portal")
 public class MpPortalController {
     @Autowired
     private WxMpService wxMpService;

@@ -80,14 +80,14 @@ public class ReplyConfigs {
         if (this.replyTextMap == null) {
             this.replyTextMap = MapUtil.newHashMap();
 
-            if (this.osRedisUtils == null) {
-                // 取配置数据
-                if (this.configs != null) {
-                    this.configs.forEach(item -> {
-                        this.replyTextMap.put(item.getKeyword(), item.getReplyText());
-                    });
-                }
-            } else {
+            // 取配置数据
+            if (this.configs != null) {
+                this.configs.forEach(item -> {
+                    this.replyTextMap.put(item.getKeyword(), item.getReplyText());
+                });
+            }
+
+            if (this.osRedisUtils != null) {
                 // 取缓存数据
                 Map<Object, Object> map = this.osRedisUtils.hmget(REDIS_KEY);
                 if (map != null) {

@@ -21,6 +21,7 @@ package com.onestop.wx.mp.model.dto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import me.chanjar.weixin.mp.bean.kefu.WxMpKefuMessage;
 
 /**
  * 回复信息
@@ -54,6 +55,10 @@ public class ReplyDto {
      * 文本回复内容
      */
     private String replyText;
+    /**
+     * 图文回复内容
+     */
+    private WxMpKefuMessage.WxArticle article;
     /**
      * 删除标识
      */

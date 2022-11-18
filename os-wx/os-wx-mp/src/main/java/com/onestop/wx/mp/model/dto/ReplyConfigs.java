@@ -23,6 +23,8 @@ import com.onestop.common.redis.util.OsRedisUtils;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import me.chanjar.weixin.common.api.WxConsts;
+import me.chanjar.weixin.mp.bean.kefu.WxMpKefuMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -38,13 +40,19 @@ import java.util.Map;
 @Setter
 @ToString
 public class ReplyConfigs {
-    private static final String REDIS_KEY = "wxmpReply";
+    /**
+     * 文本
+     */
+    private static final String REDIS_KEY_TEXT = "wxmpReplyText";
+    /**
+     * 图文
+     */
+    private static final String REDIS_KEY_NEWS = "wxmpReplyNews";
     /**
      * 使用Redis
      */
     @Autowired(required = false)
     private OsRedisUtils osRedisUtils;
-
     /**
      * 关键字回复配置
      */
@@ -53,6 +61,10 @@ public class ReplyConfigs {
      * 文本关键字回复
      */
     private Map<String, String> replyTextMap;
+    /**
+     * 图文关键字回复
+     */
+    private Map<String, WxMpKefuMessage.WxArticle> replyNewsMap;
 
     /**
      * 设置关键字配置
@@ -67,8 +79,8 @@ public class ReplyConfigs {
             replyTextMap.forEach((key, value) -> {
                 map.put(key, value);
             });
-            this.osRedisUtils.del(REDIS_KEY);
-            this.osRedisUtils.hmset(REDIS_KEY, map);
+            this.osRedisUtils.del(REDIS_KEY_TEXT);
+            this.osRedisUtils.hmset(REDIS_KEY_TEXT, map);
         }
     }
 
@@ -76,20 +88,22 @@ public class ReplyConfigs {
      * 取得文本关键字回复Map
      * @return Map<String, String>
      */
-    public Map<String, String> getReplyTextMap() {
+    private Map<String, String> getReplyTextMap() {
         if (this.replyTextMap == null) {
             this.replyTextMap = MapUtil.newHashMap();
 
             // 取配置数据
             if (this.configs != null) {
                 this.configs.forEach(item -> {
-                    this.replyTextMap.put(item.getKeyword(), item.getReplyText());
+                    if (WxConsts.KefuMsgType.TEXT.equals(item.getReplyType())) {
+                        this.replyTextMap.put(item.getKeyword(), item.getReplyText());
+                    }
                 });
             }
 
             if (this.osRedisUtils != null) {
                 // 取缓存数据
-                Map<Object, Object> map = this.osRedisUtils.hmget(REDIS_KEY);
+                Map<Object, Object> map = this.osRedisUtils.hmget(REDIS_KEY_TEXT);
                 if (map != null) {
                     map.forEach((key, value) -> {
                         replyTextMap.put(String.valueOf(key), String.valueOf(value));
@@ -108,5 +122,45 @@ public class ReplyConfigs {
      */
     public String getReplyText(String keyword) {
         return this.getReplyTextMap().get(keyword);
+    }
+
+    /**
+     * 取得图文关键字回复Map
+     * @return Map<String, WxMpKefuMessage.WxArticle>
+     */
+    private Map<String, WxMpKefuMessage.WxArticle> getReplyNewsMap() {
+        if (this.replyNewsMap == null) {
+            this.replyNewsMap = MapUtil.newHashMap();
+
+            // 取配置数据
+            if (this.configs != null) {
+                this.configs.forEach(item -> {
+                    if (WxConsts.KefuMsgType.NEWS.equals(item.getReplyType())) {
+                        this.replyNewsMap.put(item.getKeyword(), item.getArticle());
+                    }
+                });
+            }
+
+            if (this.osRedisUtils != null) {
+                // 取缓存数据
+                Map<Object, Object> map = this.osRedisUtils.hmget(REDIS_KEY_NEWS);
+                if (map != null) {
+                    map.forEach((key, value) -> {
+                        replyNewsMap.put(String.valueOf(key), (WxMpKefuMessage.WxArticle)value);
+                    });
+                }
+            }
+        }
+
+        return this.replyNewsMap;
+    }
+
+    /**
+     * 取得关键字回复图文
+     * @param keyword
+     * @return 关键字回复图文
+     */
+    public WxMpKefuMessage.WxArticle getReplyNews(String keyword) {
+        return this.getReplyNewsMap().get(keyword);
     }
 }

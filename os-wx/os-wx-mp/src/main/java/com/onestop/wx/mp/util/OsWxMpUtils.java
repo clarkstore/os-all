@@ -115,13 +115,24 @@ public class OsWxMpUtils {
             if (StrUtil.isBlank(openid) || StrUtil.isBlank(keyword)) {
                 return;
             }
-
+            // 文本消息
             String replyText = this.replyConfigs.getReplyText(keyword);
             if (StrUtil.isNotBlank(replyText)) {
                 // 发送文本客服消息
                 WxMpKefuMessage message = WxMpKefuMessage.TEXT()
                         .toUser(openid)
                         .content(replyText)
+                        .build();
+                this.wxMpService.getKefuService().sendKefuMessage(message);
+                return;
+            }
+            // 图文消息
+            WxMpKefuMessage.WxArticle wxArticle = this.replyConfigs.getReplyNews(keyword);
+            if (wxArticle != null) {
+                // 发送图文客服消息
+                WxMpKefuMessage message = WxMpKefuMessage.NEWS()
+                        .toUser(openid)
+                        .addArticle(wxArticle)
                         .build();
                 this.wxMpService.getKefuService().sendKefuMessage(message);
             }

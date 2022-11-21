@@ -18,7 +18,9 @@
 
 package com.onestop.wx.mp.model.dto;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.map.MapUtil;
+import cn.hutool.core.util.StrUtil;
 import com.onestop.common.redis.util.OsRedisUtils;
 import lombok.Getter;
 import lombok.Setter;
@@ -89,13 +91,13 @@ public class ReplyConfigs {
      * @return Map<String, String>
      */
     private Map<String, String> getReplyTextMap() {
-        if (this.replyTextMap == null) {
+        if (CollUtil.isEmpty(this.replyTextMap)) {
             this.replyTextMap = MapUtil.newHashMap();
 
             // 取配置数据
-            if (this.configs != null) {
+            if (CollUtil.isNotEmpty(this.configs)) {
                 this.configs.forEach(item -> {
-                    if (WxConsts.KefuMsgType.TEXT.equals(item.getReplyType())) {
+                    if (StrUtil.isBlank(item.getReplyType()) || WxConsts.KefuMsgType.TEXT.equals(item.getReplyType())) {
                         this.replyTextMap.put(item.getKeyword(), item.getReplyText());
                     }
                 });
@@ -129,11 +131,11 @@ public class ReplyConfigs {
      * @return Map<String, WxMpKefuMessage.WxArticle>
      */
     private Map<String, WxMpKefuMessage.WxArticle> getReplyNewsMap() {
-        if (this.replyNewsMap == null) {
+        if (CollUtil.isEmpty(this.replyNewsMap)) {
             this.replyNewsMap = MapUtil.newHashMap();
 
             // 取配置数据
-            if (this.configs != null) {
+            if (CollUtil.isNotEmpty(this.configs)) {
                 this.configs.forEach(item -> {
                     if (WxConsts.KefuMsgType.NEWS.equals(item.getReplyType())) {
                         this.replyNewsMap.put(item.getKeyword(), item.getArticle());

@@ -24,8 +24,10 @@ import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.common.session.WxSessionManager;
 import me.chanjar.weixin.mp.api.WxMpMessageHandler;
 import me.chanjar.weixin.mp.api.WxMpService;
+import me.chanjar.weixin.mp.bean.kefu.WxMpKefuMessage;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlOutMessage;
+import me.chanjar.weixin.mp.bean.message.WxMpXmlOutNewsMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Map;
@@ -69,6 +71,20 @@ public abstract class MpBaseHandler implements WxMpMessageHandler {
             if (StrUtil.isNotBlank(replyText)) {
                 return WxMpXmlOutMessage.TEXT().content(replyText)
                         .fromUser(wxMessage.getToUser()).toUser(wxMessage.getFromUser())
+                        .build();
+            }
+
+            WxMpKefuMessage.WxArticle wxArticle = this.replyConfigs.getReplyNews(wxMessage.getContent());
+            // 图文消息
+            if (wxArticle != null) {
+                WxMpXmlOutNewsMessage.Item item = new WxMpXmlOutNewsMessage.Item();
+                item.setTitle(wxArticle.getTitle());
+                item.setDescription(wxArticle.getDescription());
+                item.setUrl(wxArticle.getUrl());
+                item.setPicUrl(wxArticle.getPicUrl());
+                return WxMpXmlOutNewsMessage.NEWS()
+                        .fromUser(wxMessage.getToUser()).toUser(wxMessage.getFromUser())
+                        .addArticle(item)
                         .build();
             }
         }

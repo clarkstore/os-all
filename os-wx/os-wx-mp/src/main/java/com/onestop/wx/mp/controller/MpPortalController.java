@@ -18,6 +18,7 @@
 
 package com.onestop.wx.mp.controller;
 
+import com.onestop.common.core.util.Res;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.bean.WxJsapiSignature;
 import me.chanjar.weixin.common.error.WxErrorException;
@@ -118,6 +119,16 @@ public class MpPortalController {
         return null;
     }
 
+    /**
+     * 取得调用jsapi时所需要的签名
+     * {
+     *     "appId": "wx50c1dc82d19e47f8",
+     *     "nonceStr": "bHXooPQvRVl7gcj8",
+     *     "timestamp": 1669613417,
+     *     "url": "http://123.com",
+     *     "signature": "514cb358f3195d8e031987fedad654975fc17b28"
+     * }
+     */
     @GetMapping(value = "getJsTicket")
     public WxJsapiSignature getJsTicket(String url) {
         try {
@@ -126,5 +137,24 @@ public class MpPortalController {
             e.printStackTrace();
         }
         return null;
+    }
+
+    /**
+     * 取得调用jsapi时所需要的签名
+     * {
+     *     "code": 0,
+     *     "msg": null,
+     *     "data": {
+     *         "appId": "wx50c1dc82d19e47f8",
+     *         "nonceStr": "bHXooPQvRVl7gcj8",
+     *         "timestamp": 1669613417,
+     *         "url": "http://123.com",
+     *         "signature": "514cb358f3195d8e031987fedad654975fc17b28"
+     *     }
+     * }
+     */
+    @GetMapping(value = "getJsApiTicket")
+    public Res getJsApiTicket(String url) {
+        return Res.ok(this.getJsTicket(url));
     }
 }

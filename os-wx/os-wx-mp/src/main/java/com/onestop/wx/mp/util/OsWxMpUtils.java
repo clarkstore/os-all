@@ -33,6 +33,7 @@ import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.kefu.WxMpKefuMessage;
 import me.chanjar.weixin.mp.bean.result.WxMpQrCodeTicket;
+import me.chanjar.weixin.mp.bean.subscribe.WxMpSubscribeMessage;
 import me.chanjar.weixin.mp.bean.template.WxMpTemplateData;
 import me.chanjar.weixin.mp.bean.template.WxMpTemplateMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,9 +83,9 @@ public class OsWxMpUtils {
      * @param openid
      * @param templateId
      * @param url
-     * @param args
+     * @param data
      */
-    public void sendTemplateMsg(String openid, String templateId, String url, Map<String, String> args) {
+    public void sendTemplateMsg(String openid, String templateId, String url, Map<String, String> data) {
         try {
             WxMpTemplateMessage templateMessage = WxMpTemplateMessage.builder().toUser(openid).templateId(templateId).build();
             // 详情链接
@@ -92,11 +93,35 @@ public class OsWxMpUtils {
                 templateMessage.setUrl(url);
             }
             // 填充参数
-            args.forEach((k, v) -> templateMessage.addData(new WxMpTemplateData(k, v)));
+            data.forEach((k, v) -> templateMessage.addData(new WxMpTemplateData(k, v)));
 
             String msgId = this.wxMpService.getTemplateMsgService().sendTemplateMsg(templateMessage);
         } catch (WxErrorException e) {
             log.error("==========发送模板消息异常==========");
+            log.error(e.getError().toString());
+            throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
+        }
+    }
+
+    /**
+     * 发送订阅消息
+     *
+     * @param openid
+     * @param templateId
+     * @param url
+     * @param dataMap
+     */
+    public void sendSubscribeMsg(String openid, String templateId, String url, Map<String, String> dataMap) {
+        try {
+            WxMpSubscribeMessage subscribeMessage = WxMpSubscribeMessage.builder().toUser(openid).templateId(templateId).dataMap(dataMap).build();
+            // 详情链接
+            if (StrUtil.isNotBlank(url)) {
+                subscribeMessage.setUrl(url);
+            }
+
+            this.wxMpService.getSubscribeMsgService().send(subscribeMessage);
+        } catch (WxErrorException e) {
+            log.error("==========发送订阅消息异常==========");
             log.error(e.getError().toString());
             throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
         }

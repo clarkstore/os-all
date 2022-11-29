@@ -29,3 +29,6 @@ os:
     # 开启关键字回复配置
     reply:
       enabled: true
+    # 开启订阅消息配置
+    subscribe:
+      enabled: true

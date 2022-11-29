@@ -28,6 +28,6 @@ import org.springframework.context.annotation.Import;
  * @version 2022-08-28
  */
 @AutoConfiguration
-@Import({OsWxmpConfiguration.class, OsWxmpMenuConfiguration.class, OsWxmpSubscribeConfiguration.class})
+@Import({OsWxmpConfiguration.class, OsWxmpMenuConfiguration.class, OsWxmpReplyConfiguration.class, OsWxmpSubscribeConfiguration.class})
 public class OsWxmpAutoConfiguration {
 }

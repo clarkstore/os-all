@@ -31,9 +31,9 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Map;
 
 /**
- * 小程序订阅消息配置
+ * 订阅消息配置
  * @author Clark
- * @version 2021-03-18
+ * @version 2022-11-28
  */
 @Configuration
 @EnableConfigurationProperties(OsWxmpSubscribeProperties.class)

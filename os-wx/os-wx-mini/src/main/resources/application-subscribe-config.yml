@@ -5,8 +5,6 @@ os:
   wxmini:
     #订阅消息模板
     subscribe:
-      # 开启订阅消息配置
-      enabled: true
       #跳转小程序类型：developer为开发版；trial为体验版；formal为正式版；默认为正式版
       miniprogramState: developer
       configs:

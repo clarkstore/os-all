@@ -16,39 +16,29 @@
  *
  */
 
-package com.onestop.wx.mini.model.dto;
+package com.onestop.wx.mp.autoconfigure;
 
-import lombok.Builder;
+import com.onestop.wx.mp.model.dto.SubscribeDto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.experimental.Tolerate;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.List;
 
 /**
- * 订阅消息请求类
+ * 订阅消息模板配置
+ *
  * @author Clark
- * @version 2021-03-18
+ * @version 2022-11-28
  */
-@Builder
 @Getter
 @Setter
 @ToString
-public class SubscribeReqDto {
-    @Tolerate
-    public SubscribeReqDto() {
-    }
+@ConfigurationProperties(prefix = "os.wxmp.subscribe")
+public class OsWxmpSubscribeProperties {
     /**
-     * 订阅编号
+     * 订阅消息配置
      */
-    private String msgId;
-    /**
-     * openid
-     */
-    private String openid;
-    /**
-     * 订阅消息参数值列表
-     */
-    private List<String> valueList;
+    private List<SubscribeDto> configs;
 }

@@ -22,7 +22,6 @@ import com.onestop.common.core.util.Res;
 import com.onestop.wx.mini.model.dto.SubscribeReqDto;
 import com.onestop.wx.mini.util.OsWxMiniUtils;
 import lombok.extern.slf4j.Slf4j;
-import me.chanjar.weixin.common.error.WxErrorException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -45,13 +44,8 @@ public class WxMiniMsgApi {
 
     @PostMapping("/send")
     public Res send(@RequestBody SubscribeReqDto dto) {
-        try {
-            this.osWxMiniUtils.sendSubscribeMsg(dto);
-            return Res.ok();
-        } catch (WxErrorException e) {
-            log.error(e.getMessage(), e);
-            return Res.failed(e.getError().getErrorMsg());
-        }
+        this.osWxMiniUtils.sendSubscribeMsg(dto);
+        return Res.ok();
     }
 
 //    /**

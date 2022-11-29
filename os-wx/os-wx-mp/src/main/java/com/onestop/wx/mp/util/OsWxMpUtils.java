@@ -18,12 +18,11 @@
 
 package com.onestop.wx.mp.util;
 
+import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.StrUtil;
 import com.onestop.common.core.exception.OsBizException;
 import com.onestop.wx.mp.constant.OsWxMpConsts;
-import com.onestop.wx.mp.model.dto.MenuConfigs;
-import com.onestop.wx.mp.model.dto.MenuDto;
-import com.onestop.wx.mp.model.dto.ReplyConfigs;
+import com.onestop.wx.mp.model.dto.*;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.api.WxConsts;
@@ -59,6 +58,11 @@ public class OsWxMpUtils {
      */
     @Autowired(required = false)
     private ReplyConfigs replyConfigs;
+    /**
+     * 订阅消息配置
+     */
+    @Autowired(required = false)
+    private SubscribeConfigs subscribeConfigs;
 
     /**
      * 获取openid
@@ -111,6 +115,7 @@ public class OsWxMpUtils {
      * @param url
      * @param dataMap
      */
+    @Deprecated
     public void sendSubscribeMsg(String openid, String templateId, String url, Map<String, String> dataMap) {
         try {
             WxMpSubscribeMessage subscribeMessage = WxMpSubscribeMessage.builder().toUser(openid).templateId(templateId).dataMap(dataMap).build();
@@ -122,6 +127,40 @@ public class OsWxMpUtils {
             this.wxMpService.getSubscribeMsgService().send(subscribeMessage);
         } catch (WxErrorException e) {
             log.error("==========发送订阅消息异常==========");
+            log.error(e.getError().toString());
+            throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
+        }
+    }
+
+    /**
+     * 发送订阅消息
+     *
+     * @param dto 订阅消息请求类
+     * @throws WxErrorException WxErrorException
+     */
+    public void sendSubscribeMsg(SubscribeReqDto dto) {
+        log.debug("---------------sendSubscribeMsg----------------");
+        log.debug("dto : " + dto.toString());
+        //获取订阅消息配置
+        SubscribeDto subscribe = this.subscribeConfigs.getConfig(dto.getMsgId());
+        WxMpSubscribeMessage subscribeMessage = WxMpSubscribeMessage.builder()
+                .toUser(dto.getOpenid())
+                .templateId(subscribe.getTplId())
+                .page(subscribe.getPage())
+                .build();
+
+        //封装参数
+        Map<String, String> dataMap = MapUtil.newHashMap();
+        for (int i = 0; i < subscribe.getNameList().size(); i++) {
+            dataMap.put(subscribe.getNameList().get(i), dto.getValueList().get(i));
+        }
+        subscribeMessage.setDataMap(dataMap);
+
+        try {
+            this.wxMpService.getSubscribeMsgService().send(subscribeMessage);
+        } catch (WxErrorException e) {
+            log.error("---------------sendSubscribeMsg----------------");
+            log.error("dto : " + dto.toString());
             log.error(e.getError().toString());
             throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
         }

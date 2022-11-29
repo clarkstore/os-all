@@ -16,7 +16,7 @@
  *
  */
 
-package com.onestop.wx.mini.model.dto;
+package com.onestop.wx.mp.model.dto;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -24,31 +24,33 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Tolerate;
 
-import java.util.List;
+import java.util.Map;
 
 /**
- * 订阅消息请求类
+ * 订阅消息配置列表类
  * @author Clark
- * @version 2021-03-18
+ * @version 2022-11-28
  */
 @Builder
 @Getter
 @Setter
 @ToString
-public class SubscribeReqDto {
+public class SubscribeConfigs {
     @Tolerate
-    public SubscribeReqDto() {
+    public SubscribeConfigs() {
     }
+
+    private Map<String, SubscribeDto> configMap;
+
     /**
-     * 订阅编号
+     * 获取配置
+     * @param msgId 消息id
+     * @return SubscribeDto
      */
-    private String msgId;
-    /**
-     * openid
-     */
-    private String openid;
-    /**
-     * 订阅消息参数值列表
-     */
-    private List<String> valueList;
+    public SubscribeDto getConfig(String msgId) {
+        if (this.configMap != null) {
+            return this.configMap.get(msgId);
+        }
+        return null;
+    }
 }

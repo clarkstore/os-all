@@ -16,7 +16,7 @@
  *
  */
 
-package com.onestop.wx.mini.model.dto;
+package com.onestop.wx.mp.model.dto;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * 订阅消息请求类
  * @author Clark
- * @version 2021-03-18
+ * @version 2022-11-28
  */
 @Builder
 @Getter

@@ -39,6 +39,10 @@ import java.util.Map;
 @Component
 public class MpSubscribeHandler extends MpBaseHandler {
     /**
+     * 扫码关注EventKey前缀
+     */
+    protected final static String QRCODE_SCENE_PREFIX = "qrscene_";
+    /**
      * 是否首次关注
      */
     protected boolean isFirst = false;

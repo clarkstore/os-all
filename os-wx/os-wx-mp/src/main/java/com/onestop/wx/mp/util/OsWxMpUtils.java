@@ -136,7 +136,6 @@ public class OsWxMpUtils {
      * 发送订阅消息
      *
      * @param dto 订阅消息请求类
-     * @throws WxErrorException WxErrorException
      */
     public void sendSubscribeMsg(SubscribeReqDto dto) {
         log.debug("---------------sendSubscribeMsg----------------");
@@ -167,7 +166,49 @@ public class OsWxMpUtils {
     }
 
     /**
+     * 发送客服消息
+     * @param dto 客服消息请求类
+     */
+    public void sentKefuMessage(KefuMsgReqDto dto) {
+        try {
+            if (StrUtil.isBlank(dto.getOpenid()) || StrUtil.isBlank(dto.getMsgType())) {
+                return;
+            }
+            switch (dto.getMsgType()) {
+                case WxConsts.KefuMsgType.TEXT:
+                    // 发送文本客服消息
+                    WxMpKefuMessage textMsg = WxMpKefuMessage.TEXT()
+                            .toUser(dto.getOpenid())
+                            .content(dto.getContent())
+                            .build();
+                    this.wxMpService.getKefuService().sendKefuMessage(textMsg);
+                    break;
+                case WxConsts.KefuMsgType.NEWS:
+                    // 发送图文客服消息
+                    WxMpKefuMessage.WxArticle wxArticle = new WxMpKefuMessage.WxArticle();
+                    wxArticle.setTitle(dto.getTitle());
+                    wxArticle.setDescription(dto.getDescription());
+                    wxArticle.setPicUrl(dto.getPicUrl());
+                    wxArticle.setUrl(dto.getUrl());
+                            // 发送图文客服消息
+                    WxMpKefuMessage newsMsg = WxMpKefuMessage.NEWS()
+                            .toUser(dto.getOpenid())
+                            .addArticle(wxArticle)
+                            .build();
+                    this.wxMpService.getKefuService().sendKefuMessage(newsMsg);
+                    break;
+
+            }
+        } catch (WxErrorException e) {
+            log.error("==========发送客服消息异常==========");
+            log.error(e.getError().toString());
+            throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
+        }
+    }
+
+    /**
      * 关键字回复
+     * 文本与图文消息
      *
      * @param keyword
      */

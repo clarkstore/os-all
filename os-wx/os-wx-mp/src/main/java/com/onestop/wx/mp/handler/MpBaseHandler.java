@@ -39,11 +39,6 @@ import java.util.Map;
  * @version 2021-04-29
  */
 public abstract class MpBaseHandler implements WxMpMessageHandler {
-    /**
-     * 扫码关注EventKey前缀
-     */
-    public final static String QR_SCENE = "qrscene_";
-
     @Autowired
     public WxMpService wxMpService;
     /**

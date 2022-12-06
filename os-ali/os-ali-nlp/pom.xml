@@ -5,7 +5,7 @@
     <parent>
         <artifactId>os-ali</artifactId>
         <groupId>com.github.clarkstore</groupId>
-        <version>0.6.28</version>
+        <version>0.6.29</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -21,10 +21,12 @@
         <dependency>
             <groupId>com.aliyun</groupId>
             <artifactId>aliyun-java-sdk-core</artifactId>
+            <version>4.6.3</version>
         </dependency>
         <dependency>
             <groupId>com.aliyun</groupId>
             <artifactId>aliyun-java-sdk-alinlp</artifactId>
+            <version>1.8.0</version>
         </dependency>
     </dependencies>
 </project>

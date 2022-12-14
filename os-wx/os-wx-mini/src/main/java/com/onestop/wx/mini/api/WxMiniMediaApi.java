@@ -22,6 +22,7 @@ import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.constant.WxMaConstants;
 import com.google.common.collect.Lists;
 import com.google.common.io.Files;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.bean.result.WxMediaUploadResult;
 import me.chanjar.weixin.common.error.WxErrorException;
@@ -29,9 +30,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
@@ -60,11 +59,11 @@ public class WxMiniMediaApi {
      */
     @PostMapping("/upload")
     public List<String> uploadMedia(HttpServletRequest request) throws WxErrorException {
-        CommonsMultipartResolver resolver = new CommonsMultipartResolver(request.getSession().getServletContext());
-
-        if (!resolver.isMultipart(request)) {
-            return Lists.newArrayList();
-        }
+//        CommonsMultipartResolver resolver = new CommonsMultipartResolver(request.getSession().getServletContext());
+//
+//        if (!resolver.isMultipart(request)) {
+//            return Lists.newArrayList();
+//        }
 
         MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest) request;
         Iterator<String> it = multiRequest.getFileNames();

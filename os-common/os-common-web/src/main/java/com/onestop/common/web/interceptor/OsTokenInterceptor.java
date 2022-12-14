@@ -23,6 +23,8 @@ import com.onestop.common.core.exception.OsBizException;
 import com.onestop.common.web.annotation.OsAuthTokenAnnotation;
 import com.onestop.common.web.constant.OsWebConsts;
 import com.onestop.common.web.util.OsTokenUtils;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Configuration;
@@ -30,8 +32,6 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 
 /**

@@ -19,11 +19,11 @@
 package com.onestop.common.task.util;
 
 import cn.hutool.core.map.MapUtil;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.scheduling.support.CronTrigger;
 
-import javax.annotation.PostConstruct;
 import java.util.Map;
 import java.util.concurrent.ScheduledFuture;
 

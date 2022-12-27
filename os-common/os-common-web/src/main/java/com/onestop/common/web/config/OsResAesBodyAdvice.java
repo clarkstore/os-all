@@ -28,6 +28,7 @@ import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import java.lang.reflect.AnnotatedElement;
@@ -36,10 +37,13 @@ import java.lang.reflect.AnnotatedElement;
  * 实现统一处理controller返回
  *
  * @author Clark
- * @version 2020-09-09
+ * @version 2022/12/27
  */
-//@RestControllerAdvice("com.onestop")
-public abstract class OsResponseBodyAdvice implements ResponseBodyAdvice<Object> {
+@RestControllerAdvice("com.onestop")
+public class OsResAesBodyAdvice implements ResponseBodyAdvice<Object> {
+    /**
+     * 数据加密工具类
+     */
     @Autowired(required = false)
     protected OsAesUtils aesUtils;
 
@@ -53,7 +57,7 @@ public abstract class OsResponseBodyAdvice implements ResponseBodyAdvice<Object>
             isIntercept = false;
         }
 
-        //拦截指定方法
+        //TODO 拦截指定方法
 //        Method method = returnType.getMethod();
 //        if ("test".equals(method.getName())) {
 //            isIntercept = true;

@@ -18,8 +18,11 @@
 
 package com.onestop.common.web.config;
 
+import com.onestop.common.web.interceptor.OsTokenInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
@@ -33,16 +36,16 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class OsWebConfig implements WebMvcConfigurer {
     // TODO 可以继承自定义Token拦截器
-//    @Autowired(required = false)
-//    protected OsTokenInterceptor tokenInterceptor;
-//    @Override
-//    public void addInterceptors(InterceptorRegistry registry) {
-//        if (this.tokenInterceptor != null) {
-//            registry.addInterceptor(this.tokenInterceptor)
-//                    .addPathPatterns("/**");
-//        //  .excludePathPatterns("/不被拦截路径 通常为登录注册或者首页");
-//        }
-//    }
+    @Autowired(required = false)
+    protected OsTokenInterceptor tokenInterceptor;
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        if (this.tokenInterceptor != null) {
+            registry.addInterceptor(this.tokenInterceptor)
+                    .addPathPatterns("/**");
+        //  .excludePathPatterns("/不被拦截路径 通常为登录注册或者首页");
+        }
+    }
 
     /**
      * 跨域支持

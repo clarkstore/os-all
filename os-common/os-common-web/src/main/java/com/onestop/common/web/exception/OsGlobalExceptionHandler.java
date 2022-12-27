@@ -19,7 +19,6 @@
 package com.onestop.common.web.exception;
 
 import com.onestop.common.core.exception.OsBizException;
-import com.onestop.common.core.exception.OsPayException;
 import com.onestop.common.core.util.Res;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
@@ -45,18 +44,6 @@ public class OsGlobalExceptionHandler {
     @ExceptionHandler(value = {OsBizException.class})
     public Res bizExceptionHandle(OsBizException e) {
         log.error("=========业务异常=========");
-        log.error(e.getMsg());
-        return Res.failed(e.getMsg());
-    }
-
-    /**
-     *
-     * @param e 支付异常
-     * @return Res 返回结果
-     */
-    @ExceptionHandler(value = {OsPayException.class})
-    public Res payExceptionHandle(OsPayException e) {
-        log.error("=========支付异常=========");
         log.error(e.getMsg());
         return Res.failed(e.getMsg());
     }

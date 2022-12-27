@@ -22,9 +22,9 @@ import java.lang.annotation.*;
 
 /**
  * 应答加密注解
- * 在OsResponseBodyAdvice实现类中自行配置是否通过当前注解统一处理应答
+ * 在OsResAesBodyAdvice实现类中自行配置是否通过当前注解统一处理应答
  * @author Clark
- * @version 2021/5/8
+ * @version 2022/12/27
  */
 @Inherited
 @Documented

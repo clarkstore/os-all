@@ -18,11 +18,14 @@
 
 package com.onestop.common.web.util;
 
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.exceptions.ValidateException;
 import cn.hutool.jwt.JWT;
+import cn.hutool.jwt.JWTPayload;
 import cn.hutool.jwt.JWTUtil;
 import cn.hutool.jwt.JWTValidator;
 
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -52,11 +55,19 @@ public class OsTokenUtils {
 
     /**
      * 生成签名
+     * 设置默认过期时间：7200秒
      *
      * @param payload 载荷信息
      * @return 签名
      */
     public String sign(Map<String, Object> payload) {
+        //判断是否有过期时间
+        if (!payload.containsKey(JWTPayload.EXPIRES_AT)) {
+            // 设置默认过期时间：7200秒
+            Date date = DateUtil.offsetSecond(DateUtil.date(), 7200);
+            payload.put(JWTPayload.EXPIRES_AT, date);
+        }
+
         // 密钥
         byte[] key = this.secret.getBytes();
         String token = JWTUtil.createToken(payload, key);

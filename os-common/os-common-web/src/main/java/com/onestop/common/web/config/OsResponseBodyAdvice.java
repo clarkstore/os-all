@@ -40,7 +40,7 @@ import java.lang.reflect.AnnotatedElement;
  */
 //@RestControllerAdvice("com.onestop")
 public abstract class OsResponseBodyAdvice implements ResponseBodyAdvice<Object> {
-    @Autowired(required = false)
+    @Autowired
     protected OsAesUtils aesUtils;
 
     @Override

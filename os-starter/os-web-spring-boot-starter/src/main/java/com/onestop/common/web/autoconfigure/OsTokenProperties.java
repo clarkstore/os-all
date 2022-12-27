@@ -37,5 +37,5 @@ public class OsTokenProperties {
 	/**
 	 * 设置token的Secret
 	 */
-	private String secret = "0123456789ABCDEF";
+	private String secret;
 }

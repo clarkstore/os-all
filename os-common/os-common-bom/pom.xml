@@ -46,8 +46,8 @@
         <spring-boot-schedule-admin-starter.version>1.1</spring-boot-schedule-admin-starter.version>
         <!--ali模块-->
         <aliyun-java-sdk-core.version>4.6.2</aliyun-java-sdk-core.version>
-        <aliyun-java-sdk-alinlp.version>1.0.20</aliyun-java-sdk-alinlp.version>
-        <aliyun-sdk-oss.version>3.15.2</aliyun-sdk-oss.version>
+        <aliyun-java-sdk-alinlp.version>1.8.10</aliyun-java-sdk-alinlp.version>
+        <aliyun-sdk-oss.version>3.16.0</aliyun-sdk-oss.version>
         <ons-client.version>2.0.4.Final</ons-client.version>
         <dysmsapi20170525.version>2.0.22</dysmsapi20170525.version>
         <!--微信模块-->

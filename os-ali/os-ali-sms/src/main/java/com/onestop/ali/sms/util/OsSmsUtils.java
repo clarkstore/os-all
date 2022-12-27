@@ -57,13 +57,8 @@ public class OsSmsUtils {
      * @param smsRequest
      * @return SendSmsResponse
      */
-    public SendSmsResponse sendSms(SendSmsRequest smsRequest) {
-        try {
-            SendSmsResponse res = client.sendSms(smsRequest);
-            return res;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+    public SendSmsResponse sendSms(SendSmsRequest smsRequest) throws Exception {
+        SendSmsResponse res = client.sendSms(smsRequest);
+        return res;
     }
 }

@@ -44,9 +44,9 @@ public class OsNlpUtils {
     public OsNlpRes parse(OsNlpReq req) throws Exception {
         GetWsChGeneralRequest request = new GetWsChGeneralRequest();
 //        request.setSysEndpoint(OsNlpConsts.SYS_ENDPOINT);
-//        request.setServiceCode(OsNlpConsts.SERVICE_CODE);
+        request.setServiceCode(OsNlpConsts.SERVICE_CODE);
 //        request.setActionName(OsNlpConsts.ACTION_GET_WS_CH_GENERAL);
-//        request.setTokenizerId(OsNlpConsts.TOKENIZER_ID_GENERAL_CHN);
+        request.setTokenizerId(OsNlpConsts.TOKENIZER_ID_GENERAL_CHN);
         request.setText(req.getText());
         request.setOutType(req.getOutType());
 
@@ -70,9 +70,9 @@ public class OsNlpUtils {
     public OsNlpRes parseByCustomized(OsNlpReq req) throws Exception {
         GetWsCustomizedChGeneralRequest request = new GetWsCustomizedChGeneralRequest();
 //        request.setSysEndpoint(OsNlpConsts.SYS_ENDPOINT);
-//        request.setServiceCode(OsNlpConsts.SERVICE_CODE);
+        request.setServiceCode(OsNlpConsts.SERVICE_CODE);
 //        request.setActionName(OsNlpConsts.ACTION_GET_WS_CUSTOMIZED_CH_GENERAL);
-//        request.setTokenizerId(OsNlpConsts.TOKENIZER_ID_GENERAL_CHN);
+        request.setTokenizerId(OsNlpConsts.TOKENIZER_ID_GENERAL_CHN);
         request.setText(req.getText());
         request.setOutType(req.getOutType());
 

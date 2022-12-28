@@ -13,6 +13,7 @@
 #### 温馨提示：使用前请确认业务场景与技术实现是否匹配。
 1. 使用前认真阅读各模块下:README.md
 2. 个人维护不定期更新
+3. 当前分支基于JDK8
 
 #### 核心依赖
 - Spring Boot
@@ -44,6 +45,8 @@
 3. [公共模块](os-common/README.md)
    - bom配置模块
    - core核心模块
+   - http模块
+   - log模块
    - mybatis模块
    - redis模块
    - task定时任务模块

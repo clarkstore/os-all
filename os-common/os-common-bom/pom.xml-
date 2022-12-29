@@ -5,12 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.clarkstore</groupId>
-    <artifactId>os-all</artifactId>
-    <version>0.17.0</version>
+    <artifactId>os-common-bom</artifactId>
     <packaging>pom</packaging>
-
-    <name>os-all</name>
-    <description>onestop-starter集合</description>
+    <version>0.17.0-SNAPSHOT</version>
+    <name>os-common-bom</name>
+    <description>onestop公共版本控制</description>
     <url>https://gitee.com/clarkstore/os-all</url>
 
     <developers>
@@ -34,8 +33,8 @@
     <properties>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!--版本号-->
         <spring-boot.version>3.0.0</spring-boot.version>
+
         <hutool.version>5.8.11</hutool.version>
         <druid-spring-boot-starter.version>1.2.15</druid-spring-boot-starter.version>
         <!--公共模块-->
@@ -63,15 +62,6 @@
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
     </properties>
-
-    <dependencies>
-        <!--添加lombok-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-    </dependencies>
 
     <dependencyManagement>
         <dependencies>
@@ -130,11 +120,11 @@
                 <artifactId>os-common-redis</artifactId>
                 <version>${project.version}</version>
             </dependency>
-            <!--            <dependency>-->
-            <!--                <groupId>${project.groupId}</groupId>-->
-            <!--                <artifactId>os-common-sentinel-feign</artifactId>-->
-            <!--                <version>${project.version}</version>-->
-            <!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>${project.groupId}</groupId>-->
+<!--                <artifactId>os-common-sentinel-feign</artifactId>-->
+<!--                <version>${project.version}</version>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>os-common-task</artifactId>
@@ -252,14 +242,6 @@
         </dependencies>
     </dependencyManagement>
 
-    <modules>
-        <module>os-common</module>
-        <module>os-ali</module>
-        <module>os-wx</module>
-        <module>os-starter</module>
-        <module>os-extra</module>
-    </modules>
-
     <distributionManagement>
         <snapshotRepository>
             <!--oss需要对应到settings.xml下的service的id-->
@@ -268,8 +250,8 @@
         </snapshotRepository>
         <repository>
             <id>oss</id>
-            <name>releases</name>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <layout>default</layout>
         </repository>
     </distributionManagement>
     <build>
@@ -284,14 +266,6 @@
             </plugins>
         </pluginManagement>
         <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>versions-maven-plugin</artifactId>
-                <version>${versions-maven-plugin.version}</version>
-                <configuration>
-                    <generateBackupPoms>false</generateBackupPoms>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -330,7 +304,6 @@
                 </executions>
             </plugin>
             <!--生产javadoc插件-->
-            <!--jdk1.8中必须增加Xdoclint:none因为1.8 javadoc要求必须严格格式检查，否则会报错-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -341,9 +314,6 @@
                         <goals>
                             <goal>jar</goal>
                         </goals>
-                        <configuration>
-                            <additionalparam>-Xdoclint:none</additionalparam>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -372,22 +342,7 @@
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.thoughtworks.xstream</groupId>
-                        <artifactId>xstream</artifactId>
-                        <version>1.4.15</version> <!-- apparently this needs to be exactly this version -->
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
     </build>
-    <repositories>
-        <!--阿里云代理-->
-       <repository>
-           <id>aliyun</id>
-           <name>aliyun</name>
-           <url>https://maven.aliyun.com/repository/public</url>
-        </repository>
-    </repositories>
 </project>

@@ -24,10 +24,19 @@ package com.onestop.common.core.exception;
  * @version 2020/04/07
  */
 public class OsBizException extends OsBaseException {
+    /**
+     *
+     * @param msg
+     */
     public OsBizException(String msg) {
         super(msg);
     }
 
+    /**
+     *
+     * @param code
+     * @param msg
+     */
     public OsBizException(int code, String msg) {
         super(code, msg);
     }

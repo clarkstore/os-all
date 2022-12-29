@@ -37,11 +37,20 @@ public abstract class OsBaseException extends RuntimeException {
      */
     protected String msg;
 
+    /**
+     *
+     * @param msg
+     */
     public OsBaseException(String msg) {
         super(msg);
         this.msg = msg;
     }
 
+    /**
+     *
+     * @param code
+     * @param msg
+     */
     public OsBaseException(int code, String msg) {
         super(msg);
         this.code = code;

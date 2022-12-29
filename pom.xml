@@ -34,7 +34,26 @@
     <properties>
         <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--版本号-->
         <spring-boot.version>2.7.6</spring-boot.version>
+        <hutool.version>5.8.11</hutool.version>
+        <druid-spring-boot-starter.version>1.2.15</druid-spring-boot-starter.version>
+        <!--公共模块-->
+        <javax-mail.version>1.6.2</javax-mail.version>
+        <!--http模块-->
+        <!--mybatis模块-->
+        <mysql-connector-java.version>8.0.31</mysql-connector-java.version>
+        <mybatis-plus.version>3.5.3</mybatis-plus.version>
+        <!--task模块-->
+        <spring-boot-schedule-admin-starter.version>1.1</spring-boot-schedule-admin-starter.version>
+        <!--ali模块-->
+        <aliyun-java-sdk-core.version>4.6.3</aliyun-java-sdk-core.version>
+        <aliyun-java-sdk-alinlp.version>1.8.10</aliyun-java-sdk-alinlp.version>
+        <aliyun-sdk-oss.version>3.16.0</aliyun-sdk-oss.version>
+        <ons-client.version>2.0.4.Final</ons-client.version>
+        <dysmsapi20170525.version>2.0.23</dysmsapi20170525.version>
+        <!--微信模块-->
+        <wx-java.version>4.4.0</wx-java.version>
         <!--部署-->
         <versions-maven-plugin.version>2.11.0</versions-maven-plugin.version>
         <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
@@ -52,19 +71,186 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-        <!--测试 SpringBoot2.4.0使用JUnit5-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--spring-boot-dependencies-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--os-ali-->
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>os-ali-nlp</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>os-ali-oss</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>os-ali-rocketmq</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>os-ali-sms</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--os-common-->
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>os-common-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>os-common-http</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>os-common-log</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>os-common-mybatis</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>os-common-redis</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--            <dependency>-->
+            <!--                <groupId>${project.groupId}</groupId>-->
+            <!--                <artifactId>os-common-sentinel-feign</artifactId>-->
+            <!--                <version>${project.version}</version>-->
+            <!--            </dependency>-->
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>os-common-task</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>os-common-web</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--os-wx-->
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>os-wx-mini</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>os-wx-mp</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--第三方-->
+            <!--web 模块-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <!--添加huTool-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-bom</artifactId>
+                <version>${hutool.version}</version>
+                <type>pom</type>
+                <!-- 注意这里是import -->
+                <scope>import</scope>
+            </dependency>
+            <!--Mail-->
+            <dependency>
+                <groupId>com.sun.mail</groupId>
+                <artifactId>javax.mail</artifactId>
+                <version>${javax-mail.version}</version>
+            </dependency>
+            <!--http-->
+            <!--task-->
+            <dependency>
+                <groupId>com.plumelog</groupId>
+                <artifactId>spring-boot-schedule-admin-starter</artifactId>
+                <version>${spring-boot-schedule-admin-starter.version}</version>
+            </dependency>
+            <!-- ali-nlp -->
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>aliyun-java-sdk-core</artifactId>
+                <version>${aliyun-java-sdk-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>aliyun-java-sdk-alinlp</artifactId>
+                <version>${aliyun-java-sdk-alinlp.version}</version>
+            </dependency>
+            <!-- ali-oss -->
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${aliyun-sdk-oss.version}</version>
+            </dependency>
+            <!-- ali-rocketmq -->
+            <dependency>
+                <groupId>com.aliyun.openservices</groupId>
+                <artifactId>ons-client</artifactId>
+                <version>${ons-client.version}</version>
+            </dependency>
+            <!-- ali-sms -->
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>dysmsapi20170525</artifactId>
+                <version>${dysmsapi20170525.version}</version>
+            </dependency>
+            <!--微信依赖-->
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-miniapp</artifactId>
+                <version>${wx-java.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-mp</artifactId>
+                <version>${wx-java.version}</version>
+            </dependency>
+            <!--mysql-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+            <!--alibaba连接池-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid-spring-boot-starter.version}</version>
+            </dependency>
+            <!-- mybatis-plus begin -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter-test</artifactId>
+                <version>${mybatis-plus.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <modules>
         <module>os-common</module>
@@ -73,18 +259,6 @@
         <module>os-starter</module>
         <module>os-extra</module>
     </modules>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>os-common-bom</artifactId>
-                <version>${project.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <distributionManagement>
         <snapshotRepository>

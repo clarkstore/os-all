@@ -4,15 +4,35 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <artifactId>os-common</artifactId>
-        <groupId>com.github.clarkstore</groupId>
-        <version>0.8.0</version>
-    </parent>
+    <groupId>com.github.clarkstore</groupId>
     <artifactId>os-common-bom</artifactId>
     <packaging>pom</packaging>
+    <version>0.8.0</version>
+    <name>os-common-bom</name>
+    <description>onestop公共版本控制</description>
+    <url>https://gitee.com/clarkstore/os-all</url>
+
+    <developers>
+        <developer>
+            <name>ClarkChang</name>
+            <email>changhongyuan@126.com</email>
+        </developer>
+    </developers>
+    <licenses>
+        <license>
+            <name>Apache License</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:git@gitee.com:clarkstore/os-all.git</connection>
+        <developerConnection>scm:git:git@gitee.com:clarkstore/os-all.git</developerConnection>
+        <url>https://gitee.com/clarkstore/os-all</url>
+    </scm>
 
     <properties>
+<!--        <java.version>8</java.version>-->
+<!--        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
         <spring-boot.version>2.7.6</spring-boot.version>
         <hutool.version>5.8.11</hutool.version>
         <druid-spring-boot-starter.version>1.2.15</druid-spring-boot-starter.version>
@@ -32,6 +52,13 @@
         <dysmsapi20170525.version>2.0.23</dysmsapi20170525.version>
         <!--微信模块-->
         <wx-java.version>4.4.0</wx-java.version>
+        <!--部署-->
+        <versions-maven-plugin.version>2.11.0</versions-maven-plugin.version>
+<!--        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>-->
+<!--        <maven-source-plugin.version>3.2.1</maven-source-plugin.version>-->
+<!--        <maven-javadoc-plugin.version>2.10.4</maven-javadoc-plugin.version>-->
+        <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+        <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -46,76 +73,76 @@
             </dependency>
             <!--os-ali-->
             <dependency>
-                <groupId>${project.parent.groupId}</groupId>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>os-ali-nlp</artifactId>
-                <version>${project.parent.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>${project.parent.groupId}</groupId>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>os-ali-oss</artifactId>
-                <version>${project.parent.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>${project.parent.groupId}</groupId>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>os-ali-rocketmq</artifactId>
-                <version>${project.parent.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>${project.parent.groupId}</groupId>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>os-ali-sms</artifactId>
-                <version>${project.parent.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <!--os-common-->
             <dependency>
-                <groupId>${project.parent.groupId}</groupId>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>os-common-core</artifactId>
-                <version>${project.parent.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>${project.parent.groupId}</groupId>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>os-common-http</artifactId>
-                <version>${project.parent.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>${project.parent.groupId}</groupId>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>os-common-log</artifactId>
-                <version>${project.parent.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>${project.parent.groupId}</groupId>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>os-common-mybatis</artifactId>
-                <version>${project.parent.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>${project.parent.groupId}</groupId>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>os-common-redis</artifactId>
-                <version>${project.parent.version}</version>
+                <version>${project.version}</version>
             </dependency>
 <!--            <dependency>-->
-<!--                <groupId>${project.parent.groupId}</groupId>-->
+<!--                <groupId>${project.groupId}</groupId>-->
 <!--                <artifactId>os-common-sentinel-feign</artifactId>-->
-<!--                <version>${project.parent.version}</version>-->
+<!--                <version>${project.version}</version>-->
 <!--            </dependency>-->
             <dependency>
-                <groupId>${project.parent.groupId}</groupId>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>os-common-task</artifactId>
-                <version>${project.parent.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>${project.parent.groupId}</groupId>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>os-common-web</artifactId>
-                <version>${project.parent.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <!--os-wx-->
             <dependency>
-                <groupId>${project.parent.groupId}</groupId>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>os-wx-mini</artifactId>
-                <version>${project.parent.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>${project.parent.groupId}</groupId>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>os-wx-mp</artifactId>
-                <version>${project.parent.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <!--第三方-->
             <!--web 模块-->
@@ -212,4 +239,103 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <!--oss需要对应到settings.xml下的service的id-->
+            <id>oss</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <layout>default</layout>
+        </repository>
+    </distributionManagement>
+    <build>
+        <finalName>${project.name}</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                <version>${maven-compiler-plugin.version}</version>-->
+<!--                <configuration>-->
+<!--                    <target>${java.version}</target>-->
+<!--                    <source>${java.version}</source>-->
+<!--                    <encoding>${project.build.sourceEncoding}</encoding>-->
+<!--                    <skip>true</skip>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+            <!--生产源码文件插件-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-source-plugin</artifactId>-->
+<!--                <version>${maven-source-plugin.version}</version>-->
+<!--                <configuration>-->
+<!--                    <attach>true</attach>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>compile</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>jar</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+            <!--生产javadoc插件-->
+            <!--jdk1.8中必须增加Xdoclint:none因为1.8 javadoc要求必须严格格式检查，否则会报错-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-javadoc-plugin</artifactId>-->
+<!--                <version>${maven-javadoc-plugin.version}</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>jar</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <additionalparam>-Xdoclint:none</additionalparam>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+            <!--gpg加密插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>${maven-gpg-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--自动发布：自动执行close->release->drop三步曲-->
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>${nexus-staging-maven-plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>oss</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

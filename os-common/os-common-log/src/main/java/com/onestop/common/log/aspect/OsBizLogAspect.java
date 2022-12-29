@@ -44,8 +44,11 @@ public class OsBizLogAspect {
         OsLog osLog = method.getAnnotation(OsLog.class);
         // 开始时间
         long startTime = System.currentTimeMillis();
+        String name = StrUtil.isNotBlank(osLog.value()) ? osLog.value() : method.getDeclaringClass().getName() + "." + method.getName();
+        log.error("tostring " + method.toString());
+        log.error("toGenericString " + method.toGenericString());
         BizLog bizLog = BizLog.builder()
-                .name(osLog.value())
+                .name(name)
                 .type(OsLogConsts.TYPE_ANNOTATION)
                 .status(OsLogConsts.STATUS_SUCCESS)
                 .reqContent(getNameAndValue(joinPoint))

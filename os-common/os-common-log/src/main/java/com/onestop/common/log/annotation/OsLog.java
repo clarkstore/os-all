@@ -16,5 +16,5 @@ public @interface OsLog {
     /**
      * 接口名
      */
-    String value() default "业务接口";
+    String value() default "";
 }

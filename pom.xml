@@ -35,7 +35,7 @@
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--版本号-->
-        <spring-boot.version>3.0.0</spring-boot.version>
+        <spring-boot.version>3.0.1</spring-boot.version>
         <hutool.version>5.8.11</hutool.version>
         <druid-spring-boot-starter.version>1.2.15</druid-spring-boot-starter.version>
         <!--公共模块-->

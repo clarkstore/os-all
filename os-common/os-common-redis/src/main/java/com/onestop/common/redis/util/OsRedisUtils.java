@@ -107,7 +107,7 @@ public class OsRedisUtils {
 
     /**
      * 删除指定前缀的缓存：参数不可为空
-     * @param prefix
+     * @param prefix 前缀
      */
     public void delByPrefix(String prefix) {
         if (StrUtil.isBlank(prefix)) {
@@ -405,7 +405,7 @@ public class OsRedisUtils {
      * 根据key获取Set中的所有值
      *
      * @param key 键
-     * @return Set<Object>
+     * @return Set集合
      */
     public Set<Object> sGet(String key) {
         try {
@@ -508,7 +508,7 @@ public class OsRedisUtils {
      * @param key   键
      * @param start 开始
      * @param end   结束 0 到 -1代表所有值
-     * @return List<Object>
+     * @return List集合
      */
     public List<Object> lGet(String key, long start, long end) {
         try {
@@ -538,7 +538,7 @@ public class OsRedisUtils {
      * 通过索引 获取list中的值
      *
      * @param key   键
-     * @param index 索引 index>=0时， 0 表头，1 第二个元素，依次类推；index<0时，-1，表尾，-2倒数第二个元素，依次类推
+     * @param index 索引 index大于等于0时， 0 表头，1 第二个元素，依次类推；index小于0时，-1，表尾，-2倒数第二个元素，依次类推
      * @return Object
      */
     public Object lGetIndex(String key, long index) {

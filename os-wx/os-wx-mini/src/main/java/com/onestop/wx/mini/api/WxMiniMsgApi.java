@@ -41,7 +41,11 @@ public class WxMiniMsgApi {
     @Autowired
     private OsWxMiniUtils osWxMiniUtils;
 
-
+    /**
+     * 发送订阅消息
+     * @param dto
+     * @return
+     */
     @PostMapping("/send")
     public Res send(@RequestBody SubscribeReqDto dto) {
         this.osWxMiniUtils.sendSubscribeMsg(dto);

@@ -6,7 +6,7 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-all</artifactId>
-    <version>0.8.0</version>
+    <version>0.8.1</version>
     <packaging>pom</packaging>
 
     <name>os-all</name>
@@ -59,7 +59,7 @@
         <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
         <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
-        <maven-javadoc-plugin.version>2.10.4</maven-javadoc-plugin.version>
+        <maven-javadoc-plugin.version>3.4.1</maven-javadoc-plugin.version>
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
     </properties>
@@ -267,7 +267,6 @@
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
-                    <version>${spring-boot.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -330,7 +329,7 @@
                             <goal>jar</goal>
                         </goals>
                         <configuration>
-                            <additionalparam>-Xdoclint:none</additionalparam>
+                            <additionalJOption>-Xdoclint:none</additionalJOption>
                         </configuration>
                     </execution>
                 </executions>

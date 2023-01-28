@@ -35,14 +35,13 @@
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--版本号-->
-        <spring-boot-dependencies.version>3.0.1</spring-boot-dependencies.version>
+        <spring-boot-dependencies.version>3.0.2</spring-boot-dependencies.version>
         <hutool.version>5.8.11</hutool.version>
         <druid-spring-boot-starter.version>1.2.15</druid-spring-boot-starter.version>
         <!--公共模块-->
-        <javax-mail.version>1.6.2</javax-mail.version>
-        <!--http模块-->
+        <javax.mail.version>1.6.2</javax.mail.version>
         <!--mybatis模块-->
-        <mysql-connector-java.version>8.0.31</mysql-connector-java.version>
+        <mysql-connector-java.version>8.0.32</mysql-connector-java.version>
         <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
         <!--task模块-->
         <spring-boot-schedule-admin-starter.version>1.1</spring-boot-schedule-admin-starter.version>
@@ -170,7 +169,7 @@
             <dependency>
                 <groupId>com.sun.mail</groupId>
                 <artifactId>javax.mail</artifactId>
-                <version>${javax-mail.version}</version>
+                <version>${javax.mail.version}</version>
             </dependency>
             <!--http-->
             <!--task-->

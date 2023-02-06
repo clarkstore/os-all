@@ -7,7 +7,7 @@
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-common-bom</artifactId>
     <packaging>pom</packaging>
-    <version>0.17.0-SNAPSHOT</version>
+    <version>0.17.2</version>
     <name>os-common-bom</name>
     <description>onestop公共版本控制</description>
     <url>https://gitee.com/clarkstore/os-all</url>
@@ -33,16 +33,14 @@
     <properties>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-boot.version>3.0.0</spring-boot.version>
-
+        <spring-boot-dependencies.version>3.0.2</spring-boot-dependencies.version>
         <hutool.version>5.8.11</hutool.version>
         <druid-spring-boot-starter.version>1.2.15</druid-spring-boot-starter.version>
         <!--公共模块-->
-        <javax-mail.version>1.6.2</javax-mail.version>
-        <!--http模块-->
+        <javax.mail.version>1.6.2</javax.mail.version>
         <!--mybatis模块-->
-        <mysql-connector-java.version>8.0.31</mysql-connector-java.version>
-        <mybatis-plus.version>3.5.3</mybatis-plus.version>
+        <mysql-connector-java.version>8.0.32</mysql-connector-java.version>
+        <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
         <!--task模块-->
         <spring-boot-schedule-admin-starter.version>1.1</spring-boot-schedule-admin-starter.version>
         <!--ali模块-->
@@ -69,7 +67,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
+                <version>${spring-boot-dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -151,7 +149,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
-                <version>${spring-boot.version}</version>
+                <version>${spring-boot-dependencies.version}</version>
             </dependency>
             <!--添加huTool-->
             <dependency>
@@ -166,7 +164,7 @@
             <dependency>
                 <groupId>com.sun.mail</groupId>
                 <artifactId>javax.mail</artifactId>
-                <version>${javax-mail.version}</version>
+                <version>${javax.mail.version}</version>
             </dependency>
             <!--http-->
             <!--task-->
@@ -233,12 +231,6 @@
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter-test</artifactId>
-                <version>${mybatis-plus.version}</version>
-                <scope>test</scope>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -261,7 +253,7 @@
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
-                    <version>${spring-boot.version}</version>
+                    <version>${spring-boot-dependencies.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>

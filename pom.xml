@@ -6,7 +6,7 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-all</artifactId>
-    <version>0.8.1</version>
+    <version>0.8.2</version>
     <packaging>pom</packaging>
 
     <name>os-all</name>
@@ -36,13 +36,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--版本号-->
         <spring-boot-dependencies.version>2.7.7</spring-boot-dependencies.version>
-        <hutool.version>5.8.11</hutool.version>
+        <hutool.version>5.8.12</hutool.version>
         <druid-spring-boot-starter.version>1.2.15</druid-spring-boot-starter.version>
         <!--公共模块-->
         <javax-mail.version>1.6.2</javax-mail.version>
         <!--http模块-->
         <!--mybatis模块-->
-        <mysql-connector-java.version>8.0.31</mysql-connector-java.version>
+        <mysql-connector-java.version>8.0.32</mysql-connector-java.version>
         <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
         <!--task模块-->
         <spring-boot-schedule-admin-starter.version>1.1</spring-boot-schedule-admin-starter.version>

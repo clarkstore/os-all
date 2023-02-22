@@ -17,14 +17,14 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-json</artifactId>
         </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>os-common-mybatis</artifactId>
-        </dependency>
         <!--aop 面向切面-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>os-common-mybatis</artifactId>
         </dependency>
     </dependencies>
 </project>

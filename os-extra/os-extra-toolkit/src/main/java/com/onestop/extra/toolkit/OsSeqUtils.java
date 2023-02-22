@@ -98,8 +98,8 @@ public class OsSeqUtils {
          */
         private String dateFormat = "yyyyMMdd";
         /**
-         * 序号部分长度：可以缺省此项配置，默认值：6
+         * 序号部分长度
          */
-        private int seqLength = 6;
+        private int seqLength;
     }
 }

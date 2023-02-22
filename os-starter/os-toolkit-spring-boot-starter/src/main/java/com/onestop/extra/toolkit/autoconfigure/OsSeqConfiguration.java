@@ -33,7 +33,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties(OsSeqProperties.class)
-@ConditionalOnProperty(value = {"os.seq"})
+@ConditionalOnProperty(value = {"os.seq.seqLength"})
 public class OsSeqConfiguration {
     @Autowired
     private OsSeqProperties properties;

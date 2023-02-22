@@ -5,7 +5,7 @@
     <parent>
         <artifactId>os-common</artifactId>
         <groupId>com.github.clarkstore</groupId>
-        <version>0.8.2</version>
+        <version>0.8.3</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -17,20 +17,6 @@
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-extra</artifactId>
-        </dependency>
-        <!--Mail-->
-        <dependency>
-            <groupId>com.sun.mail</groupId>
-            <artifactId>javax.mail</artifactId>
-        </dependency>
-        <!-- html模板 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
     </dependencies>
 </project>

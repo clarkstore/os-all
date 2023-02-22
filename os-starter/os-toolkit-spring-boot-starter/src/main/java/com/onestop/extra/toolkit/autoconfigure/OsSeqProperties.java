@@ -16,17 +16,23 @@
  *
  */
 
-package com.onestop.common.core.autoconfigure;
+package com.onestop.extra.toolkit.autoconfigure;
 
-import org.springframework.boot.autoconfigure.AutoConfiguration;
-import org.springframework.context.annotation.Import;
+import com.onestop.extra.toolkit.OsSeqUtils;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * os-common-core配置
+ * 流水号配置
+ *
  * @author Clark
- * @version 2022-05-26
+ * @version 2023-02-16
  */
-@AutoConfiguration
-@Import({ OsMailConfiguration.class })
-public class OsCoreAutoConfiguration {
+@Getter
+@Setter
+@ToString
+@ConfigurationProperties(prefix = "os.seq")
+public class OsSeqProperties extends OsSeqUtils.OsSeqConfig {
 }

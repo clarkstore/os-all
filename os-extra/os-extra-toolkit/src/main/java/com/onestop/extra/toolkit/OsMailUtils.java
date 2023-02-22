@@ -16,11 +16,12 @@
  *
  */
 
-package com.onestop.common.core.util;
+package com.onestop.extra.toolkit;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.extra.mail.MailAccount;
 import cn.hutool.extra.mail.MailUtil;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.thymeleaf.TemplateEngine;
@@ -41,20 +42,18 @@ public class OsMailUtils {
     @Autowired
     private TemplateEngine templateEngine;
 
+    public OsMailUtils(MailAccount account) {
+        this.account = account;
+    }
+
     /**
      * 邮件账户对象
      * 默认配置读取classpath（在标准Maven项目中为src/main/resources）的config目录下新建mail.setting文件
      * 如通过数据库配置，通过@PostConstruct的initAccount()方法覆盖
+     * set方法覆盖默认配置
      */
+    @Setter
     private MailAccount account = null;
-
-    /**
-     * 设置账号-覆盖默认配置
-     * @param account 邮箱账户
-     */
-    public void setMailAccount(MailAccount account) {
-        this.account = account;
-    }
 
     /**
      * 发送html模板邮件

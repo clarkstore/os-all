@@ -16,19 +16,17 @@
  *
  */
 
-package com.onestop.common.core.exception;
+package com.onestop.extra.toolkit.autoconfigure;
+
+import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.context.annotation.Import;
 
 /**
- * 支付异常类
+ * os-extra-toolkit配置
  * @author Clark
- * @version 2020/07/22
+ * @version 2023-02-16
  */
-public class OsPayException extends OsBaseException {
-    public OsPayException(String msg) {
-        super(msg);
-    }
-
-    public OsPayException(int code, String msg) {
-        super(code, msg);
-    }
+@AutoConfiguration
+@Import({ OsMailConfiguration.class, OsSeqConfiguration.class })
+public class OsToolkitAutoConfiguration {
 }

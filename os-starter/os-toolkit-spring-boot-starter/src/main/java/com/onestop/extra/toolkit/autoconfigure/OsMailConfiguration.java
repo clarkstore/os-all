@@ -16,10 +16,10 @@
  *
  */
 
-package com.onestop.common.core.autoconfigure;
+package com.onestop.extra.toolkit.autoconfigure;
 
 import cn.hutool.extra.mail.MailAccount;
-import com.onestop.common.core.util.OsMailUtils;
+import com.onestop.extra.toolkit.OsMailUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -51,8 +51,7 @@ public class OsMailConfiguration {
         account.setStarttlsEnable(this.properties.isStarttlsEnable());
         account.setSslEnable(this.properties.isSslEnable());
 
-        OsMailUtils utils = new OsMailUtils();
-        utils.setMailAccount(account);
+        OsMailUtils utils = new OsMailUtils(account);
         return utils;
     }
 }

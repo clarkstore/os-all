@@ -6,7 +6,7 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-all</artifactId>
-    <version>0.8.2</version>
+    <version>0.8.3</version>
     <packaging>pom</packaging>
 
     <name>os-all</name>
@@ -35,12 +35,11 @@
         <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--版本号-->
-        <spring-boot-dependencies.version>2.7.7</spring-boot-dependencies.version>
+        <spring-boot.version>2.7.8</spring-boot.version>
         <hutool.version>5.8.12</hutool.version>
-        <druid-spring-boot-starter.version>1.2.15</druid-spring-boot-starter.version>
+        <druid-spring-boot-starter.version>1.2.16</druid-spring-boot-starter.version>
         <!--公共模块-->
         <javax-mail.version>1.6.2</javax-mail.version>
-        <!--http模块-->
         <!--mybatis模块-->
         <mysql-connector-java.version>8.0.32</mysql-connector-java.version>
         <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
@@ -49,7 +48,7 @@
         <!--ali模块-->
         <aliyun-java-sdk-core.version>4.6.3</aliyun-java-sdk-core.version>
         <aliyun-java-sdk-alinlp.version>1.8.10</aliyun-java-sdk-alinlp.version>
-        <aliyun-sdk-oss.version>3.16.0</aliyun-sdk-oss.version>
+        <aliyun-sdk-oss.version>3.16.1</aliyun-sdk-oss.version>
         <ons-client.version>2.0.4.Final</ons-client.version>
         <dysmsapi20170525.version>2.0.23</dysmsapi20170525.version>
         <!--微信模块-->
@@ -79,7 +78,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot-dependencies.version}</version>
+                <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -143,6 +142,12 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>os-common-web</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--os-toolkit-->
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>os-extra-toolkit</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <!--os-wx-->

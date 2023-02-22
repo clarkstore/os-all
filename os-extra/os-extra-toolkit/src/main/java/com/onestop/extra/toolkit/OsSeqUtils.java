@@ -31,11 +31,10 @@ import java.time.LocalDateTime;
 import java.util.Map;
 
 /**
- * 基于hutool邮件工具类
- * html邮件模板配置在：src/main/resources/templates
+ * 流水号工具类
  *
  * @author Clark
- * @version 2021-01-05
+ * @version 2023-02-16
  */
 public class OsSeqUtils {
     @Autowired

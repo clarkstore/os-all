@@ -6,7 +6,7 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-all</artifactId>
-    <version>0.17.2</version>
+    <version>0.17.3</version>
     <packaging>pom</packaging>
 
     <name>os-all</name>
@@ -37,7 +37,7 @@
         <!--版本号-->
         <spring-boot-dependencies.version>3.0.2</spring-boot-dependencies.version>
         <hutool.version>5.8.12</hutool.version>
-        <druid-spring-boot-starter.version>1.2.15</druid-spring-boot-starter.version>
+        <druid-spring-boot-starter.version>1.2.16</druid-spring-boot-starter.version>
         <!--公共模块-->
         <javax.mail.version>1.6.2</javax.mail.version>
         <!--mybatis模块-->
@@ -48,7 +48,7 @@
         <!--ali模块-->
         <aliyun-java-sdk-core.version>4.6.3</aliyun-java-sdk-core.version>
         <aliyun-java-sdk-alinlp.version>1.8.10</aliyun-java-sdk-alinlp.version>
-        <aliyun-sdk-oss.version>3.16.0</aliyun-sdk-oss.version>
+        <aliyun-sdk-oss.version>3.16.1</aliyun-sdk-oss.version>
         <ons-client.version>2.0.4.Final</ons-client.version>
         <dysmsapi20170525.version>2.0.23</dysmsapi20170525.version>
         <!--微信模块-->

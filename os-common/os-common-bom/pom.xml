@@ -7,7 +7,7 @@
     <parent>
         <artifactId>os-common</artifactId>
         <groupId>com.github.clarkstore</groupId>
-        <version>0.17.2</version>
+        <version>0.17.3</version>
     </parent>
     <artifactId>os-common-bom</artifactId>
     <packaging>pom</packaging>

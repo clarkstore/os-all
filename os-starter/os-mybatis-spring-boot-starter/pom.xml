@@ -18,9 +18,5 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>os-common-mybatis</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
     </dependencies>
 </project>

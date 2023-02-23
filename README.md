@@ -27,9 +27,9 @@
 #### 模块目录
 1. os-extra模块
    - os-extra-codegen【代码生成器】
+   - os-extra-toolkit【模板邮件、流水号】
 2. [os-starter模块](os-starter/README.md)【自定义starter供业务模块引入】
    - os-azure (暂停维护：最终版本V0.5.1)
-   - os-core
    - os-http
    - os-log
    - os-mybatis
@@ -39,6 +39,7 @@
    - os-rocketmq
    - os-sms
    - os-task
+   - os-toolkit
    - os-web
    - os-wxmini
    - os-wxmp

@@ -16,5 +16,6 @@
 
     <modules>
         <module>os-extra-codegen</module>
+        <module>os-extra-toolkit</module>
     </modules>
 </project>

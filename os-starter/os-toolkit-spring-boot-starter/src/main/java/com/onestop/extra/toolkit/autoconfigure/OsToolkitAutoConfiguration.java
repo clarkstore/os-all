@@ -16,17 +16,19 @@
  *
  */
 
-package com.onestop.common.core.autoconfigure;
+package com.onestop.extra.toolkit.autoconfigure;
 
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Lazy;
 
 /**
- * os-common-core配置
+ * os-extra-toolkit配置
  * @author Clark
- * @version 2022-05-26
+ * @version 2023-02-16
  */
+@Lazy
 @AutoConfiguration
-@Import({ OsMailConfiguration.class })
-public class OsCoreAutoConfiguration {
+@Import({ OsMailConfiguration.class, OsSeqConfiguration.class })
+public class OsToolkitAutoConfiguration {
 }

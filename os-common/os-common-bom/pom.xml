@@ -105,6 +105,12 @@
                 <artifactId>os-common-web</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
+            <!--os-toolkit-->
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>os-extra-toolkit</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <!--os-wx-->
             <dependency>
                 <groupId>${project.parent.groupId}</groupId>

@@ -16,7 +16,7 @@
  *
  */
 
-package com.onestop.common.core.util;
+package com.onestop.extra.toolkit;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.extra.mail.MailAccount;

@@ -9,14 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>os-core-spring-boot-starter</artifactId>
+    <artifactId>os-toolkit-spring-boot-starter</artifactId>
     <packaging>jar</packaging>
-    <description>os-common-core-starter模块</description>
+    <description>os-extra-toolkit-starter模块</description>
 
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>os-common-core</artifactId>
+            <artifactId>os-extra-toolkit</artifactId>
         </dependency>
     </dependencies>
 </project>

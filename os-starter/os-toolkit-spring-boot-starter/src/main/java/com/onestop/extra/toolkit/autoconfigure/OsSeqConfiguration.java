@@ -16,10 +16,9 @@
  *
  */
 
-package com.onestop.common.core.autoconfigure;
+package com.onestop.extra.toolkit.autoconfigure;
 
-import cn.hutool.extra.mail.MailAccount;
-import com.onestop.common.core.util.OsMailUtils;
+import com.onestop.extra.toolkit.OsSeqUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -28,31 +27,21 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * 邮件配置
+ * 流水号配置
  * @author Clark
- * @version 2021-02-24
+ * @version 2023-02-16
  */
 @Configuration
-@EnableConfigurationProperties(OsMailProperties.class)
-@ConditionalOnProperty(value = {"os.mail.from", "os.mail.user", "os.mail.pass"})
-public class OsMailConfiguration {
+@EnableConfigurationProperties(OsSeqProperties.class)
+@ConditionalOnProperty(value = {"os.seq.seqLength"})
+public class OsSeqConfiguration {
     @Autowired
-    private OsMailProperties properties;
+    private OsSeqProperties properties;
 
     @Bean
     @ConditionalOnMissingBean
-    public OsMailUtils osMailUtils() {
-        MailAccount account = new MailAccount();
-        account.setHost(this.properties.getHost());
-        account.setPort(this.properties.getPort());
-        account.setFrom(this.properties.getFrom());
-        account.setUser(this.properties.getUser());
-        account.setPass(this.properties.getPass());
-        account.setStarttlsEnable(this.properties.isStarttlsEnable());
-        account.setSslEnable(this.properties.isSslEnable());
-
-        OsMailUtils utils = new OsMailUtils();
-        utils.setMailAccount(account);
+    public OsSeqUtils osSeqUtils() {
+        OsSeqUtils utils = new OsSeqUtils(this.properties);
         return utils;
     }
 }

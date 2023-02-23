@@ -14,7 +14,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>os-core-spring-boot-starter</module>
+        <module>os-toolkit-spring-boot-starter</module>
         <module>os-http-spring-boot-starter</module>
         <module>os-log-spring-boot-starter</module>
         <module>os-mybatis-spring-boot-starter</module>

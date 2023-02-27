@@ -26,7 +26,7 @@ import java.lang.annotation.*;
  * @author Clark
  * @version 2021/5/8
  */
-@Inherited
+//@Inherited
 @Documented
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

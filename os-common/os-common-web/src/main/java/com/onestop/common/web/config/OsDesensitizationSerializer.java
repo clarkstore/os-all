@@ -10,7 +10,6 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.ContextualSerializer;
 import com.onestop.common.web.annotation.OsDesensitizationAnnotation;
 import com.onestop.common.web.constant.OsDesensitizationTypeEnum;
-import io.micrometer.common.util.StringUtils;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -35,7 +34,7 @@ public class OsDesensitizationSerializer extends JsonSerializer<String> implemen
     @Override
     public void serialize(final String origin, final JsonGenerator jsonGenerator,
                           final SerializerProvider serializerProvider) throws IOException {
-        if (StringUtils.isNotBlank(origin) && null != desensitizationType) {
+        if (StrUtil.isNotBlank(origin) && null != desensitizationType) {
             switch (desensitizationType) {
                 case CUSTOMER:
                     jsonGenerator.writeString(StrUtil.hide(origin, prefixNoMaskLen, suffixNoMaskLen));

@@ -6,7 +6,7 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-all</artifactId>
-    <version>0.17.4</version>
+    <version>0.17.5</version>
     <packaging>pom</packaging>
 
     <name>os-all</name>
@@ -47,9 +47,9 @@
         <spring-boot-schedule-admin-starter.version>1.1</spring-boot-schedule-admin-starter.version>
         <!--ali模块-->
         <aliyun-java-sdk-core.version>4.6.3</aliyun-java-sdk-core.version>
-        <aliyun-java-sdk-alinlp.version>1.8.10</aliyun-java-sdk-alinlp.version>
+        <aliyun-java-sdk-alinlp.version>1.8.11</aliyun-java-sdk-alinlp.version>
         <aliyun-sdk-oss.version>3.16.1</aliyun-sdk-oss.version>
-        <ons-client.version>2.0.4.Final</ons-client.version>
+        <ons-client.version>2.0.5.Final</ons-client.version>
         <dysmsapi20170525.version>2.0.23</dysmsapi20170525.version>
         <!--微信模块-->
         <wx-java.version>4.4.0</wx-java.version>

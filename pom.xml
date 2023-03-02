@@ -6,7 +6,7 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-all</artifactId>
-    <version>0.8.4</version>
+    <version>0.8.5</version>
     <packaging>pom</packaging>
 
     <name>os-all</name>
@@ -35,11 +35,11 @@
         <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--版本号-->
-        <spring-boot.version>2.7.8</spring-boot.version>
+        <spring-boot.version>2.7.9</spring-boot.version>
         <hutool.version>5.8.12</hutool.version>
         <druid-spring-boot-starter.version>1.2.16</druid-spring-boot-starter.version>
         <!--公共模块-->
-        <javax-mail.version>1.6.2</javax-mail.version>
+        <javax.mail.version>1.6.2</javax.mail.version>
         <!--mybatis模块-->
         <mysql-connector-java.version>8.0.32</mysql-connector-java.version>
         <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
@@ -47,9 +47,9 @@
         <spring-boot-schedule-admin-starter.version>1.1</spring-boot-schedule-admin-starter.version>
         <!--ali模块-->
         <aliyun-java-sdk-core.version>4.6.3</aliyun-java-sdk-core.version>
-        <aliyun-java-sdk-alinlp.version>1.8.10</aliyun-java-sdk-alinlp.version>
+        <aliyun-java-sdk-alinlp.version>1.8.11</aliyun-java-sdk-alinlp.version>
         <aliyun-sdk-oss.version>3.16.1</aliyun-sdk-oss.version>
-        <ons-client.version>2.0.4.Final</ons-client.version>
+        <ons-client.version>2.0.5.Final</ons-client.version>
         <dysmsapi20170525.version>2.0.23</dysmsapi20170525.version>
         <!--微信模块-->
         <wx-java.version>4.4.0</wx-java.version>
@@ -175,7 +175,7 @@
             <dependency>
                 <groupId>com.sun.mail</groupId>
                 <artifactId>javax.mail</artifactId>
-                <version>${javax-mail.version}</version>
+                <version>${javax.mail.version}</version>
             </dependency>
             <!--http-->
             <!--task-->

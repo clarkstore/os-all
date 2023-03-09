@@ -66,19 +66,13 @@ public class OsWxMpUtils {
 
     /**
      * 获取openid
-     *
      * @param code
-     * @return Openid
+     * @return
+     * @throws WxErrorException the wx error exception
      */
-    public String getOpenid(String code) {
-        try {
-            String openid = this.wxMpService.getOAuth2Service().getAccessToken(code).getOpenId();
-            return openid;
-        } catch (WxErrorException e) {
-            log.error("==========获取openid异常==========");
-            log.error(e.getError().toString());
-            throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
-        }
+    public String getOpenid(String code) throws WxErrorException {
+        String openid = this.wxMpService.getOAuth2Service().getAccessToken(code).getOpenId();
+        return openid;
     }
 
     /**
@@ -88,23 +82,18 @@ public class OsWxMpUtils {
      * @param templateId
      * @param url
      * @param data
+     * @throws WxErrorException the wx error exception
      */
-    public void sendTemplateMsg(String openid, String templateId, String url, Map<String, String> data) {
-        try {
-            WxMpTemplateMessage templateMessage = WxMpTemplateMessage.builder().toUser(openid).templateId(templateId).build();
-            // 详情链接
-            if (StrUtil.isNotBlank(url)) {
-                templateMessage.setUrl(url);
-            }
-            // 填充参数
-            data.forEach((k, v) -> templateMessage.addData(new WxMpTemplateData(k, v)));
-
-            String msgId = this.wxMpService.getTemplateMsgService().sendTemplateMsg(templateMessage);
-        } catch (WxErrorException e) {
-            log.error("==========发送模板消息异常==========");
-            log.error(e.getError().toString());
-            throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
+    public void sendTemplateMsg(String openid, String templateId, String url, Map<String, String> data) throws WxErrorException {
+        WxMpTemplateMessage templateMessage = WxMpTemplateMessage.builder().toUser(openid).templateId(templateId).build();
+        // 详情链接
+        if (StrUtil.isNotBlank(url)) {
+            templateMessage.setUrl(url);
         }
+        // 填充参数
+        data.forEach((k, v) -> templateMessage.addData(new WxMpTemplateData(k, v)));
+
+        this.wxMpService.getTemplateMsgService().sendTemplateMsg(templateMessage);
     }
 
     /**
@@ -114,30 +103,26 @@ public class OsWxMpUtils {
      * @param templateId
      * @param url
      * @param dataMap
+     * @throws WxErrorException the wx error exception
      */
     @Deprecated
-    public void sendSubscribeMsg(String openid, String templateId, String url, Map<String, String> dataMap) {
-        try {
-            WxMpSubscribeMessage subscribeMessage = WxMpSubscribeMessage.builder().toUser(openid).templateId(templateId).dataMap(dataMap).build();
-            // 详情链接
-            if (StrUtil.isNotBlank(url)) {
-                subscribeMessage.setUrl(url);
-            }
-
-            this.wxMpService.getSubscribeMsgService().send(subscribeMessage);
-        } catch (WxErrorException e) {
-            log.error("==========发送订阅消息异常==========");
-            log.error(e.getError().toString());
-            throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
+    public void sendSubscribeMsg(String openid, String templateId, String url, Map<String, String> dataMap) throws WxErrorException {
+        WxMpSubscribeMessage subscribeMessage = WxMpSubscribeMessage.builder().toUser(openid).templateId(templateId).dataMap(dataMap).build();
+        // 详情链接
+        if (StrUtil.isNotBlank(url)) {
+            subscribeMessage.setUrl(url);
         }
+
+        this.wxMpService.getSubscribeMsgService().send(subscribeMessage);
     }
 
     /**
      * 发送订阅消息
      *
      * @param dto 订阅消息请求类
+     * @throws WxErrorException the wx error exception
      */
-    public void sendSubscribeMsg(SubscribeReqDto dto) {
+    public void sendSubscribeMsg(SubscribeReqDto dto) throws WxErrorException {
         log.debug("---------------sendSubscribeMsg----------------");
         log.debug("dto : " + dto.toString());
         //获取订阅消息配置
@@ -155,54 +140,42 @@ public class OsWxMpUtils {
         }
         subscribeMessage.setDataMap(dataMap);
 
-        try {
-            this.wxMpService.getSubscribeMsgService().send(subscribeMessage);
-        } catch (WxErrorException e) {
-            log.error("---------------sendSubscribeMsg----------------");
-            log.error("dto : " + dto.toString());
-            log.error(e.getError().toString());
-            throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
-        }
+        this.wxMpService.getSubscribeMsgService().send(subscribeMessage);
     }
 
     /**
      * 发送客服消息
      * @param dto 客服消息请求类
+     * @throws WxErrorException the wx error exception
      */
-    public void sentKefuMessage(KefuMsgReqDto dto) {
-        try {
-            if (StrUtil.isBlank(dto.getOpenid()) || StrUtil.isBlank(dto.getMsgType())) {
-                return;
-            }
-            switch (dto.getMsgType()) {
-                case WxConsts.KefuMsgType.TEXT:
-                    // 发送文本客服消息
-                    WxMpKefuMessage textMsg = WxMpKefuMessage.TEXT()
-                            .toUser(dto.getOpenid())
-                            .content(dto.getContent())
-                            .build();
-                    this.wxMpService.getKefuService().sendKefuMessage(textMsg);
-                    break;
-                case WxConsts.KefuMsgType.NEWS:
-                    // 发送图文客服消息
-                    WxMpKefuMessage.WxArticle wxArticle = new WxMpKefuMessage.WxArticle();
-                    wxArticle.setTitle(dto.getTitle());
-                    wxArticle.setDescription(dto.getDescription());
-                    wxArticle.setPicUrl(dto.getPicUrl());
-                    wxArticle.setUrl(dto.getUrl());
-                            // 发送图文客服消息
-                    WxMpKefuMessage newsMsg = WxMpKefuMessage.NEWS()
-                            .toUser(dto.getOpenid())
-                            .addArticle(wxArticle)
-                            .build();
-                    this.wxMpService.getKefuService().sendKefuMessage(newsMsg);
-                    break;
+    public void sentKefuMessage(KefuMsgReqDto dto) throws WxErrorException {
+        if (StrUtil.isBlank(dto.getOpenid()) || StrUtil.isBlank(dto.getMsgType())) {
+            return;
+        }
+        switch (dto.getMsgType()) {
+            case WxConsts.KefuMsgType.TEXT:
+                // 发送文本客服消息
+                WxMpKefuMessage textMsg = WxMpKefuMessage.TEXT()
+                        .toUser(dto.getOpenid())
+                        .content(dto.getContent())
+                        .build();
+                this.wxMpService.getKefuService().sendKefuMessage(textMsg);
+                break;
+            case WxConsts.KefuMsgType.NEWS:
+                // 发送图文客服消息
+                WxMpKefuMessage.WxArticle wxArticle = new WxMpKefuMessage.WxArticle();
+                wxArticle.setTitle(dto.getTitle());
+                wxArticle.setDescription(dto.getDescription());
+                wxArticle.setPicUrl(dto.getPicUrl());
+                wxArticle.setUrl(dto.getUrl());
+                // 发送图文客服消息
+                WxMpKefuMessage newsMsg = WxMpKefuMessage.NEWS()
+                        .toUser(dto.getOpenid())
+                        .addArticle(wxArticle)
+                        .build();
+                this.wxMpService.getKefuService().sendKefuMessage(newsMsg);
+                break;
 
-            }
-        } catch (WxErrorException e) {
-            log.error("==========发送客服消息异常==========");
-            log.error(e.getError().toString());
-            throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
         }
     }
 
@@ -211,42 +184,35 @@ public class OsWxMpUtils {
      * 文本与图文消息
      *
      * @param keyword
+     * @throws WxErrorException the wx error exception
      */
-    public void keywordReply(String openid, String keyword) {
-        try {
-            if (this.replyConfigs == null) {
-                throw new OsBizException("配置项：os.wxmp.reply.enabled 未设置");
-            }
-            if (StrUtil.isBlank(openid) || StrUtil.isBlank(keyword)) {
-                return;
-            }
-            // 文本消息
-            String replyText = this.replyConfigs.getReplyText(keyword);
-            if (StrUtil.isNotBlank(replyText)) {
-                // 发送文本客服消息
-                WxMpKefuMessage message = WxMpKefuMessage.TEXT()
-                        .toUser(openid)
-                        .content(replyText)
-                        .build();
-                this.wxMpService.getKefuService().sendKefuMessage(message);
-                return;
-            }
-            // 图文消息
-            WxMpKefuMessage.WxArticle wxArticle = this.replyConfigs.getReplyNews(keyword);
-            if (wxArticle != null) {
-                // 发送图文客服消息
-                WxMpKefuMessage message = WxMpKefuMessage.NEWS()
-                        .toUser(openid)
-                        .addArticle(wxArticle)
-                        .build();
-                this.wxMpService.getKefuService().sendKefuMessage(message);
-            }
-        } catch (WxErrorException e) {
-            log.error("==========关键字回复异常==========");
-            log.error("openid=" + openid);
-            log.error("keyword=" + keyword);
-            log.error(e.getError().toString());
-            throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
+    public void keywordReply(String openid, String keyword) throws WxErrorException {
+        if (this.replyConfigs == null) {
+            throw new OsBizException("配置项：os.wxmp.reply.enabled 未设置");
+        }
+        if (StrUtil.isBlank(openid) || StrUtil.isBlank(keyword)) {
+            return;
+        }
+        // 文本消息
+        String replyText = this.replyConfigs.getReplyText(keyword);
+        if (StrUtil.isNotBlank(replyText)) {
+            // 发送文本客服消息
+            WxMpKefuMessage message = WxMpKefuMessage.TEXT()
+                    .toUser(openid)
+                    .content(replyText)
+                    .build();
+            this.wxMpService.getKefuService().sendKefuMessage(message);
+            return;
+        }
+        // 图文消息
+        WxMpKefuMessage.WxArticle wxArticle = this.replyConfigs.getReplyNews(keyword);
+        if (wxArticle != null) {
+            // 发送图文客服消息
+            WxMpKefuMessage message = WxMpKefuMessage.NEWS()
+                    .toUser(openid)
+                    .addArticle(wxArticle)
+                    .build();
+            this.wxMpService.getKefuService().sendKefuMessage(message);
         }
     }
 
@@ -254,16 +220,11 @@ public class OsWxMpUtils {
      * 创建菜单
      *
      * @param configs
+     * @throws WxErrorException the wx error exception
      */
-    public void menuCreate(MenuConfigs configs) {
+    public void menuCreate(MenuConfigs configs) throws WxErrorException {
         WxMenu wxMenu = this.getMenu(configs);
-        try {
-            this.wxMpService.getMenuService().menuCreate(wxMenu);
-        } catch (WxErrorException e) {
-            log.error("========menuCreate=======");
-            log.error(e.getError().toString());
-            throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
-        }
+        this.wxMpService.getMenuService().menuCreate(wxMenu);
     }
 
     /**
@@ -311,16 +272,10 @@ public class OsWxMpUtils {
      * @param sceneStr
      * @return String
      */
-    public String getQrcodeTmpImgUrl(String sceneStr, Integer expireSeconds) {
-        try {
-            WxMpQrCodeTicket ticket = this.wxMpService.getQrcodeService().qrCodeCreateTmpTicket(sceneStr, expireSeconds);
-            String url = this.wxMpService.getQrcodeService().qrCodePictureUrl(ticket.getTicket());
-            return url;
-        } catch (WxErrorException e) {
-            log.error("==========创建临时二维码异常==========");
-            log.error(e.getError().toString());
-            throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
-        }
+    public String getQrcodeTmpImgUrl(String sceneStr, Integer expireSeconds) throws WxErrorException {
+        WxMpQrCodeTicket ticket = this.wxMpService.getQrcodeService().qrCodeCreateTmpTicket(sceneStr, expireSeconds);
+        String url = this.wxMpService.getQrcodeService().qrCodePictureUrl(ticket.getTicket());
+        return url;
     }
 
     /**
@@ -329,16 +284,10 @@ public class OsWxMpUtils {
      * @param sceneStr
      * @return String
      */
-    public String getQrcodeImgUrl(String sceneStr) {
-        try {
-            WxMpQrCodeTicket ticket = this.wxMpService.getQrcodeService().qrCodeCreateLastTicket(sceneStr);
-            String url = this.wxMpService.getQrcodeService().qrCodePictureUrl(ticket.getTicket());
-            return url;
-        } catch (WxErrorException e) {
-            log.error("==========创建永久二维码异常==========");
-            log.error(e.getError().toString());
-            throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
-        }
+    public String getQrcodeImgUrl(String sceneStr) throws WxErrorException {
+        WxMpQrCodeTicket ticket = this.wxMpService.getQrcodeService().qrCodeCreateLastTicket(sceneStr);
+        String url = this.wxMpService.getQrcodeService().qrCodePictureUrl(ticket.getTicket());
+        return url;
     }
 
     /**

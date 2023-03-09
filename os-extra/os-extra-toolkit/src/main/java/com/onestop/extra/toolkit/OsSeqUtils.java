@@ -37,6 +37,10 @@ import java.util.Map;
  * @version 2023-02-16
  */
 public class OsSeqUtils {
+    /**
+     * redis缓存24小时过期
+     */
+    private final long REDIS_DURATION_SECONDS = 60 * 60 * 24;
     @Autowired
     private OsRedisUtils redisUtils;
     private OsSeqConfig seqConfig;
@@ -68,7 +72,8 @@ public class OsSeqUtils {
         if (this.redisUtils.hasKey(redisKey)) {
             seqNo = this.redisUtils.incr(redisKey);
         } else {
-            this.redisUtils.set(redisKey, seqNo);
+            // 缓存24小时
+            this.redisUtils.set(redisKey, seqNo, REDIS_DURATION_SECONDS);
         }
 
         String seqStr = StrUtil.fillBefore(String.valueOf(seqNo), '0', this.seqConfig.getSeqLength());

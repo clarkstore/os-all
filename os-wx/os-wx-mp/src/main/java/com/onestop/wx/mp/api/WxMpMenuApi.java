@@ -18,11 +18,11 @@
 
 package com.onestop.wx.mp.api;
 
-import com.onestop.common.core.exception.OsBizException;
 import com.onestop.common.core.util.Res;
 import com.onestop.wx.mp.model.dto.MenuConfigs;
 import com.onestop.wx.mp.util.OsWxMpUtils;
 import lombok.extern.slf4j.Slf4j;
+import me.chanjar.weixin.common.error.WxErrorException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -46,8 +46,8 @@ public class WxMpMenuApi {
         try {
             this.osWxMpUtils.menuCreate(this.menuConfigs);
             return Res.ok("菜单构建成功");
-        } catch (OsBizException e) {
-            return Res.failed(e.getMsg());
+        } catch (WxErrorException e) {
+            return Res.failed(e.getError().toString());
         } catch (NullPointerException e) {
             return Res.failed("配置项：os.wxmp.menu.enabled 未设置");
         }
@@ -58,8 +58,8 @@ public class WxMpMenuApi {
         try {
             this.osWxMpUtils.menuCreate(menu);
             return Res.ok("菜单构建成功");
-        } catch (OsBizException e) {
-            return Res.failed(e.getMsg());
+        } catch (WxErrorException e) {
+            return Res.failed(e.getMessage());
         }
     }
 }

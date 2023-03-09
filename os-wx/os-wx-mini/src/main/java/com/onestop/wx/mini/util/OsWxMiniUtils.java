@@ -21,7 +21,6 @@ package com.onestop.wx.mini.util;
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
 import cn.binarywang.wx.miniapp.bean.WxMaSubscribeMessage;
-import com.onestop.common.core.exception.OsBizException;
 import com.onestop.wx.mini.model.dto.SubscribeConfigs;
 import com.onestop.wx.mini.model.dto.SubscribeDto;
 import com.onestop.wx.mini.model.dto.SubscribeReqDto;
@@ -63,8 +62,9 @@ public class OsWxMiniUtils {
      * 发送订阅消息
      *
      * @param dto 订阅消息请求类
+     * @throws WxErrorException the wx error exception
      */
-    public void sendSubscribeMsg(SubscribeReqDto dto) {
+    public void sendSubscribeMsg(SubscribeReqDto dto) throws WxErrorException {
         log.debug("---------------sendSubscribeMsg----------------");
         log.debug("dto : " + dto.toString());
         //获取订阅消息配置
@@ -84,14 +84,7 @@ public class OsWxMiniUtils {
             subscribeMessage.addData(data);
         }
 
-        try {
-            this.wxService.getMsgService().sendSubscribeMsg(subscribeMessage);
-        } catch (WxErrorException e) {
-            log.error("---------------sendSubscribeMsg----------------");
-            log.error("dto : " + dto.toString());
-            log.error(e.getError().toString());
-            throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
-        }
+        this.wxService.getMsgService().sendSubscribeMsg(subscribeMessage);
     }
 
     /**
@@ -101,16 +94,10 @@ public class OsWxMiniUtils {
      * @param page <P>必须是已经发布的小程序存在的页面（否则报错），例如 pages/index/index, 根路径前不要填加 /,不能携带参数（参数请放在scene字段里），如果不填写这个字段，默认跳主页面</P>
      * @param filePath 二维码存放路径
      * @return File
+     * @throws WxErrorException the wx error exception
      */
-    public File createWxaCodeUnlimit(String scene, String page, String filePath) {
-        try {
-            return this.wxService.getQrcodeService().createWxaCodeUnlimit(scene, page, filePath);
-        } catch (WxErrorException e) {
-            log.error("---------------createWxaCodeUnlimit----------------");
-            log.error("scene : " + scene);
-            log.error(e.getError().toString());
-            throw new OsBizException(e.getError().getErrorCode(), e.getError().getErrorMsg());
-        }
+    public File createWxaCodeUnlimit(String scene, String page, String filePath) throws WxErrorException {
+        return this.wxService.getQrcodeService().createWxaCodeUnlimit(scene, page, filePath);
     }
 
 //    /**

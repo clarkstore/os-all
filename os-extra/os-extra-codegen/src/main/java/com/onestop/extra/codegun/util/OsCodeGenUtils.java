@@ -73,7 +73,6 @@ public class OsCodeGenUtils {
         String projectPath = System.getProperty("user.dir");
         // 全局配置
         GlobalConfig gc = new GlobalConfig.Builder()
-                .fileOverride()
                 .outputDir(projectPath + config.getString("OutputDir"))
                 .author(config.getString("Author"))
                 .dateType(DateType.TIME_PACK)
@@ -104,7 +103,7 @@ public class OsCodeGenUtils {
                 .disableSqlFilter()
                 .addTablePrefix(config.getStringArray("TablePrefix"))
                 // Entity策略配置
-                .entityBuilder()
+                .entityBuilder().enableFileOverride()
                 .disableSerialVersionUID()
                 .enableLombok()
                 .enableTableFieldAnnotation()
@@ -117,7 +116,7 @@ public class OsCodeGenUtils {
                 .addTableFills(new Column("update_time", FieldFill.UPDATE))
                 .idType(IdType.ASSIGN_ID)
                 // Controller策略配置
-                .controllerBuilder()
+                .controllerBuilder().enableFileOverride()
                 .enableRestStyle()
                 .formatFileName("%sApi")
                 .mapperBuilder()
@@ -125,6 +124,10 @@ public class OsCodeGenUtils {
                 .enableMapperAnnotation()
                 .enableBaseResultMap()
                 .enableBaseColumnList()
+                // service策略配置
+                .serviceBuilder().enableFileOverride()
+                // mapper策略配置
+                .mapperBuilder().enableFileOverride()
                 .build();
         mpg.strategy(sc);
 

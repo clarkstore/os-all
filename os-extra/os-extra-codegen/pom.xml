@@ -14,7 +14,7 @@
 
     <description>代码生成模块</description>
     <properties>
-        <mybatis-plus-generator.version>3.5.3</mybatis-plus-generator.version>
+        <mybatis-plus-generator.version>3.5.3.1</mybatis-plus-generator.version>
         <velocity.version>2.3</velocity.version>
         <commons-configuration.version>1.10</commons-configuration.version>
     </properties>

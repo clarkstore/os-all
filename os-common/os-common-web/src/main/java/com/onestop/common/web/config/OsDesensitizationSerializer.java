@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.ContextualSerializer;
-import com.onestop.common.web.annotation.OsDesensitizationAnnotation;
+import com.onestop.common.web.annotation.OsDesensitization;
 import com.onestop.common.web.constant.OsDesensitizationTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -86,9 +86,9 @@ public class OsDesensitizationSerializer extends JsonSerializer<String> implemen
                                               final BeanProperty beanProperty) throws JsonMappingException {
         if (beanProperty != null) {
             if (Objects.equals(beanProperty.getType().getRawClass(), String.class)) {
-                OsDesensitizationAnnotation annotation = beanProperty.getAnnotation(OsDesensitizationAnnotation.class);
+                OsDesensitization annotation = beanProperty.getAnnotation(OsDesensitization.class);
                 if (annotation == null) {
-                    annotation = beanProperty.getContextAnnotation(OsDesensitizationAnnotation.class);
+                    annotation = beanProperty.getContextAnnotation(OsDesensitization.class);
                 }
                 if (annotation != null) {
                     return new OsDesensitizationSerializer(annotation.type(), annotation.prefixNoMaskLen(),

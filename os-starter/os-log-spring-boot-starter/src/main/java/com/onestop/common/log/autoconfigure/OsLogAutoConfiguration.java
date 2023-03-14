@@ -22,6 +22,7 @@ import com.onestop.common.log.aspect.OsBizLogAspect;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.task.AsyncTaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
@@ -54,11 +55,12 @@ public class OsLogAutoConfiguration {
     }
 
     /**
-     * 日志拦截器
+     * 日志Aop切面
      *
      * @return OsBizLogAspect
      */
     @Bean
+    @ConditionalOnMissingBean
     public OsBizLogAspect bizLogAspect() {
         //根据读取的配置文件创建类对象
         try {

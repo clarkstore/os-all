@@ -21,14 +21,14 @@ package com.onestop.common.web.annotation;
 import java.lang.annotation.*;
 
 /**
- * 应答加密注解
- * 在OsResponseBodyAdvice实现类中自行配置是否通过当前注解统一处理应答
+ * 验证Token
  * @author Clark
  * @version 2021/5/8
  */
 //@Inherited
 @Documented
-@Target({ElementType.METHOD, ElementType.TYPE})
+@Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface OsResAesAnnotation {
+public @interface OsAuthToken {
+    boolean required() default true;
 }

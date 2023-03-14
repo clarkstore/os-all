@@ -18,7 +18,12 @@
 
 package com.onestop.common.http.autoconfigure;
 
+import com.onestop.common.http.aspect.OsRepeatSubmitAspect;
+import com.onestop.common.http.interceptor.OsAccessLimitInterceptor;
+import com.onestop.common.redis.util.OsRedisUtils;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.context.annotation.Bean;
 
 /**
  * os-common-http配置
@@ -27,4 +32,26 @@ import org.springframework.boot.autoconfigure.AutoConfiguration;
  */
 @AutoConfiguration
 public class OsHttpAutoConfiguration {
+    /**
+     * 限流拦截器
+     *
+     * @return OsAccessLimitInterceptor
+     */
+    @Bean
+    @ConditionalOnBean(OsRedisUtils.class)
+    public OsAccessLimitInterceptor osAccessLimitInterceptor() {
+        OsAccessLimitInterceptor osAccessLimitInterceptor = new OsAccessLimitInterceptor();
+        return osAccessLimitInterceptor;
+    }
+    /**
+     * 重复提交Aop切面
+     *
+     * @return OsRepeatSubmitAspect
+     */
+    @Bean
+    @ConditionalOnBean(OsRedisUtils.class)
+    public OsRepeatSubmitAspect osRepeatSubmitAspect() {
+        OsRepeatSubmitAspect osRepeatSubmitAspect = new OsRepeatSubmitAspect();
+        return osRepeatSubmitAspect;
+    }
 }

@@ -28,9 +28,8 @@ import java.lang.annotation.*;
  * @author Clark
  * @version 2021/5/8
  */
-@Inherited
 @Documented
-@Target({ElementType.METHOD, ElementType.TYPE})
+@Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface OsAccessLimit {
     /**

@@ -16,16 +16,20 @@
  *
  */
 
-package com.onestop.common.web.constant;
+package com.onestop.common.http.constant;
 
 /**
- * web常量
+ * http常量
  * @author Clark
- * @version 2021/04/02
+ * @version 2023-03-14
  */
-public interface OsWebConsts {
+public interface OsHttpConsts {
     /**
-     * Header中token常量
+     * 限流异常code
      */
-    String HEADER_TOKEN = "osToken";
+    int BIZ_EXCEPTION_CODE_ACCESS_LIMIT = 501;
+    /**
+     * 重复提交code
+     */
+    int BIZ_EXCEPTION_CODE_REPEAT_SUBMIT = 502;
 }

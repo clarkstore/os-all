@@ -3,6 +3,7 @@ package com.onestop.common.http.aspect;
 import cn.hutool.core.util.StrUtil;
 import com.onestop.common.core.exception.OsBizException;
 import com.onestop.common.http.annotation.OsRepeatSubmit;
+import com.onestop.common.http.constant.OsHttpConsts;
 import com.onestop.common.redis.util.OsRedisUtils;
 import com.onestop.common.web.constant.OsWebConsts;
 import jakarta.servlet.http.HttpServletRequest;
@@ -31,13 +32,13 @@ public class OsRepeatSubmitAspect {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         String token = request.getHeader(OsWebConsts.HEADER_TOKEN);
         if (StrUtil.isEmpty(token)) {
-            throw new OsBizException("token不能为空");
+            throw new OsBizException(OsHttpConsts.BIZ_EXCEPTION_CODE_ACCESS_LIMIT, "osToken不能为空");
         }
         String path = request.getServletPath();
         String key = "repeatSubmit:" + token + ":" + path;
         boolean isExist = this.osRedisUtils.hasKey(key);
         if (isExist) {
-            throw new OsBizException("请勿重复提交");
+            throw new OsBizException(OsHttpConsts.BIZ_EXCEPTION_CODE_REPEAT_SUBMIT, "请勿重复提交");
         }
 
         this.osRedisUtils.set(key, "0", this.expireTime(joinPoint));

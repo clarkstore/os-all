@@ -26,8 +26,6 @@ import com.onestop.common.http.util.OsIPUtils;
 import com.onestop.common.redis.util.OsRedisUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -44,8 +42,6 @@ import java.util.StringJoiner;
  */
 
 @Slf4j
-@Configuration
-@ConditionalOnBean(OsRedisUtils.class)
 public class OsAccessLimitInterceptor implements HandlerInterceptor {
     @Autowired(required = false)
     private OsRedisUtils osRedisUtils;

@@ -42,8 +42,6 @@ import java.util.StringJoiner;
  */
 
 @Slf4j
-//@Configuration
-//@ConditionalOnBean(OsRedisUtils.class)
 public class OsAccessLimitInterceptor implements HandlerInterceptor {
     @Autowired(required = false)
     private OsRedisUtils osRedisUtils;

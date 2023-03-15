@@ -7,7 +7,7 @@
     <parent>
         <artifactId>os-common</artifactId>
         <groupId>com.github.clarkstore</groupId>
-        <version>0.8.6</version>
+        <version>0.8.7</version>
     </parent>
     <artifactId>os-common-bom</artifactId>
     <packaging>pom</packaging>
@@ -115,7 +115,7 @@
             <dependency>
                 <groupId>com.sun.mail</groupId>
                 <artifactId>javax.mail</artifactId>
-                <version>${javax-mail.version}</version>
+                <version>${javax.mail.version}</version>
             </dependency>
             <!--http-->
             <!--task-->

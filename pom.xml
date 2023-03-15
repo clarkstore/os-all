@@ -6,7 +6,7 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-all</artifactId>
-    <version>0.8.6</version>
+    <version>0.8.7</version>
     <packaging>pom</packaging>
 
     <name>os-all</name>
@@ -36,7 +36,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--版本号-->
         <spring-boot.version>2.7.9</spring-boot.version>
-        <hutool.version>5.8.12</hutool.version>
+        <hutool.version>5.8.15</hutool.version>
         <druid-spring-boot-starter.version>1.2.16</druid-spring-boot-starter.version>
         <!--公共模块-->
         <javax.mail.version>1.6.2</javax.mail.version>

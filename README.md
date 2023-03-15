@@ -30,7 +30,7 @@
    - os-extra-toolkit【模板邮件、流水号】
 2. [os-starter模块](os-starter/README.md)【自定义starter供业务模块引入】
    - os-azure (暂停维护：最终版本V0.5.1)
-   - os-http
+   - os-http（扩展Web模块+redis模块）
    - os-log
    - os-mybatis
    - os-nlp
@@ -46,7 +46,7 @@
 3. [公共模块](os-common/README.md)
    - bom配置模块
    - core核心模块
-   - http模块
+   - http模块（扩展Web模块+redis模块）
    - log模块
    - mybatis模块
    - redis模块

@@ -18,11 +18,9 @@ package com.onestop.wx.mp.api;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.io.FileUtil;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -34,10 +32,10 @@ import java.util.List;
  * @author Clark
  * @version 2022-11-14
  */
-@RestController
+//@RestController
 @RequestMapping("${os.wxmp.apiPath}")
 public class WxMpTxtApi {
-    @Value("${os.wxmp.txtPath}")
+//    @Value("${os.wxmp.txtPath}")
     private String txtPath;
 
     @GetMapping("/{filename}")

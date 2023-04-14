@@ -20,7 +20,7 @@ package com.onestop.common.web.config;
 
 import cn.hutool.json.JSONUtil;
 import com.onestop.common.core.util.Res;
-import com.onestop.common.web.annotation.OsResAesAnnotation;
+import com.onestop.common.web.annotation.OsResAes;
 import com.onestop.common.web.util.OsAesUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
@@ -52,7 +52,7 @@ public class OsResAesBodyAdvice implements ResponseBodyAdvice<Object> {
         boolean isIntercept = true;
         //拦截OsResAesAnnotation注释
         AnnotatedElement annotatedElement = returnType.getAnnotatedElement();
-        OsResAesAnnotation resAesAnnotation = AnnotationUtils.findAnnotation(annotatedElement, OsResAesAnnotation.class);
+        OsResAes resAesAnnotation = AnnotationUtils.findAnnotation(annotatedElement, OsResAes.class);
         if (resAesAnnotation == null) {
             isIntercept = false;
         }

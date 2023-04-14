@@ -20,7 +20,7 @@ package com.onestop.common.web.interceptor;
 
 import cn.hutool.core.util.StrUtil;
 import com.onestop.common.core.exception.OsBizException;
-import com.onestop.common.web.annotation.OsAuthTokenAnnotation;
+import com.onestop.common.web.annotation.OsAuthToken;
 import com.onestop.common.web.constant.OsWebConsts;
 import com.onestop.common.web.util.OsTokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,8 +66,8 @@ public class OsTokenInterceptor implements HandlerInterceptor {
         Method method = handlerMethod.getMethod();
 
         //检查是否有AuthToken注释，有则认证
-        if (method.isAnnotationPresent(OsAuthTokenAnnotation.class)) {
-            OsAuthTokenAnnotation authToken = method.getAnnotation(OsAuthTokenAnnotation.class);
+        if (method.isAnnotationPresent(OsAuthToken.class)) {
+            OsAuthToken authToken = method.getAnnotation(OsAuthToken.class);
             if (authToken.required()) {
                 String token = request.getHeader(OsWebConsts.HEADER_TOKEN);
                 if (StrUtil.isBlank(token) || !this.tokenUtils.verify(token)) {

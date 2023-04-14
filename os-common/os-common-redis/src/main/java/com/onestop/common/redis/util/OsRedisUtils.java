@@ -155,7 +155,8 @@ public class OsRedisUtils {
      * @return String值(推荐JSON格式存储时使用)
      */
     public String getStr(String key) {
-        return key == null ? null : this.redisTemplate.opsForValue().get(key).toString();
+        Object res = this.get(key);
+        return res == null ? null : res.toString();
     }
 
     /**
@@ -214,7 +215,7 @@ public class OsRedisUtils {
      * @return long
      */
     public long incr(String key) {
-        return this.redisTemplate.opsForValue().increment(key);
+        return this.incr(key, 1);
     }
 
     /**
@@ -238,7 +239,7 @@ public class OsRedisUtils {
      * @return long
      */
     public long decr(String key) {
-        return this.redisTemplate.opsForValue().decrement(key);
+        return this.decr(key, -1);
     }
 
     /**

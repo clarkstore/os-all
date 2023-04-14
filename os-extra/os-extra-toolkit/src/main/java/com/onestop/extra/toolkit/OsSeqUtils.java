@@ -53,7 +53,7 @@ public class OsSeqUtils {
      * @return
      */
     public String getSeqNo() {
-        return this.getSeqNo(null);
+        return this.getSeqNo(StrUtil.EMPTY);
     }
 
     /**

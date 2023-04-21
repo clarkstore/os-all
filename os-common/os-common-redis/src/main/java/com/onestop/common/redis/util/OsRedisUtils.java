@@ -20,6 +20,7 @@ package com.onestop.common.redis.util;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.CollectionUtils;
@@ -40,6 +41,7 @@ public class OsRedisUtils {
     /**
      * 注入redisTemplate bean
      */
+    @Getter
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
@@ -177,13 +179,7 @@ public class OsRedisUtils {
      * @return true成功 false失败
      */
     public boolean set(String key, Object value) {
-        try {
-            this.redisTemplate.opsForValue().set(key, value);
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+        return this.redisTemplate.opsForValue().setIfAbsent(key, value);
     }
 
     /**
@@ -195,16 +191,10 @@ public class OsRedisUtils {
      * @return true成功 false 失败
      */
     public boolean set(String key, Object value, long time) {
-        try {
-            if (time > 0) {
-                this.redisTemplate.opsForValue().set(key, value, time, TimeUnit.SECONDS);
-            } else {
-                set(key, value);
-            }
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
+        if (time > 0) {
+            return this.redisTemplate.opsForValue().setIfAbsent(key, value, time, TimeUnit.SECONDS);
+        } else {
+            return this.set(key, value);
         }
     }
 
@@ -285,14 +275,8 @@ public class OsRedisUtils {
      * @param map 对应多个键值
      * @return true 成功 false 失败
      */
-    public boolean hmset(String key, Map<String, Object> map) {
-        try {
-            this.redisTemplate.opsForHash().putAll(key, map);
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+    public void hmset(String key, Map<String, Object> map) {
+        this.redisTemplate.opsForHash().putAll(key, map);
     }
 
     /**
@@ -303,16 +287,10 @@ public class OsRedisUtils {
      * @param time 时间(秒)
      * @return true成功 false失败
      */
-    public boolean hmset(String key, Map<String, Object> map, long time) {
-        try {
-            this.redisTemplate.opsForHash().putAll(key, map);
-            if (time > 0) {
-                expire(key, time);
-            }
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
+    public void hmset(String key, Map<String, Object> map, long time) {
+        this.redisTemplate.opsForHash().putAll(key, map);
+        if (time > 0) {
+            this.expire(key, time);
         }
     }
 
@@ -325,13 +303,7 @@ public class OsRedisUtils {
      * @return true 成功 false失败
      */
     public boolean hset(String key, String item, Object value) {
-        try {
-            this.redisTemplate.opsForHash().put(key, item, value);
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+        return this.redisTemplate.opsForHash().putIfAbsent(key, item, value);
     }
 
     /**
@@ -344,16 +316,11 @@ public class OsRedisUtils {
      * @return true 成功 false失败
      */
     public boolean hset(String key, String item, Object value, long time) {
-        try {
-            this.redisTemplate.opsForHash().put(key, item, value);
-            if (time > 0) {
-                expire(key, time);
-            }
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
+        boolean result = this.redisTemplate.opsForHash().putIfAbsent(key, item, value);
+        if (result && time > 0) {
+            this.expire(key, time);
         }
+        return result;
     }
 
     /**
@@ -409,12 +376,7 @@ public class OsRedisUtils {
      * @return Set集合
      */
     public Set<Object> sGet(String key) {
-        try {
-            return this.redisTemplate.opsForSet().members(key);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+        return this.redisTemplate.opsForSet().members(key);
     }
 
     /**
@@ -425,12 +387,7 @@ public class OsRedisUtils {
      * @return true 存在 false不存在
      */
     public boolean sHasKey(String key, Object value) {
-        try {
-            return this.redisTemplate.opsForSet().isMember(key, value);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+        return this.redisTemplate.opsForSet().isMember(key, value);
     }
 
     /**
@@ -441,12 +398,7 @@ public class OsRedisUtils {
      * @return long成功个数
      */
     public long sSet(String key, Object... values) {
-        try {
-            return this.redisTemplate.opsForSet().add(key, values);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0;
-        }
+        return this.redisTemplate.opsForSet().add(key, values);
     }
 
     /**
@@ -458,16 +410,11 @@ public class OsRedisUtils {
      * @return long成功个数
      */
     public long sSetAndTime(String key, long time, Object... values) {
-        try {
-            Long count = this.redisTemplate.opsForSet().add(key, values);
-            if (time > 0) {
-                expire(key, time);
-            }
-            return count;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0;
+        long count = this.redisTemplate.opsForSet().add(key, values);
+        if (time > 0) {
+            expire(key, time);
         }
+        return count;
     }
 
     /**
@@ -477,12 +424,7 @@ public class OsRedisUtils {
      * @return long
      */
     public long sGetSetSize(String key) {
-        try {
-            return this.redisTemplate.opsForSet().size(key);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0;
-        }
+        return this.redisTemplate.opsForSet().size(key);
     }
 
     /**
@@ -493,13 +435,7 @@ public class OsRedisUtils {
      * @return long移除的个数
      */
     public long setRemove(String key, Object... values) {
-        try {
-            Long count = this.redisTemplate.opsForSet().remove(key, values);
-            return count;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0;
-        }
+        return this.redisTemplate.opsForSet().remove(key, values);
     }
     // ===============================List(列表)=================================
 
@@ -512,12 +448,7 @@ public class OsRedisUtils {
      * @return List集合
      */
     public List<Object> lGet(String key, long start, long end) {
-        try {
-            return this.redisTemplate.opsForList().range(key, start, end);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+        return this.redisTemplate.opsForList().range(key, start, end);
     }
 
     /**
@@ -527,12 +458,7 @@ public class OsRedisUtils {
      * @return long
      */
     public long lGetListSize(String key) {
-        try {
-            return this.redisTemplate.opsForList().size(key);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0;
-        }
+        return this.redisTemplate.opsForList().size(key);
     }
 
     /**
@@ -543,12 +469,7 @@ public class OsRedisUtils {
      * @return Object
      */
     public Object lGetIndex(String key, long index) {
-        try {
-            return this.redisTemplate.opsForList().index(key, index);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+        return this.redisTemplate.opsForList().index(key, index);
     }
 
     /**
@@ -558,14 +479,8 @@ public class OsRedisUtils {
      * @param value 值
      * @return boolean
      */
-    public boolean lSet(String key, Object value) {
-        try {
-            this.redisTemplate.opsForList().rightPush(key, value);
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+    public long lSet(String key, Object value) {
+        return this.redisTemplate.opsForList().rightPush(key, value);
     }
 
     /**
@@ -576,17 +491,12 @@ public class OsRedisUtils {
      * @param time  时间(秒)
      * @return boolean
      */
-    public boolean lSet(String key, Object value, long time) {
-        try {
-            this.redisTemplate.opsForList().rightPush(key, value);
-            if (time > 0) {
-                expire(key, time);
-            }
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
+    public long lSet(String key, Object value, long time) {
+        long result = this.redisTemplate.opsForList().rightPush(key, value);
+        if (result> 0 && time > 0) {
+            expire(key, time);
         }
+        return result;
     }
 
     /**
@@ -596,14 +506,8 @@ public class OsRedisUtils {
      * @param value 值
      * @return boolean
      */
-    public boolean lSet(String key, List<Object> value) {
-        try {
-            this.redisTemplate.opsForList().rightPushAll(key, value);
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+    public long lSet(String key, List<Object> value) {
+        return this.redisTemplate.opsForList().rightPushAll(key, value);
     }
 
     /**
@@ -614,17 +518,12 @@ public class OsRedisUtils {
      * @param time  时间(秒)
      * @return boolean
      */
-    public boolean lSet(String key, List<Object> value, long time) {
-        try {
-            this.redisTemplate.opsForList().rightPushAll(key, value);
-            if (time > 0) {
-                expire(key, time);
-            }
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
+    public long lSet(String key, List<Object> value, long time) {
+        long result = this.redisTemplate.opsForList().rightPushAll(key, value);
+        if (result> 0 && time > 0) {
+            expire(key, time);
         }
+        return result;
     }
 
     /**
@@ -635,14 +534,8 @@ public class OsRedisUtils {
      * @param value 值
      * @return boolean
      */
-    public boolean lUpdateIndex(String key, long index, Object value) {
-        try {
-            this.redisTemplate.opsForList().set(key, index, value);
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+    public void lUpdateIndex(String key, long index, Object value) {
+        this.redisTemplate.opsForList().set(key, index, value);
     }
 
     /**
@@ -654,13 +547,7 @@ public class OsRedisUtils {
      * @return boolean移除的个数
      */
     public long lRemove(String key, long count, Object value) {
-        try {
-            Long remove = this.redisTemplate.opsForList().remove(key, count, value);
-            return remove;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0;
-        }
+        return this.redisTemplate.opsForList().remove(key, count, value);
     }
 
     //============================== redisson lock=================================

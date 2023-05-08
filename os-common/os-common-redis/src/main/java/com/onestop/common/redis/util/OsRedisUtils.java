@@ -35,7 +35,7 @@ import java.util.concurrent.TimeUnit;
  * Redis工具类
  *
  * @author Clark
- * @version 2021-05-10
+ * @version 2023-04-23
  */
 public class OsRedisUtils {
     /**
@@ -229,7 +229,7 @@ public class OsRedisUtils {
      * @return long
      */
     public long decr(String key) {
-        return this.decr(key, -1);
+        return this.decr(key, 1);
     }
 
     /**
@@ -549,33 +549,4 @@ public class OsRedisUtils {
     public long lRemove(String key, long count, Object value) {
         return this.redisTemplate.opsForList().remove(key, count, value);
     }
-
-    //============================== redisson lock=================================
-//    /**
-//     * 取得锁
-//     * @param key 是锁key，不是redis的key
-//     * @return boolean
-//     */
-//    public boolean tryLock(String key) {
-//        RLock lock = redissonClient.getLock(key);
-//        return lock.tryLock();
-//    }
-//
-//    /**
-//     * 释放锁
-//     * @param key 是锁key，不是redis的key
-//     */
-//    public void unlock(String key) {
-//        RLock lock = redissonClient.getLock(key);
-//        lock.unlock();
-//    }
-//
-//    /**
-//     * 读写锁
-//     * @param key 是锁key，不是redis的key
-//     * @return RReadWriteLock
-//     */
-//    public RReadWriteLock rwLock(String key) {
-//        return redissonClient.getReadWriteLock(key);
-//    }
 }

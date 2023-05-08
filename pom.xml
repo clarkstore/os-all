@@ -43,6 +43,8 @@
         <!--mybatis模块-->
         <mysql-connector-java.version>8.0.32</mysql-connector-java.version>
         <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
+        <!--redis模块-->
+        <redisson-spring-boot-starter.version>3.21.0</redisson-spring-boot-starter.version>
         <!--task模块-->
         <spring-boot-schedule-admin-starter.version>1.1</spring-boot-schedule-admin-starter.version>
         <!--ali模块-->
@@ -177,7 +179,18 @@
                 <artifactId>javax.mail</artifactId>
                 <version>${javax.mail.version}</version>
             </dependency>
-            <!--http-->
+            <!--redis-->
+            <!--Redis redisson-->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-data-30</artifactId>
+                <version>${redisson-spring-boot-starter.version}</version>
+            </dependency>
             <!--task-->
             <dependency>
                 <groupId>com.plumelog</groupId>

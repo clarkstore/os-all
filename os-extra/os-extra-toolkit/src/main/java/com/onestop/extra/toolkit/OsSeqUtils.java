@@ -20,15 +20,21 @@ package com.onestop.extra.toolkit;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.map.MapUtil;
+import cn.hutool.core.thread.ThreadUtil;
 import cn.hutool.core.util.StrUtil;
 import com.onestop.common.redis.util.OsRedisUtils;
+import com.onestop.common.redis.util.OsRedissonUtils;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
+import org.redisson.api.RLock;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 流水号工具类
@@ -36,13 +42,32 @@ import java.util.Map;
  * @author Clark
  * @version 2023-02-16
  */
+@Slf4j
 public class OsSeqUtils {
+    /**
+     * 记录已有流水单
+     */
+    private long seqNo = 1;
+    /**
+     * 配置参数
+     */
+    private Map<String, String> map = MapUtil.newHashMap();
+    private static final ReentrantLock REENTRANT_LOCK = new ReentrantLock();
     /**
      * redis缓存24小时过期
      */
-    private final long REDIS_DURATION_SECONDS = 60 * 60 * 24;
-    @Autowired
+    private static final long REDIS_DURATION_SECONDS = 60 * 60 * 24;
+    /**
+     * redis分布式锁key
+     */
+    private static final String REDIS_LOCK_KEY = "seqLock:";
+    /**
+     * 配置缓存可以根据不同业务类型分别创建序列号
+     */
+    @Autowired(required = false)
     private OsRedisUtils redisUtils;
+    @Autowired(required = false)
+    private OsRedissonUtils redissonUtils;
     private OsSeqConfig seqConfig;
     public OsSeqUtils(OsSeqConfig seqConfig) {
         this.seqConfig = seqConfig;
@@ -53,33 +78,87 @@ public class OsSeqUtils {
      * @return
      */
     public String getSeqNo() {
-        return this.getSeqNo(null);
+        // 使用redis
+        if (this.seqConfig.isUseRedis()) {
+            return this.getSeqByRedis(StrUtil.EMPTY);
+        }
+        return this.getSeq(StrUtil.EMPTY);
     }
 
+    long tid;
     /**
      * 根据业务标识取流水号
      * @param bizFlag
      * @return
      */
-    public String getSeqNo(String bizFlag) {
-        long seqNo = 1;
+    public String getSeqByRedis(String bizFlag) {
+        long seq = 1;
         String todayStr = DateUtil.format(LocalDateTime.now(), this.seqConfig.getDateFormat());
-        Map<String, String> map = MapUtil.newHashMap();
-        map.put("bizFlag", bizFlag);
-        map.put("date", todayStr);
+        this.map.put("bizFlag", bizFlag);
+        this.map.put("date", todayStr);
 
-        String redisKey = StrUtil.format(OsSeqConfig.redisKeyTemplate, map);
-        if (this.redisUtils.hasKey(redisKey)) {
-            seqNo = this.redisUtils.incr(redisKey);
-        } else {
-            // 缓存24小时
-            this.redisUtils.set(redisKey, seqNo, REDIS_DURATION_SECONDS);
+        String redisKey = StrUtil.format(OsSeqConfig.RedisKeyTemplate, this.map);
+        String lockKey = REDIS_LOCK_KEY + bizFlag;
+
+        try {
+            boolean isGet;
+            RLock lock = this.redissonUtils.fairLock(lockKey);
+            do {
+                //加锁
+                isGet = this.redissonUtils.tryLock(lock, TimeUnit.MILLISECONDS, 1, 5000);
+                if (isGet) {
+                    if (this.redisUtils.hasKey(redisKey)) {
+                        seq = this.redisUtils.incr(redisKey);
+                        log.error("----------seq---------" + seq);
+                    } else {
+                        // 缓存24小时
+                        this.redisUtils.set(redisKey, seq, REDIS_DURATION_SECONDS);
+                    }
+                } else {
+                    ThreadUtil.sleep(40);
+                }
+            } while (!isGet);
+        } finally {
+            //释放锁
+            this.redissonUtils.unlock(lockKey);
         }
 
-        String seqStr = StrUtil.fillBefore(String.valueOf(seqNo), '0', this.seqConfig.getSeqLength());
+        String seqStr = StrUtil.fillBefore(String.valueOf(seq), '0', this.seqConfig.getSeqLength());
         map.put("seq", seqStr);
 
-        return StrUtil.format(this.seqConfig.getTemplate(), map, false);
+        return StrUtil.format(this.seqConfig.getTemplate(), this.map, false);
+    }
+
+    /**
+     * 取得流水号
+     * @param bizFlag
+     * @return
+     */
+    public String getSeq(String bizFlag) {
+        //上锁
+        REENTRANT_LOCK.lock();
+        try {
+            String todayStr = DateUtil.format(LocalDateTime.now(), this.seqConfig.getDateFormat());
+            if (todayStr.equals(this.map.get("date"))) {
+                //当日流水号+1
+                this.seqNo += 1;
+            } else {
+                //重置流水号
+                this.seqNo = 1;
+            }
+            this.map.put("bizFlag", bizFlag);
+            this.map.put("date", todayStr);
+
+            String seqStr = StrUtil.fillBefore(String.valueOf(this.seqNo), '0', this.seqConfig.getSeqLength());
+            this.map.put("seq", seqStr);
+
+            return StrUtil.format(this.seqConfig.getTemplate(), this.map, false);
+        } finally {
+            //释放锁
+            if (REENTRANT_LOCK.isLocked()) {
+                REENTRANT_LOCK.unlock();
+            }
+        }
     }
 
     /**
@@ -92,7 +171,7 @@ public class OsSeqUtils {
         /**
          * 序号缓存key
          */
-        public static final String redisKeyTemplate = "os-{date}{bizFlag}";
+        public static final String RedisKeyTemplate = "os-{date}{bizFlag}";
         /**
          * 序号规则模板 {bizFlag}{date}{seq}三元素组合，默认值{bizFlag}{date}{seq}
          * bizFlag业务部分标识：序号规则模板中做前缀可以为字母和数字，中间建议为数字，通过传入bizFlag参数取得不同业务模块序号
@@ -106,5 +185,9 @@ public class OsSeqUtils {
          * 序号部分长度
          */
         private int seqLength;
+        /**
+         * 使用redis
+         */
+        private boolean useRedis;
     }
 }

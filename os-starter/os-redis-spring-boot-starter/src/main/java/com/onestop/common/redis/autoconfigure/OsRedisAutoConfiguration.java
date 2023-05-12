@@ -26,12 +26,11 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.onestop.common.redis.util.OsRedisUtils;
-import com.onestop.common.redis.util.OsRedissonUtils;
-import org.redisson.spring.data.connection.RedissonConnectionFactory;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.DependsOn;
+import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
@@ -43,11 +42,12 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * @version 2022-05-26
  */
 @AutoConfiguration
+@ConditionalOnProperty(value = {"spring.redis"})
 public class OsRedisAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public RedisTemplate<String, Object> redisTemplate(RedissonConnectionFactory factory) {
+    public RedisTemplate<String, Object> redisTemplate(LettuceConnectionFactory factory) {
         RedisTemplate<String, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(factory);
 
@@ -75,17 +75,9 @@ public class OsRedisAutoConfiguration {
     }
 
     @Bean
-    @DependsOn("redisTemplate")
     @ConditionalOnMissingBean
     public OsRedisUtils osRedisUtils() {
         OsRedisUtils utils = new OsRedisUtils();
-        return utils;
-    }
-
-    @Bean
-    @ConditionalOnMissingBean
-    public OsRedissonUtils osRedissonUtils() {
-        OsRedissonUtils utils = new OsRedissonUtils();
         return utils;
     }
 }

@@ -6,7 +6,7 @@
 [![Author](https://img.shields.io/badge/OneStop%20Author-Clark-blue.svg)](https://gitee.com/clarkstore/os-all/guide/donate)
 [![使用IntelliJ IDEA开发维护](https://img.shields.io/badge/IntelliJ%20IDEA-提供支持-blue.svg)](https://www.jetbrains.com/?from=os-all)
 
-## OneStop工具平台
+## Ones工具平台
 ### 平台简介：
 ##### 本项目构建初衷是结合近年若干项目使用的技术与经验，整理可为类似项目提供业务快速实现的自身共性的定制工具平台为目标，纯属个人实践积累总结与偏好。非基础工具包适合所有需求场景。
 
@@ -65,7 +65,7 @@
 
 ---
 
-#### OneStop工具平台地址：
+#### Ones工具平台地址：
 Gitee：[https://gitee.com/clarkstore/os-all](https://gitee.com/clarkstore/os-all)
 
 GitHub：[https://github.com/clarkstore/os-all](https://github.com/clarkstore/os-all)

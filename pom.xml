@@ -6,11 +6,11 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-all</artifactId>
-    <version>0.17.10</version>
+    <version>0.17.11</version>
     <packaging>pom</packaging>
 
     <name>os-all</name>
-    <description>onestop-starter集合</description>
+    <description>ones集合</description>
     <url>https://gitee.com/clarkstore/os-all</url>
 
     <developers>
@@ -32,6 +32,7 @@
     </scm>
 
     <properties>
+        <revision>0.17.10</revision>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--版本号-->
@@ -40,6 +41,9 @@
         <druid-spring-boot-starter.version>1.2.20</druid-spring-boot-starter.version>
         <!--公共模块-->
         <javax.mail.version>1.6.2</javax.mail.version>
+        <!--mq模块-->
+        <mica.version>3.1.5.1</mica.version>
+        <mica-mqtt-spring-boot-starter.version>2.2.5.1</mica-mqtt-spring-boot-starter.version>
         <!--mybatis模块-->
         <mysql-connector-java.version>8.0.33</mysql-connector-java.version>
         <mybatis-plus.version>3.5.4.1</mybatis-plus.version>
@@ -120,6 +124,31 @@
                 <groupId>${project.groupId}</groupId>
                 <artifactId>os-common-log</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.dreamlu</groupId>
+                <artifactId>mica-lite</artifactId>
+                <version>${mica.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.dreamlu</groupId>
+                <artifactId>mica-logging</artifactId>
+                <version>${mica.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.dreamlu</groupId>
+                <artifactId>mica-openapi</artifactId>
+                <version>${mica.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.dreamlu</groupId>
+                <artifactId>mica-mqtt-server-spring-boot-starter</artifactId>
+                <version>${mica-mqtt-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.dreamlu</groupId>
+                <artifactId>mica-mqtt-client-spring-boot-starter</artifactId>
+                <version>${mica-mqtt-spring-boot-starter.version}</version>
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
@@ -390,10 +419,10 @@
     </build>
     <repositories>
         <!--阿里云代理-->
-       <repository>
-           <id>aliyun</id>
-           <name>aliyun</name>
-           <url>https://maven.aliyun.com/repository/public</url>
-        </repository>
+<!--       <repository>-->
+<!--           <id>aliyun</id>-->
+<!--           <name>aliyun</name>-->
+<!--           <url>https://maven.aliyun.com/repository/public</url>-->
+<!--        </repository>-->
     </repositories>
 </project>

@@ -35,7 +35,7 @@ import static me.chanjar.weixin.common.api.WxConsts.*;
  * @version 2021-04-23
  */
 @AllArgsConstructor
-@Configuration
+@Configuration(proxyBeanMethods = false)
 public class WxMpMessageRouterConfig {
     private final MpMenuHandler menuHandler;
     private final MpMsgHandler msgHandler;

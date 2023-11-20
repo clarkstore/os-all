@@ -37,7 +37,7 @@ import java.io.File;
  * @author Clark
  * @version 2021-07-07
  */
-@Configuration
+@Configuration(proxyBeanMethods = false)
 public class WxMaMessageRouterConfig {
     @Autowired
     private WxMaService wxMaService;

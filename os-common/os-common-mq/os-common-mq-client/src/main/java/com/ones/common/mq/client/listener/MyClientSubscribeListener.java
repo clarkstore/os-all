@@ -15,7 +15,7 @@ import java.nio.charset.StandardCharsets;
  *
  * @author L.cm
  */
-@Service
+//@Service
 public class MyClientSubscribeListener {
 	private static final Logger logger = LoggerFactory.getLogger(MyClientSubscribeListener.class);
 	@Autowired

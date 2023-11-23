@@ -14,18 +14,18 @@
     <description>mq服务端模块</description>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-web</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>net.dreamlu</groupId>
             <artifactId>mica-lite</artifactId>
         </dependency>
-        <dependency>
-            <groupId>net.dreamlu</groupId>
-            <artifactId>mica-logging</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>net.dreamlu</groupId>-->
+<!--            <artifactId>mica-logging</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>net.dreamlu</groupId>
             <artifactId>mica-openapi</artifactId>

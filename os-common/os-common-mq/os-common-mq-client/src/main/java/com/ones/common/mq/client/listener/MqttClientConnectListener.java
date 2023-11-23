@@ -39,17 +39,18 @@ public class MqttClientConnectListener {
 
 	@EventListener
 	public void onConnected(MqttConnectedEvent event) {
-		logger.warn("================onConnected==================" + this.mqttClientCreator.getClientId());
+		logger.warn("================已连接==================" + this.mqttClientCreator.getClientId());
 		logger.info("MqttConnectedEvent:{}", event);
 	}
 
 	@EventListener
 	public void onDisconnect(MqttDisconnectEvent event) {
+		logger.warn("================已断开==================");
 		logger.info("MqttDisconnectEvent:{}", event);
 		// 在断线时更新 clientId、username、password
-		mqttClientCreator.clientId("newClient" + System.currentTimeMillis())
-			.username("newUserName")
-			.password("newPassword");
+//		mqttClientCreator.clientId("newClient" + System.currentTimeMillis())
+//			.username("newUserName")
+//			.password("newPassword");
 	}
 
 }

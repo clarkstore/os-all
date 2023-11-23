@@ -19,5 +19,4 @@ public class MqttServerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MqttServerApplication.class, args);
 	}
-
 }

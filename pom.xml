@@ -127,7 +127,7 @@
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>os-common-mq-server</artifactId>
+                <artifactId>os-common-mqtt-server</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

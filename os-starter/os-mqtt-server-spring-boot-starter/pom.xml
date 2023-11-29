@@ -16,7 +16,7 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>os-common-mq-server</artifactId>
+            <artifactId>os-common-mqtt-server</artifactId>
         </dependency>
     </dependencies>
 </project>

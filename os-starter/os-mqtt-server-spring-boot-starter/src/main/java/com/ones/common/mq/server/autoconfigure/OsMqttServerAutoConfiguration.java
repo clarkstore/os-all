@@ -18,6 +18,8 @@
 
 package com.ones.common.mq.server.autoconfigure;
 
+import com.ones.common.mq.server.listener.OsMqttConnectStatusListener;
+import com.ones.common.mq.server.listener.OsMqttServerMessageListener;
 import net.dreamlu.iot.mqtt.core.server.event.IMqttConnectStatusListener;
 import net.dreamlu.iot.mqtt.core.server.event.IMqttMessageListener;
 import org.springframework.boot.autoconfigure.AutoConfiguration;

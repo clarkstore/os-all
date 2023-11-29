@@ -5,19 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.github.clarkstore</groupId>
-        <artifactId>os-common-mq</artifactId>
+        <artifactId>os-common-mqtt</artifactId>
         <version>0.17.11</version>
     </parent>
 
-    <artifactId>os-common-mq-client</artifactId>
+    <artifactId>os-common-mqtt-server</artifactId>
     <packaging>jar</packaging>
-    <description>mq客户端模块</description>
+    <description>mq服务端模块</description>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
         <dependency>
             <groupId>net.dreamlu</groupId>
             <artifactId>mica-lite</artifactId>
@@ -28,7 +24,16 @@
         </dependency>
         <dependency>
             <groupId>net.dreamlu</groupId>
-            <artifactId>mica-mqtt-client-spring-boot-starter</artifactId>
+            <artifactId>mica-mqtt-server-spring-boot-starter</artifactId>
+        </dependency>
+        <!-- 开启 prometheus 指标收集，详见： http://localhost:30012/actuator/prometheus -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
         </dependency>
     </dependencies>
 </project>

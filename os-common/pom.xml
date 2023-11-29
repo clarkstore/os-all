@@ -23,6 +23,6 @@
         <module>os-common-redis</module>
         <module>os-common-task</module>
         <module>os-common-web</module>
-        <module>os-common-mq</module>
+        <module>os-common-mqtt</module>
     </modules>
 </project>

@@ -9,10 +9,10 @@
         <version>0.17.11</version>
     </parent>
 
-    <artifactId>os-common-mq</artifactId>
+    <artifactId>os-common-mqtt</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>os-common-mq-client</module>
-        <module>os-common-mq-server</module>
+        <module>os-common-mqtt-client</module>
+        <module>os-common-mqtt-server</module>
     </modules>
 </project>

@@ -61,7 +61,7 @@
             </dependency>
             <dependency>
                 <groupId>${project.parent.groupId}</groupId>
-                <artifactId>os-common-mq-service</artifactId>
+                <artifactId>os-common-mq-server</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
             <dependency>

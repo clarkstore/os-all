@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import net.dreamlu.iot.mqtt.codec.MqttPublishMessage;
 import net.dreamlu.iot.mqtt.codec.MqttQoS;
 import net.dreamlu.iot.mqtt.core.server.event.IMqttMessageListener;
-import org.springframework.stereotype.Service;
 import org.tio.core.ChannelContext;
 
 import java.nio.charset.StandardCharsets;
@@ -16,10 +15,9 @@ import java.nio.charset.StandardCharsets;
  * @version 2023-11-20
  */
 @Slf4j
-@Service
 public class OsMqttServerMessageListener implements IMqttMessageListener {
 	@Override
 	public void onMessage(ChannelContext context, String clientId, String topic, MqttQoS qos, MqttPublishMessage message) {
-		log.info("context:{} clientId:{} message:{} payload:{}", context, clientId, message, new String(message.payload(), StandardCharsets.UTF_8));
+		log.debug("context:{} clientId:{} message:{} payload:{}", context, clientId, message, new String(message.payload(), StandardCharsets.UTF_8));
 	}
 }

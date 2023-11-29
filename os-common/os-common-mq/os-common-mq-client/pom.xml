@@ -24,10 +24,6 @@
         </dependency>
         <dependency>
             <groupId>net.dreamlu</groupId>
-            <artifactId>mica-logging</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>net.dreamlu</groupId>
             <artifactId>mica-openapi</artifactId>
         </dependency>
         <dependency>

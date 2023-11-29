@@ -13,17 +13,17 @@ import org.springframework.stereotype.Component;
  * @version 2023-11-23
  */
 @Component
-public class MqttServerTemplateFactory implements SmartInitializingSingleton {
+public class MqttServerFactory implements SmartInitializingSingleton {
     @Autowired
     private ApplicationContext applicationContext;
     @Getter
-    private MqttServerTemplate mqttServerTemplate;
+    private MqttServerTemplate mqttServer;
 
     /**
      * 单例 bean 初始化完成之后从 ApplicationContext 中获取 bean
      */
     @Override
     public void afterSingletonsInstantiated() {
-        this.mqttServerTemplate = applicationContext.getBean(MqttServerTemplate.class);
+        this.mqttServer = applicationContext.getBean(MqttServerTemplate.class);
     }
 }

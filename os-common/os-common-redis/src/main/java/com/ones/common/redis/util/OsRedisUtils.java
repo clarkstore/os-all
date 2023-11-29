@@ -148,6 +148,16 @@ public class OsRedisUtils {
         Set<String> keys = this.redisTemplate.keys("*");
         this.redisTemplate.delete(keys);
     }
+
+    /**
+     * 取特定前缀下key集合
+     * @param prefix
+     * @return
+     */
+    public Set<String> getKeys(String prefix) {
+        Set<String> keys = this.redisTemplate.keys(prefix + "*");
+        return keys;
+    }
     // ============================String(字符串)=============================
 
     /**

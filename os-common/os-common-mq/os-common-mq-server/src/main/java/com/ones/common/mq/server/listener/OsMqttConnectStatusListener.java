@@ -18,19 +18,11 @@ package com.ones.common.mq.server.listener;
 
 import com.ones.common.mq.server.model.OsMqttMsgDto;
 import com.ones.common.mq.server.service.OsMqttService;
-import com.ones.common.mq.server.util.MqttServerTemplateFactory;
 import lombok.extern.slf4j.Slf4j;
-import net.dreamlu.iot.mqtt.codec.MqttQoS;
 import net.dreamlu.iot.mqtt.core.server.event.IMqttConnectStatusListener;
-import net.dreamlu.iot.mqtt.spring.server.MqttServerTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.tio.core.ChannelContext;
-import org.tio.utils.hutool.StrUtil;
-
-import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * mqtt 连接状态
@@ -39,13 +31,19 @@ import java.util.Map;
  * @version 2023-11-20
  */
 @Slf4j
-@Service
 public class OsMqttConnectStatusListener implements IMqttConnectStatusListener {
 	@Autowired
 	private OsMqttService service;
+
+	/**
+	 * 客户端上线监听
+	 * @param context
+	 * @param clientId
+	 * @param username
+	 */
 	@Override
 	public void online(ChannelContext context, String clientId, String username) {
-		log.error("客户端上线通知-clientId:{}, username:{}", clientId, username);
+		log.info("客户端上线通知-clientId:{}, username:{}", clientId, username);
 		OsMqttMsgDto dto = new OsMqttMsgDto();
 		dto.setTopic("online");
 		dto.setPayload(clientId);

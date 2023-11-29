@@ -16,6 +16,7 @@
     <modules>
         <module>os-http-spring-boot-starter</module>
         <module>os-log-spring-boot-starter</module>
+        <module>os-mqtt-server-spring-boot-starter</module>
         <module>os-mybatis-spring-boot-starter</module>
         <module>os-nlp-spring-boot-starter</module>
         <module>os-oss-spring-boot-starter</module>

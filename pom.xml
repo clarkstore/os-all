@@ -126,29 +126,9 @@
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>net.dreamlu</groupId>
-                <artifactId>mica-lite</artifactId>
-                <version>${mica.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>net.dreamlu</groupId>
-                <artifactId>mica-logging</artifactId>
-                <version>${mica.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>net.dreamlu</groupId>
-                <artifactId>mica-openapi</artifactId>
-                <version>${mica.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>net.dreamlu</groupId>
-                <artifactId>mica-mqtt-server-spring-boot-starter</artifactId>
-                <version>${mica-mqtt-spring-boot-starter.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>net.dreamlu</groupId>
-                <artifactId>mica-mqtt-client-spring-boot-starter</artifactId>
-                <version>${mica-mqtt-spring-boot-starter.version}</version>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>os-common-mq-server</artifactId>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
@@ -207,6 +187,27 @@
                 <groupId>com.sun.mail</groupId>
                 <artifactId>javax.mail</artifactId>
                 <version>${javax.mail.version}</version>
+            </dependency>
+            <!--mqtt-->
+            <dependency>
+                <groupId>net.dreamlu</groupId>
+                <artifactId>mica-lite</artifactId>
+                <version>${mica.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.dreamlu</groupId>
+                <artifactId>mica-openapi</artifactId>
+                <version>${mica.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.dreamlu</groupId>
+                <artifactId>mica-mqtt-server-spring-boot-starter</artifactId>
+                <version>${mica-mqtt-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.dreamlu</groupId>
+                <artifactId>mica-mqtt-client-spring-boot-starter</artifactId>
+                <version>${mica-mqtt-spring-boot-starter.version}</version>
             </dependency>
             <!--redis-->
             <!--Redis redisson-->

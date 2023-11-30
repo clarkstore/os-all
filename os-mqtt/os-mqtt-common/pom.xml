@@ -4,19 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>os-starter</artifactId>
         <groupId>com.github.clarkstore</groupId>
+        <artifactId>os-mqtt</artifactId>
         <version>0.17.11</version>
     </parent>
 
-    <artifactId>os-mqtt-server-spring-boot-starter</artifactId>
-    <packaging>jar</packaging>
-    <description>os-mqtt-server-starter模块</description>
+    <artifactId>os-mqtt-common</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>os-mqtt-server</artifactId>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-json</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.dreamlu</groupId>
+            <artifactId>mica-mqtt-codec</artifactId>
         </dependency>
     </dependencies>
 </project>

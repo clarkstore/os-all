@@ -61,11 +61,6 @@
             </dependency>
             <dependency>
                 <groupId>${project.parent.groupId}</groupId>
-                <artifactId>os-common-mqtt-server</artifactId>
-                <version>${project.parent.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>${project.parent.groupId}</groupId>
                 <artifactId>os-common-mybatis</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
@@ -93,6 +88,17 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>os-extra-toolkit</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--os-mqtt-->
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>os-mqtt-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>os-mqtt-server</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <!--os-wx-->

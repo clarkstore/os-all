@@ -1,1 +1,1 @@
-com.ones.common.mq.server.autoconfigure.OsMqttServerAutoConfiguration
+com.ones.mqtt.server.autoconfigure.OsMqttServerAutoConfiguration

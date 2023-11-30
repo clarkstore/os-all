@@ -4,19 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>os-starter</artifactId>
         <groupId>com.github.clarkstore</groupId>
+        <artifactId>os-all</artifactId>
         <version>0.17.11</version>
     </parent>
 
-    <artifactId>os-mqtt-server-spring-boot-starter</artifactId>
-    <packaging>jar</packaging>
-    <description>os-mqtt-server-starter模块</description>
-
-    <dependencies>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>os-mqtt-server</artifactId>
-        </dependency>
-    </dependencies>
+    <artifactId>os-mqtt</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>os-mqtt-client</module>
+        <module>os-mqtt-server</module>
+        <module>os-mqtt-common</module>
+    </modules>
 </project>

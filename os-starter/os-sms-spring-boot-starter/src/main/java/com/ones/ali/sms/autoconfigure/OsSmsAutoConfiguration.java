@@ -18,7 +18,7 @@
 
 package com.ones.ali.sms.autoconfigure;
 
-import com.onestop.ali.sms.util.OsSmsUtils;
+import com.ones.ali.sms.util.OsSmsUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

@@ -18,7 +18,7 @@
 
 package com.ones.ali.nlp.autoconfigure;
 
-import com.onestop.ali.nlp.util.OsNlpUtils;
+import com.ones.ali.nlp.util.OsNlpUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

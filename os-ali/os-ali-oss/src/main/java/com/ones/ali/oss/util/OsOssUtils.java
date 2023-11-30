@@ -16,7 +16,7 @@
  *
  */
 
-package com.onestop.ali.oss.util;
+package com.ones.ali.oss.util;
 
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;

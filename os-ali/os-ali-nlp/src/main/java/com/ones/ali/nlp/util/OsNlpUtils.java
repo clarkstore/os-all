@@ -1,4 +1,4 @@
-package com.onestop.ali.nlp.util;
+package com.ones.ali.nlp.util;
 
 import cn.hutool.json.JSONUtil;
 import com.aliyuncs.DefaultAcsClient;
@@ -8,10 +8,10 @@ import com.aliyuncs.alinlp.model.v20200629.GetWsChGeneralResponse;
 import com.aliyuncs.alinlp.model.v20200629.GetWsCustomizedChGeneralRequest;
 import com.aliyuncs.alinlp.model.v20200629.GetWsCustomizedChGeneralResponse;
 import com.aliyuncs.profile.DefaultProfile;
-import com.onestop.ali.nlp.constant.OsNlpConsts;
-import com.onestop.ali.nlp.model.dto.OsNlpGeneralDataDto;
-import com.onestop.ali.nlp.model.dto.OsNlpReq;
-import com.onestop.ali.nlp.model.dto.OsNlpRes;
+import com.ones.ali.nlp.constant.OsNlpConsts;
+import com.ones.ali.nlp.model.dto.OsNlpGeneralDataDto;
+import com.ones.ali.nlp.model.dto.OsNlpReq;
+import com.ones.ali.nlp.model.dto.OsNlpRes;
 
 import java.util.List;
 import java.util.stream.Collectors;

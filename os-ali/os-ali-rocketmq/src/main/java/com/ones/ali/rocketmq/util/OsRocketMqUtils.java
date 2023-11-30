@@ -1,4 +1,4 @@
-package com.onestop.ali.rocketmq.util;
+package com.ones.ali.rocketmq.util;
 
 /**
  * @author Clark

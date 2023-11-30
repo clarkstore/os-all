@@ -1,4 +1,4 @@
-package com.onestop.ali.nlp.model.dto;
+package com.ones.ali.nlp.model.dto;
 
 import lombok.Builder;
 import lombok.Getter;

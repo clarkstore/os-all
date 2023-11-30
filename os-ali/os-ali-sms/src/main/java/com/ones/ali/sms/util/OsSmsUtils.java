@@ -16,7 +16,7 @@
  *
  */
 
-package com.onestop.ali.sms.util;
+package com.ones.ali.sms.util;
 
 import com.aliyun.dysmsapi20170525.Client;
 import com.aliyun.dysmsapi20170525.models.SendSmsRequest;

@@ -1,4 +1,4 @@
-package com.onestop.ali.nlp.constant;
+package com.ones.ali.nlp.constant;
 
 /**
  * 消息常量类

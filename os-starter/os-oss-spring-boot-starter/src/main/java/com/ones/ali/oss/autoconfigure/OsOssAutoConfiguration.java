@@ -18,7 +18,7 @@
 
 package com.ones.ali.oss.autoconfigure;
 
-import com.onestop.ali.oss.util.OsOssUtils;
+import com.ones.ali.oss.util.OsOssUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

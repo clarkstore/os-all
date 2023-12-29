@@ -19,6 +19,7 @@
 package com.ones.mqtt.common.constant;
 
 import cn.hutool.core.text.StrPool;
+import net.dreamlu.iot.mqtt.core.common.TopicFilterType;
 
 /**
  * 常量类
@@ -31,6 +32,16 @@ public interface OsMqttConsts {
      * topic常量类
      */
     interface TopicConsts {
+        /**
+         * 共享订阅关键字：MQTT 3.1.1协议
+         */
+        String SHARE_QUEUE_PREFIX = TopicFilterType.SHARE_QUEUE_PREFIX;
+
+        /**
+         * 共享订阅关键字：MQTT 5.0协议
+         */
+        String SHARE_GROUP_PREFIX = TopicFilterType.SHARE_GROUP_PREFIX;
+
         /**
          * 客户端上线
          */

@@ -18,6 +18,10 @@
         </dependency>
         <dependency>
             <groupId>net.dreamlu</groupId>
+            <artifactId>mica-mqtt-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.dreamlu</groupId>
             <artifactId>mica-mqtt-codec</artifactId>
         </dependency>
     </dependencies>

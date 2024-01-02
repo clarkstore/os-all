@@ -2,7 +2,7 @@ server:
   port: 30011
 spring:
   application:
-    name: sw-scada-mqtt-client
+    name: os-mqtt-client
 # mqtt-client 配置
 mqtt:
   client:

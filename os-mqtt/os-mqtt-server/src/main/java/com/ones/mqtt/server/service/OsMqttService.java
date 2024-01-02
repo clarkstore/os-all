@@ -2,8 +2,8 @@ package com.ones.mqtt.server.service;
 
 import com.ones.mqtt.common.model.OsMqttMsgDto;
 import com.ones.mqtt.server.util.MqttServerFactory;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.tio.utils.hutool.StrUtil;
 
@@ -18,7 +18,7 @@ import java.nio.charset.StandardCharsets;
 @Slf4j
 @Service
 public class OsMqttService {
-	@Autowired
+	@Resource
 	protected MqttServerFactory factory;
 
 	/**

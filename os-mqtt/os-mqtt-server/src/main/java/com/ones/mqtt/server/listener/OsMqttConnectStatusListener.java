@@ -19,9 +19,9 @@ package com.ones.mqtt.server.listener;
 import com.ones.mqtt.common.constant.OsMqttConsts;
 import com.ones.mqtt.common.model.OsMqttMsgDto;
 import com.ones.mqtt.server.service.OsMqttService;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import net.dreamlu.iot.mqtt.core.server.event.IMqttConnectStatusListener;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.tio.core.ChannelContext;
 
 /**
@@ -32,7 +32,7 @@ import org.tio.core.ChannelContext;
  */
 @Slf4j
 public class OsMqttConnectStatusListener implements IMqttConnectStatusListener {
-	@Autowired
+	@Resource
 	private OsMqttService service;
 
 	/**

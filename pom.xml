@@ -6,11 +6,11 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-all</artifactId>
-    <version>0.8.9</version>
+    <version>0.8.10</version>
     <packaging>pom</packaging>
 
     <name>os-all</name>
-    <description>onestop-starter集合</description>
+    <description>ones-starter集合</description>
     <url>https://gitee.com/clarkstore/os-all</url>
 
     <developers>

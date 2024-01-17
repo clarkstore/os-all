@@ -4,7 +4,7 @@ server:
 logging:
   level:
     org.springframework: INFO
-    com.onestop.wx: DEBUG
+    com.ones.wx: DEBUG
     com.ijpay.wxpay: DEBUG
 
 spring:

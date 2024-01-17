@@ -14,7 +14,7 @@
 - 服务号验证入口：MpPortalController
 - 菜单api封装：WxMpMenuApi
 - 关键字回复api封装：WxMpReplyApi
-- 各种事件消息处理类：com.onestop.wx.mp.handler.*
+- 各种事件消息处理类：com.ones.wx.mp.handler.*
 - 服务号工具类：OsWxMpUtils
 
 ---

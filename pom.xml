@@ -36,14 +36,14 @@
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--版本号-->
-        <spring-boot.version>3.2.1</spring-boot.version>
-        <hutool.version>5.8.24</hutool.version>
-        <druid-spring-boot-starter.version>1.2.20</druid-spring-boot-starter.version>
+        <spring-boot.version>3.2.2</spring-boot.version>
+        <hutool.version>5.8.25</hutool.version>
+        <druid-spring-boot-starter.version>1.2.21</druid-spring-boot-starter.version>
         <!--公共模块-->
         <javax.mail.version>1.6.2</javax.mail.version>
         <!--mq模块-->
-        <mica.version>3.2.1</mica.version>
-        <mica-mqtt-spring-boot-starter.version>2.2.6</mica-mqtt-spring-boot-starter.version>
+        <mica.version>3.2.2</mica.version>
+        <mica-mqtt-spring-boot-starter.version>2.2.8</mica-mqtt-spring-boot-starter.version>
         <!--mybatis模块-->
         <mysql-connector-java.version>8.0.33</mysql-connector-java.version>
         <mybatis-plus.version>3.5.5</mybatis-plus.version>
@@ -332,7 +332,7 @@
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
-<!--                    <version>${spring-boot.version}</version>-->
+                    <version>${spring-boot.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>

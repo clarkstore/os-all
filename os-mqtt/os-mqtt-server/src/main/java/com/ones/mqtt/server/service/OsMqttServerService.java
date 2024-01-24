@@ -17,7 +17,7 @@ import java.nio.charset.StandardCharsets;
  */
 @Slf4j
 @Service
-public class OsMqttService {
+public class OsMqttServerService {
 	@Resource
 	protected MqttServerFactory factory;
 

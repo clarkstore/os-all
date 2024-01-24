@@ -170,11 +170,11 @@
                 <artifactId>mica-lite</artifactId>
                 <version>${mica.version}</version>
             </dependency>
-            <dependency>
-                <groupId>net.dreamlu</groupId>
-                <artifactId>mica-logging</artifactId>
-                <version>${mica.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>net.dreamlu</groupId>-->
+<!--                <artifactId>mica-logging</artifactId>-->
+<!--                <version>${mica.version}</version>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>net.dreamlu</groupId>
                 <artifactId>mica-openapi</artifactId>

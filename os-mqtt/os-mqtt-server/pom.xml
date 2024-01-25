@@ -18,10 +18,6 @@
             <groupId>com.github.clarkstore</groupId>
             <artifactId>os-mqtt-common</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>net.dreamlu</groupId>-->
-<!--            <artifactId>mica-lite</artifactId>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>net.dreamlu</groupId>
             <artifactId>mica-openapi</artifactId>

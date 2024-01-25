@@ -13,7 +13,6 @@ import java.nio.charset.StandardCharsets;
  *
  * @author L.cm
  */
-@Service
 public class MqttClientSubscribeListener {
 	private static final Logger logger = LoggerFactory.getLogger(MqttClientSubscribeListener.class);
 

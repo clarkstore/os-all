@@ -98,6 +98,11 @@
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
+                <artifactId>os-mqtt-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>os-mqtt-server</artifactId>
                 <version>${project.version}</version>
             </dependency>

@@ -16,11 +16,10 @@
 
 package com.ones.mqtt.client.listener;
 
+import lombok.extern.slf4j.Slf4j;
 import net.dreamlu.iot.mqtt.core.client.MqttClientCreator;
 import net.dreamlu.iot.mqtt.spring.client.event.MqttConnectedEvent;
 import net.dreamlu.iot.mqtt.spring.client.event.MqttDisconnectEvent;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
@@ -28,29 +27,28 @@ import org.springframework.stereotype.Service;
 /**
  * 客户端连接状态监听
  *
- * @author L.cm
+ * @author Clark
+ * @version 2024-01-25
  */
+@Slf4j
 @Service
-public class MqttClientConnectListener {
-	private static final Logger logger = LoggerFactory.getLogger(MqttClientConnectListener.class);
-
+public class OsMqttClientConnectListener {
 	@Autowired
 	private MqttClientCreator mqttClientCreator;
 
 	@EventListener
 	public void onConnected(MqttConnectedEvent event) {
-		logger.warn("================已连接==================" + this.mqttClientCreator.getClientId());
-		logger.info("MqttConnectedEvent:{}", event);
+		log.info("================已连接==================" + this.mqttClientCreator.getClientId());
+		log.info("MqttConnectedEvent:{}", event);
 	}
 
 	@EventListener
 	public void onDisconnect(MqttDisconnectEvent event) {
-		logger.warn("================已断开==================");
-		logger.info("MqttDisconnectEvent:{}", event);
+		log.info("================已断开==================");
+		log.info("MqttDisconnectEvent:{}", event);
 		// 在断线时更新 clientId、username、password
 //		mqttClientCreator.clientId("newClient" + System.currentTimeMillis())
 //			.username("newUserName")
 //			.password("newPassword");
 	}
-
 }

@@ -12,12 +12,12 @@ import org.tio.core.ChannelContext;
  * mqtt 连接状态
  *
  * @author Clark
- * @version 2023-11-20
+ * @version 2024-01-24
  */
 @Slf4j
 public class OsMqttConnectStatusListener implements IMqttConnectStatusListener {
 	@Resource
-	private OsMqttServerService service;
+	protected OsMqttServerService service;
 
 	/**
 	 * 客户端上线监听

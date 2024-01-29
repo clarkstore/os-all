@@ -2,7 +2,7 @@ package com.ones.mqtt.server.listener;
 
 import com.ones.mqtt.common.constant.OsMqttConsts;
 import com.ones.mqtt.common.model.OsMqttMsgDto;
-import com.ones.mqtt.server.service.OsMqttServerService;
+import com.ones.mqtt.server.util.OsMqttServerUtils;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import net.dreamlu.iot.mqtt.core.server.event.IMqttConnectStatusListener;
@@ -17,7 +17,7 @@ import org.tio.core.ChannelContext;
 @Slf4j
 public class OsMqttConnectStatusListener implements IMqttConnectStatusListener {
 	@Resource
-	protected OsMqttServerService service;
+	protected OsMqttServerUtils service;
 
 	/**
 	 * 客户端上线监听

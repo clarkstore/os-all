@@ -1,7 +1,7 @@
 package com.ones.mqtt.server.api;
 
 import com.ones.mqtt.common.model.OsMqttMsgDto;
-import com.ones.mqtt.server.service.OsMqttServerService;
+import com.ones.mqtt.server.util.OsMqttServerUtils;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class OsMqttServerApi {
 	@Resource
-	private OsMqttServerService service;
+	private OsMqttServerUtils service;
 
 	/**
 	 * 发布消息

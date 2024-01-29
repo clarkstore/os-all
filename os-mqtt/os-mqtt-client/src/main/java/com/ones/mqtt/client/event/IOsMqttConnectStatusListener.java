@@ -21,15 +21,14 @@ public interface IOsMqttConnectStatusListener {
 	default void online(String topic, byte[] payload) {
 //		log.info("--------------------online----------------------");
 //		log.info("topic:{} payload:{}", topic, new String(payload, StandardCharsets.UTF_8));
-		this.online(topic, new String(payload, StandardCharsets.UTF_8));
+		this.online(new String(payload, StandardCharsets.UTF_8));
 	}
 
 	/**
 	 * 重写上线通知业务逻辑
-	 * @param topic
-	 * @param payload
+	 * @param clientId
 	 */
-	void online(String topic, String payload);
+	void online(String clientId);
 
 	/**
 	 * 客户端离线通知
@@ -40,13 +39,12 @@ public interface IOsMqttConnectStatusListener {
 	default void offline(String topic, byte[] payload) {
 //		log.info("--------------------offline----------------------");
 //		log.info("topic:{} payload:{}", topic, new String(payload, StandardCharsets.UTF_8));
-		this.offline(topic, new String(payload, StandardCharsets.UTF_8));
+		this.offline(new String(payload, StandardCharsets.UTF_8));
 	}
 
 	/**
 	 * 重写离线通知业务逻辑
-	 * @param topic
-	 * @param payload
+	 * @param clientId
 	 */
-	void offline(String topic, String payload);
+	void offline(String clientId);
 }

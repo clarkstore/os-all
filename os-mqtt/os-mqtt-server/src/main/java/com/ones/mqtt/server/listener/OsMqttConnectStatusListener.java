@@ -29,7 +29,7 @@ public class OsMqttConnectStatusListener implements IMqttConnectStatusListener {
 	public void online(ChannelContext context, String clientId, String username) {
 		log.info("客户端上线通知-clientId:{}, username:{}", clientId, username);
 		OsMqttMsgDto dto = new OsMqttMsgDto();
-		dto.setTopic(OsMqttConsts.TopicConsts.CLIENT_ONLINE);
+		dto.setTopic(OsMqttConsts.TopicConsts.TOPIC_CLIENT_ONLINE_ID);
 		dto.setPayload(clientId);
 		dto.setRetain(Boolean.TRUE);
 		this.service.publish(dto);
@@ -46,7 +46,7 @@ public class OsMqttConnectStatusListener implements IMqttConnectStatusListener {
 	public void offline(ChannelContext context, String clientId, String username, String reason) {
 		log.info("客户端下线通知-clientId:{}, username:{}, reason:{}.", clientId, username, reason);
 		OsMqttMsgDto dto = new OsMqttMsgDto();
-		dto.setTopic(OsMqttConsts.TopicConsts.CLIENT_OFFLINE);
+		dto.setTopic(OsMqttConsts.TopicConsts.TOPIC_CLIENT_OFFLINE_ID);
 		dto.setPayload(clientId);
 		dto.setRetain(Boolean.TRUE);
 		this.service.publish(dto);

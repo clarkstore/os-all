@@ -17,7 +17,7 @@ public interface IOsMqttConnectStatusListener {
 	 * @param topic
 	 * @param payload
 	 */
-	@MqttClientSubscribe(value = OsMqttConsts.TopicConsts.SUB_CLIENT_ONLINE_ALL, qos = MqttQoS.EXACTLY_ONCE)
+	@MqttClientSubscribe(value = OsMqttConsts.TopicConsts.TOPIC_CLIENT_ONLINE_ID, qos = MqttQoS.EXACTLY_ONCE)
 	default void online(String topic, byte[] payload) {
 //		log.info("--------------------online----------------------");
 //		log.info("topic:{} payload:{}", topic, new String(payload, StandardCharsets.UTF_8));
@@ -35,7 +35,7 @@ public interface IOsMqttConnectStatusListener {
 	 * @param topic
 	 * @param payload
 	 */
-	@MqttClientSubscribe(value = OsMqttConsts.TopicConsts.SUB_CLIENT_OFFLINE_ALL, qos = MqttQoS.EXACTLY_ONCE)
+	@MqttClientSubscribe(value = OsMqttConsts.TopicConsts.TOPIC_CLIENT_OFFLINE_ID, qos = MqttQoS.EXACTLY_ONCE)
 	default void offline(String topic, byte[] payload) {
 //		log.info("--------------------offline----------------------");
 //		log.info("topic:{} payload:{}", topic, new String(payload, StandardCharsets.UTF_8));

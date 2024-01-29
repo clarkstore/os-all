@@ -45,31 +45,45 @@ public interface OsMqttConsts {
         /**
          * 客户端上线
          */
-        String CLIENT_ONLINE = "online";
+        String CLIENT_ONLINE = "client/online";
+        /**
+         * 客户端全部信息主题
+         */
+        String TOPIC_CLIENT_LIST = "client/list";
 
         /**
-         * 未知客户端上线
+         * 未知客户端上线主题
          */
-        String CLIENT_ONLINE_UNKNOWN = CLIENT_ONLINE + StrPool.SLASH + "unknown";
+        String TOPIC_CLIENT_ONLINE_UNKNOWN = CLIENT_ONLINE + StrPool.SLASH + "unknown";
 
         /**
-         * 订阅全部客户端上线通知
+         * 客户端上线主题
          */
-        String SUB_CLIENT_ONLINE_ALL = CLIENT_ONLINE + StrPool.SLASH + "#";
+        String TOPIC_CLIENT_ONLINE_ID = CLIENT_ONLINE + StrPool.SLASH + "id";
+
+        /**
+         * 客户端上线集合主题
+         */
+        String TOPIC_CLIENT_ONLINE_LIST = CLIENT_ONLINE + StrPool.SLASH + "list";
 
         /**
          * 客户端离线
          */
-        String CLIENT_OFFLINE = "offline";
+        String CLIENT_OFFLINE = "client/offline";
 
         /**
          * 未知客户端离线
          */
-        String CLIENT_OFFLINE_UNKNOWN = CLIENT_OFFLINE + StrPool.SLASH + "unknown";
+        String TOPIC_CLIENT_OFFLINE_UNKNOWN = CLIENT_OFFLINE + StrPool.SLASH + "unknown";
 
         /**
-         * 订阅全部客户端离线通知
+         * 客户端离线主题
          */
-        String SUB_CLIENT_OFFLINE_ALL = CLIENT_OFFLINE + StrPool.SLASH + "#";
+        String TOPIC_CLIENT_OFFLINE_ID = CLIENT_OFFLINE + StrPool.SLASH + "id";
+
+        /**
+         * 客户端离线集合主题
+         */
+        String TOPIC_CLIENT_OFFLINE_LIST = CLIENT_OFFLINE + StrPool.SLASH + "list";
     }
 }

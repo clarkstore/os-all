@@ -182,29 +182,54 @@ public class OsRedisUtils {
     }
 
     /**
-     * 普通缓存放入
+     * 普通缓存放入:key存在就覆盖，不存在新增
+     *
+     * @param key   键
+     * @param value 值
+     */
+    public void set(String key, Object value) {
+        this.redisTemplate.opsForValue().set(key, value);
+    }
+
+    /**
+     * 普通缓存放入并设置时间:key存在就覆盖，不存在新增
+     *
+     * @param key   键
+     * @param value 值
+     * @param time  时间(秒) time要大于0 如果time小于等于0 将设置无限期
+     */
+    public void set(String key, Object value, long time) {
+        if (time > 0) {
+            this.redisTemplate.opsForValue().set(key, value, time, TimeUnit.SECONDS);
+        } else {
+            this.set(key, value);
+        }
+    }
+
+    /**
+     * 如果key不存在则新增，key存在不做任何操作
      *
      * @param key   键
      * @param value 值
      * @return true成功 false失败
      */
-    public boolean set(String key, Object value) {
+    public boolean setIfAbsent(String key, Object value) {
         return this.redisTemplate.opsForValue().setIfAbsent(key, value);
     }
 
     /**
-     * 普通缓存放入并设置时间
+     * 如果key不存在则新增，key存在不做任何操作，并设置时间
      *
      * @param key   键
      * @param value 值
      * @param time  时间(秒) time要大于0 如果time小于等于0 将设置无限期
      * @return true成功 false 失败
      */
-    public boolean set(String key, Object value, long time) {
+    public boolean setIfAbsent(String key, Object value, long time) {
         if (time > 0) {
             return this.redisTemplate.opsForValue().setIfAbsent(key, value, time, TimeUnit.SECONDS);
         } else {
-            return this.set(key, value);
+            return this.setIfAbsent(key, value);
         }
     }
 

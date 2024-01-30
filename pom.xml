@@ -32,7 +32,6 @@
     </scm>
 
     <properties>
-        <revision>0.17.11</revision>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--版本号-->
@@ -54,7 +53,7 @@
         <!--ali模块-->
         <aliyun-java-sdk-core.version>4.6.4</aliyun-java-sdk-core.version>
         <aliyun-java-sdk-alinlp.version>1.8.17</aliyun-java-sdk-alinlp.version>
-        <aliyun-sdk-oss.version>3.17.2</aliyun-sdk-oss.version>
+        <aliyun-sdk-oss.version>3.17.4</aliyun-sdk-oss.version>
         <ons-client.version>2.0.6.Final</ons-client.version>
         <dysmsapi20170525.version>2.0.24</dysmsapi20170525.version>
         <!--微信模块-->

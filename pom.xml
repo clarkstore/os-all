@@ -6,7 +6,7 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-all</artifactId>
-    <version>0.8.10</version>
+    <version>0.8.11</version>
     <packaging>pom</packaging>
 
     <name>os-all</name>
@@ -35,24 +35,24 @@
         <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--版本号-->
-        <spring-boot.version>2.7.11</spring-boot.version>
-        <hutool.version>5.8.18</hutool.version>
-        <druid-spring-boot-starter.version>1.2.17</druid-spring-boot-starter.version>
+        <spring-boot.version>2.7.18</spring-boot.version>
+        <hutool.version>5.8.27</hutool.version>
+        <druid-spring-boot-starter.version>1.2.22</druid-spring-boot-starter.version>
         <!--公共模块-->
         <javax.mail.version>1.6.2</javax.mail.version>
         <!--mybatis模块-->
         <mysql-connector-java.version>8.0.33</mysql-connector-java.version>
-        <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
+        <mybatis-plus.version>3.5.6</mybatis-plus.version>
         <!--redis模块-->
 <!--        <redisson.version>3.21.0</redisson.version>-->
         <!--task模块-->
         <spring-boot-schedule-admin-starter.version>1.1</spring-boot-schedule-admin-starter.version>
         <!--ali模块-->
-        <aliyun-java-sdk-core.version>4.6.3</aliyun-java-sdk-core.version>
-        <aliyun-java-sdk-alinlp.version>1.8.13</aliyun-java-sdk-alinlp.version>
-        <aliyun-sdk-oss.version>3.16.3</aliyun-sdk-oss.version>
-        <ons-client.version>2.0.5.Final</ons-client.version>
-        <dysmsapi20170525.version>2.0.23</dysmsapi20170525.version>
+        <aliyun-java-sdk-core.version>4.6.4</aliyun-java-sdk-core.version>
+        <aliyun-java-sdk-alinlp.version>1.8.17</aliyun-java-sdk-alinlp.version>
+        <aliyun-sdk-oss.version>3.17.4</aliyun-sdk-oss.version>
+        <ons-client.version>2.0.7.Final</ons-client.version>
+        <dysmsapi20170525.version>2.0.24</dysmsapi20170525.version>
         <!--微信模块-->
         <wx-java.version>4.4.0</wx-java.version>
         <!--部署-->

@@ -6,7 +6,7 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-all</artifactId>
-    <version>0.8.11</version>
+    <version>0.8.10</version>
     <packaging>pom</packaging>
 
     <name>os-all</name>

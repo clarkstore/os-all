@@ -38,7 +38,8 @@
         <spring-boot.version>2.7.18</spring-boot.version>
         <hutool.version>5.8.27</hutool.version>
         <druid-spring-boot-starter.version>1.2.22</druid-spring-boot-starter.version>
-        <!--公共模块-->
+        <!--工具模块-->
+        <aizuda-oss.version>1.0.7</aizuda-oss.version>
         <javax.mail.version>1.6.2</javax.mail.version>
         <!--mybatis模块-->
         <mysql-connector-java.version>8.0.33</mysql-connector-java.version>
@@ -178,6 +179,12 @@
                 <groupId>com.sun.mail</groupId>
                 <artifactId>javax.mail</artifactId>
                 <version>${javax.mail.version}</version>
+            </dependency>
+            <!--oss-->
+            <dependency>
+                <groupId>com.aizuda</groupId>
+                <artifactId>aizuda-oss</artifactId>
+                <version>${aizuda-oss.version}</version>
             </dependency>
             <!--redis-->
             <!--Redis redisson-->

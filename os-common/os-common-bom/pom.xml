@@ -79,6 +79,12 @@
                 <artifactId>os-common-web</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
+            <!--os-oss-->
+            <dependency>
+                <groupId>${project.parent.groupId}</groupId>
+                <artifactId>os-extra-oss</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
             <!--os-toolkit-->
             <dependency>
                 <groupId>${project.parent.groupId}</groupId>
@@ -111,6 +117,12 @@
                 <groupId>com.sun.mail</groupId>
                 <artifactId>javax.mail</artifactId>
                 <version>${javax.mail.version}</version>
+            </dependency>
+            <!--oss-->
+            <dependency>
+                <groupId>com.aizuda</groupId>
+                <artifactId>aizuda-oss</artifactId>
+                <version>${aizuda-oss.version}</version>
             </dependency>
             <!--http-->
             <!--task-->

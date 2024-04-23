@@ -150,7 +150,7 @@
             <!--os-toolkit-->
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>os-extra-toolkit</artifactId>
+                <artifactId>os-kit-tool</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <!--os-wx-->
@@ -276,7 +276,7 @@
         <module>os-ali</module>
         <module>os-wx</module>
         <module>os-starter</module>
-        <module>os-extra</module>
+        <module>os-kit</module>
     </modules>
 
     <distributionManagement>

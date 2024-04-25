@@ -18,7 +18,7 @@
         <module>os-log-spring-boot-starter</module>
         <module>os-mybatis-spring-boot-starter</module>
         <module>os-nlp-spring-boot-starter</module>
-        <module>os-oss-spring-boot-starter</module>
+        <module>os-alioss-spring-boot-starter</module>
         <module>os-redis-spring-boot-starter</module>
         <module>os-rocketmq-spring-boot-starter</module>
         <module>os-sms-spring-boot-starter</module>

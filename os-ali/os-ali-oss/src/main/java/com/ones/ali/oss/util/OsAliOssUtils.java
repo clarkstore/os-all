@@ -34,7 +34,7 @@ import java.util.List;
  * @author Clark
  * @version 2022-02-23
  */
-public class OsOssUtils {
+public class OsAliOssUtils {
     // endpoint是访问OSS的域名。如果您已经在OSS的控制台上 创建了Bucket，请在控制台上查看域名。
     // 如果您还没有创建Bucket，endpoint选择请参看文档中心的“开发人员指南 > 基本概念 > 访问域名”，
     // 链接地址是：https://help.aliyun.com/document_detail/oss/user_guide/oss_concept/endpoint.html?spm=5176.docoss/user_guide/endpoint_region
@@ -54,7 +54,7 @@ public class OsOssUtils {
     /**
      * 初始化配置
      */
-    public OsOssUtils(String accessKeyId, String accessKeySecret, String endpoint, String bucketName) throws Exception {
+    public OsAliOssUtils(String accessKeyId, String accessKeySecret, String endpoint, String bucketName) throws Exception {
         // 生成this.client，您可以指定一些参数，详见“SDK手册 > Java-SDK > 初始化”，
         // 链接地址是：https://help.aliyun.com/document_detail/oss/sdk/java-sdk/init.html?spm=5176.docoss/sdk/java-sdk/get-start
         this.client = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);

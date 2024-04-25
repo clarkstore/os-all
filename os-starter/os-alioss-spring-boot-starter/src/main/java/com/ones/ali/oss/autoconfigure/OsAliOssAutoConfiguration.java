@@ -18,7 +18,7 @@
 
 package com.ones.ali.oss.autoconfigure;
 
-import com.ones.ali.oss.util.OsOssUtils;
+import com.ones.ali.oss.util.OsAliOssUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -34,16 +34,16 @@ import org.springframework.context.annotation.Bean;
 @AutoConfiguration
 @EnableConfigurationProperties(OsOssProperties.class)
 @ConditionalOnProperty(value = {"os.oss.accessKeyId", "os.oss.accessKeySecret", "os.oss.endpoint"})
-public class OsOssAutoConfiguration {
+public class OsAliOssAutoConfiguration {
     @Autowired
     private OsOssProperties properties;
 
     @Bean
     @ConditionalOnMissingBean
-    public OsOssUtils osOssUtils() {
-        OsOssUtils osOssUtils = null;
+    public OsAliOssUtils osAliOssUtils() {
+        OsAliOssUtils osOssUtils = null;
         try {
-            osOssUtils = new OsOssUtils(this.properties.getAccessKeyId(), this.properties.getAccessKeySecret(), this.properties.getEndpoint(), this.properties.getBucketName());
+            osOssUtils = new OsAliOssUtils(this.properties.getAccessKeyId(), this.properties.getAccessKeySecret(), this.properties.getEndpoint(), this.properties.getBucketName());
         } catch (Exception e) {
             e.printStackTrace();
         }

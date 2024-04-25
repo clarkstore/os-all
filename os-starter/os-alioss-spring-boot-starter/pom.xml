@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>os-oss-spring-boot-starter</artifactId>
+    <artifactId>os-alioss-spring-boot-starter</artifactId>
     <packaging>jar</packaging>
     <description>os-ali-oss-starter模块</description>
 

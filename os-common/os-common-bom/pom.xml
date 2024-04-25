@@ -79,13 +79,13 @@
                 <artifactId>os-common-web</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
-            <!--os-oss-->
+            <!--os-kit-oss-->
             <dependency>
                 <groupId>${project.parent.groupId}</groupId>
                 <artifactId>os-kit-oss</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
-            <!--os-toolkit-->
+            <!--os-kit-tool-->
             <dependency>
                 <groupId>${project.parent.groupId}</groupId>
                 <artifactId>os-kit-tool</artifactId>

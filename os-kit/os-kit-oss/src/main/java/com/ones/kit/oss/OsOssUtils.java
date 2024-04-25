@@ -18,6 +18,12 @@
 
 package com.ones.kit.oss;
 
+import com.aizuda.oss.IFileStorage;
+import com.aizuda.oss.model.OssResult;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+
 /**
  * 基于aizuda OSS文件存储
  * <p>https://gitee.com/aizuda/aizuda-components/tree/master/aizuda-oss</p>
@@ -26,9 +32,24 @@ package com.ones.kit.oss;
  * @version 2024-04-23
  */
 //@Slf4j
+@Component
 public class OsOssUtils {
-//    @Resource
-//    private IFileStorage fileStorage;
+    @Resource
+    private IFileStorage fileStorage;
+
+    public void upload(String filename) {
+        OssResult ossResult = null;
+        try {
+            filename = "e:/1.txt";
+
+//        ByteArrayOutputStream os = new ByteArrayOutputStream();
+//        IoUtils.write(new FileInputStream(filename), os);
+//        ByteArrayInputStream bis = new ByteArrayInputStream(os.toByteArray());
+//        ossResult = fileStorage.bucket("oss").upload(bis, "file");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }

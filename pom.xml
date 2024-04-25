@@ -39,7 +39,7 @@
         <hutool.version>5.8.27</hutool.version>
         <druid-spring-boot-starter.version>1.2.22</druid-spring-boot-starter.version>
         <!--工具模块-->
-        <aizuda-oss.version>1.0.7</aizuda-oss.version>
+        <aizuda-oss.version>1.0.6</aizuda-oss.version>
         <javax.mail.version>1.6.2</javax.mail.version>
         <!--mybatis模块-->
         <mysql-connector-java.version>8.0.33</mysql-connector-java.version>
@@ -55,7 +55,7 @@
         <ons-client.version>2.0.7.Final</ons-client.version>
         <dysmsapi20170525.version>2.0.24</dysmsapi20170525.version>
         <!--微信模块-->
-        <wx-java.version>4.4.0</wx-java.version>
+        <wx-java.version>4.5.0</wx-java.version>
         <!--部署-->
         <versions-maven-plugin.version>2.11.0</versions-maven-plugin.version>
         <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
@@ -147,7 +147,13 @@
                 <artifactId>os-common-web</artifactId>
                 <version>${project.version}</version>
             </dependency>
-            <!--os-toolkit-->
+            <!--os-kit-oss-->
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>os-kit-oss</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--os-kit-tool-->
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>os-kit-tool</artifactId>

@@ -1,0 +1,8 @@
+aizuda:
+  oss:
+    default:
+      platform: minio
+      endpoint:
+      accessKey:
+      secretKey:
+      bucketName: test

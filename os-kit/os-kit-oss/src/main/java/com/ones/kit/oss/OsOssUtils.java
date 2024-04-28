@@ -23,8 +23,6 @@ import com.aizuda.common.toolkit.DateUtils;
 import com.aizuda.common.toolkit.IoUtils;
 import com.aizuda.oss.IFileStorage;
 import com.aizuda.oss.model.OssResult;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -216,17 +214,5 @@ public class OsOssUtils {
         }
         ojn.append(UUID.randomUUID()).append(".").append(suffix);
         return ojn.toString();
-    }
-
-    /**
-     * 文件对象
-     */
-    @Getter
-    @Setter
-    public static class OssObject {
-        /**
-         * 文件对象名
-         */
-        private String objectName;
     }
 }

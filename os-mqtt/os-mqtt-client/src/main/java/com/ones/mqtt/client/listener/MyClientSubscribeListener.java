@@ -1,11 +1,11 @@
 package com.ones.mqtt.client.listener;
 
+import jakarta.annotation.Resource;
 import net.dreamlu.iot.mqtt.core.client.MqttClientCreator;
 import net.dreamlu.iot.mqtt.core.common.TopicFilterType;
 import net.dreamlu.iot.mqtt.spring.client.MqttClientSubscribe;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.nio.charset.StandardCharsets;
 
@@ -17,7 +17,7 @@ import java.nio.charset.StandardCharsets;
 //@Service
 public class MyClientSubscribeListener {
 	private static final Logger logger = LoggerFactory.getLogger(MyClientSubscribeListener.class);
-	@Autowired
+	@Resource
 	private MqttClientCreator mqttClientCreator;
 
 	@MqttClientSubscribe(value = "$queue/clark")

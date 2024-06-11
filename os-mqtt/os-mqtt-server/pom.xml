@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.github.clarkstore</groupId>
         <artifactId>os-mqtt</artifactId>
-        <version>0.17.12</version>
+        <version>0.17.13</version>
     </parent>
 
     <artifactId>os-mqtt-server</artifactId>
@@ -20,11 +20,19 @@
         </dependency>
         <dependency>
             <groupId>net.dreamlu</groupId>
+            <artifactId>mica-lite</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.dreamlu</groupId>
             <artifactId>mica-openapi</artifactId>
         </dependency>
         <dependency>
             <groupId>net.dreamlu</groupId>
             <artifactId>mica-mqtt-server-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!-- 开启 prometheus 指标收集，详见： http://localhost:30012/actuator/prometheus -->
         <dependency>

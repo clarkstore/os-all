@@ -1,0 +1,8 @@
+aizuda:
+  oss:
+    minio:
+      platform: minio
+      endpoint: http://8.130.91.227:9001/
+      accessKey: Fm4JrJEBgyVnoGUS9MEv
+      secretKey: 8pWdxluN4KZ3jX8XTBghxb4SfvnE9Luqmange4hj
+      bucketName: dev

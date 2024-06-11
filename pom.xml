@@ -6,7 +6,7 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-all</artifactId>
-    <version>0.17.12</version>
+    <version>0.17.13</version>
     <packaging>pom</packaging>
 
     <name>os-all</name>
@@ -35,17 +35,18 @@
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--版本号-->
-        <spring-boot.version>3.2.2</spring-boot.version>
-        <hutool.version>5.8.25</hutool.version>
-        <druid-spring-boot-starter.version>1.2.21</druid-spring-boot-starter.version>
-        <!--公共模块-->
+        <spring-boot.version>3.3.0</spring-boot.version>
+        <hutool.version>5.8.28</hutool.version>
+        <druid-spring-boot-starter.version>1.2.23</druid-spring-boot-starter.version>
+        <!--工具模块-->
+        <aizuda-oss.version>1.0.7</aizuda-oss.version>
         <javax.mail.version>1.6.2</javax.mail.version>
         <!--mq模块-->
-        <mica.version>3.2.2</mica.version>
-        <mica-mqtt-spring-boot-starter.version>2.2.8</mica-mqtt-spring-boot-starter.version>
+        <mica.version>3.3.0</mica.version>
+        <mica-mqtt-spring-boot-starter.version>2.3.0</mica-mqtt-spring-boot-starter.version>
         <!--mybatis模块-->
         <mysql-connector-java.version>8.0.33</mysql-connector-java.version>
-        <mybatis-plus.version>3.5.5</mybatis-plus.version>
+        <mybatis-plus.version>3.5.6</mybatis-plus.version>
         <!--redis模块-->
 <!--        <redisson-spring-boot-starter.version>3.21.0</redisson-spring-boot-starter.version>-->
         <!--task模块-->
@@ -54,7 +55,7 @@
         <aliyun-java-sdk-core.version>4.6.4</aliyun-java-sdk-core.version>
         <aliyun-java-sdk-alinlp.version>1.8.17</aliyun-java-sdk-alinlp.version>
         <aliyun-sdk-oss.version>3.17.4</aliyun-sdk-oss.version>
-        <ons-client.version>2.0.6.Final</ons-client.version>
+        <ons-client.version>2.0.7.Final</ons-client.version>
         <dysmsapi20170525.version>2.0.24</dysmsapi20170525.version>
         <!--微信模块-->
         <wx-java.version>4.5.0</wx-java.version>
@@ -74,6 +75,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -149,6 +155,12 @@
                 <artifactId>os-common-web</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <!--os-kit-oss-->
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>os-kit-oss</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <!--os-toolkit-->
             <dependency>
                 <groupId>${project.groupId}</groupId>
@@ -192,6 +204,12 @@
                 <!-- 注意这里是import -->
                 <scope>import</scope>
             </dependency>
+            <!--oss-->
+            <dependency>
+                <groupId>com.aizuda</groupId>
+                <artifactId>aizuda-oss</artifactId>
+                <version>${aizuda-oss.version}</version>
+            </dependency>
             <!--Mail-->
             <dependency>
                 <groupId>com.sun.mail</groupId>
@@ -201,16 +219,6 @@
             <!--mqtt-->
             <dependency>
                 <groupId>net.dreamlu</groupId>
-                <artifactId>mica-mqtt-common</artifactId>
-                <version>${mica-mqtt-spring-boot-starter.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>net.dreamlu</groupId>
-                <artifactId>mica-mqtt-codec</artifactId>
-                <version>${mica-mqtt-spring-boot-starter.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>net.dreamlu</groupId>
                 <artifactId>mica-lite</artifactId>
                 <version>${mica.version}</version>
             </dependency>
@@ -218,6 +226,16 @@
                 <groupId>net.dreamlu</groupId>
                 <artifactId>mica-openapi</artifactId>
                 <version>${mica.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.dreamlu</groupId>
+                <artifactId>mica-mqtt-common</artifactId>
+                <version>${mica-mqtt-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.dreamlu</groupId>
+                <artifactId>mica-mqtt-codec</artifactId>
+                <version>${mica-mqtt-spring-boot-starter.version}</version>
             </dependency>
             <dependency>
                 <groupId>net.dreamlu</groupId>
@@ -441,10 +459,10 @@
     </build>
     <repositories>
         <!--阿里云代理-->
-       <repository>
-           <id>aliyun</id>
-           <name>aliyun</name>
-           <url>https://maven.aliyun.com/repository/public</url>
-        </repository>
+<!--       <repository>-->
+<!--           <id>aliyun</id>-->
+<!--           <name>aliyun</name>-->
+<!--           <url>https://maven.aliyun.com/repository/public</url>-->
+<!--        </repository>-->
     </repositories>
 </project>

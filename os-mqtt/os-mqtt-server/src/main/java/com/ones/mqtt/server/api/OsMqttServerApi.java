@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 消息发布Api
  *
  * @author Clark
- * @version 2023-11-20
+ * @version 2024-06-11
  */
 @Slf4j
 @Tag(name = "Mqtt::服务端")
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class OsMqttServerApi {
 	@Resource
-	private OsMqttServerUtils service;
+	private OsMqttServerUtils serverUtils;
 
 	/**
 	 * 发布消息
@@ -33,6 +33,6 @@ public class OsMqttServerApi {
 	@Operation(summary = "publish")
 	@PostMapping("/publish")
 	public boolean publish(@RequestBody OsMqttMsgDto msgDto) {
-		return service.publish(msgDto);
+		return this.serverUtils.publish(msgDto);
 	}
 }

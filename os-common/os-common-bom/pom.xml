@@ -7,7 +7,7 @@
     <parent>
         <artifactId>os-common</artifactId>
         <groupId>com.github.clarkstore</groupId>
-        <version>0.17.12</version>
+        <version>0.17.13</version>
     </parent>
     <artifactId>os-common-bom</artifactId>
     <packaging>pom</packaging>
@@ -84,27 +84,33 @@
                 <artifactId>os-common-web</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
+            <!--os-kit-oss-->
+            <dependency>
+                <groupId>${project.parent.groupId}</groupId>
+                <artifactId>os-kit-oss</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
             <!--os-toolkit-->
             <dependency>
-                <groupId>${project.groupId}</groupId>
+                <groupId>${project.parent.groupId}</groupId>
                 <artifactId>os-extra-toolkit</artifactId>
-                <version>${project.version}</version>
+                <version>${project.parent.version}</version>
             </dependency>
             <!--os-mqtt-->
             <dependency>
-                <groupId>${project.groupId}</groupId>
+                <groupId>${project.parent.groupId}</groupId>
                 <artifactId>os-mqtt-common</artifactId>
-                <version>${project.version}</version>
+                <version>${project.parent.version}</version>
             </dependency>
             <dependency>
-                <groupId>${project.groupId}</groupId>
+                <groupId>${project.parent.groupId}</groupId>
                 <artifactId>os-mqtt-client</artifactId>
-                <version>${project.version}</version>
+                <version>${project.parent.version}</version>
             </dependency>
             <dependency>
-                <groupId>${project.groupId}</groupId>
+                <groupId>${project.parent.groupId}</groupId>
                 <artifactId>os-mqtt-server</artifactId>
-                <version>${project.version}</version>
+                <version>${project.parent.version}</version>
             </dependency>
             <!--os-wx-->
             <dependency>
@@ -126,6 +132,12 @@
                 <type>pom</type>
                 <!-- 注意这里是import -->
                 <scope>import</scope>
+            </dependency>
+            <!--oss-->
+            <dependency>
+                <groupId>com.aizuda</groupId>
+                <artifactId>aizuda-oss</artifactId>
+                <version>${aizuda-oss.version}</version>
             </dependency>
             <!--Mail-->
             <dependency>

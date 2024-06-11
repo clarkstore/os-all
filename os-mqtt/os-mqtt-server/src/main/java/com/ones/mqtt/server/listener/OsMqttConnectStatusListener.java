@@ -12,12 +12,12 @@ import org.tio.core.ChannelContext;
  * mqtt 连接状态
  *
  * @author Clark
- * @version 2024-01-24
+ * @version 2024-06-11
  */
 @Slf4j
 public class OsMqttConnectStatusListener implements IMqttConnectStatusListener {
 	@Resource
-	protected OsMqttServerUtils service;
+	protected OsMqttServerUtils serverUtils;
 
 	/**
 	 * 客户端上线监听
@@ -32,7 +32,7 @@ public class OsMqttConnectStatusListener implements IMqttConnectStatusListener {
 		dto.setTopic(OsMqttConsts.TopicConsts.TOPIC_CLIENT_ONLINE_ID);
 		dto.setPayload(clientId);
 		dto.setRetain(Boolean.TRUE);
-		this.service.publish(dto);
+		this.serverUtils.publish(dto);
 	}
 
 	/**
@@ -49,6 +49,6 @@ public class OsMqttConnectStatusListener implements IMqttConnectStatusListener {
 		dto.setTopic(OsMqttConsts.TopicConsts.TOPIC_CLIENT_OFFLINE_ID);
 		dto.setPayload(clientId);
 		dto.setRetain(Boolean.TRUE);
-		this.service.publish(dto);
+		this.serverUtils.publish(dto);
 	}
 }

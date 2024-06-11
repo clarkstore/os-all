@@ -1,6 +1,7 @@
 package com.ones.mqtt.server.util;
 
 import com.ones.mqtt.common.model.OsMqttMsgDto;
+import jakarta.annotation.Resource;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import net.dreamlu.iot.mqtt.spring.server.MqttServerTemplate;
@@ -13,25 +14,15 @@ import org.tio.utils.hutool.StrUtil;
 import java.nio.charset.StandardCharsets;
 
 /**
- * MqttServerTemplate 单例
+ * MqttServer工具类
  * @author Clark
- * @version 2024-01-29
+ * @version 2024-06-11
  */
 @Slf4j
 @Component
-public class OsMqttServerUtils implements SmartInitializingSingleton {
-    @Autowired
-    private ApplicationContext applicationContext;
-    @Getter
+public class OsMqttServerUtils {
+    @Resource
     private MqttServerTemplate mqttServer;
-
-    /**
-     * 单例 bean 初始化完成之后从 ApplicationContext 中获取 bean
-     */
-    @Override
-    public void afterSingletonsInstantiated() {
-        this.mqttServer = applicationContext.getBean(MqttServerTemplate.class);
-    }
 
     /**
      * 发布消息

@@ -21,13 +21,13 @@ public class MqttClientSubscribeListener {
 		logger.info("topic:{} payload:{}", topic, new String(payload, StandardCharsets.UTF_8));
 	}
 
-	@MqttClientSubscribe(value = "online", qos = MqttQoS.EXACTLY_ONCE)
+	@MqttClientSubscribe(value = "online", qos = MqttQoS.QOS2)
 	public void online(String topic, byte[] payload) {
 		logger.info("--------------------online----------------------");
 		logger.info("topic:{} payload:{}", topic, new String(payload, StandardCharsets.UTF_8));
 	}
 
-	@MqttClientSubscribe(value = "offline", qos = MqttQoS.EXACTLY_ONCE)
+	@MqttClientSubscribe(value = "offline", qos = MqttQoS.QOS2)
 	public void offline(String topic, byte[] payload) {
 		logger.info("--------------------offline----------------------");
 		logger.info("topic:{} payload:{}", topic, new String(payload, StandardCharsets.UTF_8));

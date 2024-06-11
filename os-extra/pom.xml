@@ -5,7 +5,7 @@
     <parent>
         <artifactId>os-all</artifactId>
         <groupId>com.github.clarkstore</groupId>
-        <version>0.17.12</version>
+        <version>0.17.13</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -17,5 +17,6 @@
     <modules>
         <module>os-extra-codegen</module>
         <module>os-extra-toolkit</module>
+        <module>os-kit-oss</module>
     </modules>
 </project>

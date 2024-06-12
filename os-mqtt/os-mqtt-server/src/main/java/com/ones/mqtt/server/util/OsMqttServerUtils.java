@@ -4,6 +4,7 @@ import com.ones.mqtt.common.model.OsMqttMsgDto;
 import jakarta.annotation.Resource;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import net.dreamlu.iot.mqtt.core.server.MqttServer;
 import net.dreamlu.iot.mqtt.spring.server.MqttServerTemplate;
 import org.springframework.beans.factory.SmartInitializingSingleton;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +21,18 @@ import java.nio.charset.StandardCharsets;
  */
 @Slf4j
 @Component
-public class OsMqttServerUtils {
+public class OsMqttServerUtils implements SmartInitializingSingleton {
     @Resource
-    private MqttServerTemplate mqttServer;
+    private ApplicationContext applicationContext;
+    private MqttServerTemplate server;
+
+    /**
+     * 单例 bean 初始化完成之后从 ApplicationContext 中获取 bean
+     */
+    @Override
+    public void afterSingletonsInstantiated() {
+        this.server = applicationContext.getBean(MqttServerTemplate.class);
+    }
 
     /**
      * 发布消息
@@ -32,9 +42,9 @@ public class OsMqttServerUtils {
     public boolean publish(OsMqttMsgDto msgDto) {
         boolean result;
         if (StrUtil.isBlank(msgDto.getClientId())) {
-            result = this.mqttServer.publishAll(msgDto.getTopic(), msgDto.getPayload().getBytes(StandardCharsets.UTF_8), msgDto.getQoS(), msgDto.isRetain());
+            result = this.server.publishAll(msgDto.getTopic(), msgDto.getPayload().getBytes(StandardCharsets.UTF_8), msgDto.getQoS(), msgDto.isRetain());
         } else {
-            result = this.mqttServer.publish(msgDto.getClientId(), msgDto.getTopic(), msgDto.getPayload().getBytes(StandardCharsets.UTF_8), msgDto.getQoS(), msgDto.isRetain());
+            result = this.server.publish(msgDto.getClientId(), msgDto.getTopic(), msgDto.getPayload().getBytes(StandardCharsets.UTF_8), msgDto.getQoS(), msgDto.isRetain());
         }
         log.debug("publish:{}, result:{}", msgDto, result);
         return result;

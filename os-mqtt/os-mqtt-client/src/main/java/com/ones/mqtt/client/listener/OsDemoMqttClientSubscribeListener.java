@@ -4,20 +4,17 @@ import lombok.extern.slf4j.Slf4j;
 import net.dreamlu.iot.mqtt.codec.MqttQoS;
 import net.dreamlu.iot.mqtt.core.common.TopicFilterType;
 import net.dreamlu.iot.mqtt.spring.client.MqttClientSubscribe;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
 
 /**
- * 客户端消息监听
+ * 客户端消息监听演示代码
  *
  * @author Clark
  * @version 2024-06-12
  */
 @Slf4j
-public class MqttClientSubscribeListener {
+public class OsDemoMqttClientSubscribeListener {
 	@MqttClientSubscribe(value = "online", qos = MqttQoS.QOS2)
 	public void online(String topic, byte[] payload) {
 		log.info("--------------------online----------------------");

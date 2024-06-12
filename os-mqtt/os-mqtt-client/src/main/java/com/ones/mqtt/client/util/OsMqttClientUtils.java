@@ -4,11 +4,8 @@ import com.ones.mqtt.common.model.OsMqttMsgDto;
 import jakarta.annotation.Resource;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import net.dreamlu.iot.mqtt.core.client.IMqttClientMessageListener;
 import net.dreamlu.iot.mqtt.spring.client.MqttClientTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
 
@@ -26,6 +23,7 @@ public class OsMqttClientUtils {
 
 	/**
 	 * 消息发布
+	 *
 	 * @param msgDto
 	 * @return
 	 */

@@ -6,7 +6,7 @@
 
     <groupId>com.github.clarkstore</groupId>
     <artifactId>os-all</artifactId>
-    <version>0.17.14</version>
+    <version>0.17.15</version>
     <packaging>pom</packaging>
 
     <name>os-all</name>
@@ -328,11 +328,11 @@
 
     <modules>
         <module>os-common</module>
-        <module>os-ali</module>
-        <module>os-wx</module>
+<!--        <module>os-ali</module>-->
         <module>os-starter</module>
         <module>os-extra</module>
         <module>os-mqtt</module>
+<!--        <module>os-wx</module>-->
     </modules>
 
     <distributionManagement>

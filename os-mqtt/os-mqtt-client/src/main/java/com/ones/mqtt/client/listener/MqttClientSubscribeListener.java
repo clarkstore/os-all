@@ -1,6 +1,8 @@
 package com.ones.mqtt.client.listener;
 
+import lombok.extern.slf4j.Slf4j;
 import net.dreamlu.iot.mqtt.codec.MqttQoS;
+import net.dreamlu.iot.mqtt.core.common.TopicFilterType;
 import net.dreamlu.iot.mqtt.spring.client.MqttClientSubscribe;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,37 +13,32 @@ import java.nio.charset.StandardCharsets;
 /**
  * 客户端消息监听
  *
- * @author L.cm
+ * @author Clark
+ * @version 2024-06-12
  */
+@Slf4j
 public class MqttClientSubscribeListener {
-	private static final Logger logger = LoggerFactory.getLogger(MqttClientSubscribeListener.class);
-
-//	@MqttClientSubscribe(value = "/test", qos = MqttQoS.EXACTLY_ONCE)
-	public void subQos0(String topic, byte[] payload) {
-		logger.info("topic:{} payload:{}", topic, new String(payload, StandardCharsets.UTF_8));
-	}
-
 	@MqttClientSubscribe(value = "online", qos = MqttQoS.QOS2)
 	public void online(String topic, byte[] payload) {
-		logger.info("--------------------online----------------------");
-		logger.info("topic:{} payload:{}", topic, new String(payload, StandardCharsets.UTF_8));
+		log.info("--------------------online----------------------");
+		log.info("topic:{} payload:{}", topic, new String(payload, StandardCharsets.UTF_8));
 	}
 
 	@MqttClientSubscribe(value = "offline", qos = MqttQoS.QOS2)
 	public void offline(String topic, byte[] payload) {
-		logger.info("--------------------offline----------------------");
-		logger.info("topic:{} payload:{}", topic, new String(payload, StandardCharsets.UTF_8));
+		log.info("--------------------offline----------------------");
+		log.info("topic:{} payload:{}", topic, new String(payload, StandardCharsets.UTF_8));
 	}
 
-//	@MqttClientSubscribe(value = "/qos1/#", qos = MqttQoS.AT_LEAST_ONCE)
-	public void subQos1(String topic, byte[] payload) {
-		logger.info("topic:{} payload:{}", topic, new String(payload, StandardCharsets.UTF_8));
+	@MqttClientSubscribe(TopicFilterType.SHARE_GROUP_PREFIX + "wcs1/abc")
+	public void shareGroup1(String topic, byte[] payload) {
+		log.error("----------wcs1-------------MyClientSubscribeListener");
+		log.info("topic:{} payload:{}", topic, new String(payload, StandardCharsets.UTF_8));
 	}
 
-//	@MqttClientSubscribe("/sys/${productKey}/${deviceName}/thing/sub/register")
-	public void thingSubRegister(String topic, byte[] payload) {
-		// 1.3.8 开始支持，@MqttClientSubscribe 注解支持 ${} 变量替换，会默认替换成 +
-		// 注意：mica-mqtt 会先从 Spring boot 配置中替换参数 ${}，如果存在配置会优先被替换。
-		logger.info("topic:{} payload:{}", topic, new String(payload, StandardCharsets.UTF_8));
+	@MqttClientSubscribe(TopicFilterType.SHARE_GROUP_PREFIX + "wcs2/abc")
+	public void shareGroup2(String topic, byte[] payload) {
+		log.error("----------wcs2-------------MyClientSubscribeListener");
+		log.info("topic:{} payload:{}", topic, new String(payload, StandardCharsets.UTF_8));
 	}
 }

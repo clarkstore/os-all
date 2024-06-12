@@ -10,6 +10,7 @@ import org.springframework.context.event.EventListener;
  * @author Clark
  * @version 2024-01-25
  */
+@Deprecated
 public interface IOsMqttClientConnectListener {
 	/**
 	 * 已连接

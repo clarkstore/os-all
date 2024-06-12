@@ -4,6 +4,7 @@ import com.ones.mqtt.common.model.OsMqttMsgDto;
 import jakarta.annotation.Resource;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import net.dreamlu.iot.mqtt.core.client.IMqttClientMessageListener;
 import net.dreamlu.iot.mqtt.spring.client.MqttClientTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,7 +15,7 @@ import java.nio.charset.StandardCharsets;
 /**
  *  客户端工具类
  * @author Clark
- * @version 2024-01-25
+ * @version 2024-06-12
  */
 @Slf4j
 @Component

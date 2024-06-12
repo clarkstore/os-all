@@ -9,7 +9,8 @@ import java.nio.charset.StandardCharsets;
 /**
  * 客户端连接状态消息监听
  *
- * @author L.cm
+ * @author Clark
+ * @version 2024-06-12
  */
 public interface IOsMqttConnectStatusListener {
 	/**
